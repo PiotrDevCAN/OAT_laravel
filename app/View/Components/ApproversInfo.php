@@ -239,10 +239,10 @@ class ApproversInfo extends Component
             'app1' => $app1,
             
             'col2' => $col2,
-            'lvl3Line1' => $lvl3Line1,
-            'lvl3Line2' => $lvl3Line2,
-            'lvl3Line3' => $lvl3Line3,
-            'lvl3Line4' => $lvl3Line4,
+            'lvl2Line1' => $lvl2Line1,
+            'lvl2Line2' => $lvl2Line2,
+            'lvl2Line3' => $lvl2Line3,
+            'lvl2Line4' => $lvl2Line4,
             'app2' => $app2,
             
             'col3' => $col3,
