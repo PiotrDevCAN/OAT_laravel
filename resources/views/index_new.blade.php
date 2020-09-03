@@ -1,5 +1,7 @@
 
-use Collective\Html\HtmlFacade;
+{!! Form::open(['url' => 'foo/bar']) !!}
+    //
+{!! Form::close() !!}
 
 @extends('layout')
 
