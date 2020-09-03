@@ -33,10 +33,6 @@ class ApproversInfo extends Component
      */
     public function render()
     {
-        
-        echo mailto('foo@bar.baz', $title = null, $attributes = [], $escape = true);
-        
-        
         $lvl1Line1 = '';
         $lvl1Line2 = '';
         $lvl1Line3 = '';
