@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use Collective\Html\HtmlFacade;
 
 class ApproversInfo extends Component
 {
@@ -33,8 +34,6 @@ class ApproversInfo extends Component
      */
     public function render()
     {
-        var_dump(Html);
-        
         $lvl1Line1 = '';
         $lvl1Line2 = '';
         $lvl1Line3 = '';
