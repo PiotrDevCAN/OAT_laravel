@@ -36,13 +36,28 @@ class ApproversInfo extends Component
         switch (trim ( $this->record->status )) {
             case 'Approved' :
                 $col1 = 'green';
-                $lvl1 = "Approved by :<BR/><a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a><BR/>" . substr ( $this->record->approver_first_level_ts, 0, 16 );
+//                 $lvl1 = "Approved by :<BR/><a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a><BR/>" . substr ( $this->record->approver_first_level_ts, 0, 16 );
+                
+                $lvl1Status = "Approved by :";
+                $lvl1Person = "<a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a>";
+                $lvl1Time = "substr ( $this->record->approver_first_level_ts, 0, 16 )";
+                
                 $app1 = null;
                 $col2 = 'green';
-                $lvl2 = "Approved by :<BR/><a href='mailto:" . trim ( $this->record->approver_second_level ) . "'>" . trim( $this->record->approver_second_level ) . "</a><BR/>" . substr ( $this->record->approver_second_level_ts, 0, 16 );
+//                 $lvl2 = "Approved by :<BR/><a href='mailto:" . trim ( $this->record->approver_second_level ) . "'>" . trim( $this->record->approver_second_level ) . "</a><BR/>" . substr ( $this->record->approver_second_level_ts, 0, 16 );
+                
+                $lvl2Status = "Approved by :";
+                $lvl2Person = "<a href='mailto:" . trim ( $this->record->approver_second_level ) . "'>" . trim( $this->record->approver_second_level ) . "</a>";
+                $lvl2Time = "substr ( $this->record->approver_second_level_ts, 0, 16 )";
+                
                 $app2 = null;
                 $col3 = 'green';
-                $lvl3 = "Approved by :<BR/><a href='mailto:" . trim ( $this->record->approver_third_level ) . "'>" . trim( $this->record->approver_third_level ) . "</a><BR/>" . substr ( $this->record->approver_third_level_ts, 0, 16 );
+//                 $lvl3 = "Approved by :<BR/><a href='mailto:" . trim ( $this->record->approver_third_level ) . "'>" . trim( $this->record->approver_third_level ) . "</a><BR/>" . substr ( $this->record->approver_third_level_ts, 0, 16 );
+                
+                $lvl3Status = "Approved by :";
+                $lvl3Person = "<a href='mailto:" . trim ( $this->record->approver_third_level ) . "'>" . trim( $this->record->approver_third_level ) . "</a>";
+                $lvl3Time = "substr ( $this->record->approver_third_level_ts, 0, 16 )";
+                
                 $app3 = null;
                 break;
             case 'Awaiting 1st Level' :
