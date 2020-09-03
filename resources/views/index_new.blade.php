@@ -3,8 +3,6 @@
     //
 {!! Form::close() !!}
 
-echo mailto('foo@bar.baz', $title = null, $attributes = [], $escape = true);
-
 @extends('layout')
 
 @section('content')
