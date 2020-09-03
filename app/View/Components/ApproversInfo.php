@@ -45,6 +45,10 @@ class ApproversInfo extends Component
         $lvl3Person = '';
         $lvl3Time = '';
         
+        $lvl1 = '';
+        $lvl2 = '';
+        $lvl3 = '';
+        
         switch (trim ( $this->record->status )) {
             case 'Approved' :
                 
