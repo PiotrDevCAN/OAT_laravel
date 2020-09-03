@@ -7,8 +7,6 @@
 
 @section('content')
 
-{{ HTML::mailto('a@b.c') }}
-
 <x-filters/>
 
 @endsection
