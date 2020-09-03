@@ -16,9 +16,9 @@
                     <th>Country</th>
                     <th>Hours</th>
                     <th>Status</th>
-                    <th colspan="2">1st Level Approval</th>
-                    <th colspan="2">2nd Level Approval</th>
-                    <th colspan="2">3rd Level Approval</th>
+                    <th>1st Level Approval</th>
+                    <th>2nd Level Approval</th>
+                    <th>3rd Level Approval</th>
                     <th>Requestor</th>
                     <th>Pre</th>
                     <th>Post</th>
