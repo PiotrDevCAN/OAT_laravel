@@ -1,9 +1,6 @@
 @extends('layout')
 
-
 @section('content')
-
-{{ HTML::mailto('a@b.c') }}
 
 <x-filters/>
 
