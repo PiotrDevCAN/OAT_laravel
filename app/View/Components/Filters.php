@@ -23,7 +23,6 @@ class Filters extends Component
      */
     public function render()
     {
-        
         $accounts = \App\Request::select('account')->distinct()->get();
         $reasons = \App\Request::select('nature')->distinct()->get();
         $names = \App\Request::select('worker')->distinct()->get();
@@ -39,17 +38,19 @@ class Filters extends Component
         $imports = \App\Request::select('import')->distinct()->get();
         
         $firstApprovers = \App\Request::select('approver_first_level')
-        ->where('approver_first_level', '<>', '')
-        ->distinct()
-        ->get();
+            ->where('approver_first_level', '<>', '')
+            ->distinct()
+            ->get();
+        
         $secondApprovers = \App\Request::select('approver_second_level')
-        ->where('approver_second_level', '<>', '')
-        ->distinct()
-        ->get();
+            ->where('approver_second_level', '<>', '')
+            ->distinct()
+            ->get();
+        
         $thirdApprovers = \App\Request::select('approver_third_level')
-        ->where('approver_third_level', '<>', '')
-        ->distinct()
-        ->get();
+            ->where('approver_third_level', '<>', '')
+            ->distinct()
+            ->get();
         
         $data = array(
             

@@ -177,20 +177,57 @@
                     </p>
                 </div>
            	</div>
+           	<div class="ibm-fluid">
+                <div class="ibm-col-12-12">
+                	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Summary</h3>
+                </div>
+            </div>
 			<div class="ibm-fluid">
                 <div class="ibm-col-12-6">
                 	<p>
-                        <label for="requests">Requests:</label>
+                        <label for="AwaitingApprovalRequests">Awaiting Approval Requests:</label>
                         <span>
-                            <input type="text" value="" size="40" name="requests" disabled>
+                            <input type="text" value="" size="40" name="AwaitingApprovalRequests" disabled>
                         </span>
                     </p>
                 </div>
                 <div class="ibm-col-12-6">
                 	<p>
-                        <label for="hours">Hours:</label>
+                        <label for="AwaitingApprovalRequestsHours">Hours:</label>
                         <span>
-                            <input type="text" value="" size="40" name="hours" disabled>
+                            <input type="text" value="" size="40" name="AwaitingApprovalRequestsHours" disabled>
+                        </span>
+                    </p>
+                </div>
+                <div class="ibm-col-12-6">
+                	<p>
+                        <label for="ApprovedRequests">Approved Requests:</label>
+                        <span>
+                            <input type="text" value="" size="40" name="ApprovedRequests" disabled>
+                        </span>
+                    </p>
+                </div>
+                <div class="ibm-col-12-6">
+                	<p>
+                        <label for="ApprovedRequestsHours">Hours:</label>
+                        <span>
+                            <input type="text" value="" size="40" name="ApprovedRequestsHours" disabled>
+                        </span>
+                    </p>
+                </div>
+                <div class="ibm-col-12-6">
+                	<p>
+                        <label for="OtherRequests">Other Requests:</label>
+                        <span>
+                            <input type="text" value="" size="40" name="OtherRequests" disabled>
+                        </span>
+                    </p>
+                </div>
+                <div class="ibm-col-12-6">
+                	<p>
+                        <label for="OtherRequestsHours">Hours:</label>
+                        <span>
+                            <input type="text" value="" size="40" name="OtherRequestsHours" disabled>
                         </span>
                     </p>
                 </div>
