@@ -15,6 +15,9 @@ class Requests extends Controller
     
     public function indexNew()
     {
+        
+        dd($pdo = DB::connection()->getPdo());
+        
         $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
             ->limit(10)
             ->get();
