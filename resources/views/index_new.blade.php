@@ -3,7 +3,7 @@
     //
 {!! Form::close() !!}
 
-{{ mailto('foo@bar.baz', $title = null, $attributes = [], $escape = true) }}
+echo mailto('foo@bar.baz', $title = null, $attributes = [], $escape = true);
 
 @extends('layout')
 
