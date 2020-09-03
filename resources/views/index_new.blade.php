@@ -1,3 +1,6 @@
+
+use Collective\Html\HtmlFacade;
+
 @extends('layout')
 
 @section('content')
