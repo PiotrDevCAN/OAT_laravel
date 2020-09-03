@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 set_time_limit(7200);
 
@@ -16,11 +15,6 @@ class Requests extends Controller
     
     public function indexNew()
     {
-        
-        dd($pdo = DB::connection());
-        
-        dd($pdo = DB::connection()->getPdo());
-        
         $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
             ->limit(10)
             ->get();
