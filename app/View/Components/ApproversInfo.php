@@ -150,14 +150,29 @@ class ApproversInfo extends Component
         $data = array(
             'col1' => $col1,
             'lvl1' => $lvl1,
+            
+            'lvl1Status' => $lvl1Status,
+            'lvl1Person' => $lvl1Person,
+            'lvl1Time' => $lvl1Time,
+            
             'app1' => $app1,
             
             'col2' => $col2,
             'lvl2' => $lvl2,
+            
+            'lvl2Status' => $lvl2Status,
+            'lvl2Person' => $lvl2Person,
+            'lvl2Time' => $lvl2Time,
+            
             'app2' => $app2,
             
             'col3' => $col3,
             'lvl3' => $lvl3,
+            
+            'lvl3Status' => $lvl3Status,
+            'lvl3Person' => $lvl3Person,
+            'lvl3Time' => $lvl3Time,
+            
             'app3' => $app3
         );
         
