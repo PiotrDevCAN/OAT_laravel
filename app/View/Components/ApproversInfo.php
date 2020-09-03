@@ -73,7 +73,6 @@ class ApproversInfo extends Component
             case 'Awaiting 1st Level' :
                 
                 $col1  = 'yellow';
-                
                 $lvl1Line1 = "Waiting on:";
                 $lvl1Line2 = "<a href='mailto:" . trim($this->record->approver_first_level) . "'>" . trim($this->record->approver_first_level) . "</a>";
                 $app1  = "<BR/><BR/><a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=1&amp;status=Approved&amp;via=online target='_blank'>Approve";
