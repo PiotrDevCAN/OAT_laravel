@@ -3,7 +3,7 @@
     //
 {!! Form::close() !!}
 
-{{!! Html::mailto('foo@bar.baz') !!}}
+{{ Html::mailto('foo@bar.baz') }}
 
 @extends('layout')
 
