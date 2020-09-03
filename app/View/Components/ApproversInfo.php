@@ -33,158 +33,225 @@ class ApproversInfo extends Component
      */
     public function render()
     {
-        $lvl1Status = '';
-        $lvl1Person = '';
-        $lvl1Time = '';
+        $lvl1Line1 = '';
+        $lvl1Line2 = '';
+        $lvl1Line3 = '';
+        $lvl1Line4 = '';
         
-        $lvl2Status = '';
-        $lvl2Person = '';
-        $lvl2Time = '';
+        $lvl2Line1 = '';
+        $lvl2Line2 = '';
+        $lvl2Line3 = '';
+        $lvl2Line4 = '';
         
-        $lvl3Status = '';
-        $lvl3Person = '';
-        $lvl3Time = '';
-        
-        $lvl1 = '';
-        $lvl2 = '';
-        $lvl3 = '';
+        $lvl3Line1 = '';
+        $lvl3Line2 = '';
+        $lvl3Line3 = '';
+        $lvl3Line4 = '';
         
         switch (trim ( $this->record->status )) {
             case 'Approved' :
                 
                 $col1 = 'green';                
-                $lvl1Status = "Approved by :";
-                $lvl1Person = "<a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a>";
-                $lvl1Time = substr ( $this->record->approver_first_level_ts, 0, 16 );                
+                $lvl1Line1 = "Approved by :";
+                $lvl1Line2 = "<a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a>";
+                $lvl1Line3 = substr ( $this->record->approver_first_level_ts, 0, 16 );                
                 $app1 = null;
                 
                 $col2 = 'green';                
-                $lvl2Status = "Approved by :";
-                $lvl2Person = "<a href='mailto:" . trim ( $this->record->approver_second_level ) . "'>" . trim( $this->record->approver_second_level ) . "</a>";
-                $lvl2Time = substr ( $this->record->approver_second_level_ts, 0, 16 );
+                $lvl2Line1 = "Approved by :";
+                $lvl2Line2 = "<a href='mailto:" . trim ( $this->record->approver_second_level ) . "'>" . trim( $this->record->approver_second_level ) . "</a>";
+                $lvl2Line3 = substr ( $this->record->approver_second_level_ts, 0, 16 );
                 $app2 = null;
                 
                 $col3 = 'green';                
-                $lvl3Status = "Approved by :";
-                $lvl3Person = "<a href='mailto:" . trim ( $this->record->approver_third_level ) . "'>" . trim( $this->record->approver_third_level ) . "</a>";
-                $lvl3Time = substr ( $this->record->approver_third_level_ts, 0, 16 );
-                
+                $lvl3Line1 = "Approved by :";
+                $lvl3Line2 = "<a href='mailto:" . trim ( $this->record->approver_third_level ) . "'>" . trim( $this->record->approver_third_level ) . "</a>";
+                $lvl3Line3 = substr ( $this->record->approver_third_level_ts, 0, 16 );
                 $app3 = null;
+                
                 break;
             case 'Awaiting 1st Level' :
+                
                 $col1  = 'yellow';
-                $lvl1  = "Waiting on:<BR/><a href='mailto:" . trim($this->record->approver_first_level) . "'>" . trim($this->record->approver_first_level) . "</a>";
+                
+                $lvl1Line1 = "Waiting on:";
+                $lvl1Line2 = "<a href='mailto:" . trim($this->record->approver_first_level) . "'>" . trim($this->record->approver_first_level) . "</a>";
                 $app1  = "<BR/><BR/><a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=1&amp;status=Approved&amp;via=online target='_blank'>Approve";
                 $app1 .= "<img src='images/icon-system-status-ok.gif' width='14' height='14' alt='approve' /></a>";
                 $app1 .= "&nbsp;&nbsp;<a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=1&amp;status=Rejected&amp;via=online target='_blank'>Reject";
                 $app1 .= "<img src='images/icon-system-status-na.gif' width='14' height='14' alt='reject' /></a>";
+                
                 $col2 = 'yellow';
-                $lvl2 = "Waiting on 1st Level:<BR/>2nd Level approver is:<BR><a href='mailto:" . trim($this->record->approver_second_level) . "'>" . trim($this->record->approver_second_level) . "</a>";
+                $lvl2Line1 = "Waiting on 1st Level:";
+                $lvl2Line2 = "2nd Level approver is:";
+                $lvl2Line3 = "<a href='mailto:" . trim($this->record->approver_second_level) . "'>" . trim($this->record->approver_second_level) . "</a>";
                 $app2 = null;
+                
                 $col3 = 'yellow';
-                $lvl3 = "Waiting on 1st Level:<BR/>3rd Level approver is:<BR><a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
+                $lvl3Line1 = "Waiting on 1st Level:";
+                $lvl3Line2 = "3rd Level approver is:";
+                $lvl3Line3 = "<a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
                 $app3 = null;
+                
                 break;
             case 'Awaiting 2nd Level' :
+                
                 $col1 = 'green';
-                $lvl1 = "Approved by :<BR/><a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a><BR/>" . substr ( $this->record->approver_first_level_ts, 0, 16 );
+                $lvl1Line1 = "Approved by :";
+                $lvl1Line2 = "<a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a>";
+                $lvl1Line3 = substr ( $this->record->approver_first_level_ts, 0, 16 );
                 $app1 = null;
+                
                 $col2 = 'yellow';
-                $lvl2 = "Waiting on:<BR/><a href='mailto:" . trim($this->record->approver_second_level) . "'>" . trim($this->record->approver_second_level) . "</a>";
+                $lvl2Line1 = "Waiting on:";
+                $lvl2Line2 = "<a href='mailto:" . trim($this->record->approver_second_level) . "'>" . trim($this->record->approver_second_level) . "</a>";
                 $app2  = "<BR/><BR/><a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=2&amp;status=Approved&amp;via=online target='_blank'>Approve";
                 $app2 .= "<img src='images/icon-system-status-ok.gif' width='14' height='14' alt='approve' /></a>";
                 $app2 .= "&nbsp;&nbsp;<a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=2&amp;status=Rejected&amp;via=online target='_blank'>Reject";
                 $app2 .= "<img src='images/icon-system-status-na.gif' width='14' height='14' alt='reject' /></a>";
+                
                 $col3 = 'yellow';
-                $lvl3 = "Waiting on 2nd Level:<BR/>3rd Level approver is:<BR><a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
+                $lvl3Line1 = "Waiting on 2nd Level:";
+                $lvl3Line2 = "3rd Level approver is:";
+                $lvl3Line3 = "<a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
                 $app3 = null;
+                
                 break;
             case 'Awaiting 3rd Level' :
+                
                 $col1 = 'green';
-                $lvl1 = "Approved by :<BR/><a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a><BR/>" . substr ( $this->record->approver_first_level_ts, 0, 16 );
+                $lvl1Line1 = 'Approved by :';
+                $lvl1Line2 = "<a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a>";
+                $lvl1Line3 = substr ( $this->record->approver_first_level_ts, 0, 16 );
                 $app1 = null;
+                
                 $col2 = 'green';
-                $lvl2 = "Approved by :<BR/><a href='mailto:" . trim ( $this->record->approver_second_level ) . "'>" . trim ( $this->record->approver_second_level ) . "</a><BR/>" . substr ( $this->record->approver_second_level_ts, 0, 16 );
+                $lvl2Line1 = 'Approved by :';
+                $lvl2Line2 = "<a href='mailto:" . trim ( $this->record->approver_second_level ) . "'>" . trim ( $this->record->approver_second_level ) . "</a>";
+                $lvl2Line3 = substr ( $this->record->approver_second_level_ts, 0, 16 );
                 $app2 = null;
+                
                 $col3 = 'yellow';
-                $lvl3 = "Waiting on:<BR/><a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
+                $lvl3Line1 = 'Waiting on:';
+                $lvl3Line2 = "<a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
                 $app3  = "<BR/><BR/><a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=3&amp;status=Approved&amp;via=online target='_blank'>Approve";
                 $app3 .= "<img src='images/icon-system-status-ok.gif' width='14' height='14' alt='approve' /></a>";
                 $app3 .= "&nbsp;&nbsp;<a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=3&amp;status=Rejected&amp;via=online target='_blank'>Reject";
                 $app3 .= "<img src='images/icon-system-status-na.gif' width='14' height='14' alt='reject' /></a>";
+                
                 break;
             case 'Rejected by 1st Level' :
+                
                 $col1 = 'red';
-                $lvl1 = "Rejcted by :<BR/>" . $this->record->approver_first_level . "<BR/>" . substr ( $this->record->approver_first_level_ts, 0, 16 );
+                $lvl1Line1 = 'Rejcted by :';
+                $lvl1Line2 = $this->record->approver_first_level;
+                $lvl1Line3 = substr ( $this->record->approver_first_level_ts, 0, 16 );
                 $app1 = null;
+                
                 $col2 = 'yellow';
-                $lvl2 = "Rejected by 1st Level<BR/>2nd level approver was :<BR/>" . $this->record->approver_second_level_ts ;
+                $lvl2Line1 = 'Rejected by 1st Level';
+                $lvl2Line2 = "2nd level approver was :";
+                $lvl2Line3 = substr ( $this->record->approver_second_level_ts, 0, 16 );
                 $app2 = null;
+                
                 $col3 = 'yellow';
-                $lvl3 = "Rejected by 1st Level<BR/>3rd level approver was :<BR/>" . $this->record->approver_third_level_ts  ;
+                $lvl3Line1 = 'Rejected by 1st Level';
+                $lvl3Line2 = "3rd level approver was :";
+                $lvl3Line3 = substr ( $this->record->approver_third_level_ts, 0, 16 );
                 $app3 = null;
+                
                 break;
             case 'Rejected by 2nd Level' :
+                
                 $col1 = 'green';
-                $lvl1 = "Approved by :<BR/>" . $this->record->approver_first_level . "<BR/>" . substr ( $this->record->approver_first_level_ts, 0, 16 );
+                $lvl1Line1 = 'Approved by :';
+                $lvl1Line2 = $this->record->approver_first_level;
+                $lvl1Line3 = substr ( $this->record->approver_first_level_ts, 0, 16 );
                 $app1 = null;
+                
                 $col2 = 'red';
-                $lvl2 = "Rejected by :<BR/>" . $this->record->approver_second_level . "<BR/>" . substr ( $this->record->approver_second_level_ts, 0, 16 );
+                $lvl2Line1 = 'Rejected by :';
+                $lvl2Line2 = $this->record->approver_second_level;
+                $lvl2Line3 = substr ( $this->record->approver_second_level_ts, 0, 16 );
                 $app2 = null;
+                
                 $col3 = 'yellow';
-                $lvl3 = "Rejected by 2nd Level<BR/>3rd level approver was :<BR/>" . $this->record->approver_third_level_ts ;
+                $lvl3Line1 = 'Rejected by 2nd Level';
+                $lvl3Line2 = "3rd level approver was :";
+                $lvl3Line3 = substr ( $this->record->approver_third_level_ts, 0, 16 );
                 $app3 = null;
+                
                 break;
             case 'Rejected by 3rd Level' :
+                
                 $col1 = 'green';
-                $lvl1 = "Approved by :<BR/>" . $this->record->approver_first_level . "<BR/>" . substr ( $this->record->approver_first_level_ts, 0, 16 );
+                $lvl1Line1 = 'Approved by :';
+                $lvl1Line2 = $this->record->approver_first_level;
+                $lvl1Line3 = substr ( $this->record->approver_first_level_ts, 0, 16 );
                 $app1 = null;
+                
                 $col2 = 'green';
-                $lvl2 = "Approved by :<BR/>" . $this->record->approver_second_level . "<BR/>" . substr ( $this->record->approver_second_level_ts, 0, 16 );
+                $lvl2Line1 = 'Approved by :';
+                $lvl2Line2 = $this->record->approver_second_level;
+                $lvl2Line3 = substr ( $this->record->approver_second_level_ts, 0, 16 );
                 $app2 = null;
+                
                 $col3 = 'red';
-                $lvl3 = "Rejected by :<BR/>" . $this->record->approver_second_level . "<BR/>" . substr ( $this->record->approver_third_level_ts, 0, 16 );
+                $lvl3Line1 = 'Rejected by :';
+                $lvl3Line2 = $this->record->approver_second_level;
+                $lvl3Line3 = substr ( $this->record->approver_third_level_ts, 0, 16 );
                 $app3 = null;
+                
                 break;
             default :
+                
                 $col1 = 'blue';
                 $app1 = null;
-                $lvl1 = 'See Status<BR/>1st Approver was:<br/>' . trim($this->record->APPROVER_FIRST_LEVEL) . "<BR/>" . substr ( $this->record->approver_first_level_ts, 0, 16 );
+                $lvl1Line1 = 'See Status';
+                $lvl1Line2 = "1st Approver was:";
+                $lvl1Line3 = trim($this->record->APPROVER_FIRST_LEVEL);
+                $lvl1Line4 = substr ( $this->record->approver_first_level_ts, 0, 16 );
+                
                 $col2 = 'blue';
                 $app2 = null;
-                $lvl2 = 'See Status<BR/>2nd Approver was:<br/>' . trim($this->record->APPROVER_SECOND_LEVEL) . "<BR/>" . substr ( $this->record->approver_second_level_ts, 0, 16 );
+                $lvl2Line1 = 'See Status';
+                $lvl2Line2 = "2nd Approver was:";
+                $lvl2Line3 = trim($this->record->APPROVER_SECOND_LEVEL);
+                $lvl2Line4 = substr ( $this->record->approver_second_level_ts, 0, 16 );
+                
                 $col3 = 'blue';
                 $app3 = null;
-                $lvl3 = 'See Status<BR/>3rd Approver was:<br/>' . trim($this->record->APPROVER_THIRD_LEVEL) . "<BR/>" . substr ( $this->record->approver_third_level_ts, 0, 16 );
+                $lvl3Line1 = 'See Status';
+                $lvl3Line2 = "3rd Approver was:";
+                $lvl3Line3 = trim($this->record->APPROVER_THIRD_LEVEL);
+                $lvl3Line4 = substr ( $this->record->approver_third_level_ts, 0, 16 );
+                
+                break;
         }
         
         $data = array(
+            
             'col1' => $col1,
-            'lvl1' => $lvl1,
-            
-            'lvl1Status' => $lvl1Status,
-            'lvl1Person' => $lvl1Person,
-            'lvl1Time' => $lvl1Time,
-            
+            'lvl1Line1' => $lvl1Line1,
+            'lvl1Line2' => $lvl1Line2,
+            'lvl1Line3' => $lvl1Line3,
+            'lvl1Line4' => $lvl1Line4,
             'app1' => $app1,
             
             'col2' => $col2,
-            'lvl2' => $lvl2,
-            
-            'lvl2Status' => $lvl2Status,
-            'lvl2Person' => $lvl2Person,
-            'lvl2Time' => $lvl2Time,
-            
+            'lvl3Line1' => $lvl3Line1,
+            'lvl3Line2' => $lvl3Line2,
+            'lvl3Line3' => $lvl3Line3,
+            'lvl3Line4' => $lvl3Line4,
             'app2' => $app2,
             
             'col3' => $col3,
-            'lvl3' => $lvl3,
-            
-            'lvl3Status' => $lvl3Status,
-            'lvl3Person' => $lvl3Person,
-            'lvl3Time' => $lvl3Time,
-            
+            'lvl3Line1' => $lvl3Line1,
+            'lvl3Line2' => $lvl3Line2,
+            'lvl3Line3' => $lvl3Line3,
+            'lvl3Line4' => $lvl3Line4,
             'app3' => $app3
+            
         );
         
         return view('components.approvers-info', $data);
