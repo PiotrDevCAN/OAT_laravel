@@ -15,20 +15,59 @@ class Requests extends Controller
     
     public function indexNew()
     {
+        
+        /*
+        parent::getVals ();
+        
+        $sql = " SELECT REFERENCE, ACCOUNT, COMPETENCY, NATURE, TITLE, DETAILs, WEEKENDDATE, WORKER, LEFT(SERIAL,6) as SERIAL, RIGHT(SERIAL,3) as COUNTRY, HOURS, STATUS, APPROVER_FIRST_LEVEL, APPROVER_FIRST_LEVEL_TS, APPROVER_SECOND_LEVEL, APPROVER_SECOND_LEVEL_TS,APPROVER_THIRD_LEVEL, APPROVER_THIRD_LEVEL_TS, REQUESTOR, SUPERCEDES, SUPERCEDEDBY, LOCATION, CLAIM_ACC_ID, CREATED_TS  ";
+        $sql .= " from " . $_SESSION ['prefix'] . ".REQUESTS_VIEW ";
+        
+        // echo "<br/>Admin :" . $this->administrator . "Comp:" .  $this->competency;
+        
+        if ($predicateParm != null) {
+            $predicate = " WHERE DELETE_FLAG is null " . trim ( $predicateParm );
+            $predicate = str_replace ( 'WHERE AND', 'WHERE ', $predicate );
+            if (! $this->administrator and (! $this->competency)) {
+                $predicate .= " AND (UPPER(REQUESTOR)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "') OR UPPER(APPROVER_FIRST_LEVEL)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "') OR UPPER(APPROVER_SECOND_LEVEL)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "') OR UPPER(APPROVER_THIRD_LEVEL)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "') OR UPPER(WORKER)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "')) ";
+            }
+            $sql .= $predicate;
+            
+        } elseif ((! $this->administrator) and (! $this->competency)) {
+            $sql .= " WHERE UPPER(REQUESTOR)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "') OR UPPER(APPROVER_FIRST_LEVEL)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "') OR UPPER(APPROVER_SECOND_LEVEL)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "') OR UPPER(APPROVER_THIRD_LEVEL)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "')  OR UPPER(WORKER)=UPPER('" . $GLOBALS ['ltcuser'] ['mail'] . "') ";
+        }
+        
+        $sql .= " ORDER BY $this->col $this->ord ";
+        
+        // 		echo "<BR/>SQL is: $sql";
+        
+        
+        $rs = db2_exec ( $_SESSION ['conn'], $sql );
+        
+        if (! $rs) {
+            exit ( db2_stmt_error () . db2_stmt_errormsg () . "<BR/>Error in  " . __METHOD__ . ": $rs : $sql" );
+        }
+        
+        return $rs;
+        */
+        
+        
         $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
 //             ->limit(10)
-            ->where('WEEKENDDATE', '>=', '2020-08-07')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
             ->get();
         
         $approved = \App\Request::where('status', 'Approved')
 //             ->limit(10)
-            ->where('WEEKENDDATE', '>=', '2020-08-07')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
             ->get();
         
         $other = \App\Request::where('status',  'not like', 'Awaiting%')
             ->where('status', '<>', 'Approved')
 //             ->limit(10)
-            ->where('WEEKENDDATE', '>=', '2020-08-07')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
             ->get();
         
         $data = array(
