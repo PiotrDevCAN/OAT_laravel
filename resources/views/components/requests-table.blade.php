@@ -42,7 +42,7 @@
                     <td>{{ $record->hours }}</td>
                     <td>{{ $record->status }}</td>
                     <x-approvers-info :record="$record"/>
-                    <td><a href="mailto:{{ trimm($record->requestor) }}">{{ trimm($record->requestor) }}</a></td>
+                    <td><a href="mailto:{{ trim($record->requestor) }}">{{ trim($record->requestor) }}</a></td>
                     <td><a href="p_request.php?ref={{ $record->supercedes }}">{{ $record->supercedes }}</a>
                     <td><a href="p_request.php?ref={{ $record->supercededby }}">{{ $record->supercededby }}</a></td>
                     <td>{{ $record->claim_acc_id }}</td>
