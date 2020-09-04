@@ -1,10 +1,3 @@
-
-{!! Form::open(['url' => 'foo/bar']) !!}
-    //
-{!! Form::close() !!}
-
-{{ Html::mailto('foo@bar.baz') }}
-
 @extends('layout')
 
 @section('content')

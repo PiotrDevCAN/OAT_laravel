@@ -16,16 +16,16 @@ class Requests extends Controller
     public function indexNew()
     {
         $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
-            ->limit(10)
+//             ->limit(10)
             ->get();
         
         $approved = \App\Request::where('status', 'Approved')
-            ->limit(10)
+//             ->limit(10)
             ->get();
         
         $other = \App\Request::where('status',  'not like', 'Awaiting%')
             ->where('status', '<>', 'Approved')
-            ->limit(10)
+//             ->limit(10)
             ->get();
         
         $data = array(

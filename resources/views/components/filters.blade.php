@@ -1,8 +1,16 @@
 <div class="ibm-card">
     <div class="ibm-card__content">
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Status List Filters</h3>
+        
+        
+{!! Form::open(['url' => 'foo/bar']) !!}
+    //
+{!! Form::close() !!}
+
+{{ Html::mailto('foo@bar.baz') }}
+        
+        
 		<form name="myForm" class="ibm-row-form">
-			@csrf
 			<div class="ibm-fluid">
                 <div class="ibm-col-12-4">
                 	<p class="ibm-form-elem-grp">
