@@ -7,6 +7,11 @@
     //
 {!! Form::close() !!}
 
+
+{!! Form::model($user, ['route' => ['user.update', $user->id]]) !!}
+
+{!! Form::close() !!}
+
 {{ Html::mailto('foo@bar.baz') }}
         
         
