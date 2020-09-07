@@ -8,7 +8,7 @@ use App\Request;
 class Select extends Component
 {
     
-    public $names;
+    public $name;
     public $label;
     public $arrayOfSelectableValues;
     
