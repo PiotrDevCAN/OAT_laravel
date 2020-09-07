@@ -36,13 +36,13 @@
                     <td>{{ $record->title }}</td>
                     <td>{{ Str::limit($record->details, 50, ' (...)') }}</td>
                     <td>{{ $record->weekenddate }}</td>
-                    <td><x-mailto-link email=$record->worker/></td>
+                    <td><x-mailto-link :email=$record->worker/></td>
                     <td>{{ $record->serial }}</td>
                     <td>{{ $record->location }}</td>
                     <td>{{ $record->hours }}</td>
                     <td>{{ $record->status }}</td>
                     <x-approvers-info :record="$record"/>
-                    <td><x-mailto-link email=$record->requestor/></td>
+                    <td><x-mailto-link :email=$record->requestor/></td>
                     <td><a href="p_request.php?ref={{ $record->supercedes }}">{{ $record->supercedes }}</a>
                     <td><a href="p_request.php?ref={{ $record->supercededby }}">{{ $record->supercededby }}</a></td>
                     <td>{{ $record->claim_acc_id }}</td>
