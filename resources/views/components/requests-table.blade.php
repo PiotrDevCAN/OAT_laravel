@@ -34,7 +34,7 @@
                     <td>{{ $record->competency }}</td>
                     <td>{{ $record->nature }}</td>
                     <td>{{ $record->title }}</td>
-                    <td>{{ Str::limit($record->details, 120, ' (...)') }}</td>
+                    <td>{{ Str::limit($record->details, 50, ' (...)') }}</td>
                     <td>{{ $record->weekenddate }}</td>
                     <td><a href="mailto:{{ $record->worker }}">{{ $record->worker }}</a></td>
                     <td>{{ $record->serial }}</td>

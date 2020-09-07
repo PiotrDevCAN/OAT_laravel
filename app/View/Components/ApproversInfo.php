@@ -18,7 +18,6 @@ class ApproversInfo extends Component
     /**
      * Create the component instance.
      *
-     * @param  string  $type
      * @param  string  $record
      * @return void
      */
@@ -34,6 +33,15 @@ class ApproversInfo extends Component
      */
     public function render()
     {
+        
+        /*
+         * {{-- Html::mailto('foo@bar.baz') --}}
+         */
+        
+        $this->record->APPROVER_FIRST_LEVEL = trim($this->record->APPROVER_FIRST_LEVEL);
+        $this->record->APPROVER_SECOND_LEVEL = trim($this->record->APPROVER_SECOND_LEVEL);
+        $this->record->APPROVER_THIRD_LEVEL = trim($this->record->APPROVER_THIRD_LEVEL);
+        
         $lvl1Line1 = '';
         $lvl1Line2 = '';
         $lvl1Line3 = '';
@@ -105,6 +113,7 @@ class ApproversInfo extends Component
                 $col2 = 'yellow';
                 $lvl2Line1 = "Waiting on:";
                 $lvl2Line2 = "<a href='mailto:" . trim($this->record->approver_second_level) . "'>" . trim($this->record->approver_second_level) . "</a>";
+                
                 $app2  = "<BR/><BR/><a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=2&amp;status=Approved&amp;via=online target='_blank'>Approve";
                 $app2 .= "<img src='images/icon-system-status-ok.gif' width='14' height='14' alt='approve' /></a>";
                 $app2 .= "&nbsp;&nbsp;<a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=2&amp;status=Rejected&amp;via=online target='_blank'>Reject";
@@ -134,6 +143,7 @@ class ApproversInfo extends Component
                 $col3 = 'yellow';
                 $lvl3Line1 = 'Waiting on:';
                 $lvl3Line2 = "<a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
+                
                 $app3  = "<BR/><BR/><a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=3&amp;status=Approved&amp;via=online target='_blank'>Approve";
                 $app3 .= "<img src='images/icon-system-status-ok.gif' width='14' height='14' alt='approve' /></a>";
                 $app3 .= "&nbsp;&nbsp;<a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=3&amp;status=Rejected&amp;via=online target='_blank'>Reject";
