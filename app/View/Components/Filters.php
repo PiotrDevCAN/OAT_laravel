@@ -42,8 +42,14 @@ class Filters extends Component
         $this->requestors = \App\Request::select('requestor as value')->distinct()->get();
         $this->locations = \App\Request::select('location as value')->distinct()->get();
         
-        $this->weekenddates = \App\Request::select('weekenddate as value')->distinct()->get();
-        $this->imports = \App\Request::select('import as value')->distinct()->get();
+        $this->weekenddates = \App\Request::select('weekenddate as value')
+            ->where('weekenddate', '<>', '')
+            ->distinct()
+            ->get();
+        $this->imports = \App\Request::select('import as value')
+            ->where('import', '<>', '')
+            ->distinct()
+            ->get();
         
         $this->firstApprovers = \App\Request::select('approver_first_level as value')
             ->where('approver_first_level', '<>', '')
