@@ -17,9 +17,11 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name, $label, $arrayOfSelectableValues)
     {
-        //
+        $this->name = $name;
+        $this->label = $label;
+        $this->arrayOfSelectableValues = $arrayOfSelectableValues;
     }
 
     /**
