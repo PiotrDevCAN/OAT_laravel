@@ -1,61 +1,21 @@
 <div class="ibm-card">
     <div class="ibm-card__content">
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Status List Filters</h3>
-     	
-		{{ Form::open(['route' => 'list', 'id' => 'myForm', 'class'  => 'ibm-row-form' ]) }}
-   
-   			<x-ibmv18form-input/>
-   			<x-ibmv18form-select/>
-   			<x-ibmv18form-textarea/>
-   
-			<div class="ibm-fluid">
+    	{{ Form::open(['route' => 'list', 'id' => 'myForm', 'class'  => 'ibm-row-form' ]) }}
+   			<div class="ibm-fluid">
                 <div class="ibm-col-12-4">
-                	<p class="ibm-form-elem-grp">
-                        <label>Account:</label>
-                        <span>
-                            <select id="Account" class="ibm-fullwidth">
-	                            <option value="" selected>All Accounts</option>
-                            	@foreach ($accounts as $account)
-                            	<option value="{{ $account->account }}">{{ $account->account }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                    <p class="ibm-form-elem-grp">
-                        <label>Reason:</label>
-                        <span>
-                            <select id="Reason" class="ibm-fullwidth">
-                                <option value="" selected>All Reasons</option>
-                            	@foreach ($reasons as $reason)
-                            	<option value="{{ $reason->nature }}">{{ $reason->nature }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                    <p class="ibm-form-elem-grp">
-                        <label>Name:</label>
-                        <span>
-                            <select id="Name" class="ibm-fullwidth">
-                                <option value="" selected>All Resources</option>
-                            	@foreach ($names as $name)
-                            	<option value="{{ $name->worker }}">{{ $name->worker }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                    <p class="ibm-form-elem-grp">
-                        <label>Type:</label>
-                        <span>
-                            <select id="Type" class="ibm-fullwidth">
-                                <option value="" selected>All Types</option>
-                            	@foreach ($types as $type)
-                            	<option value="{{ $type->approvaltype }}">{{ $type->approvaltype }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
+                	
+                	<x-ibmv18form-select name="Account" label="Account:" :arrayOfSelectableValues="$accounts"/>
+                	
+                    <x-ibmv18form-select name="Reason" label="Reason:" :arrayOfSelectableValues="$reasons"/>
+                	
+                	<x-ibmv18form-select name="Name" label="Name:" :arrayOfSelectableValues="$names"/>
+                	
+                    <x-ibmv18form-select name="Type" label="Type" :arrayOfSelectableValues="$types"/>
+                	
                 </div>
                 <div class="ibm-col-12-4">
+                	<x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Service Line:</label>
                         <span>
@@ -67,6 +27,7 @@
                             </select>
                         </span>
                     </p>
+                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Status:</label>
                         <span>
@@ -78,6 +39,7 @@
                             </select>
                         </span>
                     </p>
+                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Requestor:</label>
                         <span>
@@ -89,6 +51,7 @@
                             </select>
                         </span>
                     </p>
+                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Location:</label>
                         <span>
@@ -102,6 +65,7 @@
                     </p>
                 </div>
                 <div class="ibm-col-12-4">
+                	<x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Weekend >=:</label>
                         <span>
@@ -113,6 +77,7 @@
                             </select>
                         </span>
                     </p>
+                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Weekend <=:</label>
                         <span>
@@ -124,6 +89,7 @@
                             </select>
                         </span>
                     </p>
+                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Import:</label>
                         <span>
@@ -144,6 +110,7 @@
             </div>
 			<div class="ibm-fluid">
                 <div class="ibm-col-12-4">
+                	<x-ibmv18form-select/>
                 	<p class="ibm-form-elem-grp">
                         <label>1st Level:</label>
                         <span>
@@ -157,6 +124,7 @@
                     </p>
                 </div>
                 <div class="ibm-col-12-4">
+                	<x-ibmv18form-select/>
                 	<p class="ibm-form-elem-grp">
                         <label>2nd Level:</label>
                         <span>
@@ -170,6 +138,7 @@
                     </p>
                 </div>
                 <div class="ibm-col-12-4">
+                	<x-ibmv18form-select/>
                 	<p class="ibm-form-elem-grp">
                         <label>3rd Level:</label>
                         <span>

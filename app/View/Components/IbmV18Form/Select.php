@@ -8,22 +8,9 @@ use App\Request;
 class Select extends Component
 {
     
-    public $accounts;
-    public $reasons;
     public $names;
-    public $types;
-    
-    public $serviceLines;
-    public $statuses;
-    public $requestors;
-    public $locations;
-    
-    public $weekenddates;
-    public $imports;
-    
-    public $firstApprovers;
-    public $secondApprovers;
-    public $thirdApprovers;
+    public $label;
+    public $arrayOfSelectableValues;
     
     /**
      * Create a new component instance.
