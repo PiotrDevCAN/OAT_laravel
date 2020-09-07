@@ -77,45 +77,43 @@
         <div id="ibm-top" class="ibm-landing-page">
         
           	@include('partials.masterhead')
-        
-        	<x-navigation/>
         	
             <div id="ibm-content-wrapper">
-            
-            @include('partials.leadspace')
-                    
-            <main role="main" aria-labelledby="ibm-pagetitle-h1">
-                <div id="ibm-pcon">
-                    <div id="ibm-content">
-                        <div id="ibm-content-body">
-                            <div id="ibm-content-main">
-                                              
-                                <div class="ibm-fluid">
-                                    <div class="ibm-col-12-2">
-                                    
-                                    <x-menu/>
-                                    
-                                	</div>
-                                    <div class="ibm-col-12-10">
-                                	
-                                	@yield('content')
-                                	
-                                	</div>
-                                </div>
-                                <div class="ibm-fluid ibm-fullwidth">
-                                    <div class="ibm-col-12-12">
-                                    @hasSection('bottom-section')
-                                        @yield('bottom-section')
-                                    @else
-                                    	Nothing to display
-                                    @endif
+                
+                @include('partials.leadspace')
+                        
+                <main role="main" aria-labelledby="ibm-pagetitle-h1">
+                    <div id="ibm-pcon">
+                        <div id="ibm-content">
+                            <div id="ibm-content-body">
+                                <div id="ibm-content-main">
+                                                  
+                                    <div class="ibm-fluid">
+                                        <div class="ibm-col-12-2">
+                                        
+                                        <x-navigation/>
+                                        
+                                    	</div>
+                                        <div class="ibm-col-12-10">
+                                    	
+                                    	@yield('content')
+                                    	
+                                    	</div>
+                                    </div>
+                                    <div class="ibm-fluid ibm-fullwidth">
+                                        <div class="ibm-col-12-12">
+                                        @hasSection('bottom-section')
+                                            @yield('bottom-section')
+                                        @else
+                                        	Nothing to display
+                                        @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </main>
+                </main>
             
             <div id="ibm-related-content">
                 <div id="ibm-merchandising-module">
