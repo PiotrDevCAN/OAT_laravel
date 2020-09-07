@@ -6,7 +6,7 @@
     <div class="ibm-col-12-12">
         <div class="ibm-card">
             <div class="ibm-card__content">
-	        	<h2 class="ibm-bold ibm-h2">Delegates list</h2>
+	        	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Delegates list</h3>
 	        	
 	        	<table class="ibm-data-table" data-scrollaxis="x" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatable" id="delegateTable">
                     <thead>

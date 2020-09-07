@@ -6,7 +6,7 @@
     <div class="ibm-col-12-12">
         <div class="ibm-card">
             <div class="ibm-card__content">
-	        	<h2 class="ibm-bold ibm-h2">My Access</h2>
+	        	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">My Access</h3>
 	        </div>
         </div>
 	</div>
