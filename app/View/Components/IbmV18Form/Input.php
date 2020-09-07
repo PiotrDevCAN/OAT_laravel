@@ -7,32 +7,18 @@ use App\Request;
 
 class Input extends Component
 {
-    
-    public $accounts;
-    public $reasons;
-    public $names;
-    public $types;
-    
-    public $serviceLines;
-    public $statuses;
-    public $requestors;
-    public $locations;
-    
-    public $weekenddates;
-    public $imports;
-    
-    public $firstApprovers;
-    public $secondApprovers;
-    public $thirdApprovers;
+    public $name;
+    public $label;
     
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name, $label)
     {
-        //
+        $this->name = $name;
+        $this->label = $label;
     }
 
     /**
