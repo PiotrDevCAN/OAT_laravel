@@ -109,18 +109,13 @@ class Requests extends Controller
     
     public function readOnlyIndex()
     {
-        $awaiting = \App\Request::where('status', 'like', 'Awaiting%')->limit(10)->get();
-        
-        $approved = \App\Request::where('status', 'Approved')->limit(10)->get();
-        
-        $other = \App\Request::where('status',  'not like', 'Awaiting%')
-            ->where('status', '<>', 'Approved')
+        $approved = \App\Request::where('status', 'Approved')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
             ->get();
         
         $data = array(
-            'awaiting' => $awaiting,
-            'approved' => $approved,
-            'other' => $other
+            'approved' => $approved
         );
         
         return view('index_new', $data);

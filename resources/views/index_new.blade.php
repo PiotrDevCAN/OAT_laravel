@@ -8,8 +8,16 @@
 
 @section('bottom-section')
 
-<x-requests-table name="Awaiting Approval" :records="$awaiting"/>
-<x-requests-table name="Approved" :records="$approved"/>
-<x-requests-table name="Other" :records="$other"/>
+    @isset($awaiting)
+    	<x-requests-table name="Awaiting Approval" :records="$awaiting"/>
+    @endisset
+    
+    @isset($approved)
+    	<x-requests-table name="Approved" :records="$approved"/>
+    @endisset
+    
+    @isset($other)
+    	<x-requests-table name="Other" :records="$other"/>
+    @endisset
 
 @endsection
