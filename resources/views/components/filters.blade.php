@@ -4,6 +4,10 @@
      	
 		{{ Form::open(['route' => 'list', 'id' => 'myForm', 'class'  => 'ibm-row-form' ]) }}
    
+   			<x-ibmv18form.input/>
+   			<x-ibmv18form.select/>
+   			<x-ibmv18form.textarea/>
+   
 			<div class="ibm-fluid">
                 <div class="ibm-col-12-4">
                 	<p class="ibm-form-elem-grp">
