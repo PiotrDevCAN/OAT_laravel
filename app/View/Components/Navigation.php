@@ -6,6 +6,9 @@ use Illuminate\View\Component;
 
 class Navigation extends Component
 {
+    
+    public $menuList;
+    
     /**
      * Create a new component instance.
      *
@@ -13,7 +16,14 @@ class Navigation extends Component
      */
     public function __construct()
     {
-        //
+        $this->menuList = array(
+            'Request' => 'p_request.php',
+            'Status' => 'p_manage.php',
+            'Read Only' => 'p_readerOnly.php',
+            'Admin' => array(),
+            'My Delegates' => 'p_delegate.php',
+            'My Access' => 'p_myOatAccess.php'
+        );
     }
 
     /**
