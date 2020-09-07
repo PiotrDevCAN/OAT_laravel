@@ -64,52 +64,34 @@
             </div>
 			<div class="ibm-fluid">
                 <div class="ibm-col-12-6">
-                	<p>
-                        <label for="AwaitingApprovalRequests">Awaiting Approval Requests:</label>
-                        <span>
-                            <input type="text" value="" size="40" name="AwaitingApprovalRequests" disabled>
-                        </span>
-                    </p>
+                	
+                	<x-ibmv18form-input name="AwaitingApprovalRequests" label="Awaiting Approval Requests:"/>
+                	
                 </div>
                 <div class="ibm-col-12-6">
-                	<p>
-                        <label for="AwaitingApprovalRequestsHours">Hours:</label>
-                        <span>
-                            <input type="text" value="" size="40" name="AwaitingApprovalRequestsHours" disabled>
-                        </span>
-                    </p>
+                	
+                	<x-ibmv18form-input name="ApprovedRequestsHours" label="Hours:"/>
+                	
                 </div>
                 <div class="ibm-col-12-6">
-                	<p>
-                        <label for="ApprovedRequests">Approved Requests:</label>
-                        <span>
-                            <input type="text" value="" size="40" name="ApprovedRequests" disabled>
-                        </span>
-                    </p>
+                	
+                	<x-ibmv18form-input name="ApprovedRequests" label="Approved Requests:"/>
+                	
                 </div>
                 <div class="ibm-col-12-6">
-                	<p>
-                        <label for="ApprovedRequestsHours">Hours:</label>
-                        <span>
-                            <input type="text" value="" size="40" name="ApprovedRequestsHours" disabled>
-                        </span>
-                    </p>
+                	
+                	<x-ibmv18form-input name="AwaitingApprovalRequestsHours" label="Hours:"/>
+                	
                 </div>
                 <div class="ibm-col-12-6">
-                	<p>
-                        <label for="OtherRequests">Other Requests:</label>
-                        <span>
-                            <input type="text" value="" size="40" name="OtherRequests" disabled>
-                        </span>
-                    </p>
+                	
+                	<x-ibmv18form-input name="OtherRequests" label="Other Requests:"/>
+                	
                 </div>
                 <div class="ibm-col-12-6">
-                	<p>
-                        <label for="OtherRequestsHours">Hours:</label>
-                        <span>
-                            <input type="text" value="" size="40" name="OtherRequestsHours" disabled>
-                        </span>
-                    </p>
+                	
+                	<x-ibmv18form-input name="OtherRequestsHours" label="Hours:"/>
+                	
                 </div>
            	</div>
 		{{ Form::close() }}
