@@ -23,8 +23,6 @@ class Index extends Controller
             
         );
         
-        var_dump(\PDO::getAvailableDrivers());
-        
         return view('access', $data);
     }
 }

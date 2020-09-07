@@ -24,9 +24,9 @@ Route::get('/p_readerOnly.php', 'Requests@readOnlyIndex')->name('readOnlyList');
 Route::get('/p_manage.php', function() {
     return redirect()->route('list');
 });
-Route::get('/p_readerOnly.php', function() {
-   return redirect()->route('list'); 
-});
+// Route::get('/p_readerOnly.php', function() {
+//    return redirect()->route('list'); 
+// });
 
 
 // Route::permanentRedirect('/p_readerOnly.php', '/p_manageNew.php');
