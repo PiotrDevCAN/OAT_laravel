@@ -15,85 +15,24 @@
                 	
                 </div>
                 <div class="ibm-col-12-4">
-                    <p class="ibm-form-elem-grp">
-                        <label>Service Line:</label>
-                        <span>
-                            <select id="ServiceLine" class="ibm-fullwidth">
-                                <option value="" selected>All SL</option>
-                            	@foreach ($serviceLines as $serviceLine)
-                            	<option value="{{ $serviceLine->competency }}">{{ $serviceLine->competency }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                    <p class="ibm-form-elem-grp">
-                        <label>Status:</label>
-                        <span>
-                            <select id="Status" class="ibm-fullwidth">
-                                <option value="" selected>All Statuses</option>
-                            	@foreach ($statuses as $status)
-                            	<option value="{{ $status->status }}">{{ $status->status }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                    <p class="ibm-form-elem-grp">
-                        <label>Requestor:</label>
-                        <span>
-                            <select id="Requestor" class="ibm-fullwidth">
-                                <option value="" selected>All Requestors</option>
-                            	@foreach ($requestors as $requestor)
-                            	<option value="{{ $requestor->requestor }}">{{ $requestor->requestor }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                    <p class="ibm-form-elem-grp">
-                        <label>Location:</label>
-                        <span>
-                            <select id="Location" class="ibm-fullwidth">
-                                <option value="" selected>All Locations</option>
-                            	@foreach ($locations as $location)
-                            	<option value="{{ $location->location }}">{{ $location->location }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
+                
+                	<x-ibmv18form-select name="Service Line" label="ServiceLine:" :arrayOfSelectableValues="$serviceLine"/>
+                
+                	<x-ibmv18form-select name="Status" label="Status:" :arrayOfSelectableValues="$statuses"/>
+                	
+                	<x-ibmv18form-select name="Requestor" label="Requestor:" :arrayOfSelectableValues="$requestors"/>
+                	
+                	<x-ibmv18form-select name="Location" label="Location:" :arrayOfSelectableValues="$locations"/>
+                	
                 </div>
                 <div class="ibm-col-12-4">
-                    <p class="ibm-form-elem-grp">
-                        <label>Weekend >=:</label>
-                        <span>
-                            <select id="WeekendStart" class="ibm-fullwidth">
-                                <option value="" selected>All Dates</option>
-                            	@foreach ($weekenddates as $weekenddate)
-                            	<option value="{{ $weekenddate->weekenddate }}">{{ $weekenddate->weekenddate }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                    <p class="ibm-form-elem-grp">
-                        <label>Weekend <=:</label>
-                        <span>
-                            <select id="WeekendEnd" class="ibm-fullwidth">
-                                <option value="" selected>All Dates</option>
-                            	@foreach ($weekenddates as $weekenddate)
-                            	<option value="{{ $weekenddate->weekenddate }}">{{ $weekenddate->weekenddate }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                    <p class="ibm-form-elem-grp">
-                        <label>Import:</label>
-                        <span>
-                            <select id="Import" class="ibm-fullwidth">
-                                <option value="" selected>All</option>
-                            	@foreach ($imports as $import)
-                            	<option value="{{ $import->import }}">{{ $import->import }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
+                	
+                	<x-ibmv18form-select name="WeekendStart" label="Weekend >=:" :arrayOfSelectableValues="$weekenddates"/>
+                	
+                	<x-ibmv18form-select name="WeekendEnd" label="Weekend <=:" :arrayOfSelectableValues="$weekenddates"/>
+                	
+                	<x-ibmv18form-select name="Import" label="Import:" :arrayOfSelectableValues="$imports"/>
+                	
                 </div>
     		</div>
 			<div class="ibm-fluid">
@@ -103,43 +42,13 @@
             </div>
 			<div class="ibm-fluid">
                 <div class="ibm-col-12-4">
-                	<p class="ibm-form-elem-grp">
-                        <label>1st Level:</label>
-                        <span>
-                            <select id="FirstApprover" class="ibm-fullwidth">
-                                <option value="" selected>All Approvers</option>
-                            	@foreach ($firstApprovers as $firstApprover)
-                            	<option value="{{ $firstApprover->approver_first_level }}">{{ $firstApprover->approver_first_level }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                </div>
-                <div class="ibm-col-12-4">
-                	<p class="ibm-form-elem-grp">
-                        <label>2nd Level:</label>
-                        <span>
-                            <select id="SecondApprover" class="ibm-fullwidth">
-                                <option value="" selected>All Approvers</option>
-                            	@foreach ($secondApprovers as $secondApprover)
-                            	<option value="{{ $secondApprover->approver_second_level }}">{{ $secondApprover->approver_second_level }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
-                </div>
-                <div class="ibm-col-12-4">
-                	<p class="ibm-form-elem-grp">
-                        <label>3rd Level:</label>
-                        <span>
-                            <select id="ThirdApprover" class="ibm-fullwidth">
-                                <option value="" selected>All Approvers</option>
-                            	@foreach ($thirdApprovers as $thirdApprover)
-                            	<option value="{{ $thirdApprover->approver_third_level }}">{{ $thirdApprover->approver_third_level }}</option>
-                            	@endforeach
-                            </select>
-                        </span>
-                    </p>
+                	
+                	<x-ibmv18form-select name="FirstApprover" label="1st Level:" :arrayOfSelectableValues="$firstApprovers"/>
+                	
+                	<x-ibmv18form-select name="SecondApprover" label="2nd Level:" :arrayOfSelectableValues="$secondApprovers"/>
+                	
+                	<x-ibmv18form-select name="ThirdApprover" label="3rd Level:" :arrayOfSelectableValues="$thirdApprovers"/>
+                	
                 </div>
            	</div>
            	<div class="ibm-fluid">
