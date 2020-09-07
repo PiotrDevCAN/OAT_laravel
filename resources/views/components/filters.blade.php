@@ -16,7 +16,7 @@
                 </div>
                 <div class="ibm-col-12-4">
                 
-                	<x-ibmv18form-select name="Service Line" label="ServiceLine:" :arrayOfSelectableValues="$serviceLine"/>
+                	<x-ibmv18form-select name="Service Line" label="ServiceLine:" :arrayOfSelectableValues="$serviceLines"/>
                 
                 	<x-ibmv18form-select name="Status" label="Status:" :arrayOfSelectableValues="$statuses"/>
                 	
