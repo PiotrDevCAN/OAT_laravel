@@ -2,9 +2,7 @@
     <div class="ibm-parent" id="ibm-navigation">
  
         <ul aria-labelledby="ibm-pagetitle-h1" role="tree" id="ibm-primary-links">
-            <li id="ibm-parent-link" role="presentation"><a href="http://localhost/OAT_laravel/public" role="treeitem">Optional parent link</a> </li>
-            
-            <li id="ibm-overview" role="presentation"><a href="http://localhost/OAT_laravel/public" role="treeitem">Home</a> </li>
+            <li id="ibm-overview" role="presentation"><a href="/" role="treeitem">Home</a> </li>
             <li role="presentation"><a href="p_request.php" role="treeitem">Request</a></li>
             <li role="presentation"><a href="p_manage.php" role="treeitem">Status</a></li>
             <li role="presentation"><a href="p_readerOnly.php" role="treeitem">Read Only</a></li>

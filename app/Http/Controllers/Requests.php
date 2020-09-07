@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Route;
 
 set_time_limit(7200);
 
@@ -16,6 +17,16 @@ class Requests extends Controller
     
     public function indexNew()
     {
+        
+        $route = Route::current();
+        
+        $name = Route::currentRouteName();
+        
+        $action = Route::currentRouteAction();
+        
+        dd($route);
+        dd($name);
+        dd($action);
         
         /*
         parent::getVals ();
