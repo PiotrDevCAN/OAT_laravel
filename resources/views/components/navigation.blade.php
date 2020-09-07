@@ -1,3 +1,3 @@
-<div>
-    <!-- Simplicity is an acquired taste. - Katharine Gerould -->
-</div>
+<!-- NAVIGATION_BEGIN -->
+
+<!-- NAVIGATION_END -->
