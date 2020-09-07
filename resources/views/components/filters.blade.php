@@ -85,7 +85,7 @@
                 </div>
                 <div class="ibm-col-12-6">
                 	
-                	<x-ibmv18form-input :name="OtherRequests" label="Other Requests:"/>
+                	<x-ibmv18form-input name="OtherRequests" label="Other Requests:"/>
                 	
                 </div>
                 <div class="ibm-col-12-6">
