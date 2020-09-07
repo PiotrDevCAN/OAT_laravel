@@ -60,8 +60,9 @@ class Filters extends Component
             ->distinct()
             ->get();
         
-            
-            dd($this->accounts);
+            echo '<pre>';
+            print_r($this->accounts);
+            echo '</pre>';
     }
 
     /**
