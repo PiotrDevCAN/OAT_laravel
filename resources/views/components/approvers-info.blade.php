@@ -45,3 +45,7 @@
 </td>
 
 
+{{-- Html::mailto('foo@bar.baz') --}}
+        
+
+
