@@ -70,17 +70,17 @@
                 </div>
                 <div class="ibm-col-12-6">
                 	
-                	<x-ibmv18form-input :name="ApprovedRequestsHours" label="Hours:"/>
+                	<x-ibmv18form-input name="ApprovedRequestsHours" label="Hours:"/>
                 	
                 </div>
                 <div class="ibm-col-12-6">
                 	
-                	<x-ibmv18form-input :name="ApprovedRequests" label="Approved Requests:"/>
+                	<x-ibmv18form-input name="ApprovedRequests" label="Approved Requests:"/>
                 	
                 </div>
                 <div class="ibm-col-12-6">
                 	
-                	<x-ibmv18form-input :name="AwaitingApprovalRequestsHours" label="Hours:"/>
+                	<x-ibmv18form-input name="AwaitingApprovalRequestsHours" label="Hours:"/>
                 	
                 </div>
                 <div class="ibm-col-12-6">
@@ -90,7 +90,7 @@
                 </div>
                 <div class="ibm-col-12-6">
                 	
-                	<x-ibmv18form-input :name="OtherRequestsHours" label="Hours:"/>
+                	<x-ibmv18form-input name="OtherRequestsHours" label="Hours:"/>
                 	
                 </div>
            	</div>
