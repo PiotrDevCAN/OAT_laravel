@@ -15,7 +15,6 @@
                 	
                 </div>
                 <div class="ibm-col-12-4">
-                	<x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Service Line:</label>
                         <span>
@@ -27,7 +26,6 @@
                             </select>
                         </span>
                     </p>
-                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Status:</label>
                         <span>
@@ -39,7 +37,6 @@
                             </select>
                         </span>
                     </p>
-                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Requestor:</label>
                         <span>
@@ -51,7 +48,6 @@
                             </select>
                         </span>
                     </p>
-                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Location:</label>
                         <span>
@@ -65,7 +61,6 @@
                     </p>
                 </div>
                 <div class="ibm-col-12-4">
-                	<x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Weekend >=:</label>
                         <span>
@@ -77,7 +72,6 @@
                             </select>
                         </span>
                     </p>
-                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Weekend <=:</label>
                         <span>
@@ -89,7 +83,6 @@
                             </select>
                         </span>
                     </p>
-                    <x-ibmv18form-select/>
                     <p class="ibm-form-elem-grp">
                         <label>Import:</label>
                         <span>
@@ -110,7 +103,6 @@
             </div>
 			<div class="ibm-fluid">
                 <div class="ibm-col-12-4">
-                	<x-ibmv18form-select/>
                 	<p class="ibm-form-elem-grp">
                         <label>1st Level:</label>
                         <span>
@@ -124,7 +116,6 @@
                     </p>
                 </div>
                 <div class="ibm-col-12-4">
-                	<x-ibmv18form-select/>
                 	<p class="ibm-form-elem-grp">
                         <label>2nd Level:</label>
                         <span>
@@ -138,7 +129,6 @@
                     </p>
                 </div>
                 <div class="ibm-col-12-4">
-                	<x-ibmv18form-select/>
                 	<p class="ibm-form-elem-grp">
                         <label>3rd Level:</label>
                         <span>
