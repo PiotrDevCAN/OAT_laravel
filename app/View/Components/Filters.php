@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Request;
 
 class Filters extends Component
 {
@@ -52,7 +53,11 @@ class Filters extends Component
             ->distinct()
             ->get();
         
+        $request = \App\Request::class;
+            
         $data = array(
+            
+            'request' => $request,
             
             'accounts' => $accounts,
             'reasons' => $reasons,

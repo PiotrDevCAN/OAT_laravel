@@ -8,7 +8,7 @@
 {!! Form::close() !!}
 
 
-{!! Form::model($user, ['route' => ['user.update', $user->id]]) !!}
+{!! Form::model($request, ['route' => ['list']]) !!}
 
 {!! Form::close() !!}
 
