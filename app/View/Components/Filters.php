@@ -53,12 +53,7 @@ class Filters extends Component
             ->distinct()
             ->get();
         
-        $request = new Request();
-            
         $data = array(
-            
-            'request' => $request,
-            
             'accounts' => $accounts,
             'reasons' => $reasons,
             'names' => $names,
