@@ -65,7 +65,7 @@
 			<div class="ibm-fluid">
                 <div class="ibm-col-12-6">
                 	
-                	<x-ibmv18form-input :name="AwaitingApprovalRequests" label="Awaiting Approval Requests:"/>
+                	<x-ibmv18form-input name="AwaitingApprovalRequests" label="Awaiting Approval Requests:"/>
                 	
                 </div>
                 <div class="ibm-col-12-6">
