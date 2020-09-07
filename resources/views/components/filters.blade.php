@@ -2,7 +2,7 @@
     <div class="ibm-card__content">
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Status List Filters</h3>
      	
-		{!! Form::open(['route' => 'list', 'id' => 'myForm', 'class'  => 'ibm-row-form' ]) !!}
+		{ Form::open(['route' => 'list', 'id' => 'myForm', 'class'  => 'ibm-row-form' ]) }
    
 			<div class="ibm-fluid">
                 <div class="ibm-col-12-4">
@@ -234,7 +234,7 @@
                     </p>
                 </div>
            	</div>
-		{!! Form::close() !!}
+		{ Form::close() }
 
 		{{ Html::mailto('foo@bar.baz') }}
         
