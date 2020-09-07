@@ -7,6 +7,7 @@ use App\View\Components\IbmV18Form\Input;
 use App\View\Components\IbmV18Form\Select;
 use App\View\Components\IbmV18Form\Textarea;
 use Illuminate\Support\Facades\Blade;
+use App\View\Components\IbmV18Form\Button;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('ibmv18form-input', Input::class);
         Blade::component('ibmv18form-select', Select::class);
         Blade::component('ibmv18form-textarea', Textarea::class);
+        Blade::component('ibmv18form-button', Button::class);
     }
 }
