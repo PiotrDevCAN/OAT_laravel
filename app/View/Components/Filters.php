@@ -43,7 +43,6 @@ class Filters extends Component
         $this->locations = \App\Request::select('location as value')->distinct()->get();
         
         $this->weekenddates = \App\Request::select('weekenddate as value')
-            ->where('weekenddate', '<>', '')
             ->distinct()
             ->get();
         $this->imports = \App\Request::select('import as value')
