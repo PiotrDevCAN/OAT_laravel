@@ -32,37 +32,33 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->accounts = \App\Request::select('account')->distinct()->get();
-        $this->reasons = \App\Request::select('nature')->distinct()->get();
-        $this->names = \App\Request::select('worker')->distinct()->get();
-        $this->types = \App\Request::select('approvaltype')->distinct()->get();
+        $this->accounts = \App\Request::select('account as value')->distinct()->get();
+        $this->reasons = \App\Request::select('nature as value')->distinct()->get();
+        $this->names = \App\Request::select('worker as value')->distinct()->get();
+        $this->types = \App\Request::select('approvaltype as value')->distinct()->get();
         
-        $this->serviceLines = \App\Request::select('competency')->distinct()->get();
-        $this->statuses = \App\Request::select('status')->distinct()->get();
-        $this->requestors = \App\Request::select('requestor')->distinct()->get();
-        $this->locations = \App\Request::select('location')->distinct()->get();
+        $this->serviceLines = \App\Request::select('competency as value')->distinct()->get();
+        $this->statuses = \App\Request::select('status as value')->distinct()->get();
+        $this->requestors = \App\Request::select('requestor as value')->distinct()->get();
+        $this->locations = \App\Request::select('location as value')->distinct()->get();
         
-        $this->weekenddates = \App\Request::select('weekenddate')->distinct()->get();
-        $this->imports = \App\Request::select('import')->distinct()->get();
+        $this->weekenddates = \App\Request::select('weekenddate as value')->distinct()->get();
+        $this->imports = \App\Request::select('import as value')->distinct()->get();
         
-        $this->firstApprovers = \App\Request::select('approver_first_level')
+        $this->firstApprovers = \App\Request::select('approver_first_level as value')
             ->where('approver_first_level', '<>', '')
             ->distinct()
             ->get();
         
-        $this->secondApprovers = \App\Request::select('approver_second_level')
+        $this->secondApprovers = \App\Request::select('approver_second_level as value')
             ->where('approver_second_level', '<>', '')
             ->distinct()
             ->get();
         
-        $this->thirdApprovers = \App\Request::select('approver_third_level')
+        $this->thirdApprovers = \App\Request::select('approver_third_level as value')
             ->where('approver_third_level', '<>', '')
             ->distinct()
             ->get();
-        
-            echo '<pre>';
-            print_r($this->accounts);
-            echo '</pre>';
     }
 
     /**
