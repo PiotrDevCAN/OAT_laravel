@@ -45,8 +45,14 @@
                 	
                 	<x-ibmv18form-select name="FirstApprover" label="1st Level:" :arrayOfSelectableValues="$firstApprovers"/>
                 	
+                </div>
+                <div class="ibm-col-12-4">
+                	
                 	<x-ibmv18form-select name="SecondApprover" label="2nd Level:" :arrayOfSelectableValues="$secondApprovers"/>
                 	
+                </div>
+                <div class="ibm-col-12-4">
+                
                 	<x-ibmv18form-select name="ThirdApprover" label="3rd Level:" :arrayOfSelectableValues="$thirdApprovers"/>
                 	
                 </div>
