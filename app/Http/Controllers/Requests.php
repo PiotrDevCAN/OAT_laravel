@@ -24,7 +24,9 @@ class Requests extends Controller
         
         $action = Route::currentRouteAction();
         
-        dd($route, $name, $action);
+        $routes = Route::getRoutes();
+        
+        dd($route, $name, $action, $routes);
         
         /*
         parent::getVals ();
