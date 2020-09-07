@@ -11,6 +11,11 @@ class Select extends Component
     public $label;
     public $arrayOfSelectableValues;
     
+    public static $selectDisplayValueReturnValue = 'displayValueReturnValue';
+    public static $selectDisplayValueReturnKey   = 'displayValueReturnKey';
+    public static $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
+    public static $selectAcceptMultipleValues    = true;
+    
     /**
      * Create a new component instance.
      *

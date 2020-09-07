@@ -59,6 +59,9 @@ class Filters extends Component
             ->where('approver_third_level', '<>', '')
             ->distinct()
             ->get();
+        
+            
+            dd($this->accounts);
     }
 
     /**

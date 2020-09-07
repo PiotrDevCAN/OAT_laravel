@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 set_time_limit(7200);
 
@@ -50,22 +51,49 @@ class Requests extends Controller
         return $rs;
         */
         
+//         $cacheKey = md5($_SESSION['prefix'].'awaiting');
+//         $awaiting = Cache::get($cacheKey);
+        
+//         $cacheKey = md5($_SESSION['prefix'].'approved');
+//         $approved = Cache::get($cacheKey);
+        
+//         $cacheKey = md5($_SESSION['prefix'].'other');
+//         $other = Cache::get($cacheKey);
+        
+//         $selectCheck = $this->memcache->get($cacheKey);
+//         if($selectCheck === false){
+//             $counter = 0;
+//             $sql = "SELECT COUNT(DISTINCT MASTER_COOKBOOK.REF) AS COUNTER FROM " . AllTables::$MASTER_COOKBOOK . " MASTER_COOKBOOK";
+            
+//             $sql .= $this->addPredicate($userPredicate, $active);
+            
+//             $stmt = db2_prepare($_SESSION['conn'], $sql);
+//             $result = db2_execute ( $stmt );
+//             if ($result) {
+//                 while (db2_fetch_row($stmt)) {
+//                     $counter = db2_result($stmt, 'COUNTER');
+//                 }
+//             }
+            
+//             $this->memcache->set($cacheKey, $counter, MEMCACHE_COMPRESSED, 3600);
+//         } else {
+//             $counter = $this->memcache->get($cacheKey);
+//         }
+        
+        
         
         $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
-//             ->limit(10)
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->get();
         
         $approved = \App\Request::where('status', 'Approved')
-//             ->limit(10)
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->get();
         
         $other = \App\Request::where('status',  'not like', 'Awaiting%')
             ->where('status', '<>', 'Approved')
-//             ->limit(10)
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->get();
@@ -86,9 +114,8 @@ class Requests extends Controller
         $approved = \App\Request::where('status', 'Approved')->limit(10)->get();
         
         $other = \App\Request::where('status',  'not like', 'Awaiting%')
-        ->where('status', '<>', 'Approved')
-        ->limit(10)
-        ->get();
+            ->where('status', '<>', 'Approved')
+            ->get();
         
         $data = array(
             'awaiting' => $awaiting,
