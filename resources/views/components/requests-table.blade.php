@@ -36,13 +36,25 @@
                     <td>{{ $record->title }}</td>
                     <td>{{ Str::limit($record->details, 50, ' (...)') }}</td>
                     <td>{{ $record->weekenddate }}</td>
-                    <td><a href="mailto:{{ $record->worker }}">{{ $record->worker }}</a></td>
+                    <td>
+                    @if (Str::contains($record->>worker, '@'))
+                        {{ Html::mailto(trim($record->>worker)) }}
+                    @else
+            	        {{ $record->>worker }}
+                    @endif
+                	</td>
                     <td>{{ $record->serial }}</td>
                     <td>{{ $record->location }}</td>
                     <td>{{ $record->hours }}</td>
                     <td>{{ $record->status }}</td>
                     <x-approvers-info :record="$record"/>
-                    <td><a href="mailto:{{ trim($record->requestor) }}">{{ trim($record->requestor) }}</a></td>
+                    <td>
+                    @if (Str::contains($record->requestor, '@'))
+                        {{ Html::mailto(trim($record->requestor)) }}
+                    @else
+            	        {{ $record->requestor }}
+                    @endif
+                	</td>
                     <td><a href="p_request.php?ref={{ $record->supercedes }}">{{ $record->supercedes }}</a>
                     <td><a href="p_request.php?ref={{ $record->supercededby }}">{{ $record->supercededby }}</a></td>
                     <td>{{ $record->claim_acc_id }}</td>
