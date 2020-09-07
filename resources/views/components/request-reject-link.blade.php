@@ -1,1 +1,1 @@
-<a href="p_approveNe2.php?ref="{{ $record->reference }}&cat=1&status=Rejected&via=online" target="_blank" class="ibm-close-link">Reject</a>
+<a href="p_approveNe2.php?ref="{{ $record->reference }}&cat=1&status=Rejected&via=online" target="_blank" title="Reject Request" class="ibm-inlinelink ibm-close-link">Reject</a>

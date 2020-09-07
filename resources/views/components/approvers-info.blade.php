@@ -22,7 +22,6 @@
     @endempty
     @if ($app1)
 		<p class="ibm-padding-bottom-0">
-		{{ $app1 }}
 		<x-request-approve-link :record="$record"/>
 		<x-request-reject-link :record="$record"/>
 		</p>
