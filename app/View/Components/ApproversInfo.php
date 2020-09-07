@@ -87,7 +87,7 @@ class ApproversInfo extends Component
                 $col2 = 'yellow';
                 $lvl2Line1 = "Waiting on 1st Level:";
                 $lvl2Line2 = "2nd Level approver is:";
-                $lvl2Line3 = $this->record->approver_second_level
+                $lvl2Line3 = $this->record->approver_second_level;
                 $app2 = null;
                 
                 $col3 = 'yellow';
