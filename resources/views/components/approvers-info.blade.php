@@ -20,6 +20,13 @@
     	<x-mailto-link :email="$lvl1Line4"/>
     	</p>
     @endempty
+    @if ($app1)
+		<p class="ibm-padding-bottom-0">
+		{{ $app1 }}
+		<x-request-approve-link :record="$record"/>
+		<x-request-reject-link :record="$record"/>
+		</p>
+	@endif
 </td>
 {{-- <td bgcolor="{{ $col2 }}">&nbsp;</td> --}}
 <td align='center'>
@@ -43,6 +50,12 @@
 		<x-mailto-link :email="$lvl2Line4"/>
 		</p>
     @endempty
+    @if ($app2)
+    	<p class="ibm-padding-bottom-0">
+		<x-request-approve-link :record="$record"/>
+		<x-request-reject-link :record="$record"/>
+		</p>
+	@endif
 </td>
 {{-- <td bgcolor="{{ $col3 }}">&nbsp;</td> --}}
 <td align='center'>
@@ -65,5 +78,11 @@
     	<p class="ibm-padding-bottom-0">
     	<x-mailto-link :email="$lvl3Line4"/>
     	</p>
-    @endempty
+	@endempty
+	@if ($app3)
+		<p class="ibm-padding-bottom-0">
+		<x-request-approve-link :record="$record"/>
+		<x-request-reject-link :record="$record"/>
+		</p>
+	@endif
 </td>
