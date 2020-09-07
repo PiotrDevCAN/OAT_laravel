@@ -33,11 +33,6 @@ class ApproversInfo extends Component
      */
     public function render()
     {
-        
-        /*
-         * {{-- Html::mailto('foo@bar.baz') --}}
-         */
-        
         $this->record->APPROVER_FIRST_LEVEL = trim($this->record->APPROVER_FIRST_LEVEL);
         $this->record->APPROVER_SECOND_LEVEL = trim($this->record->APPROVER_SECOND_LEVEL);
         $this->record->APPROVER_THIRD_LEVEL = trim($this->record->APPROVER_THIRD_LEVEL);
@@ -62,19 +57,19 @@ class ApproversInfo extends Component
                 
                 $col1 = 'green';                
                 $lvl1Line1 = "Approved by :";
-                $lvl1Line2 = "<a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a>";
+                $lvl1Line2 = $this->record->approver_first_level;
                 $lvl1Line3 = substr ( $this->record->approver_first_level_ts, 0, 16 );                
                 $app1 = null;
                 
                 $col2 = 'green';                
                 $lvl2Line1 = "Approved by :";
-                $lvl2Line2 = "<a href='mailto:" . trim ( $this->record->approver_second_level ) . "'>" . trim( $this->record->approver_second_level ) . "</a>";
+                $lvl2Line2 = $this->record->approver_second_level;
                 $lvl2Line3 = substr ( $this->record->approver_second_level_ts, 0, 16 );
                 $app2 = null;
                 
                 $col3 = 'green';                
                 $lvl3Line1 = "Approved by :";
-                $lvl3Line2 = "<a href='mailto:" . trim ( $this->record->approver_third_level ) . "'>" . trim( $this->record->approver_third_level ) . "</a>";
+                $lvl3Line2 = $this->record->approver_third_level;
                 $lvl3Line3 = substr ( $this->record->approver_third_level_ts, 0, 16 );
                 $app3 = null;
                 
@@ -83,7 +78,7 @@ class ApproversInfo extends Component
                 
                 $col1  = 'yellow';
                 $lvl1Line1 = "Waiting on:";
-                $lvl1Line2 = "<a href='mailto:" . trim($this->record->approver_first_level) . "'>" . trim($this->record->approver_first_level) . "</a>";
+                $lvl1Line2 = $this->record->approver_first_level;
                 $app1  = "<BR/><BR/><a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=1&amp;status=Approved&amp;via=online target='_blank'>Approve";
                 $app1 .= "<img src='images/icon-system-status-ok.gif' width='14' height='14' alt='approve' /></a>";
                 $app1 .= "&nbsp;&nbsp;<a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=1&amp;status=Rejected&amp;via=online target='_blank'>Reject";
@@ -92,13 +87,13 @@ class ApproversInfo extends Component
                 $col2 = 'yellow';
                 $lvl2Line1 = "Waiting on 1st Level:";
                 $lvl2Line2 = "2nd Level approver is:";
-                $lvl2Line3 = "<a href='mailto:" . trim($this->record->approver_second_level) . "'>" . trim($this->record->approver_second_level) . "</a>";
+                $lvl2Line3 = $this->record->approver_second_level
                 $app2 = null;
                 
                 $col3 = 'yellow';
                 $lvl3Line1 = "Waiting on 1st Level:";
                 $lvl3Line2 = "3rd Level approver is:";
-                $lvl3Line3 = "<a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
+                $lvl3Line3 = $this->record->approver_third_level;
                 $app3 = null;
                 
                 break;
@@ -106,13 +101,13 @@ class ApproversInfo extends Component
                 
                 $col1 = 'green';
                 $lvl1Line1 = "Approved by :";
-                $lvl1Line2 = "<a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a>";
+                $lvl1Line2 = $this->record->approver_first_level;
                 $lvl1Line3 = substr ( $this->record->approver_first_level_ts, 0, 16 );
                 $app1 = null;
                 
                 $col2 = 'yellow';
                 $lvl2Line1 = "Waiting on:";
-                $lvl2Line2 = "<a href='mailto:" . trim($this->record->approver_second_level) . "'>" . trim($this->record->approver_second_level) . "</a>";
+                $lvl2Line2 = $this->record->approver_second_level;
                 
                 $app2  = "<BR/><BR/><a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=2&amp;status=Approved&amp;via=online target='_blank'>Approve";
                 $app2 .= "<img src='images/icon-system-status-ok.gif' width='14' height='14' alt='approve' /></a>";
@@ -122,7 +117,7 @@ class ApproversInfo extends Component
                 $col3 = 'yellow';
                 $lvl3Line1 = "Waiting on 2nd Level:";
                 $lvl3Line2 = "3rd Level approver is:";
-                $lvl3Line3 = "<a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
+                $lvl3Line3 = $this->record->approver_third_level;
                 $app3 = null;
                 
                 break;
@@ -130,19 +125,19 @@ class ApproversInfo extends Component
                 
                 $col1 = 'green';
                 $lvl1Line1 = 'Approved by :';
-                $lvl1Line2 = "<a href='mailto:" . trim ( $this->record->approver_first_level ) . "'>" . trim ( $this->record->approver_first_level ) . "</a>";
+                $lvl1Line2 = $this->record->approver_first_level;
                 $lvl1Line3 = substr ( $this->record->approver_first_level_ts, 0, 16 );
                 $app1 = null;
                 
                 $col2 = 'green';
                 $lvl2Line1 = 'Approved by :';
-                $lvl2Line2 = "<a href='mailto:" . trim ( $this->record->approver_second_level ) . "'>" . trim ( $this->record->approver_second_level ) . "</a>";
+                $lvl2Line2 = $this->record->approver_second_level;
                 $lvl2Line3 = substr ( $this->record->approver_second_level_ts, 0, 16 );
                 $app2 = null;
                 
                 $col3 = 'yellow';
                 $lvl3Line1 = 'Waiting on:';
-                $lvl3Line2 = "<a href='mailto:" . trim($this->record->approver_third_level) . "'>" . trim($this->record->approver_third_level) . "</a>";
+                $lvl3Line2 = $this->record->approver_third_level;
                 
                 $app3  = "<BR/><BR/><a href=p_approveNe2.php?ref=" . $this->record->reference . "&amp;cat=3&amp;status=Approved&amp;via=online target='_blank'>Approve";
                 $app3 .= "<img src='images/icon-system-status-ok.gif' width='14' height='14' alt='approve' /></a>";
