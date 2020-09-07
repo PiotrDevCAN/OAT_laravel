@@ -37,11 +37,9 @@
                     <td>{{ Str::limit($record->details, 50, ' (...)') }}</td>
                     <td>{{ $record->weekenddate }}</td>
                     <td>
-                    @if (Str::contains($record->worker, '@'))
-                        {{ Html::mailto(trim($record->worker)) }}
-                    @else
-            	        {{ $record->worker }}
-                    @endif
+                    
+                    <x-mailto-link email="$record->worker"/>
+                    
                 	</td>
                     <td>{{ $record->serial }}</td>
                     <td>{{ $record->location }}</td>
