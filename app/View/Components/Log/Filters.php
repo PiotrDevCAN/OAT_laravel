@@ -30,7 +30,6 @@ class Filters extends Component
             ->get();
         
         $this->lastUpdaters = \App\Log::select('last_updated as value')
-            ->where('last_updated', '<>', '')
             ->distinct()
             ->get();
     }
