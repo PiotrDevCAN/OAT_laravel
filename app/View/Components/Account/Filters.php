@@ -9,7 +9,7 @@ class Filters extends Component
 {
     
     public $accounts;
-    public $aapprovers;
+    public $approvers;
     public $verified;
     public $locations;
     
@@ -25,7 +25,7 @@ class Filters extends Component
             ->distinct()
             ->get();
         
-        $this->aapprovers = \App\AccountApprover::select('approver as value')
+        $this->approvers = \App\AccountApprover::select('approver as value')
             ->where('approver', '<>', '')
             ->distinct()
             ->get();
