@@ -8,9 +8,9 @@ use App\Request;
 class Filters extends Component
 {
     
-    public $accounts;
-    public $reasons;
-    public $names;
+    public $logEntries;
+    public $lastUpdates;
+    public $lastUpdaters;
     
     /**
      * Create a new component instance.
@@ -19,18 +19,18 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->accounts = \App\Request::select('account as value')
-            ->where('account', '<>', '')
+        $this->logEntries = \App\Log::select('log_entry as value')
+            ->where('log_entry', '<>', '')
             ->distinct()
             ->get();
         
-        $this->reasons = \App\Request::select('nature as value')
-            ->where('nature', '<>', '')
+        $this->lastUpdates = \App\Log::select('last_updater as value')
+            ->where('last_updater', '<>', '')
             ->distinct()
             ->get();
         
-        $this->names = \App\Request::select('worker as value')
-            ->where('worker', '<>', '')
+        $this->lastUpdaters = \App\Log::select('last_updated as value')
+            ->where('last_updated', '<>', '')
             ->distinct()
             ->get();
     }
