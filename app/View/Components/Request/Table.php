@@ -40,6 +40,6 @@ class Table extends Component
      */
     public function render()
     {
-        return view('components.requests.table');
+        return view('components.request.table');
     }
 }
