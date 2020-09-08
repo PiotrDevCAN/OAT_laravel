@@ -4,6 +4,6 @@
 
 <x-delegate.filters/>
 
-<x-delegates.table name="delegateTable" :records="$records" />
+<x-delegate.table name="delegateTable" :records="$records" />
 
 @endsection
