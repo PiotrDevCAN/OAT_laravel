@@ -4,39 +4,6 @@
 
 <x-competency.filters/>
 
-<div class="ibm-fluid">
-    <div class="ibm-col-12-12">
-        <div class="ibm-card">
-            <div class="ibm-card__content">
-	        	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Service Lines list</h3>
-	        	
-	        	<table class="ibm-data-table" data-scrollaxis="x" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatable" id="serviceLinesTable">
-                    <thead>
-                        <tr>
-                            <th>Edit</th>
-                            <th>Service Line</th>
-                            <th>Approver</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($records as $record)
-                    <tr>
-                        <td>Edit Link</td>
-                        <td>{{ $record->competency }}</td>
-                        <td>{{ $record->approver }}</td>
-                        <td>Delete Link</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                    <tbody>
-                        
-                    </tbody>
-                </table>
-	        	
-	        </div>
-        </div>
-	</div>
-</div>
+<x-competency.table name="serviceLinesTable" :records="$records" />
 
 @endsection
