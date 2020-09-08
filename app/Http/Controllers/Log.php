@@ -8,7 +8,8 @@ class Log extends Controller
 {
     public function index()
     {
-        $records = \App\Log::limit(100)->get();
+        $records = \App\Log::limit(100)
+            ->get();
         
         $data = array(
             'records' => $records
