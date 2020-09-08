@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-filters/>
+<x-request.filters/>
 
 @endsection
 
