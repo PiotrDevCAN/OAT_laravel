@@ -15,7 +15,7 @@
             <tbody>
                 @foreach ($records as $record)
                 <tr>
-                    <td>Edit Link</td>
+                    <td>Edit Link </td>
                     <td>{{ $record->account }}</td>
                     <td>{{ $record->approver }}</td>
                     <td>{{ $record->verified }}</td>
