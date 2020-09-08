@@ -8,11 +8,11 @@
     			<li role="presentation"><span class="ibm-subnav-heading">{{ $key }}</span>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
-                        <li role="presentation"> <a href="{{ $subValue }}" role="treeitem">{{ $subKey }}</a> </li>
+                        <li role="presentation"> <a href="{{ $subValue }}" role="treeitem" @if (Route::current()->url == $subKey)aria-selected="true"@endif>{{ $subKey }}</a> </li>
                     	@endforeach
                     </ul>
                 @else
-                <li role="presentation"><a href="{{ $value }}" role="treeitem">{{ $key }}</a></li>
+                <li role="presentation"><a href="{{ $value }}" role="treeitem" @if (Route::current()->url == $key)aria-selected="true"@endif>{{ $key }}</a></li>
                 @endif
             @endforeach
         </ul>
