@@ -2,6 +2,8 @@
 
 @section('content')
 
+<x-competency.filters/>
+
 <div class="ibm-fluid">
     <div class="ibm-col-12-12">
         <div class="ibm-card">
