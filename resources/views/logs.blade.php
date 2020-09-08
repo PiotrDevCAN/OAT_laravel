@@ -4,6 +4,6 @@
 
 <x-log.filters/>
 
-<x-competency.table name="logTable" :records="$records" />
+<x-log.table name="logTable" :records="$records" />
 
 @endsection
