@@ -20,7 +20,12 @@ class Navigation extends Component
             'Request' => 'p_request.php',
             'Status' => 'p_manage.php',
             'Read Only' => 'p_readerOnly.php',
-            'Admin' => '',
+            'Admin' => array(
+                'Account' => 'p_account.php',
+                'Sevice Lines' => 'p_competency.php',
+                'Show delegates' => 'p_showDelegates.php',
+                'Log' => 'p_log.php'
+            ),
             'My Delegates' => 'p_delegate.php',
             'My Access' => 'p_myOatAccess.php'
         );
