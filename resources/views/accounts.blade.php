@@ -4,6 +4,6 @@
 
 <x-account.filters/>
 
-<x-account.table/>
+<x-account.table name="accountsTable"/>
 
 @endsection
