@@ -3,10 +3,14 @@
     <div class="ibm-card__content">
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Delegates List Filters</h3>
 		<div class="ibm-fluid">
+			<div class="ibm-col-12-4">
+            	<x-ibmv18form-select name="UserIntranet" label="User Intranet:" :arrayOfSelectableValues="$userIntranets"/>
+            </div>
             <div class="ibm-col-12-4">
-            	<x-ibmv18form-select name="Account" label="Account:" :arrayOfSelectableValues="$accounts"/>
-            	<x-ibmv18form-select name="Reason" label="Reason:" :arrayOfSelectableValues="$reasons"/>
-            	<x-ibmv18form-select name="Name" label="Name:" :arrayOfSelectableValues="$names"/>
+            	<x-ibmv18form-select name="DelegateIntranet" label="Delegate Intranet:" :arrayOfSelectableValues="$delegateIntranets"/>
+            </div>
+            <div class="ibm-col-12-4">
+            	<x-ibmv18form-select name="DelegateNotesId" label="Delegate Notes Id:" :arrayOfSelectableValues="$delegateNotesIds"/>
             </div>
 		</div>
     </div>

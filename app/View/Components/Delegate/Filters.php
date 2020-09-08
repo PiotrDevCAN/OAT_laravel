@@ -8,9 +8,9 @@ use App\Request;
 class Filters extends Component
 {
     
-    public $accounts;
-    public $reasons;
-    public $names;
+    public $userIntranets;
+    public $delegateIntranets;
+    public $delegateNotesIds;
     
     /**
      * Create a new component instance.
@@ -19,18 +19,18 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->accounts = \App\Request::select('account as value')
-            ->where('account', '<>', '')
+        $this->userIntranets = \App\Delegate::select('user_intranet as value')
+            ->where('user_intranet', '<>', '')
             ->distinct()
             ->get();
         
-        $this->reasons = \App\Request::select('nature as value')
-            ->where('nature', '<>', '')
+        $this->delegateIntranets = \App\Delegate::select('delegate_intranet as value')
+            ->where('delegate_intranet', '<>', '')
             ->distinct()
             ->get();
         
-        $this->names = \App\Request::select('worker as value')
-            ->where('worker', '<>', '')
+        $this->delegateNotesIds = \App\Delegate::select('delegate_notesid as value')
+            ->where('delegate_notesid', '<>', '')
             ->distinct()
             ->get();
     }
