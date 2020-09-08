@@ -22,8 +22,8 @@
     @endempty
     @if ($app1)
 		<p class="ibm-padding-bottom-0">
-		<x-request-approve-link :record="$record"/>
-		<x-request-reject-link :record="$record"/>
+		<x-request.approve-link :record="$record"/>
+		<x-request.reject-link :record="$record"/>
 		</p>
 	@endif
 </td>
@@ -51,8 +51,8 @@
     @endempty
     @if ($app2)
     	<p class="ibm-padding-bottom-0">
-		<x-request-approve-link :record="$record"/>
-		<x-request-reject-link :record="$record"/>
+		<x-request.approve-link :record="$record"/>
+		<x-request.reject-link :record="$record"/>
 		</p>
 	@endif
 </td>
@@ -80,8 +80,8 @@
 	@endempty
 	@if ($app3)
 		<p class="ibm-padding-bottom-0">
-		<x-request-approve-link :record="$record"/>
-		<x-request-reject-link :record="$record"/>
+		<x-request.approve-link :record="$record"/>
+		<x-request.reject-link :record="$record"/>
 		</p>
 	@endif
 </td>

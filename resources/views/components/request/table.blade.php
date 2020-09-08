@@ -41,7 +41,7 @@
                     <td>{{ $record->location }}</td>
                     <td>{{ $record->hours }}</td>
                     <td>{{ $record->status }}</td>
-                    <x-approvers-info :record="$record"/>
+                    <x-requests.approvers-info :record="$record"/>
                     <td><x-mailto-link :email="$record->requestor"/></td>
                     <td><a href="p_request.php?ref={{ $record->supercedes }}">{{ $record->supercedes }}</a>
                     <td><a href="p_request.php?ref={{ $record->supercededby }}">{{ $record->supercededby }}</a></td>
