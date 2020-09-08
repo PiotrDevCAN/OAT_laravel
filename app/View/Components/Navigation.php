@@ -18,7 +18,7 @@ class Navigation extends Component
     {
         $this->menuList = array(
             'Request' => 'p_request.php',
-            'Status' => 'p_manage.php',
+            'Status' => 'p_manageNew.php',
             'Read Only' => 'p_readerOnly.php',
             'Admin' => array(
                 'Account' => 'p_account.php',
