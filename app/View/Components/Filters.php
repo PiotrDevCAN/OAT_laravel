@@ -32,19 +32,50 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->accounts = \App\Request::select('account as value')->distinct()->get();
-        $this->reasons = \App\Request::select('nature as value')->distinct()->get();
-        $this->names = \App\Request::select('worker as value')->distinct()->get();
-        $this->types = \App\Request::select('approvaltype as value')->distinct()->get();
+        $this->accounts = \App\Request::select('account as value')
+            ->where('account', '<>', '')
+            ->distinct()
+            ->get();
         
-        $this->serviceLines = \App\Request::select('competency as value')->distinct()->get();
-        $this->statuses = \App\Request::select('status as value')->distinct()->get();
-        $this->requestors = \App\Request::select('requestor as value')->distinct()->get();
-        $this->locations = \App\Request::select('location as value')->distinct()->get();
+        $this->reasons = \App\Request::select('nature as value')
+            ->where('nature', '<>', '')
+            ->distinct()
+            ->get();
+        
+        $this->names = \App\Request::select('worker as value')
+            ->where('worker', '<>', '')
+            ->distinct()
+            ->get();
+        
+        $this->types = \App\Request::select('approvaltype as value')
+            ->where('approvaltype', '<>', '')
+            ->distinct()
+            ->get();
+        
+        $this->serviceLines = \App\Request::select('competency as value')
+            ->where('competency', '<>', '')
+            ->distinct()
+            ->get();
+        
+        $this->statuses = \App\Request::select('status as value')
+            ->where('status', '<>', '')
+            ->distinct()
+            ->get();
+        
+        $this->requestors = \App\Request::select('requestor as value')
+            ->where('requestor', '<>', '')
+            ->distinct()
+            ->get();
+        
+        $this->locations = \App\Request::select('location as value')
+            ->where('location', '<>', '')
+            ->distinct()
+            ->get();
         
         $this->weekenddates = \App\Request::select('weekenddate as value')
             ->distinct()
             ->get();
+        
         $this->imports = \App\Request::select('import as value')
             ->where('import', '<>', '')
             ->distinct()
