@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Request;
 
 use Illuminate\View\Component;
 
-class RequestsTable extends Component
+class Table extends Component
 {
     /**
      * The table name.
@@ -40,6 +40,6 @@ class RequestsTable extends Component
      */
     public function render()
     {
-        return view('components.requests-table');
+        return view('components.requests.table');
     }
 }

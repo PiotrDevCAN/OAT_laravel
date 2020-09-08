@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Request;
 
 use Illuminate\View\Component;
 use App\Request;
