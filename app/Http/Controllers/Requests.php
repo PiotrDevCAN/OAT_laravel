@@ -17,17 +17,6 @@ class Requests extends Controller
     
     public function indexNew()
     {
-        
-        $route = Route::current();
-        
-        $name = Route::currentRouteName();
-        
-        $action = Route::currentRouteAction();
-        
-        $routes = Route::getRoutes();
-        
-        dd($route, $name, $action, $routes);
-        
         /*
         parent::getVals ();
         
