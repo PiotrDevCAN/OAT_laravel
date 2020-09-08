@@ -1,7 +1,7 @@
 {{ Form::open(['route' => 'list', 'id' => 'myForm', 'class'  => 'ibm-row-form' ]) }}
 <div class="ibm-card">
     <div class="ibm-card__content">
-        <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Requests List Filters</h3>
+        <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Accounts List Filters</h3>
 		<div class="ibm-fluid">
             <div class="ibm-col-12-3">
             	<x-ibmv18form-select name="Account" label="Account:" :arrayOfSelectableValues="$accounts"/>
