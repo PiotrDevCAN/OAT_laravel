@@ -230,6 +230,6 @@ class ApproversInfo extends Component
             
         );
         
-        return view('components.approvers-info', $data);
+        return view('components.request.approvers-info', $data);
     }
 }
