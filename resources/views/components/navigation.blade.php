@@ -1,6 +1,6 @@
 <nav aria-labelledby="ibm-pagetitle-h1" role="navigation">
     <div class="ibm-parent" id="ibm-navigation">
- 
+ 		{{ Route::current()->url }}
         <ul aria-labelledby="ibm-pagetitle-h1" role="tree" id="ibm-primary-links">
             <li id="ibm-overview" role="presentation"><a href="/" role="treeitem">Home</a></li>
             @foreach ($menuList as $key => $value)
