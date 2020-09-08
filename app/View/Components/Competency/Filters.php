@@ -8,8 +8,8 @@ use App\Request;
 class Filters extends Component
 {
     
-    public $accounts;
-    public $reasons;
+    public $serviceLines;
+    public $approvers;
     
     /**
      * Create a new component instance.
@@ -18,13 +18,13 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->accounts = \App\Request::select('account as value')
-            ->where('account', '<>', '')
+        $this->serviceLines = \App\CompetencyApprover::select('competency as value')
+            ->where('competency', '<>', '')
             ->distinct()
             ->get();
         
-        $this->reasons = \App\Request::select('nature as value')
-            ->where('nature', '<>', '')
+        $this->approvers = \App\CompetencyApprover::select('approver as value')
+            ->where('approver', '<>', '')
             ->distinct()
             ->get();
     }
