@@ -104,6 +104,6 @@ class Filters extends Component
      */
     public function render()
     {
-        return view('components.filters');
+        return view('components.request.filters');
     }
 }
