@@ -3,11 +3,17 @@
     <div class="ibm-card__content">
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Requests List Filters</h3>
 		<div class="ibm-fluid">
-            <div class="ibm-col-12-4">
+            <div class="ibm-col-12-3">
             	<x-ibmv18form-select name="Account" label="Account:" :arrayOfSelectableValues="$accounts"/>
-            	<x-ibmv18form-select name="Reason" label="Reason:" :arrayOfSelectableValues="$reasons"/>
-            	<x-ibmv18form-select name="Name" label="Name:" :arrayOfSelectableValues="$names"/>
-            	<x-ibmv18form-select name="Type" label="Type" :arrayOfSelectableValues="$types"/>
+            </div>
+            <div class="ibm-col-12-3">
+            	<x-ibmv18form-select name="Approver" label="Approver:" :arrayOfSelectableValues="$approvers"/>
+            </div>
+            <div class="ibm-col-12-3">
+            	<x-ibmv18form-select name="Verified" label="Verified:" :arrayOfSelectableValues="$verified"/>
+            </div>
+            <div class="ibm-col-12-3">
+            	<x-ibmv18form-select name="Location" label="Location" :arrayOfSelectableValues="$locations"/>
             </div>
 		</div>
     </div>

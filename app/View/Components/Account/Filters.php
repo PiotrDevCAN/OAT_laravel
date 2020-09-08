@@ -9,9 +9,9 @@ class Filters extends Component
 {
     
     public $accounts;
-    public $reasons;
-    public $names;
-    public $types;
+    public $aapprovers;
+    public $verified;
+    public $locations;
     
     /**
      * Create a new component instance.
@@ -20,23 +20,23 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->accounts = \App\Request::select('account as value')
+        $this->accounts = \App\AccountApprover::select('account as value')
             ->where('account', '<>', '')
             ->distinct()
             ->get();
         
-        $this->reasons = \App\Request::select('nature as value')
-            ->where('nature', '<>', '')
+        $this->aapprovers = \App\AccountApprover::select('approver as value')
+            ->where('approver', '<>', '')
             ->distinct()
             ->get();
         
-        $this->names = \App\Request::select('worker as value')
-            ->where('worker', '<>', '')
+        $this->verified = \App\AccountApprover::select('verified as value')
+            ->where('location', '<>', '')
             ->distinct()
             ->get();
         
-        $this->types = \App\Request::select('approvaltype as value')
-            ->where('approvaltype', '<>', '')
+        $this->locations = \App\AccountApprover::select('location as value')
+            ->where('location', '<>', '')
             ->distinct()
             ->get();
     }
