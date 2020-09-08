@@ -8,7 +8,7 @@
     			<li role="presentation"><span class="ibm-subnav-heading">{{ $key }}</span>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
-                        <li role="presentation"> <a href="{{ $value }}" role="treeitem">{{ $key }}</a> </li>
+                        <li role="presentation"> <a href="{{ $subValue }}" role="treeitem">{{ $subKey }}</a> </li>
                     	@endforeach
                     </ul>
                 @else
