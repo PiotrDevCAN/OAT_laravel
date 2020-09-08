@@ -1,6 +1,6 @@
 <nav aria-labelledby="ibm-pagetitle-h1" role="navigation">
     <div class="ibm-parent" id="ibm-navigation">
- 		AAA {{ Route::current()->url }} AAA
+ 		AAA {{ Route::current()->uri }} AAA
          <ul aria-labelledby="ibm-pagetitle-h1" role="tree" id="ibm-primary-links">
             <li id="ibm-overview" role="presentation"><a href="/" role="treeitem">Home</a></li>
             @foreach ($menuList as $key => $value)
@@ -8,11 +8,11 @@
     			<li role="presentation"><span class="ibm-subnav-heading">{{ $key }}</span>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
-                        <li role="presentation"> <a href="{{ $subValue }}" role="treeitem" @if (Route::current()->url == $subKey)aria-selected="true"@endif>{{ $subKey }}</a> </li>
+                        <li role="presentation"> <a href="{{ $subValue }}" role="treeitem" @if (Route::current()->uri == $subKey)aria-selected="true"@endif>{{ $subKey }}</a> </li>
                     	@endforeach
                     </ul>
                 @else
-                <li role="presentation"><a href="{{ $value }}" role="treeitem" @if (Route::current()->url == $key)aria-selected="true"@endif>{{ $key }}</a></li>
+                <li role="presentation"><a href="{{ $value }}" role="treeitem" @if (Route::current()->uri == $key)aria-selected="true"@endif>{{ $key }}</a></li>
                 @endif
             @endforeach
         </ul>
