@@ -15,7 +15,7 @@ class Requests extends Controller
         return view('create');
     }
     
-    public function indexNew()
+    public function index()
     {
         /*
         parent::getVals ();
@@ -104,7 +104,7 @@ class Requests extends Controller
             'other' => $other
         );
         
-        return view('index_new', $data);
+        return view('index', $data);
     }
     
     public function readOnlyIndex()
@@ -118,6 +118,6 @@ class Requests extends Controller
             'approved' => $approved
         );
         
-        return view('index_new', $data);
+        return view('index', $data);
     }
 }

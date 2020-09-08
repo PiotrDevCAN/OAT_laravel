@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Index');
 Route::get('/p_request.php', 'Requests@create');
 
-// Route::get('/p_manage.php', 'Requests@indexNew');
-Route::get('/p_manageNew.php', 'Requests@indexNew')->name('list');
+// Route::get('/p_manage.php', 'Requests@index');
+Route::get('/p_manageNew.php', 'Requests@index')->name('list');
 Route::get('/p_readerOnly.php', 'Requests@readOnlyIndex')->name('readOnlyList');
 
 Route::get('/p_manage.php', function() {

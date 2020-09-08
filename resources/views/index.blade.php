@@ -2,11 +2,22 @@
 
 @section('content')
 
-<div class="ibm-fluid">
-    <div class="ibm-col-12-10">
-		<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Status</h3>
-		<h3 class="ibm-h3">Consider using 'Status - new' from the menu, as it performs faster</h3>
-	</div>
-</div>
+<x-filters/>
+
+@endsection
+
+@section('bottom-section')
+
+    @isset($awaiting)
+    	<x-requests-table name="Awaiting Approval" :records="$awaiting"/>
+    @endisset
+    
+    @isset($approved)
+    	<x-requests-table name="Approved" :records="$approved"/>
+    @endisset
+    
+    @isset($other)
+    	<x-requests-table name="Other" :records="$other"/>
+    @endisset
 
 @endsection

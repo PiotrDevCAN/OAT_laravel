@@ -14,8 +14,7 @@
                 <li role="presentation"><a href="{{ $value }}" role="treeitem" @if (Route::current()->uri == $value)aria-selected="true"@endif>{{ $key }}</a></li>
                 @endif
             @endforeach
-        </ul>
-         
+		</ul>
         <div id="ibm-secondary-navigation">
            	<h2>Related links</h2>
             <ul id="ibm-related-links">
@@ -24,6 +23,5 @@
                 <li role="presentation"><a href="https://w3.webahead.ibm.com/w3ki/display/PHPatIBM/Home">PHP@IBM Wiki</a></li>
             </ul>
         </div>
-     
     </div>
 </nav>
