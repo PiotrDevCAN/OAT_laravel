@@ -4,7 +4,7 @@
             <li id="ibm-overview" role="presentation"><a href="/" role="treeitem">Home</a></li>
             @foreach ($menuList as $key => $value)
                 @if (is_array($value))
-    			<li role="presentation"><span class="ibm-subnav-heading">{{ $key }}</span>
+    			<li role="presentation" aria-expanded="true" ><span class="ibm-subnav-heading">{{ $key }}</span>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
                         <li role="presentation"> <a href="{{ $subValue }}" role="treeitem" @if (Route::current()->uri == $subValue)aria-selected="true"@endif>{{ $subKey }}</a> </li>
