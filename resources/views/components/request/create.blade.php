@@ -28,23 +28,13 @@
                 <form id="create" class="ibm-column-form" method="post" action="">
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                        	<p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Name of individual working overtime</label>
-                                <span>
-                                    <input type="text" value="" size="100" id="__REPLACE_ME_1__" name="first_name">
-                                </span>
-                                <span class="ibm-bold">If changing this entry please allow time for Bluepages Auto Completion to work, it will overwrite this text and re-populate the two fields below.</span>
-                            </p>
+                        	<x-ibmv18form-input name="WORKER" label="Name of individual working overtime"/>
+                    	    <span class="ibm-bold">If changing this entry please allow time for Bluepages Auto Completion to work, it will overwrite this text and re-populate the two fields below.</span>
                         </div>
                     </div>
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Title <span class="ibm-required"></span></label>
-                                <span>
-                                    <input type="text" value="" size="100" id="__REPLACE_ME_1__" name="title">
-                                </span>
-                            </p>
+                        	<x-ibmv18form-input name="TITLE" label="Title"/>
                         </div>
                 	</div>
                 	<div class="ibm-fluid">
@@ -60,18 +50,18 @@
                 	<div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 	<div class="ibm-fluid">
                         <div class="ibm-col-12-6">
-                        	<x-ibmv18form-select name="COMPETENCY" label="Service Line of person working overtime:" :arrayOfSelectableValues="$logEntries"/>
-                            <x-ibmv18form-select name="ACCOUNT" label="Account:" :arrayOfSelectableValues="$logEntries"/>
-                            <x-ibmv18form-select name="LOCATION" label="IBM country of employment:" :arrayOfSelectableValues="$logEntries"/>
-                            <x-ibmv18form-select name="IMPORT" label="Is worker an Import to SO Delivery ?:" :arrayOfSelectableValues="$logEntries"/>
+                        	<x-ibmv18form-select name="COMPETENCY" label="Service Line of person working overtime" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="ACCOUNT" label="Account" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="IMPORT" label="Is worker an Import to SO Delivery ?" :arrayOfSelectableValues="$logEntries"/>
                             
                    		</div>
                         <div class="ibm-col-12-6">
-                            <x-ibmv18form-select name="RECOVERABLE" label="Recoverable:" :arrayOfSelectableValues="$logEntries"/>
-                            <x-ibmv18form-select name="NATURE" label="Nature:" :arrayOfSelectableValues="$logEntries"/>
-                            <x-ibmv18form-select name="WEEKENDDATE" label="Weekending:" :arrayOfSelectableValues="$logEntries"/>
-                            <x-ibmv18form-input name="HOURS" label="Hours required:"/>
-                            <x-ibmv18form-input name="CLAIM_ACC_ID" label="Claim Code/ Account Id:"/>
+                            <x-ibmv18form-select name="RECOVERABLE" label="Recoverable" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="NATURE" label="Nature" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="WEEKENDDATE" label="Weekending" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-input name="HOURS" label="Hours required"/>
+                            <x-ibmv18form-input name="CLAIM_ACC_ID" label="Claim Code/ Account Id"/>
 	                    </div>
                    </div>
                    
@@ -79,39 +69,24 @@
                    
                    <div class="ibm-fluid">
                        <div class="ibm-col-12-6">
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">1st Level Approver</label>
-                                <span>
-                                    <input type="text" value="Auto-populated upon submission." size="40" id="__REPLACE_ME_1__" name="title" disabled name="disabled">
-                                </span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">2nd Level Approver</label>
-                                <span>
-                                    <input type="text" value="Auto-populated upon submission." size="40" id="__REPLACE_ME_1__" name="title" disabled name="disabled">
-                                </span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">3rd Level Approver</label>
-                                <span>
-                                    <input type="text" value="Auto-populated upon submission." size="40" id="__REPLACE_ME_1__" name="title" disabled name="disabled">
-                                </span>
-                            </p>
+                       		<x-ibmv18form-input name="APPROVER_FIRST_LEVEL" label="1st Level Approver"/>
+                           	<x-ibmv18form-input name="APPROVER_SECOND_LEVEL" label="2nd Level Approver"/>
+                           	<x-ibmv18form-input name="APPROVER_THIRD_LEVEL" label="3rd Level Approver"/>
                        </div>
                        <div class="ibm-col-12-6">
                        		<p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Predicted 1st Level Approver</label>
+                                <label class="ibm-column-field-label ibm-bold" for="APPROVER_FIRST_CHECK">Predicted 1st Level Approver</label>
                                 <span id="APPROVER_FIRST_CHECK">
                                 Use Check Approvers option to discover who is suitable 1st Level Approver
                             	</span>
                             <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Predicted 2nd Level Approver</label>
+                                <label class="ibm-column-field-label ibm-bold" for="APPROVER_SECOND_CHECK">Predicted 2nd Level Approver</label>
                                 <span id="APPROVER_SECOND_CHECK">
                                 Use Check Approvers option to discover who is suitable 2nd Level Approver
                             	</span>
                             </p>
                             <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Predicted 3rd Level Approver</label>
+                                <label class="ibm-column-field-label ibm-bold" for="APPROVER_THIRD_CHECK">Predicted 3rd Level Approver</label>
                                 <span id="APPROVER_THIRD_CHECK">
 	                                Use Check Approvers option to discover who is suitable 3rd Level Approver
                                 </span>
