@@ -81,19 +81,35 @@ Route::prefix('access')->name('access.')->group(function () {
 
 // Legacy links
 Route::redirect('/index.html', '/');
+Route::get('/p_admin.php', 'Index@admin');
 
 Route::redirect('/p_request.php', function () {
     route('request.create');
 });
-Route::redirect('/p_manageNew.php', route('request.list'));
-Route::redirect('/p_readerOnly.php', route('request.list'));
-Route::redirect('/p_manage.php', route('request.list'));
-
-Route::get('/p_admin.php', 'Index@admin');
-Route::get('/p_account.php', route('account.list'));
-Route::get('/p_competency.php', route('competency.list'));
-Route::get('/p_showDelegates.php', route('delegate.list'));
-Route::get('/p_log.php', route('log.list'));
-
-Route::get('/p_delegate.php', route('delegate.list'));
-Route::get('/p_myOatAccess.php', route('access.list'));
+Route::redirect('/p_manage.php', function () {
+    route('request.list');
+});
+Route::redirect('/p_manageNew.php', function () {
+    route('request.list');
+});
+Route::redirect('/p_readerOnly.php', function () {
+    route('request.approved');
+});
+Route::get('/p_account.php', function () {
+    route('account.list');
+});
+Route::get('/p_competency.php', function () {
+    route('competency.list');
+});
+Route::get('/p_showDelegates.php', function () {
+    route('delegate.list');
+});
+Route::get('/p_log.php', function () {
+    route('log.list');
+});
+Route::get('/p_delegate.php', function () {
+    route('delegate.my');
+});
+Route::get('/p_myOatAccess.php', function () {
+    route('access.my');
+});

@@ -29,7 +29,7 @@ class Delegate extends Controller
         return view('components.delegate.index', $data);
     }
     
-    public function delegate()
+    public function my()
     {
         $data = array(
             
