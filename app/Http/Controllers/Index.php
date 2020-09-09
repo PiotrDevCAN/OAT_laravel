@@ -19,19 +19,11 @@ class Index extends Controller
     
     public function admin()
     {
-        $data = array(
-            
-        );
-        
-        return view('access', $data);
+        return view('admin');
     }
     
     public function access()
     {
-        $data = array(
-            
-        );
-        
-        return view('access', $data);
+        return view('access');
     }
 }
