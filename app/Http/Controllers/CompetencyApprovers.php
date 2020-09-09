@@ -14,6 +14,6 @@ class CompetencyApprovers extends Controller
             'records' => $records
         );
         
-        return view('competencies', $data);
+        return view('competency.index', $data);
     }
 }

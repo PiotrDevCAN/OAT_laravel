@@ -15,6 +15,6 @@ class Log extends Controller
             'records' => $records
         );
         
-        return view('logs', $data);
+        return view('log.index', $data);
     }
 }

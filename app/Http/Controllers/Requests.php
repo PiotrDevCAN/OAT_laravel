@@ -12,7 +12,16 @@ class Requests extends Controller
 {
     public function create()
     {   
-        return view('create');
+        $approved = \App\Request::where('status', 'Approved')
+        ->whereNull('delete_flag')
+        ->where('weekenddate', '>=', '2020-08-07')
+        ->get();
+        
+        $data = array(
+            'approved' => $approved
+        );
+        
+        return view('request.create', $data);
     }
     
     public function index()

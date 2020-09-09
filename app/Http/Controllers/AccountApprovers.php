@@ -14,6 +14,6 @@ class AccountApprovers extends Controller
             'records' => $records
         );
         
-        return view('accounts', $data);
+        return view('account.index', $data);
     }
 }

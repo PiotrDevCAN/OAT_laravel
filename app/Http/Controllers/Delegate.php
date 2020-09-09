@@ -14,7 +14,7 @@ class Delegate extends Controller
             'records' => $records
         );
         
-        return view('delegates', $data);
+        return view('delegate.index', $data);
     }
     
     public function delegate()
