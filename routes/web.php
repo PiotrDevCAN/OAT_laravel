@@ -18,7 +18,7 @@ Route::get('/', 'Index');
 
 // Requests
 Route::prefix('request')->name('request.')->group(function () {
-    Route::get('list', 'Requests@index')
+    Route::match(['get', 'post'], 'list', 'Requests@index')
         ->name('list');
         
     Route::get('approved', 'Requests@approvedList')
@@ -30,6 +30,7 @@ Route::prefix('request')->name('request.')->group(function () {
 
 // Accounts
 Route::prefix('account')->name('account.')->group(function () {
+    
     Route::get('list', 'AccountApprovers@index')
         ->name('list');
     
