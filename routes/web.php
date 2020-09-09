@@ -16,27 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 // Legacy links
 Route::get('/', 'Index');
+Route::redirect('/index.html', '/');
 
-Route::get('/index.html', 'Index');
-
-Route::get('/p_request.php', 'Requests@create');
-
-// Route::get('/p_manage.php', 'Requests@index');
-Route::get('/p_manageNew.php', 'Requests@index')
-    ->name('list');
-Route::get('/p_readerOnly.php', 'Requests@readOnlyIndex')
-    ->name('readOnlyList');
-
-Route::get('/p_manage.php', function() {
-    return redirect()->route('list');
-});
-// Route::get('/p_readerOnly.php', function() {
-//    return redirect()->route('list'); 
-// });
-
-
-// Route::permanentRedirect('/p_readerOnly.php', '/p_manageNew.php');
-// Route::permanentRedirect('/p_manage.php', '/p_manageNew.php');
+Route::redirect('/p_request.php', route('requests.create'));
+Route::redirect('/p_manageNew.php', route('requests.list'));
+Route::redirect('/p_readerOnly.php', route('requests.list'));
+Route::redirect('/p_manage.php', route('requests.list'));
 
 // ADMIN
 Route::get('/p_account.php', 'AccountApprovers@index');
@@ -46,8 +31,35 @@ Route::get('/p_log.php', 'Log@index');
 Route::get('/p_delegate.php', 'Delegate@delegate');
 Route::get('/p_myOatAccess.php', 'Index@access');
 
-// Accounts
+// Requests
+Route::prefix('request')->group(function () {
+    Route::get('list', 'Requests@index')
+        ->name('requests.list');
+        
+    Route::get('readOnlyList', 'Requests@readOnlyIndex')
+        ->name('requests.readOnlyList');
+    
+    Route::get('create', 'Requests@create')
+        ->name('requests.create');
+});
 
+// Accounts
+Route::prefix('account')->group(function () {
+    Route::get('list', 'AccountApprovers@index')
+    ->name('list');
+    
+});
+    
 // Delegates
+Route::prefix('delegate')->group(function () {
+    Route::get('list', 'Delegate@index')
+    ->name('list');
+    
+});
 
 // Competencies
+Route::prefix('competency')->group(function () {
+    Route::get('list', 'CompetencyApprovers@index')
+    ->name('list');
+    
+});
