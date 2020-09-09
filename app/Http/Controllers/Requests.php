@@ -23,7 +23,16 @@ class Requests extends Controller
             'Delivery Centre' => 'D'
         );
         
-        $allNatures = array ("Service Out of Hours", "Compliance", "RFS/Revenue", "RFS Schedule", "Hol/Sickness Cover", "T&T", "Delivery Centre Load Balancing", "Other" );
+        $allNatures = array (
+            "Service Out of Hours" => "Service Out of Hours", 
+            "Compliance" => "Compliance", 
+            "RFS/Revenue" => "RFS/Revenue", 
+            "RFS Schedule" => "RFS Schedule", 
+            "Hol/Sickness Cover" => "Hol/Sickness Cover", 
+            "T&T" => "T&T", 
+            "Delivery Centre Load Balancing" => "Delivery Centre Load Balancing",
+            "Other" => "Other"
+        );
         
         $data = array(
             'recoverable' => $recoverable,
