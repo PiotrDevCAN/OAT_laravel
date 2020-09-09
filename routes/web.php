@@ -83,33 +83,33 @@ Route::prefix('access')->name('access.')->group(function () {
 Route::redirect('/index.html', '/');
 Route::get('/p_admin.php', 'Index@admin');
 
-// Route::redirect('/p_request.php', function () {
-//     return redirect()->route('request.create');
-// });
-Route::redirect('/p_manage.php', function () {
-    return route('request.list');
+Route::get('/p_request.php', function () {
+    return redirect()->route('request.create');
 });
-// Route::redirect('/p_manageNew.php', function () {
-//     return redirect()->route('request.list');
-// });
-// Route::redirect('/p_readerOnly.php', function () {
-//     return redirect()->route('request.approved');
-// });
-// Route::redirect('/p_account.php', function () {
-//     return redirect()->route('account.list');
-// });
-// Route::redirect('/p_competency.php', function () {
-//     return redirect()->route('competency.list');
-// });
-// Route::redirect('/p_showDelegates.php', function () {
-//     return redirect()->route('delegate.list');
-// });
-// Route::redirect('/p_log.php', function () {
-//     return redirect()->route('log.list');
-// });
-// Route::redirect('/p_delegate.php', function () {
-//     return redirect()->route('delegate.my');
-// });
-// Route::redirect('/p_myOatAccess.php', function () {
-//     return redirect()->route('access.my');
-// });
+Route::get('/p_manage.php', function () {
+    return redirect()->route('request.list');
+});
+Route::get('/p_manageNew.php', function () {
+    return redirect()->route('request.list');
+});
+Route::get('/p_readerOnly.php', function () {
+    return redirect()->route('request.approved');
+});
+Route::get('/p_account.php', function () {
+    return redirect()->route('account.list');
+});
+Route::get('/p_competency.php', function () {
+    return redirect()->route('competency.list');
+});
+Route::get('/p_showDelegates.php', function () {
+    return redirect()->route('delegate.list');
+});
+Route::get('/p_log.php', function () {
+    return redirect()->route('log.list');
+});
+Route::get('/p_delegate.php', function () {
+    return redirect()->route('delegate.my');
+});
+Route::get('/p_myOatAccess.php', function () {
+    return redirect()->route('access.my');
+});
