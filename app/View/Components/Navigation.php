@@ -18,13 +18,13 @@ class Navigation extends Component
     {
         $this->menuList = array(
             'Request' => route('request.create'),
-            'Status' => route('request.index'),
+            'Status' => route('request.list'),
             'Read Only' => route('request.approvedList'),
             'Admin' => array(
-                'Account' => route('account.index'),
-                'Sevice Lines' => route('competency.index'),
-                'Show delegates' => route('delegate.index'),
-                'Log' => route('log.index')
+                'Account' => route('account.list'),
+                'Sevice Lines' => route('competency.list'),
+                'Show delegates' => route('delegate.list'),
+                'Log' => route('log.list')
             ),
             'My Delegates' => route('myDelegates'),
             'My Access' => route('myAccess')
