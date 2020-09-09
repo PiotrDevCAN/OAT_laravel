@@ -17,14 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Index');
 
-// ADMIN
-Route::get('/p_account.php', 'AccountApprovers@index');
-Route::get('/p_competency.php', 'CompetencyApprovers@index');
-Route::get('/p_showDelegates.php', 'Delegate@index');
-Route::get('/p_log.php', 'Log@index');
-Route::get('/p_delegate.php', 'Delegate@delegate');
-Route::get('/p_myOatAccess.php', 'Index@access');
-
 // Requests
 Route::prefix('request')->name('request.')->group(function () {
     Route::get('list', 'Requests@index')
@@ -65,3 +57,11 @@ Route::redirect('/index.html', '/');
 // Route::redirect('/p_manageNew.php', route('request.list'));
 // Route::redirect('/p_readerOnly.php', route('request.list'));
 // Route::redirect('/p_manage.php', route('request.list'));
+
+
+// Route::get('/p_account.php', 'AccountApprovers@index');
+// Route::get('/p_competency.php', 'CompetencyApprovers@index');
+// Route::get('/p_showDelegates.php', 'Delegate@index');
+// Route::get('/p_log.php', 'Log@index');
+// Route::get('/p_delegate.php', 'Delegate@delegate');
+// Route::get('/p_myOatAccess.php', 'Index@access');
