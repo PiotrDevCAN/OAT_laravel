@@ -82,7 +82,9 @@ Route::prefix('access')->name('access.')->group(function () {
 // Legacy links
 Route::redirect('/index.html', '/');
 
-Route::redirect('/p_request.php', route('request.create'));
+Route::redirect('/p_request.php', function () {
+    route('request.create');
+});
 Route::redirect('/p_manageNew.php', route('request.list'));
 Route::redirect('/p_readerOnly.php', route('request.list'));
 Route::redirect('/p_manage.php', route('request.list'));
