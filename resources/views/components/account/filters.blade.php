@@ -16,10 +16,10 @@
             	<x-ibmv18form-select name="Location" label="Location" :arrayOfSelectableValues="$locations"/>
             </div>
             <div class="ibm-col-12-12">
-            	<p class="ibm-btn-row ibm-button-link">
-                   <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Submit</button>
-                   <button type="button" class="ibm-btn-sec ibm-btn-blue-50">Reset</button>
-               </p>
+            	<p class="ibm-button-link ibm-ind-link">
+            		<a id="filterFormSubmit" class="ibm-btn-pri ibm-btn-blue-50 ibm-confirm-link" href="javascript:;" onclick="$('#myForm').submit();">Apply filters</a>
+                	<a id="filterFormReset" class="ibm-btn-sec ibm-btn-blue-50 ibm-reset-link" href="javascript:;" onclick="commonDocumentList.resetFilters('#myForm')">Reset filters</a>
+               	</p>
             </div>
 		</div>
     </div>
