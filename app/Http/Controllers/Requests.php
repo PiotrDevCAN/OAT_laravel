@@ -18,20 +18,20 @@ class Requests extends Controller
             ->get();
         
         $recoverable = array(
-            'Yes' => 'Y',
-            'No' => 'N',
-            'Delivery Centre' => 'D'
+            'value' => 'Y',
+            'value' => 'N',
+            'value' => 'D'
         );
         
         $allNatures = array (
-            "Service Out of Hours" => "Service Out of Hours", 
-            "Compliance" => "Compliance", 
-            "RFS/Revenue" => "RFS/Revenue", 
-            "RFS Schedule" => "RFS Schedule", 
-            "Hol/Sickness Cover" => "Hol/Sickness Cover", 
-            "T&T" => "T&T", 
-            "Delivery Centre Load Balancing" => "Delivery Centre Load Balancing",
-            "Other" => "Other"
+            "value" => "Service Out of Hours",
+            "value" => "Compliance",
+            "value" => "RFS/Revenue",
+            "value" => "RFS Schedule",
+            "value" => "Hol/Sickness Cover",
+            "value" => "T&T",
+            "value" => "Delivery Centre Load Balancing",
+            "value" => "Other"
         );
         
         $data = array(
