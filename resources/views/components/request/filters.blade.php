@@ -21,6 +21,10 @@
             	<x-ibmv18form-select name="Import" label="Import:" :arrayOfSelectableValues="$imports"/>
             </div>
 		</div>
+	</div>
+</div>
+<div class="ibm-card">
+    <div class="ibm-card__content">
 		<div class="ibm-fluid">
             <div class="ibm-col-12-12">
             	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Approvers</h3>
