@@ -19,15 +19,15 @@ class Navigation extends Component
         $this->menuList = array(
             'Request' => route('request.create'),
             'Status' => route('request.list'),
-            'Read Only' => route('request.approvedList'),
+            'Read Only' => route('request.approved'),
             'Admin' => array(
                 'Account' => route('account.list'),
                 'Sevice Lines' => route('competency.list'),
                 'Show delegates' => route('delegate.list'),
                 'Log' => route('log.list')
             ),
-            'My Delegates' => route('myDelegates'),
-            'My Access' => route('myAccess')
+            'My Delegates' => route('delegate.my'),
+            'My Access' => route('access.my')
         );
     }
 
