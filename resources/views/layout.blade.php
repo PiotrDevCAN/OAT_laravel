@@ -104,8 +104,6 @@
                                         <div class="ibm-col-12-12">
                                         @hasSection('bottom-section')
                                             @yield('bottom-section')
-                                        @else
-                                        	Nothing to display
                                         @endif
                                         </div>
                                     </div>
