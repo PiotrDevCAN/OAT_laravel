@@ -17,17 +17,17 @@ class Navigation extends Component
     public function __construct()
     {
         $this->menuList = array(
-            'Request' => route('request.create'),
-            'Status' => route('request.list'),
-            'Read Only' => route('request.approved'),
+            'Request' => 'request.create',
+            'Status' => 'request.list',
+            'Read Only' => 'request.approved',
             'Admin' => array(
-                'Account' => route('account.list'),
-                'Sevice Lines' => route('competency.list'),
-                'Show delegates' => route('delegate.list'),
-                'Log' => route('log.list')
+                'Account' => 'account.list',
+                'Sevice Lines' => 'competency.list',
+                'Show delegates' => 'delegate.list',
+                'Log' => 'log.list'
             ),
-            'My Delegates' => route('delegate.my'),
-            'My Access' => route('access.my')
+            'My Delegates' => 'delegate.my',
+            'My Access' => 'access.my'
         );
     }
 
