@@ -135,7 +135,7 @@ class Requests extends Controller
         return view('index', $data);
     }
     
-    public function readOnlyIndex()
+    public function approvedList()
     {
         $approved = \App\Request::where('status', 'Approved')
             ->whereNull('delete_flag')

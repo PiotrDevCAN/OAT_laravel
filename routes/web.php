@@ -22,8 +22,8 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::get('list', 'Requests@index')
         ->name('list');
         
-    Route::get('readOnlyList', 'Requests@readOnlyIndex')
-        ->name('readOnlyList');
+    Route::get('approvedList', 'Requests@approvedList')
+        ->name('approvedList');
     
     Route::get('create', 'Requests@create')
         ->name('create');
@@ -79,10 +79,13 @@ Route::redirect('/index.html', '/');
 // Route::redirect('/p_readerOnly.php', route('request.list'));
 // Route::redirect('/p_manage.php', route('request.list'));
 
-
+// Route::get('/p_admin.php', 'AccountApprovers@index');
 // Route::get('/p_account.php', 'AccountApprovers@index');
 // Route::get('/p_competency.php', 'CompetencyApprovers@index');
 // Route::get('/p_showDelegates.php', 'Delegate@index');
 // Route::get('/p_log.php', 'Log@index');
-// Route::get('/p_delegate.php', 'Delegate@delegate');
-// Route::get('/p_myOatAccess.php', 'Index@access');
+
+Route::get('/p_delegate.php', 'Delegate@delegate')
+    ->name('myDelegates');
+Route::get('/p_myOatAccess.php', 'Index@access')
+    ->name('myAccess');
