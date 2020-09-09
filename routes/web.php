@@ -14,14 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Legacy links
-Route::get('/', 'Index');
-Route::redirect('/index.html', '/');
 
-Route::redirect('/p_request.php', route('requests.create'));
-Route::redirect('/p_manageNew.php', route('requests.list'));
-Route::redirect('/p_readerOnly.php', route('requests.list'));
-Route::redirect('/p_manage.php', route('requests.list'));
+Route::get('/', 'Index');
 
 // ADMIN
 Route::get('/p_account.php', 'AccountApprovers@index');
@@ -63,3 +57,11 @@ Route::prefix('competency')->group(function () {
     ->name('list');
     
 });
+
+// Legacy links
+Route::redirect('/index.html', '/');
+
+Route::redirect('/p_request.php', route('requests.create'));
+Route::redirect('/p_manageNew.php', route('requests.list'));
+Route::redirect('/p_readerOnly.php', route('requests.list'));
+Route::redirect('/p_manage.php', route('requests.list'));
