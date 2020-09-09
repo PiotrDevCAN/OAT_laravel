@@ -17,6 +17,15 @@ class Index extends Controller
         return view('main');
     }
     
+    public function admin()
+    {
+        $data = array(
+            
+        );
+        
+        return view('access', $data);
+    }
+    
     public function access()
     {
         $data = array(

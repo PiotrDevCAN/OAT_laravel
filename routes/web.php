@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
+// Home
 Route::get('/', 'Index');
 
 // Requests
@@ -22,8 +21,8 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::get('list', 'Requests@index')
         ->name('list');
         
-    Route::get('approvedList', 'Requests@approvedList')
-        ->name('approvedList');
+    Route::get('approved', 'Requests@approvedList')
+        ->name('approved');
     
     Route::get('create', 'Requests@create')
         ->name('create');
@@ -51,6 +50,9 @@ Route::prefix('delegate')->name('delegate.')->group(function () {
         
     Route::get('delete', 'Delegate@delete')
         ->name('delete');
+    
+    Route::get('my', 'Delegate@my')
+        ->name('my');
 });
 
 // Competencies
@@ -71,21 +73,25 @@ Route::prefix('log')->name('log.')->group(function () {
         ->name('list');
 });
 
+// Access
+Route::prefix('access')->name('access.')->group(function () {
+    Route::get('my', 'Index@access')
+    ->name('my');
+});
+
 // Legacy links
 Route::redirect('/index.html', '/');
 
-// Route::redirect('/p_request.php', route('request.create'));
-// Route::redirect('/p_manageNew.php', route('request.list'));
-// Route::redirect('/p_readerOnly.php', route('request.list'));
-// Route::redirect('/p_manage.php', route('request.list'));
+Route::redirect('/p_request.php', route('request.create'));
+Route::redirect('/p_manageNew.php', route('request.list'));
+Route::redirect('/p_readerOnly.php', route('request.list'));
+Route::redirect('/p_manage.php', route('request.list'));
 
-// Route::get('/p_admin.php', 'AccountApprovers@index');
-// Route::get('/p_account.php', 'AccountApprovers@index');
-// Route::get('/p_competency.php', 'CompetencyApprovers@index');
-// Route::get('/p_showDelegates.php', 'Delegate@index');
-// Route::get('/p_log.php', 'Log@index');
+Route::get('/p_admin.php', 'Index@admin');
+Route::get('/p_account.php', route('account.list'));
+Route::get('/p_competency.php', route('competency.list'));
+Route::get('/p_showDelegates.php', route('delegate.list'));
+Route::get('/p_log.php', route('log.list'));
 
-Route::get('/p_delegate.php', 'Delegate@delegate')
-    ->name('myDelegates');
-Route::get('/p_myOatAccess.php', 'Index@access')
-    ->name('myAccess');
+Route::get('/p_delegate.php', route('delegate.list'));
+Route::get('/p_myOatAccess.php', route('access.list'));
