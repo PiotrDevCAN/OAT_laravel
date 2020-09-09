@@ -69,6 +69,7 @@ Route::prefix('competency')->name('competency.')->group(function () {
 Route::prefix('log')->name('log.')->group(function () {
     Route::get('list', 'Log@index')
         ->name('list');
+});
 
 // Legacy links
 Route::redirect('/index.html', '/');
