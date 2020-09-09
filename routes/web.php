@@ -32,22 +32,37 @@ Route::prefix('request')->name('request.')->group(function () {
 // Accounts
 Route::prefix('account')->name('account.')->group(function () {
     Route::get('list', 'AccountApprovers@index')
-    ->name('list');
+        ->name('list');
     
+    Route::get('create', 'AccountApprovers@create')
+        ->name('create');
+        
+    Route::get('delete', 'AccountApprovers@delete')
+        ->name('delete');
 });
     
 // Delegates
 Route::prefix('delegate')->name('delegate.')->group(function () {
     Route::get('list', 'Delegate@index')
-    ->name('list');
+        ->name('list');
     
+    Route::get('create', 'Delegate@create')
+        ->name('create');
+        
+    Route::get('delete', 'Delegate@delete')
+        ->name('delete');
 });
 
 // Competencies
 Route::prefix('competency')->name('competency.')->group(function () {
     Route::get('list', 'CompetencyApprovers@index')
-    ->name('list');
+        ->name('list');
     
+    Route::get('create', 'CompetencyApprovers@create')
+        ->name('create');
+        
+    Route::get('delete', 'CompetencyApprovers@delete')
+        ->name('delete');
 });
 
 // Legacy links
