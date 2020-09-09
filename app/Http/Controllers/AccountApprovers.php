@@ -18,10 +18,26 @@ class AccountApprovers extends Controller
 //             echo "Function " . $_REQUEST['function'] . " not recognised";
 //             break;
     
-    public function index()
+    public function index(Request $request)
     {
         $records = \App\AccountApprover::get();
 
+        if ($request->has('account')) {
+            $records = $records->where('account', $request->has('account'));
+        };
+        
+        if ($request->has('approver')) {
+            $records = $records->where('approver', $request->has('approver'));
+        };
+        
+        if ($request->has('verified')) {
+            $records = $records->where('verified', $request->has('verified'));
+        };
+        
+        if ($request->has('location')) {
+            $records = $records->where('location', $request->has('location'));
+        };
+        
         $data = array(
             'records' => $records
         );
