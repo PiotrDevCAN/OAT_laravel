@@ -18,7 +18,7 @@ class Requests extends Controller
         ->get();
         
         $data = array(
-            'approved' => $approved
+            'logEntries' => $approved
         );
         
         return view('components.request.create', $data);

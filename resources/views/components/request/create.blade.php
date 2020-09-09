@@ -60,95 +60,18 @@
                 	<div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 	<div class="ibm-fluid">
                         <div class="ibm-col-12-6">
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Service Line of person working overtime <span class="ibm-required"></span></label>
-                                <span>
-                                <select id="__REPLACE_ME__011__">
-                                    <option value="" selected>Select one</option>
-                                    <option value="A">Option A</option>
-                                    <option value="B">Option B</option>
-                                    <option value="C">Option C</option>
-                                    <option value="D">Option D</option>
-                                    <option value="D">Option E</option>
-                                    <option value="D">Option F</option>
-                                </select>
-                                </span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Account <span class="ibm-required"></span></label>
-                                <span>
-                                	<select id="__REPLACE_ME__011__">
-                                        <option value="" selected>Select one</option>
-                                        <option value="A">Option A</option>
-                                        <option value="B">Option B</option>
-                                        <option value="C">Option C</option>
-                                        <option value="D">Option D</option>
-                                        <option value="D">Option E</option>
-                                        <option value="D">Option F</option>
-                                    </select>
-                                </span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">IBM country of employment <span class="ibm-required"></span></label>
-                                <span>
-                                	<select id="__REPLACE_ME__011__">
-                                    <option value="" selected>Select one</option>
-                                    <option value="A">Option A</option>
-                                    <option value="B">Option B</option>
-                                    <option value="C">Option C</option>
-                                    <option value="D">Option D</option>
-                                    <option value="D">Option E</option>
-                                    <option value="D">Option F</option>
-                                </select>
-                                </span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Is worker an Import to SO Delivery? <span class="ibm-required"></span></label>
-                                <span>
-                                	<select id="__REPLACE_ME__011__">
-                                    <option value="" selected>Select one</option>
-                                    <option value="A">Option A</option>
-                                    <option value="B">Option B</option>
-                                    <option value="C">Option C</option>
-                                    <option value="D">Option D</option>
-                                    <option value="D">Option E</option>
-                                    <option value="D">Option F</option>
-                                </select>
-                                </span>
-                            </p>
+                        	<x-ibmv18form-select name="COMPETENCY" label="Service Line of person working overtime:" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="ACCOUNT" label="Account:" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="LOCATION" label="IBM country of employment:" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="IMPORT" label="Is worker an Import to SO Delivery ?:" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="RECOVERABLE" label="Recoverable:" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="NATURE" label="Nature:" :arrayOfSelectableValues="$logEntries"/>
+                            <x-ibmv18form-select name="WEEKENDDATE" label="Weekending:" :arrayOfSelectableValues="$logEntries"/>
                    		</div>
                         <div class="ibm-col-12-6">
-	                        <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Claim Code/ Account Id <span class="ibm-required"></span></label>
-                                <span>
-                                    <input type="text" value="" size="40" id="__REPLACE_ME_1__" name="title">
-                                </span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Hours required <span class="ibm-required"></span></label>
-                                <span>
-                                    <input type="text" value="" size="40" id="__REPLACE_ME_1__" name="title">
-                                </span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Recoverable <span class="ibm-required"></span></label>
-                                <span>
-                                    <input type="text" value="" size="40" id="__REPLACE_ME_1__" name="title">
-                                </span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Nature <span class="ibm-required"></span></label>
-                                <span>
-                                    <input type="text" value="" size="40" id="__REPLACE_ME_1__" name="title">
-                                </span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="__REPLACE_ME_1__">Weekending <span class="ibm-required"></span></label>
-                                <span>
-                                    <input type="text" value="" size="40" id="__REPLACE_ME_1__" name="title">
-                                </span>
-                            </p>
-                        </div>
+                            <x-ibmv18form-input name="HOURS" label="Hours required:"/>
+                            <x-ibmv18form-input name="CLAIM_ACC_ID" label="Claim Code/ Account Id:"/>
+	                    </div>
                    </div>
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
