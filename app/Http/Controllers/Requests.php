@@ -13,11 +13,21 @@ class Requests extends Controller
     public function create()
     {   
         $approved = \App\Request::where('status', 'Approved')
-        ->whereNull('delete_flag')
-        ->where('weekenddate', '>=', '2020-08-07')
-        ->get();
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->get();
+        
+        $recoverable = array(
+            'Yes' => 'Y',
+            'No' => 'N',
+            'Delivery Centre' => 'D'
+        );
+        
+        $allNatures = array ("Service Out of Hours", "Compliance", "RFS/Revenue", "RFS Schedule", "Hol/Sickness Cover", "T&T", "Delivery Centre Load Balancing", "Other" );
         
         $data = array(
+            'recoverable' => $recoverable,
+            'allNatures' => $allNatures,
             'logEntries' => $approved
         );
         
