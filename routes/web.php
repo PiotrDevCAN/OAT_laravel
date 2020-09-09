@@ -26,33 +26,33 @@ Route::get('/p_delegate.php', 'Delegate@delegate');
 Route::get('/p_myOatAccess.php', 'Index@access');
 
 // Requests
-Route::prefix('request')->group(function () {
+Route::prefix('request')->name('request.')->group(function () {
     Route::get('list', 'Requests@index')
-        ->name('requests.list');
+        ->name('list');
         
     Route::get('readOnlyList', 'Requests@readOnlyIndex')
-        ->name('requests.readOnlyList');
+        ->name('readOnlyList');
     
     Route::get('create', 'Requests@create')
-        ->name('requests.create');
+        ->name('create');
 });
 
 // Accounts
-Route::prefix('account')->group(function () {
+Route::prefix('account')->name('account.')->group(function () {
     Route::get('list', 'AccountApprovers@index')
     ->name('list');
     
 });
     
 // Delegates
-Route::prefix('delegate')->group(function () {
+Route::prefix('delegate')->name('delegate.')->group(function () {
     Route::get('list', 'Delegate@index')
     ->name('list');
     
 });
 
 // Competencies
-Route::prefix('competency')->group(function () {
+Route::prefix('competency')->name('competency.')->group(function () {
     Route::get('list', 'CompetencyApprovers@index')
     ->name('list');
     
@@ -61,7 +61,7 @@ Route::prefix('competency')->group(function () {
 // Legacy links
 Route::redirect('/index.html', '/');
 
-Route::redirect('/p_request.php', route('requests.create'));
-Route::redirect('/p_manageNew.php', route('requests.list'));
-Route::redirect('/p_readerOnly.php', route('requests.list'));
-Route::redirect('/p_manage.php', route('requests.list'));
+Route::redirect('/p_request.php', route('request.create'));
+Route::redirect('/p_manageNew.php', route('request.list'));
+Route::redirect('/p_readerOnly.php', route('request.list'));
+Route::redirect('/p_manage.php', route('request.list'));
