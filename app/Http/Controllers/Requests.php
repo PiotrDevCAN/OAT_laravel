@@ -21,7 +21,7 @@ class Requests extends Controller
             'approved' => $approved
         );
         
-        return view('request.create', $data);
+        return view('components.request.create', $data);
     }
     
     public function index()
