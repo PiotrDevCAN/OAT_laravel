@@ -106,8 +106,7 @@ class Requests extends Controller
 //             $counter = $this->memcache->get($cacheKey);
 //         }
         
-        $awaiting = $records->get()
-            ->where('status', 'like', 'Awaiting%')
+        $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07');
         
