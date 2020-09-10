@@ -69,7 +69,7 @@ Route::prefix('competency')->name('competency.')->group(function () {
 
 // Logs
 Route::prefix('log')->name('log.')->group(function () {
-    Route::get('list', 'Log@index')
+    Route::get('list', 'Logs@index')
         ->name('list');
 });
 
