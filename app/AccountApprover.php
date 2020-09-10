@@ -12,4 +12,11 @@ class AccountApprover extends Model
      * @var string
      */
     protected $table = 'Account_Approvers';
+    
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 }

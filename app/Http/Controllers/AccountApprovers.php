@@ -23,18 +23,22 @@ class AccountApprovers extends Controller
         $records = \App\AccountApprover::get();
 
         if ($request->has('Account')) {
+            echo 'aa';
             $records = $records->where('account', $request->input('Account'));
         };
         
         if ($request->has('Approver')) {
+            echo 'aa';
             $records = $records->where('approver', $request->input('Approver'));
         };
         
         if ($request->has('Verified')) {
+            echo 'aa';
             $records = $records->where('verified', $request->input('Verified'));
         };
         
         if ($request->has('Location')) {
+            echo 'aa';
             $records = $records->where('location', $request->input('Location'));
         };
         
