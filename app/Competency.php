@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CompetencyApprover extends Model
+class Competency extends Model
 {    
     /**
      * The table associated with the model.

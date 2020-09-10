@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\CompetencyApprover;
+use App\Competency;
 
-class CompetencyApprovers extends Controller
+class Competencies extends Controller
 {
 //     if(isset($_REQUEST['function'])){
 //         switch($_REQUEST['function']){
@@ -28,7 +28,7 @@ class CompetencyApprovers extends Controller
     
     public function index(Request $request)
     {
-        $records = new CompetencyApprover();
+        $records = new Competency();
         
         if ($request->filled('ServiceLine')) {
             $records = $records->where('competency', $request->input('ServiceLine'));

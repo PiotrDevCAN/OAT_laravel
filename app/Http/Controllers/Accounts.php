@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\AccountApprover;
+use App\Account;
 
-class AccountApprovers extends Controller
+class Accounts extends Controller
 {
     
 //     switch ($_REQUEST['function']) {
@@ -21,7 +21,7 @@ class AccountApprovers extends Controller
     
     public function index(Request $request)
     {
-        $records = new AccountApprover();
+        $records = new Account();
         
         if ($request->filled('Account')) {
             $records = $records->where('account', $request->input('Account'));

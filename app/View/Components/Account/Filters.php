@@ -19,22 +19,22 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->accounts = \App\AccountApprover::select('account as value')
+        $this->accounts = \App\Account::select('account as value')
             ->where('account', '<>', '')
             ->distinct()
             ->get();
         
-        $this->approvers = \App\AccountApprover::select('approver as value')
+        $this->approvers = \App\Account::select('approver as value')
             ->where('approver', '<>', '')
             ->distinct()
             ->get();
         
-        $this->verified = \App\AccountApprover::select('verified as value')
+        $this->verified = \App\Account::select('verified as value')
             ->where('location', '<>', '')
             ->distinct()
             ->get();
         
-        $this->locations = \App\AccountApprover::select('location as value')
+        $this->locations = \App\Account::select('location as value')
             ->where('location', '<>', '')
             ->distinct()
             ->get();

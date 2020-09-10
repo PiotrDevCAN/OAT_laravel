@@ -30,13 +30,13 @@ Route::prefix('request')->name('request.')->group(function () {
 
 // Accounts
 Route::prefix('account')->name('account.')->group(function () {
-    Route::match(['get', 'post'], 'list', 'AccountApprovers@index')
+    Route::match(['get', 'post'], 'list', 'Accounts@index')
         ->name('list');
     
-    Route::get('create', 'AccountApprovers@create')
+    Route::get('create', 'Accounts@create')
         ->name('create');
         
-    Route::get('delete', 'AccountApprovers@delete')
+    Route::get('delete', 'Accounts@delete')
         ->name('delete');
 });
     
@@ -57,13 +57,13 @@ Route::prefix('delegate')->name('delegate.')->group(function () {
 
 // Competencies
 Route::prefix('competency')->name('competency.')->group(function () {
-    Route::match(['get', 'post'], 'list', 'CompetencyApprovers@index')
+    Route::match(['get', 'post'], 'list', 'Competencies@index')
         ->name('list');
     
-    Route::get('create', 'CompetencyApprovers@create')
+    Route::get('create', 'Competencies@create')
         ->name('create');
         
-    Route::get('delete', 'CompetencyApprovers@delete')
+    Route::get('delete', 'Competencies@delete')
         ->name('delete');
 });
 
