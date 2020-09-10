@@ -12,4 +12,11 @@ class Delegate extends Model
      * @var string
      */
     protected $table = 'Delegate';
+    
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 }

@@ -12,4 +12,11 @@ class Log extends Model
      * @var string
      */
     protected $table = 'Log';
+    
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 }

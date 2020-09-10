@@ -30,8 +30,8 @@ class CompetencyApprovers extends Controller
     {
         $records = new CompetencyApprover();
         
-        if ($request->filled('Account')) {
-            $records = $records->where('account', $request->input('Account'));
+        if ($request->filled('ServiceLine')) {
+            $records = $records->where('competency', $request->input('ServiceLine'));
         };
         
         if ($request->filled('Approver')) {

@@ -12,4 +12,11 @@ class CompetencyApprover extends Model
      * @var string
      */
     protected $table = 'Competency_Approvers';
+    
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 }
