@@ -22,6 +22,8 @@ class AccountApprovers extends Controller
     {
         $records = \App\AccountApprover::get();
 
+        dump($request);
+        
         if ($request->has('Account')) {
             echo 'aa';
             $records = $records->where('account', $request->input('Account'));
