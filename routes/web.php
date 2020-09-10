@@ -42,7 +42,7 @@ Route::prefix('account')->name('account.')->group(function () {
     
 // Delegates
 Route::prefix('delegate')->name('delegate.')->group(function () {
-    Route::get('list', 'Delegates@index')
+    Route::match(['get', 'post'], 'list', 'Delegates@index')
         ->name('list');
     
     Route::get('create', 'Delegates@create')
@@ -57,7 +57,7 @@ Route::prefix('delegate')->name('delegate.')->group(function () {
 
 // Competencies
 Route::prefix('competency')->name('competency.')->group(function () {
-    Route::get('list', 'CompetencyApprovers@index')
+    Route::match(['get', 'post'], 'list', 'CompetencyApprovers@index')
         ->name('list');
     
     Route::get('create', 'CompetencyApprovers@create')
@@ -69,7 +69,7 @@ Route::prefix('competency')->name('competency.')->group(function () {
 
 // Logs
 Route::prefix('log')->name('log.')->group(function () {
-    Route::get('list', 'Logs@index')
+    Route::match(['get', 'post'], 'list', 'Logs@index')
         ->name('list');
 });
 
