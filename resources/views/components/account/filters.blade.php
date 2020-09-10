@@ -13,16 +13,16 @@
             </div>
             <div class="ibm-col-12-3">
             
-            	@if (request()->has('Approver:'))
-            		{{ request()->input('Approver:') }}
+            	@if (request()->has('Approver'))
+            		{{ request()->input('Approver') }}
             	@endif
             	
             	<x-ibmv18form-select name="Approver" label="Approver:" :arrayOfSelectableValues="$approvers"/>
             </div>
             <div class="ibm-col-12-3">
             	
-            	@if (request()->has('Verified:'))
-            		{{ request()->input('Verified:') }}
+            	@if (request()->has('Verified'))
+            		{{ request()->input('Verified') }}
             	@endif
             	
             	<x-ibmv18form-select name="Verified" label="Verified:" :arrayOfSelectableValues="$verified"/>
