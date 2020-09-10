@@ -11,7 +11,7 @@ class Requests extends Controller
     public $conditions = array();
     
     private function prepareConditions($request){
-        
+         
         if ($request->filled('Account')) {
             $this->conditions[] = array('account', '=', $request->input('Account'));
         };
