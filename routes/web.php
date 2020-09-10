@@ -42,16 +42,16 @@ Route::prefix('account')->name('account.')->group(function () {
     
 // Delegates
 Route::prefix('delegate')->name('delegate.')->group(function () {
-    Route::get('list', 'Delegate@index')
+    Route::get('list', 'Delegates@index')
         ->name('list');
     
-    Route::get('create', 'Delegate@create')
+    Route::get('create', 'Delegates@create')
         ->name('create');
         
-    Route::get('delete', 'Delegate@delete')
+    Route::get('delete', 'Delegates@delete')
         ->name('delete');
     
-    Route::get('my', 'Delegate@my')
+    Route::get('my', 'Delegates@my')
         ->name('my');
 });
 

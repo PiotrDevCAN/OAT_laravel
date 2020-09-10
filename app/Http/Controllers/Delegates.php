@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Delegate;
 
-class Delegate extends Controller
+class Delegates extends Controller
 {
     
 //     save
