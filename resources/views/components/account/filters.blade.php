@@ -5,8 +5,8 @@
 		<div class="ibm-fluid">
             <div class="ibm-col-12-3">
             
-            	@if ($request->has('account'))
-            		{{ $request->input('account') }}
+            	@if (request->has('account'))
+            		{{ request->input('account') }}
             	@endif
             	
             	<x-ibmv18form-select name="Account" label="Account:" :arrayOfSelectableValues="$accounts"/>
