@@ -4,7 +4,7 @@
         <select name="{{ $name }}" id="{{ $name }}" class="ibm-fullwidth">
             <option value="" selected>Select...</option>
         	@foreach ($arrayOfSelectableValues as $key => $value)
-        	<option value="{{ $value->value }}" @if($selectedValue == $value->value) selected="selected" @endif>{{ $value->value }}</option>
+        	<option value="{{ trim($value->value) }}" @if($selectedValue == trim($value->value)) selected="selected" @endif>{{ trim($value->value) }}</option>
         	@endforeach
         </select>
     </span>
