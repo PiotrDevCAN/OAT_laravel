@@ -21,26 +21,20 @@ class AccountApprovers extends Controller
     public function index(Request $request)
     {
         $records = \App\AccountApprover::get();
-
-        dump($request);
         
-        if ($request->has('Account')) {
-            echo 'aa';
+        if ($request->filled('Account')) {
             $records = $records->where('account', $request->input('Account'));
         };
         
-        if ($request->has('Approver')) {
-            echo 'aa';
+        if ($request->filled('Approver')) {
             $records = $records->where('approver', $request->input('Approver'));
         };
         
-        if ($request->has('Verified')) {
-            echo 'aa';
+        if ($request->filled('Verified')) {
             $records = $records->where('verified', $request->input('Verified'));
         };
         
-        if ($request->has('Location')) {
-            echo 'aa';
+        if ($request->filled('Location')) {
             $records = $records->where('location', $request->input('Location'));
         };
         

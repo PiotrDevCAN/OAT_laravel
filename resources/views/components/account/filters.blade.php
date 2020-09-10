@@ -5,7 +5,7 @@
 		<div class="ibm-fluid">
             <div class="ibm-col-12-3">
             	
-            	@if (request()->has('Account'))
+            	@if (request()->filled('Account'))
             		{{ request()->input('Account') }}
             	@endif
             	
@@ -13,7 +13,7 @@
             </div>
             <div class="ibm-col-12-3">
             
-            	@if (request()->has('Approver'))
+            	@if (request()->filled('Approver'))
             		{{ request()->input('Approver') }}
             	@endif
             	
@@ -21,7 +21,7 @@
             </div>
             <div class="ibm-col-12-3">
             	
-            	@if (request()->has('Verified'))
+            	@if (request()->filled('Verified'))
             		{{ request()->input('Verified') }}
             	@endif
             	
@@ -29,7 +29,7 @@
             </div>
             <div class="ibm-col-12-3">
             	
-            	@if (request()->has('Location'))
+            	@if (request()->filled('Location'))
             		{{ request()->input('Location') }}
             	@endif
             	

@@ -24,24 +24,6 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $request = request();
-        
-        if ($request->has('Account')) {
-            $this->selectedAccount = $request->has('Account');
-        };
-        
-        if ($request->has('Approver')) {
-            $this->selectedApprover = $request->input('Approver');
-        };
-        
-        if ($request->has('Verified')) {
-            $this->selectedVerified = $request->input('Verified');
-        };
-        
-        if ($request->has('Location')) {
-            $this->selectedLocation = $request->input('Location');
-        };
-        
         $this->accounts = \App\AccountApprover::select('account as value')
             ->where('account', '<>', '')
             ->distinct()
