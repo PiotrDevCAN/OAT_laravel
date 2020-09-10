@@ -12,11 +12,6 @@ class Filters extends Component
     public $verified;
     public $locations;
     
-    public $selectedAccount;
-    public $selectedApprover;
-    public $selectedVerified;
-    public $selectedLocation;
-    
     /**
      * Create a new component instance.
      *

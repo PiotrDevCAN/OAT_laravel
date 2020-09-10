@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Delegate;
 
 class Delegate extends Controller
 {
@@ -18,9 +19,23 @@ class Delegate extends Controller
 //     }
     
     
-    public function index()
+    public function index(Request $request)
     {
-        $records = \App\Delegate::get();
+        $records = new Delegate();
+        
+        if ($request->filled('Account')) {
+            $records = $records->where('account', $request->input('Account'));
+        };
+        
+        if ($request->filled('Approver')) {
+            $records = $records->where('approver', $request->input('Approver'));
+        };
+        
+        if ($request->filled('Verified')) {
+            $records = $records->where('verified', $request->input('Verified'));
+        };
+        
+        $records = $records->get();
         
         $data = array(
             'records' => $records

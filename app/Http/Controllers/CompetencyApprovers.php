@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\CompetencyApprover;
 
 class CompetencyApprovers extends Controller
 {
@@ -25,9 +26,19 @@ class CompetencyApprovers extends Controller
 //         }
 //     }
     
-    public function index()
+    public function index(Request $request)
     {
-        $records = \App\CompetencyApprover::get();
+        $records = new CompetencyApprover();
+        
+        if ($request->filled('Account')) {
+            $records = $records->where('account', $request->input('Account'));
+        };
+        
+        if ($request->filled('Approver')) {
+            $records = $records->where('approver', $request->input('Approver'));
+        };
+        
+        $records = $records->get();
         
         $data = array(
             'records' => $records
