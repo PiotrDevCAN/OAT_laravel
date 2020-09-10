@@ -170,7 +170,7 @@ class Requests extends Controller
             ->where('status', '<>', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
-            ->where($conditions)
+            ->where($this->conditions)
             ->get();
         
         $data = array(
