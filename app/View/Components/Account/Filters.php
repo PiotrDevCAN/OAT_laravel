@@ -7,19 +7,39 @@ use App\Request;
 
 class Filters extends Component
 {
-    
     public $accounts;
     public $approvers;
     public $verified;
     public $locations;
+    
+    public $selectedAccount;
+    public $selectedApprover;
+    public $selectedVerified;
+    public $selectedLocation;
     
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
+        if ($request->has('account')) {
+            $this->selectedAccount = $request->has('account');
+        };
+        
+        if ($request->has('approver')) {
+            $this->selectedApprover = $request->input('approver');
+        };
+        
+        if ($request->has('verified')) {
+            $this->selectedVerified = $request->input('verified');
+        };
+        
+        if ($request->has('location')) {
+            $this->selectedLocation = $request->input('location');
+        };
+        
         $this->accounts = \App\AccountApprover::select('account as value')
             ->where('account', '<>', '')
             ->distinct()

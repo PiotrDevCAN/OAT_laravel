@@ -7,7 +7,7 @@
     			<li role="presentation" aria-expanded="true" ><span class="ibm-subnav-heading">{{ $key }}</span>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
-                        <li role="presentation"> <a href="{{ route($subValue) }}" role="treeitem" @if (Route::currentRouteName() == $subValue)aria-selected="true"@endif>{{ $subKey }}</a> </li>
+                        <li role="presentation"><a href="{{ route($subValue) }}" role="treeitem" @if (Route::currentRouteName() == $subValue)aria-selected="true"@endif>{{ $subKey }}</a> </li>
                     	@endforeach
                     </ul>
                 @else
