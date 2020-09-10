@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\AccountApprover;
 
 class AccountApprovers extends Controller
 {
@@ -20,7 +21,7 @@ class AccountApprovers extends Controller
     
     public function index(Request $request)
     {
-        $records = \App\AccountApprover::get();
+        $records = new AccountApprover();
         
         if ($request->filled('Account')) {
             $records = $records->where('account', $request->input('Account'));
@@ -37,6 +38,8 @@ class AccountApprovers extends Controller
         if ($request->filled('Location')) {
             $records = $records->where('location', $request->input('Location'));
         };
+        
+        $records = $records->get();
         
         $data = array(
             'records' => $records
