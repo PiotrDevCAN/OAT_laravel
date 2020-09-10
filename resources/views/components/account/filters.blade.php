@@ -4,7 +4,7 @@
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">List Filters</h3>
 		<div class="ibm-fluid">
             <div class="ibm-col-12-3">
-            
+            	
             	@if (request()->has('Account'))
             		{{ request()->input('Account') }}
             	@endif
@@ -12,12 +12,27 @@
             	<x-ibmv18form-select name="Account" label="Account:" :arrayOfSelectableValues="$accounts"/>
             </div>
             <div class="ibm-col-12-3">
+            
+            	@if (request()->has('Approver:'))
+            		{{ request()->input('Approver:') }}
+            	@endif
+            	
             	<x-ibmv18form-select name="Approver" label="Approver:" :arrayOfSelectableValues="$approvers"/>
             </div>
             <div class="ibm-col-12-3">
+            	
+            	@if (request()->has('Verified:'))
+            		{{ request()->input('Verified:') }}
+            	@endif
+            	
             	<x-ibmv18form-select name="Verified" label="Verified:" :arrayOfSelectableValues="$verified"/>
             </div>
             <div class="ibm-col-12-3">
+            	
+            	@if (request()->has('Location'))
+            		{{ request()->input('Location') }}
+            	@endif
+            	
             	<x-ibmv18form-select name="Location" label="Location" :arrayOfSelectableValues="$locations"/>
             </div>
             <div class="ibm-col-12-12">
