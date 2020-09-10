@@ -3,10 +3,12 @@
 namespace App\View\Components\Account;
 
 use Illuminate\View\Component;
-use App\Request;
+use Illuminate\Http\Request;
 
 class Filters extends Component
 {
+    public $request;
+    
     public $accounts;
     public $approvers;
     public $verified;
@@ -22,8 +24,10 @@ class Filters extends Component
      *
      * @return void
      */
-    public function __construct(Request $request)
+    public function __construct()
     {
+        $request = $this->request;
+        
         if ($request->has('account')) {
             $this->selectedAccount = $request->has('account');
         };
