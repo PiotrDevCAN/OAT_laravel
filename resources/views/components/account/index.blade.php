@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-account.filters :request="$request"/>
+<x-account.filters/>
 
 <x-account.table name="accountsTable" :records="$records" />
 

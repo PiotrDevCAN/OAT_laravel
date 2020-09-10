@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 
 class Filters extends Component
 {
-    public $request;
-    
     public $accounts;
     public $approvers;
     public $verified;
@@ -26,23 +24,23 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $request = $this->request;
+//         $request = $this->request;
         
-        if ($request->has('account')) {
-            $this->selectedAccount = $request->has('account');
-        };
+//         if ($request->has('account')) {
+//             $this->selectedAccount = $request->has('account');
+//         };
         
-        if ($request->has('approver')) {
-            $this->selectedApprover = $request->input('approver');
-        };
+//         if ($request->has('approver')) {
+//             $this->selectedApprover = $request->input('approver');
+//         };
         
-        if ($request->has('verified')) {
-            $this->selectedVerified = $request->input('verified');
-        };
+//         if ($request->has('verified')) {
+//             $this->selectedVerified = $request->input('verified');
+//         };
         
-        if ($request->has('location')) {
-            $this->selectedLocation = $request->input('location');
-        };
+//         if ($request->has('location')) {
+//             $this->selectedLocation = $request->input('location');
+//         };
         
         $this->accounts = \App\AccountApprover::select('account as value')
             ->where('account', '<>', '')
