@@ -26,20 +26,20 @@ class Filters extends Component
     {
         $request = request();
         
-        if ($request->has('account')) {
-            $this->selectedAccount = $request->has('account');
+        if ($request->has('Account')) {
+            $this->selectedAccount = $request->has('Account');
         };
         
-        if ($request->has('approver')) {
-            $this->selectedApprover = $request->input('approver');
+        if ($request->has('Approver')) {
+            $this->selectedApprover = $request->input('Approver');
         };
         
-        if ($request->has('verified')) {
-            $this->selectedVerified = $request->input('verified');
+        if ($request->has('Verified')) {
+            $this->selectedVerified = $request->input('Verified');
         };
         
-        if ($request->has('location')) {
-            $this->selectedLocation = $request->input('location');
+        if ($request->has('Location')) {
+            $this->selectedLocation = $request->input('Location');
         };
         
         $this->accounts = \App\AccountApprover::select('account as value')
