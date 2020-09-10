@@ -10,6 +10,7 @@ class Select extends Component
     public $name;
     public $label;
     public $arrayOfSelectableValues;
+    public $selectedValue;
     
     public static $selectDisplayValueReturnValue = 'displayValueReturnValue';
     public static $selectDisplayValueReturnKey   = 'displayValueReturnKey';
@@ -21,11 +22,12 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct($name, $label, $arrayOfSelectableValues)
+    public function __construct($name, $label, $arrayOfSelectableValues, $selectedValue)
     {
         $this->name = $name;
         $this->label = $label;
         $this->arrayOfSelectableValues = $arrayOfSelectableValues;
+        $this->selectedValue = $selectedValue;
     }
 
     /**
