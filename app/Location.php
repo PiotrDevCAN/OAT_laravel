@@ -4,21 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Request extends Model
-{
+class Location extends Model
+{    
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'Requests';
-    
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'reference';
+    protected $table = 'Locations';
     
     /**
      * Indicates if the model should be timestamped.
@@ -32,14 +25,7 @@ class Request extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
-    
-    /**
-     * The connection name for the model.
-     *
-     * @var string
-     */
-//     protected $connection = 'ibmi';
+    protected $fillable = ['location', 'shore'];
     
     /**
      * The model's default values for attributes.
@@ -47,6 +33,6 @@ class Request extends Model
      * @var array
      */
     protected $attributes = [
-//         'delayed' => false,
+    //         'delayed' => false,
     ];
 }

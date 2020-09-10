@@ -19,4 +19,20 @@ class Account extends Model
      * @var bool
      */
     public $timestamps = false;
+    
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['account', 'approver', 'last_updater', 'last_updated', 'verified', 'location'];
+    
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+    //         'delayed' => false,
+    ];
 }

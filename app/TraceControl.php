@@ -19,4 +19,20 @@ class TraceControl extends Model
      * @var bool
      */
     public $timestamps = false;
+    
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['trace_control_type', 'trace_control_value'];
+    
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+    //         'delayed' => false,
+    ];
 }

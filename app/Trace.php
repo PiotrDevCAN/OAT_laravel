@@ -19,4 +19,20 @@ class Trace extends Model
      * @var bool
      */
     public $timestamps = false;
+    
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['log_entry', 'lastupdater', 'lastupdated', 'class', 'method', 'page', 'elapsed'];
+    
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+    //         'delayed' => false,
+    ];
 }
