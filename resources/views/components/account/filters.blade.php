@@ -4,16 +4,16 @@
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">List Filters</h3>
 		<div class="ibm-fluid">
             <div class="ibm-col-12-3">
-            	<x-ibmv18form-select name="Account" label="Account:" :arrayOfSelectableValues="$accounts" selectedValue="{{ request()->input('Account') }}"/>
+            	<x-ibmv18form-select name="Account" label="Account:" :arrayOfSelectableValues="$accounts" :selectedValue="request()->input('Account')"/>
             </div>
             <div class="ibm-col-12-3">
-            	<x-ibmv18form-select name="Approver" label="Approver:" :arrayOfSelectableValues="$approvers" selectedValue="{{ request()->input('Approver') }}"/>
+            	<x-ibmv18form-select name="Approver" label="Approver:" :arrayOfSelectableValues="$approvers" "selectedValue="request()->input('Approver')"/>
             </div>
             <div class="ibm-col-12-3">
-            	<x-ibmv18form-select name="Verified" label="Verified:" :arrayOfSelectableValues="$verified" selectedValue="{{ request()->input('Verified') }}"/>
+            	<x-ibmv18form-select name="Verified" label="Verified:" :arrayOfSelectableValues="$verified" "selectedValue="request()->input('Verified')"/>
             </div>
             <div class="ibm-col-12-3">
-            	<x-ibmv18form-select name="Location" label="Location" :arrayOfSelectableValues="$locations" selectedValue="{{ request()->input('Location') }}"/>
+            	<x-ibmv18form-select name="Location" label="Location" :arrayOfSelectableValues="$locations" "selectedValue="request()->input('Location')"/>
             </div>
             <div class="ibm-col-12-12">
             	<p class="ibm-button-link ibm-ind-link">
