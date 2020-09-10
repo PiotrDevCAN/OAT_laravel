@@ -39,6 +39,7 @@ class AccountApprovers extends Controller
         };
         
         $data = array(
+            'request' => $request,
             'records' => $records
         );
         
