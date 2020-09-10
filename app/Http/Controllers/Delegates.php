@@ -23,16 +23,16 @@ class Delegates extends Controller
     {
         $records = new Delegate();
         
-        if ($request->filled('Account')) {
-            $records = $records->where('account', $request->input('Account'));
+        if ($request->filled('UserIntranet')) {
+            $records = $records->where('user_intranet', $request->input('UserIntranet'));
         };
         
-        if ($request->filled('Approver')) {
-            $records = $records->where('approver', $request->input('Approver'));
+        if ($request->filled('DelegateIntranet')) {
+            $records = $records->where('delegate_intranet', $request->input('DelegateIntranet'));
         };
         
-        if ($request->filled('Verified')) {
-            $records = $records->where('verified', $request->input('Verified'));
+        if ($request->filled('DelegateNotesId')) {
+            $records = $records->where('delegate_notesid', $request->input('DelegateNotesId'));
         };
         
         $records = $records->get();

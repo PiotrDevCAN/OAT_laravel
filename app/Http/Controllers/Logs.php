@@ -11,16 +11,16 @@ class Logs extends Controller
     {
         $records = new Log();
         
-        if ($request->filled('Account')) {
-            $records = $records->where('account', $request->input('Account'));
+        if ($request->filled('LogEntry')) {
+            $records = $records->where('log_entry', $request->input('LogEntry'));
         };
         
-        if ($request->filled('Approver')) {
-            $records = $records->where('approver', $request->input('Approver'));
+        if ($request->filled('LastUpdated')) {
+            $records = $records->where('last_updated', $request->input('LastUpdated'));
         };
         
-        if ($request->filled('Verified')) {
-            $records = $records->where('verified', $request->input('Verified'));
+        if ($request->filled('LastUpdater')) {
+            $records = $records->where('last_updater', $request->input('LastUpdater'));
         };
         
         $records = $records
