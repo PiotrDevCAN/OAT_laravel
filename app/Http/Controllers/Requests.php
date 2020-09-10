@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Route;
 
 set_time_limit(7200);
 
@@ -43,7 +41,7 @@ class Requests extends Controller
         return view('components.request.create', $data);
     }
     
-    public function index()
+    public function index(Request $request)
     {
         /*
         parent::getVals ();
@@ -108,23 +106,36 @@ class Requests extends Controller
 //             $counter = $this->memcache->get($cacheKey);
 //         }
         
-        
-        
-        $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
+        $awaiting = $records->get()
+            ->where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->get();
+            ->where('weekenddate', '>=', '2020-08-07');
+        
+            
+            
+//             if ($request->filled('ServiceLine')) {
+//                 $records = $records->where('competency', $request->input('ServiceLine'));
+//             };
+            
+//             if ($request->filled('Approver')) {
+//                 $records = $records->where('approver', $request->input('Approver'));
+//             };
+            
+            
+        $awaiting = $awaiting->get();
         
         $approved = \App\Request::where('status', 'Approved')
             ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->get();
+            ->where('weekenddate', '>=', '2020-08-07');
+        
+        $approved = $approved->get();
         
         $other = \App\Request::where('status',  'not like', 'Awaiting%')
             ->where('status', '<>', 'Approved')
             ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->get();
+            ->where('weekenddate', '>=', '2020-08-07');
+        
+        $other = $other->get();
         
         $data = array(
             'awaiting' => $awaiting,
