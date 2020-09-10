@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Delegate;
 
 class Delegates extends Controller
 {
+    public $conditions = array();
     
 //     save
     
@@ -21,21 +21,17 @@ class Delegates extends Controller
     
     public function index(Request $request)
     {
-        $records = new Delegate();
-        
         if ($request->filled('UserIntranet')) {
-            $records = $records->where('user_intranet', $request->input('UserIntranet'));
+            $this->conditions[] = array('user_intranet', '=', $request->input('UserIntranet'));
         };
-        
         if ($request->filled('DelegateIntranet')) {
-            $records = $records->where('delegate_intranet', $request->input('DelegateIntranet'));
+            $this->conditions[] = array('delegate_intranet', '=', $request->input('DelegateIntranet'));
         };
-        
         if ($request->filled('DelegateNotesId')) {
-            $records = $records->where('delegate_notesid', $request->input('DelegateNotesId'));
+            $this->conditions[] = array('delegate_notesid', '=', $request->input('DelegateNotesId'));
         };
         
-        $records = $records->get();
+        $records = \App\Delegate::where($this->conditions)->get();
         
         $data = array(
             'records' => $records

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Competency;
 
 class Competencies extends Controller
 {
+    public $conditions = array();
+    
 //     if(isset($_REQUEST['function'])){
 //         switch($_REQUEST['function']){
 //             case "delete":
@@ -28,17 +29,14 @@ class Competencies extends Controller
     
     public function index(Request $request)
     {
-        $records = new Competency();
-        
         if ($request->filled('ServiceLine')) {
-            $records = $records->where('competency', $request->input('ServiceLine'));
+            $this->conditions[] = array('competency', '=', $request->input('ServiceLine'));
         };
-        
         if ($request->filled('Approver')) {
-            $records = $records->where('approver', $request->input('Approver'));
+            $this->conditions[] = array('approver', '=', $request->input('Approver'));
         };
         
-        $records = $records->get();
+        $records = \App\Competency::where($this->conditions)->get();
         
         $data = array(
             'records' => $records

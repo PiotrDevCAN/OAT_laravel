@@ -8,6 +8,8 @@ set_time_limit(7200);
 
 class Requests extends Controller
 {
+    public $conditions = array();
+    
     public function create()
     {   
         $approved = \App\Request::where('status', 'Approved')
@@ -106,64 +108,62 @@ class Requests extends Controller
 //             $counter = $this->memcache->get($cacheKey);
 //         }
         
-        $conditions = array();
-        
         if ($request->filled('Account')) {
-            $conditions[] = array('account', '=', $request->input('Account'));
+            $this->conditions[] = array('account', '=', $request->input('Account'));
         };
         if ($request->filled('Reason')) {
-            $conditions[] = array('reason', '=', $request->input('Reason'));
+            $this->conditions[] = array('reason', '=', $request->input('Reason'));
         };
         if ($request->filled('Name')) {
-            $conditions[] = array('name', '=', $request->input('Name'));
+            $this->conditions[] = array('name', '=', $request->input('Name'));
         };
         if ($request->filled('Type')) {
-            $conditions[] = array('type', '=', $request->input('Type'));
+            $this->conditions[] = array('type', '=', $request->input('Type'));
         };
         
         if ($request->filled('ServiceLine')) {
-            $conditions[] = array('competency', '=', $request->input('ServiceLine'));
+            $this->conditions[] = array('competency', '=', $request->input('ServiceLine'));
         };
         if ($request->filled('Status')) {
-            $conditions[] = array('status', '=', $request->input('Status'));
+            $this->conditions[] = array('status', '=', $request->input('Status'));
         };
         if ($request->filled('Requestor')) {
-            $conditions[] = array('requestor', '=', $request->input('Requestor'));
+            $this->conditions[] = array('requestor', '=', $request->input('Requestor'));
         };
         if ($request->filled('Location')) {
-            $conditions[] = array('location', '=', $request->input('Location'));
+            $this->conditions[] = array('location', '=', $request->input('Location'));
         };
         
         if ($request->filled('WeekendStart')) {
-            $conditions[] = array('weekenddate', '>=', $request->input('WeekendStart'));
+            $this->conditions[] = array('weekenddate', '>=', $request->input('WeekendStart'));
         };
         if ($request->filled('WeekendEnd')) {
-            $conditions[] = array('weekenddate', '<=', $request->input('WeekendEnd'));
+            $this->conditions[] = array('weekenddate', '<=', $request->input('WeekendEnd'));
         };
         if ($request->filled('Import')) {
-            $conditions[] = array('import', '=', $request->input('Import'));
+            $this->conditions[] = array('import', '=', $request->input('Import'));
         };
 
         if ($request->filled('FirstApprover')) {
-            $conditions[] = array('approver_first_level', '=', $request->input('FirstApprover'));
+            $this->conditions[] = array('approver_first_level', '=', $request->input('FirstApprover'));
         };
         if ($request->filled('SecondApprover')) {
-            $conditions[] = array('approver_second_level', '=', $request->input('SecondApprover'));
+            $this->conditions[] = array('approver_second_level', '=', $request->input('SecondApprover'));
         };
         if ($request->filled('ThirdApprover')) {
-            $conditions[] = array('approver_third_level', '=', $request->input('ThirdApprover'));
+            $this->conditions[] = array('approver_third_level', '=', $request->input('ThirdApprover'));
         };
         
         $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
-            ->where($conditions)
+            ->where($this->conditions)
             ->get();
         
         $approved = \App\Request::where('status', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
-            ->where($conditions)
+            ->where($this->conditions)
             ->get();
         
         $other = \App\Request::where('status',  'not like', 'Awaiting%')

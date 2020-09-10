@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Account;
 
 class Accounts extends Controller
 {
+    public $conditions = array();
     
 //     switch ($_REQUEST['function']) {
 //         case 'edit':
@@ -21,25 +21,20 @@ class Accounts extends Controller
     
     public function index(Request $request)
     {
-        $records = new Account();
-        
         if ($request->filled('Account')) {
-            $records = $records->where('account', $request->input('Account'));
+            $this->conditions[] = array('account', '=', $request->input('Account'));
         };
-        
         if ($request->filled('Approver')) {
-            $records = $records->where('approver', $request->input('Approver'));
+            $this->conditions[] = array('approver', '=', $request->input('Approver'));
         };
-        
         if ($request->filled('Verified')) {
-            $records = $records->where('verified', $request->input('Verified'));
+            $this->conditions[] = array('verified', '=', $request->input('Verified'));
         };
-        
         if ($request->filled('Location')) {
-            $records = $records->where('location', $request->input('Location'));
+            $this->conditions[] = array('location', '=', $request->input('Location'));
         };
         
-        $records = $records->get();
+        $records = \App\Account::where($this->conditions)->get();
         
         $data = array(
             'records' => $records
