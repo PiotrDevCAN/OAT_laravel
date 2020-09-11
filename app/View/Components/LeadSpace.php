@@ -16,13 +16,7 @@ class LeadSpace extends Component
      */
     public function __construct(Request $request)
     {
-        $hostName = $request->getSchemeAndHttpHost();
-        
-        $currentUrl = $request->path();
-        $this->breadcrumbs = explode('/', $currentUrl);
-        
-        var_dump($hostName);
-        var_dump($currentUrl);
+        $this->breadcrumbs = $request->segments();
         var_dump($this->breadcrumbs);
     }
 
