@@ -23,8 +23,8 @@ class Accounts extends Controller
     public function index(Request $request)
     {
         
-        $route = Route::current();
-        var_dump($route);
+//         $route = Route::current();
+//         var_dump($route);
         
         $name = Route::currentRouteName();
         var_dump($name);
