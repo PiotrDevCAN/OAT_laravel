@@ -4,7 +4,13 @@
         <div id="ibm-leadspace-body" class="ibm-padding-bottom-1">
             <nav role="navigation" aria-label="Breadcrumb">
                 <ul id="ibm-navigation-trail">
-					
+					@foreach ($breadcrumbs as $key => $value)
+                    	<li itemscope="" itemtype="//data-vocabulary.org/Breadcrumb">
+                    		<a href="#" itemprop="url">
+                    		<span itemprop="title">{{ $value }}</span>
+                    		</a>
+                    	</li>
+                    @endforeach
                 </ul>
             </nav>
             <div class="ibm-columns">

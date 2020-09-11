@@ -6,6 +6,8 @@ use Illuminate\View\Component;
 
 class LeadSpace extends Component
 {
+    public $breadcrumbs;
+    
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,8 @@ class LeadSpace extends Component
      */
     public function __construct()
     {
-        //
+        $currentUrl = url()->current();
+        $this->breadcrumbs = Str::of($currentUrl)->explode('\');
     }
 
     /**

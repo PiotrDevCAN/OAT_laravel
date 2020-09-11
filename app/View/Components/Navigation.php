@@ -6,7 +6,6 @@ use Illuminate\View\Component;
 
 class Navigation extends Component
 {
-    
     public $menuList;
     
     /**
