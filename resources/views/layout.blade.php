@@ -75,13 +75,13 @@
     </head>
     <body id="ibm-com" class="ibm-type">
         <div id="ibm-top" class="ibm-landing-page">
-        
-          	@include('partials.masterhead')
+        	
+          	<x-masterhead/>
         	
             <div id="ibm-content-wrapper">
                 
-                @include('partials.leadspace')
-                        
+                <x-leadspace/>
+                
                 <main role="main" aria-labelledby="ibm-pagetitle-h1">
                     <div id="ibm-pcon">
                         <div id="ibm-content">
