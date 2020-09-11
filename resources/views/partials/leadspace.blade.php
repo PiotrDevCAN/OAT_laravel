@@ -4,11 +4,24 @@
         <div id="ibm-leadspace-body" class="ibm-padding-bottom-1">
             <nav role="navigation" aria-label="Breadcrumb">
                 <ul id="ibm-navigation-trail">                    
-                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                        <a href="javascript:;" itemprop="url">
-                        <span itemprop="title">Home</span></a>
-                    </li>
-            	</ul>
+					
+                 	<li itemscope="" itemtype="//data-vocabulary.org/Breadcrumb">
+                		<a href="#" itemprop="url">
+                 		<span itemprop="title">Home</span>
+                		</a>
+                 	</li>
+                 	<li itemscope="" itemtype="//data-vocabulary.org/Breadcrumb">
+                		<a href="#" itemprop="url">
+                 		<span itemprop="title">Rational DOORS family</span>
+                		</a>
+                 	</li>
+                 	<li itemscope="" itemtype="//data-vocabulary.org/Breadcrumb">
+                		<a href="#" itemprop="url">
+                 		<span itemprop="title">Rational DOORS family</span>
+                		</a>
+                 	</li>
+                 	
+                </ul>
             </nav>
             <div class="ibm-columns">
                 <div class="ibm-col-1-1">        

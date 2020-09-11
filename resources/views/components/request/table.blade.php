@@ -27,14 +27,29 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($records as $record)
+                @foreach ($records as $key => $record)
                 <tr>
                     <td><a href="p_request.php?ref={{ $record->reference }}">{{ $record->reference }}</a></td>
-                    <td>{{ $record->account }}</td>
+                    <td>{{ $record->account }} {{ $key }}</td>
                     <td>{{ $record->competency }}</td>
                     <td>{{ $record->nature }}</td>
                     <td>{{ $record->title }}</td>
-                    <td>{{ Str::limit($record->details, 50, ' (...)') }}</td>
+                    <td>
+                    {{ Str::limit($record->details, 50, ' (...)') }}
+                    
+                    <a href="#" class="ibm-forward-link" data-widget="tooltip" data-contentid="test-tt-1">This is a link that has an HTML tooltip</a>
+                    
+                    <div id="test-tt-1" class="ibm-tooltip-content">
+                    	<p>This is <strong>bold text</strong> inside a remote div tooltip.</p>
+                        <p>Here is a <a href="#">link</a> that you can click</a>.</p>
+                        <ul>
+                            <li>Bullet #1</li>
+                            <li>Bullet #2</li>
+                            <li>Bullet #3</li>
+                        </ul>
+                    </div>
+                    
+                    </td>
                     <td>{{ $record->weekenddate }}</td>
                     <td><x-mailto-link :email="$record->worker"/></td>
                     <td>{{ $record->serial }}</td>
