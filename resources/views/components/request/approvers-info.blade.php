@@ -50,8 +50,8 @@
         @default
     @endswitch align='center'>
     @empty(!$lvl2Line1)
-    	<p class="ibm-padding-bottom-0">
-    	<x-mailto-link :email="$lvl2Line1 ibm-bold"/>
+    	<p class="ibm-padding-bottom-0 ibm-bold">
+    	<x-mailto-link :email="$lvl2Line1"/>
     	</p>
     @endempty
     @empty(!$lvl2Line2)
