@@ -22,24 +22,6 @@ class Accounts extends Controller
     
     public function index(Request $request)
     {
-        
-//         $route = Route::current();
-//         var_dump($route);
-        
-        $name = Route::currentRouteName();
-        var_dump($name);
-        
-        $action = Route::currentRouteAction();
-        var_dump($action);
-        
-        echo url()->current();
-        
-        // Get the current URL including the query string...
-        echo url()->full();
-        
-        // Get the full URL for the previous request...
-        echo url()->previous();
-        
         if ($request->filled('Account')) {
             $this->conditions[] = array('account', '=', $request->input('Account'));
         };
