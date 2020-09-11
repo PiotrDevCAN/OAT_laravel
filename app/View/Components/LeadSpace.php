@@ -16,7 +16,7 @@ class LeadSpace extends Component
     public function __construct()
     {
         $currentUrl = url()->current();
-        $this->breadcrumbs = explode($currentUrl, '\\');
+        $this->breadcrumbs = explode($currentUrl, '/');
         
         var_dump($this->breadcrumbs);
     }
