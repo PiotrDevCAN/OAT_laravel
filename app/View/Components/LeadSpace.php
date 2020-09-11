@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Request;
 
 class LeadSpace extends Component
 {
@@ -13,9 +14,11 @@ class LeadSpace extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
-        $currentUrl = url()->current();
+        $hostName = $request->getSchemeAndHttpHost();
+        
+        $currentUrl = $request->url();
         $this->breadcrumbs = explode('/', $currentUrl);
         
         var_dump($currentUrl);
