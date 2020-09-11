@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class Accounts extends Controller
 {
@@ -21,6 +22,16 @@ class Accounts extends Controller
     
     public function index(Request $request)
     {
+        
+        $route = Route::current();
+        var_dump($route);
+        
+        $name = Route::currentRouteName();
+        var_dump($name);
+        
+        $action = Route::currentRouteAction();
+        var_dump($action);
+        
         if ($request->filled('Account')) {
             $this->conditions[] = array('account', '=', $request->input('Account'));
         };
