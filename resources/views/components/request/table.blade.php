@@ -37,7 +37,7 @@
                     <td>
                     {{ Str::limit($record->details, 50, '') }}
                     @if(Str::length($record->details) >= 50)
-	                    <a href="#" class="ibm-forward-link" data-widget="tooltip" data-contentid="preview-{{ $name }}-{{ $key }}">(...)</a>
+	                    <a href="#" data-widget="tooltip" data-contentid="preview-{{ $name }}-{{ $key }}" style="text-decoration: none;">(...)</a>
                         <div id="preview-{{ $name }}-{{ $key }}" class="ibm-tooltip-content">
                         	{{ $record->details }}
                         </div>
