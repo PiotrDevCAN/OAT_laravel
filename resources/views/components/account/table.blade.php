@@ -15,12 +15,16 @@
             <tbody>
                 @foreach ($records as $record)
                 <tr>
-                    <td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=edit" target="_blank" title="Edit Record" class="ibm-inlinelink ibm-edit-link ibm-textcolor-red-50"></a></td>    
+                    <td>
+                    <p class="ibm-ind-link ibm-icononly"><a class="ibm-edit-link" href="#">This is a icon-only</a></p>
+                    </td>
                     <td>{{ $record->account }}</td>
                     <td>{{ $record->approver }}</td>
                     <td>{{ $record->verified }}</td>
                     <td>{{ $record->location }}</td>
-                    <td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=delete" target="_blank" title="Delete Record" class="ibm-inlinelink ibm-remove-link ibm-textcolor-green-50"></a></td>
+                    <td>
+                    <p class="ibm-ind-link ibm-icononly"><a class="ibm-remove-link" href="#">This is a icon-only</a></p>
+                    </td>                    
                 </tr>
                 @endforeach
             </tbody>
