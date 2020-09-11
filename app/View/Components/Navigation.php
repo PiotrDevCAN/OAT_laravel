@@ -21,10 +21,10 @@ class Navigation extends Component
             'Status' => 'request.list',
             'Read Only' => 'request.approved',
             'Admin' => array(
-                'Account' => 'account.list',
-                'Sevice Lines' => 'competency.list',
-                'Show delegates' => 'delegate.list',
-                'Log' => 'log.list'
+                'Account' => 'admin.account.list',
+                'Sevice Lines' => 'admin.competency.list',
+                'Show delegates' => 'admin.delegate.list',
+                'Log' => 'admin.log.list'
             ),
             'My Delegates' => 'delegate.my',
             'My Access' => 'access.my'

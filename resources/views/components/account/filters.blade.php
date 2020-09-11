@@ -1,4 +1,4 @@
-{{ Form::open(['route' => 'account.list', 'id' => 'myForm', 'class'  => 'ibm-row-form' ]) }}
+{{ Form::open(['route' => 'admin.account.list', 'id' => 'myForm', 'class'  => 'ibm-row-form' ]) }}
 <div class="ibm-card">
     <div class="ibm-card__content">
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">List Filters</h3>
