@@ -18,7 +18,7 @@
                     <td>{{ $record->user_intranet }}</td>
                     <td>{{ $record->delegate_intranet }}</td>
                     <td>{{ $record->delegate_notesid }}</td>
-                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-remove-link" href="#"></a></p></td>
+                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-close-link" href="#"></a></p></td>
                 </tr>
                 @endforeach
             </tbody>

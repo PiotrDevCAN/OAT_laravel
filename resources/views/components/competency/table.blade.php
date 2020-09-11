@@ -16,7 +16,7 @@
                 	<td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-edit-link" href="#"></a></p></td>
                     <td>{{ $record->competency }}</td>
                     <td>{{ $record->approver }}</td>
-                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-remove-link" href="#"></a></p></td>
+                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-close-link" href="#"></a></p></td>
                 </tr>
                 @endforeach
             </tbody>

@@ -18,7 +18,7 @@
                     <td>{{ $record->log_entry }}</td>
                     <td>{{ $record->last_updated }}</td>
                     <td>{{ $record->last_updater }}</td>
-	                <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-remove-link" href="#"></a></p></td>
+	                <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-close-link" href="#"></a></p></td>
                 </tr>
                 @endforeach
             </tbody>
