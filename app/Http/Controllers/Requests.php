@@ -14,7 +14,7 @@ class Requests extends Controller
         
         if ($request->filled('Account')) {
             $this->conditions[] = array('account', '=', $request->input('Account'));
-        };
+        }; 
         if ($request->filled('Reason')) {
             $this->conditions[] = array('reason', '=', $request->input('Reason'));
         };
