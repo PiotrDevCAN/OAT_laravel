@@ -98,6 +98,18 @@
                                     	
                                     	@yield('content')
                                     	
+                                    	@hasSection('title')
+                                            @yield('title')
+                                        @endif
+                                        
+                                        @hasSection('code')
+                                            @yield('code')
+                                        @endif
+                                    	
+                                    	@hasSection('message')
+                                            @yield('message')
+                                        @endif
+                                    	
                                     	</div>
                                     </div>
                                     <div class="ibm-fluid ibm-fullwidth">
