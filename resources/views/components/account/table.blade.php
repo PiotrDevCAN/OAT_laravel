@@ -16,14 +16,14 @@
                 @foreach ($records as $record)
                 <tr>
                     <td>
-                    <p class="ibm-ind-link ibm-icononly"><a class="ibm-edit-link" href="#">This is a icon-only</a></p>
+                    <p class="ibm-icononly"><a class="ibm-edit-link" href="#">This is a icon-only</a></p>
                     </td>
                     <td>{{ $record->account }}</td>
                     <td>{{ $record->approver }}</td>
                     <td>{{ $record->verified }}</td>
                     <td>{{ $record->location }}</td>
                     <td>
-                    <p class="ibm-ind-link ibm-icononly"><a class="ibm-remove-link" href="#">This is a icon-only</a></p>
+                    <p class="ibm-icononly"><a class="ibm-remove-link" href="#">This is a icon-only</a></p>
                     </td>                    
                 </tr>
                 @endforeach
