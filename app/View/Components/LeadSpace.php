@@ -17,7 +17,6 @@ class LeadSpace extends Component
     public function __construct(Request $request)
     {
         $this->breadcrumbs = $request->segments();
-        var_dump($this->breadcrumbs);
     }
 
     /**

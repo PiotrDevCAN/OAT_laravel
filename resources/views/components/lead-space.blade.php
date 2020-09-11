@@ -4,10 +4,15 @@
         <div id="ibm-leadspace-body" class="ibm-padding-bottom-1">
             <nav role="navigation" aria-label="Breadcrumb">
                 <ul id="ibm-navigation-trail">
+                	<li itemscope="" itemtype="//data-vocabulary.org/Breadcrumb">
+                		<a href="#" itemprop="url">
+                		<span itemprop="title">Home</span>
+                		</a>
+                	</li>
 					@foreach ($breadcrumbs as $key => $value)
                     	<li itemscope="" itemtype="//data-vocabulary.org/Breadcrumb">
                     		<a href="#" itemprop="url">
-                    		<span itemprop="title">{{ $value }}</span>
+                    		<span itemprop="title">{{ Str::upper($value) }}</span>
                     		</a>
                     	</li>
                     @endforeach
