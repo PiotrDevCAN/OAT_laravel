@@ -30,16 +30,14 @@
                 @foreach ($records as $key => $record)
                 <tr>
                     <td><a href="p_request.php?ref={{ $record->reference }}">{{ $record->reference }}</a></td>
-                    <td>{{ $record->account }} {{ $key }}</td>
+                    <td>{{ $record->account }}</td>
                     <td>{{ $record->competency }}</td>
                     <td>{{ $record->nature }}</td>
                     <td>{{ $record->title }}</td>
                     <td>
-                    {{ Str::limit($record->details, 50, ' (...)') }}
+                    {{ Str::limit($record->details, 50, ' <a href="#" class="ibm-forward-link" data-widget="tooltip" data-contentid="preview-{{ $name }}-{{ $key }}">(...)</a>') }}
                     
-                    <a href="#" class="ibm-forward-link" data-widget="tooltip" data-contentid="test-tt-1">This is a link that has an HTML tooltip</a>
-                    
-                    <div id="test-tt-1" class="ibm-tooltip-content">
+                    <div id="preview-{{ $name }}-{{ $key }}" class="ibm-tooltip-content">
                     	<p>This is <strong>bold text</strong> inside a remote div tooltip.</p>
                         <p>Here is a <a href="#">link</a> that you can click</a>.</p>
                         <ul>
