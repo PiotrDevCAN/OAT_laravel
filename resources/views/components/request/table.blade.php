@@ -30,7 +30,7 @@
                 @foreach ($records as $key => $record)
                 <tr>
                     <td><a href="p_request.php?ref={{ $record->reference }}">{{ $record->reference }}</a></td>
-                    <td>{{ $record->account }}</td>
+                    <td class="ibm-bold">{{ $record->account }}</td>
                     <td>{{ $record->competency }}</td>
                     <td>{{ $record->nature }}</td>
                     <td>{{ $record->title }}</td>
@@ -44,11 +44,11 @@
                     @endif
                     </td>
                     <td>{{ $record->weekenddate }}</td>
-                    <td><x-mailto-link :email="$record->worker"/></td>
+                    <td ><x-mailto-link :email="$record->worker"/></td>
                     <td>{{ $record->serial }}</td>
                     <td>{{ $record->location }}</td>
                     <td>{{ $record->hours }}</td>
-                    <td>{{ $record->status }}</td>
+                    <td class="ibm-bold">{{ $record->status }}</td>
                     <x-request.approvers-info :record="$record"/>
                     <td><x-mailto-link :email="$record->requestor"/></td>
                     <td><a href="p_request.php?ref={{ $record->supercedes }}">{{ $record->supercedes }}</a>

@@ -29,48 +29,53 @@ Route::prefix('request')->name('request.')->group(function () {
 });
 
 // Accounts
-Route::prefix('account')->name('account.')->group(function () {
-    Route::match(['get', 'post'], 'list', 'Accounts@index')
-        ->name('list');
+Route::prefix('admin')->name('admin.')->group(function () {
     
-    Route::get('create', 'Accounts@create')
+    // Accounts
+    Route::prefix('account')->name('account.')->group(function () {
+        Route::match(['get', 'post'], 'list', 'Accounts@index')
+        ->name('list');
+        
+        Route::get('create', 'Accounts@create')
         ->name('create');
         
-    Route::get('delete', 'Accounts@delete')
+        Route::get('delete', 'Accounts@delete')
         ->name('delete');
-});
+    });
     
-// Delegates
-Route::prefix('delegate')->name('delegate.')->group(function () {
-    Route::match(['get', 'post'], 'list', 'Delegates@index')
+    // Delegates
+    Route::prefix('delegate')->name('delegate.')->group(function () {
+        Route::match(['get', 'post'], 'list', 'Delegates@index')
         ->name('list');
-    
-    Route::get('create', 'Delegates@create')
+        
+        Route::get('create', 'Delegates@create')
         ->name('create');
         
-    Route::get('delete', 'Delegates@delete')
+        Route::get('delete', 'Delegates@delete')
         ->name('delete');
-    
-    Route::get('my', 'Delegates@my')
+        
+        Route::get('my', 'Delegates@my')
         ->name('my');
-});
-
-// Competencies
-Route::prefix('competency')->name('competency.')->group(function () {
-    Route::match(['get', 'post'], 'list', 'Competencies@index')
-        ->name('list');
+    });
     
-    Route::get('create', 'Competencies@create')
+    // Competencies
+    Route::prefix('competency')->name('competency.')->group(function () {
+        Route::match(['get', 'post'], 'list', 'Competencies@index')
+        ->name('list');
+        
+        Route::get('create', 'Competencies@create')
         ->name('create');
         
-    Route::get('delete', 'Competencies@delete')
+        Route::get('delete', 'Competencies@delete')
         ->name('delete');
-});
-
-// Logs
-Route::prefix('log')->name('log.')->group(function () {
-    Route::match(['get', 'post'], 'list', 'Logs@index')
+    });
+    
+    // Logs
+    Route::prefix('log')->name('log.')->group(function () {
+        Route::match(['get', 'post'], 'list', 'Logs@index')
         ->name('list');
+    });
+    
 });
 
 // Access
