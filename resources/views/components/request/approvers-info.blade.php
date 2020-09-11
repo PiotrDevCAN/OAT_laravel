@@ -1,5 +1,15 @@
-{{-- <td bgcolor="{{ $col1 }}">&nbsp;</td> --}}
-<td align='center'>
+<td @switch($col1)
+        @case('green')
+        	class="ibm-bgcolor-green-10"
+            @break
+        @case('yellow')
+            class="ibm-bgcolor-yellow-10"
+            @break
+        @case('red')
+        	class="ibm-bgcolor-red-10"
+            @break
+        @default
+    @endswitch align='center'>
 	@empty(!$lvl1Line1)
     	<p class="ibm-padding-bottom-0">
     	<x-mailto-link :email="$lvl1Line1"/>
@@ -27,8 +37,18 @@
 		</p>
 	@endif
 </td>
-{{-- <td bgcolor="{{ $col2 }}">&nbsp;</td> --}}
-<td align='center'>
+<td @switch($col2)
+        @case('green')
+        	class="ibm-bgcolor-green-10"
+            @break
+        @case('yellow')
+            class="ibm-bgcolor-yellow-10"
+            @break
+        @case('red')
+        	class="ibm-bgcolor-red-10"
+            @break
+        @default
+    @endswitch align='center'>
     @empty(!$lvl2Line1)
     	<p class="ibm-padding-bottom-0">
     	<x-mailto-link :email="$lvl2Line1"/>
@@ -56,8 +76,18 @@
 		</p>
 	@endif
 </td>
-{{-- <td bgcolor="{{ $col3 }}">&nbsp;</td> --}}
-<td align='center'>
+<td @switch($col3)
+        @case('green')
+        	class="ibm-bgcolor-green-10"
+            @break
+        @case('yellow')
+            class="ibm-bgcolor-yellow-10"
+            @break
+        @case('red')
+        	class="ibm-bgcolor-red-10"
+            @break
+        @default
+    @endswitch align='center'>
 	@empty(!$lvl3Line1)
     	<p class="ibm-padding-bottom-0">
     	<x-mailto-link :email="$lvl3Line1"/>
