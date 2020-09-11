@@ -75,11 +75,11 @@
     <body id="ibm-com" class="ibm-type">
         <div id="ibm-top" class="ibm-landing-page">
         	
-          	<x-masterhead/>
+          	<x-maste-rhead/>
         	
             <div id="ibm-content-wrapper">
                 
-                <x-leadspace/>
+                <x-lead-space/>
                 
                 <main role="main" aria-labelledby="ibm-pagetitle-h1">
                     <div id="ibm-pcon">
