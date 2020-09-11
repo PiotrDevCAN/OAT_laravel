@@ -14,11 +14,11 @@
             <tbody>
                 @foreach ($records as $record)
                 <tr>
-                    <td>Edit Link</td>
+                    <td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=edit">Edit</a></td>
                     <td>{{ $record->user_intranet }}</td>
                     <td>{{ $record->delegate_intranet }}</td>
                     <td>{{ $record->delegate_notesid }}</td>
-                    <td>Delete Link</td>
+                    <td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=delete">Delete</a></td>
                 </tr>
                 @endforeach
             </tbody>
