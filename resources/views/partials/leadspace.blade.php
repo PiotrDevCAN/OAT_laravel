@@ -3,8 +3,10 @@
   	<div id="ibm-leadspace-head" class="ibm-background-blue-core ibm-alternate-background ibm-alternate"  style="" >
         <div id="ibm-leadspace-body" class="ibm-padding-bottom-1">
             <nav role="navigation" aria-label="Breadcrumb">
-                <ul id="ibm-navigation-trail">                    
-					@foreach (url()->current()->explode('\') as $key => $value)
+                <ul id="ibm-navigation-trail">
+					@foreach (
+						url()->current()->explode('\') as $value
+					)
                         <li itemscope="" itemtype="//data-vocabulary.org/Breadcrumb">
                     		<a href="#" itemprop="url">
                      		<span itemprop="title">{{ $value }}</span>
