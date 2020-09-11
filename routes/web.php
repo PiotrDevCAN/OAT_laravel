@@ -101,19 +101,19 @@ Route::get('/p_readerOnly.php', function () {
     return redirect()->route('request.approved');
 });
 Route::get('/p_account.php', function () {
-    return redirect()->route('account.list');
+    return redirect()->route('admin.account.list');
 });
 Route::get('/p_competency.php', function () {
-    return redirect()->route('competency.list');
+    return redirect()->route('admin.competency.list');
 });
 Route::get('/p_showDelegates.php', function () {
-    return redirect()->route('delegate.list');
+    return redirect()->route('admin.delegate.list');
 });
 Route::get('/p_log.php', function () {
-    return redirect()->route('log.list');
+    return redirect()->route('admin.log.list');
 });
 Route::get('/p_delegate.php', function () {
-    return redirect()->route('delegate.my');
+    return redirect()->route('admin.delegate.my');
 });
 Route::get('/p_myOatAccess.php', function () {
     return redirect()->route('access.my');
