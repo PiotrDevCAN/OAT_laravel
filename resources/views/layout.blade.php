@@ -75,7 +75,7 @@
     <body id="ibm-com" class="ibm-type">
         <div id="ibm-top" class="ibm-landing-page">
         	
-          	<x-maste-rhead/>
+          	<x-master-head/>
         	
             <div id="ibm-content-wrapper">
                 
