@@ -12,7 +12,7 @@
 					@foreach ($breadcrumbs as $key => $value)
                     	<li itemscope="" itemtype="//data-vocabulary.org/Breadcrumb">
                     		<a href="#" itemprop="url">
-                    		<span itemprop="title">{{ Str::upper($value) }}</span>
+                    		<span itemprop="title">{{ Str::ucfirst($value) }}</span>
                     		</a>
                     	</li>
                     @endforeach
