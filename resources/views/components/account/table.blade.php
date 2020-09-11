@@ -4,23 +4,23 @@
         <table class="ibm-data-table ibm-altrows ibm-padding-small" data-scrollaxis="x" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatable" id="{{ $name }}">
             <thead>
                 <tr>
-                    <th>Edit</th>
-                    <th>Account</th>
-                    <th>Approver</th>
-                    <th>Verified</th>
-                    <th>Location</th>
-                    <th>Delete</th>
+                    <th class="ibm-nospacing">Edit</th>
+                    <th class="ibm-nospacing">Account</th>
+                    <th class="ibm-nospacing">Approver</th>
+                    <th class="ibm-nospacing">Verified</th>
+                    <th class="ibm-nospacing">Location</th>
+                    <th class="ibm-nospacing">Delete</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($records as $record)
                 <tr>
-                    <td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=edit">Edit</a></td>
-                    <td>{{ $record->account }}</td>
-                    <td>{{ $record->approver }}</td>
-                    <td>{{ $record->verified }}</td>
-                    <td>{{ $record->location }}</td>
-                    <td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=delete">Delete</a></td>
+                    <td class="ibm-nospacing"><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=edit">Edit</a></td>
+                    <td class="ibm-nospacing">{{ $record->account }}</td>
+                    <td class="ibm-nospacing">{{ $record->approver }}</td>
+                    <td class="ibm-nospacing">{{ $record->verified }}</td>
+                    <td class="ibm-nospacing">{{ $record->location }}</td>
+                    <td class="ibm-nospacing"><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=delete">Delete</a></td>
                 </tr>
                 @endforeach
             </tbody>
