@@ -184,7 +184,7 @@ class Requests extends Controller
             'other' => $other
         );
         
-        return view('index', $data);
+        return view('request.index', $data);
     }
     
     public function approvedList(Request $request)
@@ -200,6 +200,6 @@ class Requests extends Controller
             'approved' => $approved
         );
         
-        return view('index', $data);
+        return view('request.index', $data);
     }
 }
