@@ -13,10 +13,10 @@
             <tbody>
                 @foreach ($records as $record)
                 <tr>
-                	<td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=edit">Edit</a></td>
+                	<td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-edit-link" href="#"></a></p></td>
                     <td>{{ $record->competency }}</td>
                     <td>{{ $record->approver }}</td>
-                    <td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=delete">Delete</a></td>
+                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-remove-link" href="#"></a></p></td>
                 </tr>
                 @endforeach
             </tbody>

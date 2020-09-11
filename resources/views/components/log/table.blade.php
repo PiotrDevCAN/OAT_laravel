@@ -14,12 +14,11 @@
             <tbody>
                 @foreach ($records as $record)
                 <tr>
-                    <td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=edit" target="_blank" title="Edit Record" class="ibm-inlinelink ibm-confirm-link ibm-textcolor-red-50">Edit</a></td>                    
+                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-edit-link" href="#"></a></p></td>
                     <td>{{ $record->log_entry }}</td>
                     <td>{{ $record->last_updated }}</td>
                     <td>{{ $record->last_updater }}</td>
-                    <td>Delete Link</td>
-                    <td><a href="p_account.php?ACCOUNT=.Multiple+Accounts%2FInternal+Operations&LOCATION=&function=delete" target="_blank" title="Delete Record" class="ibm-inlinelink ibm-close-link ibm-textcolor-green-50">Delete</a></td>
+	                <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-remove-link" href="#"></a></p></td>
                 </tr>
                 @endforeach
             </tbody>
