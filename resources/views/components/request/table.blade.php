@@ -35,7 +35,7 @@
                     <td>{{ $record->nature }}</td>
                     <td>{{ $record->title }}</td>
                     <td>
-                    {{ Str::limit($record->details, 50, ' <a href="#" class="ibm-forward-link" data-widget="tooltip" data-contentid="preview-{{ $name }}-{{ $key }}">(...)</a>') }}
+                    {{ Str::limit($record->details, 50, '<a href="#" class="ibm-forward-link" data-widget="tooltip" data-contentid="preview-$name-$key">(...)</a>') }}
                     
                     <div id="preview-{{ $name }}-{{ $key }}" class="ibm-tooltip-content">
                     	<p>This is <strong>bold text</strong> inside a remote div tooltip.</p>
