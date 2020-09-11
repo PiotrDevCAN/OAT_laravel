@@ -20,6 +20,8 @@ class Table extends Component
      */
     public $records;
     
+    public $expand
+    
     /**
      * Create the component instance.
      *
@@ -27,10 +29,11 @@ class Table extends Component
      * @param  string  $records
      * @return void
      */
-    public function __construct($name, $records)
+    public function __construct($name, $records, $expand = false)
     {
         $this->name = $name;
         $this->records = $records;
+        $this->expand = $expand;
     }
 
     /**
