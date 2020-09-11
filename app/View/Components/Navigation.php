@@ -26,7 +26,7 @@ class Navigation extends Component
                 'Show delegates' => 'admin.delegate.list',
                 'Log' => 'admin.log.list'
             ),
-            'My Delegates' => 'delegate.my',
+            'My Delegates' => 'admin.delegate.my',
             'My Access' => 'access.my'
         );
     }
