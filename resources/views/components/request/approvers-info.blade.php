@@ -11,7 +11,7 @@
         @default
     @endswitch align='center'>
 	@empty(!$lvl1Line1)
-    	<p class="ibm-padding-bottom-0">
+    	<p class="ibm-padding-bottom-0 ibm-bold">
     	<x-mailto-link :email="$lvl1Line1"/>
     	</p>
     @endempty
@@ -51,7 +51,7 @@
     @endswitch align='center'>
     @empty(!$lvl2Line1)
     	<p class="ibm-padding-bottom-0">
-    	<x-mailto-link :email="$lvl2Line1"/>
+    	<x-mailto-link :email="$lvl2Line1 ibm-bold"/>
     	</p>
     @endempty
     @empty(!$lvl2Line2)
@@ -89,7 +89,7 @@
         @default
     @endswitch align='center'>
 	@empty(!$lvl3Line1)
-    	<p class="ibm-padding-bottom-0">
+    	<p class="ibm-padding-bottom-0 ibm-bold">
     	<x-mailto-link :email="$lvl3Line1"/>
     	</p>
     @endempty
