@@ -20,7 +20,7 @@ class Table extends Component
      */
     public $records;
     
-    public $expand
+    public $expand;
     
     /**
      * Create the component instance.
