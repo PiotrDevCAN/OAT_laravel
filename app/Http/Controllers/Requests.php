@@ -197,8 +197,8 @@ class Requests extends Controller
         
         // Query the commentLog relationship
         foreach($request->commentLogs as $commentLog) {
-            echo $commentLogs->request;
-            echo $commentLogs->comment;
+            echo $commentLog->request;
+            echo $commentLog->comment;
         }
         
         
