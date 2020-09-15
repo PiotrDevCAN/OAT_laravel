@@ -202,6 +202,11 @@ class Requests extends Controller
         
         dump($requestAll);
         
+        foreach ($requestAll => $request) {
+            echo $request->request;
+            echo $request->comment;
+        }
+        
         $requestFirst = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
             ->join('COMMENTS', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
             ->select('COMMENT_LOG.*')
