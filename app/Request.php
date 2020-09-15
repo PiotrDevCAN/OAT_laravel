@@ -51,9 +51,9 @@ class Request extends Model
     ];
     
     /**
-     * Get all of the posts for the country.
+     * Get all of the Comments for the request.
      */
-    public function comments()
+    public function allComments()
     {
         return $this->hasOneThrough(
             'App\Comment',      // Owner
@@ -76,4 +76,13 @@ class Request extends Model
 //         return $this->hasOneThrough('App\Comment', 'App\CommentLog');
 //         return $this->hasManyThrough('App\Comment', 'App\CommentLog');
     }
+    
+    /**
+     * Get the commentLog record associated with the request.
+     */
+    public function commentLogs()
+    {
+        return $this->hasOne('App\CommentLog', 'reference', 'request');
+    }
+    
 }

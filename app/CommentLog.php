@@ -49,4 +49,20 @@ class CommentLog extends Model
     protected $attributes = [
     //         'delayed' => false,
     ];
+    
+    /**
+     * Get the commentLog record associated with the commentLog.
+     */
+    public function comments()
+    {
+        return $this->hasOne('App\Comment', 'reference', 'comment');
+    }
+    
+    /**
+     * Get the request that owns the commentLog.
+     */
+    public function request()
+    {
+        return $this->belongsTo('App\Request', 'request', 'reference');
+    }
 }

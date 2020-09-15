@@ -40,6 +40,14 @@ class Comment extends Model
      * @var array
      */
     protected $attributes = [
-    //         'delayed' => false,
+//         'delayed' => false,
     ];
+    
+    /**
+     * Get the user that owns the phone.
+     */
+    public function commentLog()
+    {
+        return $this->belongsTo('App\CommentLog', 'comment', 'reference');
+    }
 }

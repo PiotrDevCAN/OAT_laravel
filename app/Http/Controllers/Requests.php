@@ -159,6 +159,7 @@ class Requests extends Controller
         
         $this->prepareConditions($request);
         
+        /*
         $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
@@ -177,6 +178,11 @@ class Requests extends Controller
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($this->conditions)
             ->get();
+        */
+        
+        $awaiting = array();
+        $approved = array();
+        $other = array();
         
         $data = array(
             'awaiting' => $awaiting,
@@ -187,9 +193,20 @@ class Requests extends Controller
         
         $request = \App\Request::find(168649);
         
+        $commentLog = \App\CommentLog::find(168649);
+        
+        $comment = \App\Comment::find(28634);
+        
+        echo $request->commentLogs();
+        
+        echo $commentLog->comments();
+        echo $commentLog->request();
+        
+        echo $comment->commentLog();
+        
 //         var_dump($request);
         
-        dd($request->comments());
+//         dd($request->comments());
         
 //         foreach ($request->comments as $comment) {
 //             var_dump($comment);
