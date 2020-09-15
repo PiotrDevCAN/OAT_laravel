@@ -195,7 +195,7 @@ class Requests extends Controller
         
         
         $requestAA = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
-            ->join('COMMENT_LOG', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
+            ->join('COMMENTS', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
             ->select('COMMENT_LOG.*')
             ->get();
         
