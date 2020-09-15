@@ -47,7 +47,7 @@ class CommentLog extends Model
      * @var array
      */
     protected $attributes = [
-    //         'delayed' => false,
+//         'delayed' => false,
     ];
     
     /**
@@ -55,7 +55,7 @@ class CommentLog extends Model
      */
     public function comments()
     {
-        return $this->hasOne('App\Comment', 'reference', 'comment');
+        return $this->hasMany('App\Comment', 'reference');
     }
     
     /**
@@ -63,6 +63,6 @@ class CommentLog extends Model
      */
     public function request()
     {
-        return $this->belongsTo('App\Request', 'comment', 'request');
+        return $this->belongsToMany('App\Request', 'comment', 'request');
     }
 }
