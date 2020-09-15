@@ -197,6 +197,7 @@ class Requests extends Controller
         $requestAA = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
             ->join('COMMENTS', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
             ->select('COMMENT_LOG.*')
+            ->where('REQUESTS.REFERENCE', '=', 168649)
             ->get();
         
         dump($requestAA);
@@ -204,10 +205,10 @@ class Requests extends Controller
         $request = \App\Request::find(168649);
         
         // Query the commentLog relationship
-        foreach($request->commentLogs as $commentLog) {
-            echo $commentLog->request;
-            echo $commentLog->comment;
-        }
+//         foreach($request->commentLogs as $commentLog) {
+//             echo $commentLog->request;
+//             echo $commentLog->comment;
+//         }
         
         
 //         $requestModel = \App\Request::find(168649);
