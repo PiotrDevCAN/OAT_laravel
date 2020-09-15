@@ -194,9 +194,12 @@ class Requests extends Controller
         info('Some helpful information!');
         
         $request = \App\Request::find(168649);
-        $request->commentLogs->dump();
         
+        $request->commentLogs->dump();
         dump($request->commentLogs);
+        
+        $request->commentLog->dump();
+        dump($request->commentLog);
         
 //         $request->commentLogs->dd();
         
