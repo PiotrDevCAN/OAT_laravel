@@ -195,13 +195,14 @@ class Requests extends Controller
         
         
         $requestModel = \App\Request::find(168649);
+        $requestCommentLogs = $requestModel->getCommentLogs()->get();
         
-        $commentLogModel = \App\CommentLog::find(168649);
+//         $commentLogModel = \App\CommentLog::find(168649);
         
-        $commentModel = \App\Comment::find(28634);
+//         $commentModel = \App\Comment::find(28634);
         
 //         dump($request->getCommentLogs);
-        foreach ($requestModel->getCommentLogs as $log) {
+        foreach ($requestCommentLogs as $log) {
             //
             echo '<br>';
             dump($log);
@@ -209,6 +210,7 @@ class Requests extends Controller
 //             echo $log->comment;
         }
         
+        /*
 //         dump($commentLog->getComments);
         foreach ($commentLogModel->getComments as $comment) {
             //
@@ -235,6 +237,7 @@ class Requests extends Controller
 //             echo $log->request;
 //             echo $log->comment;
         }
+        */
         
         return view('components.request.index', $data);
     }
