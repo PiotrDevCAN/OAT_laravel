@@ -191,26 +191,21 @@ class Requests extends Controller
         );
         
         
+        info('Some helpful information!');
+        
+        
         $request = \App\Request::find(168649);
         
         $commentLog = \App\CommentLog::find(168649);
         
         $comment = \App\Comment::find(28634);
         
-        echo $request->commentLogs();
+        dump($request->commentLogs());
         
-        echo $commentLog->comments();
-        echo $commentLog->request();
+        dump($commentLog->comments());
+        dump($commentLog->request());
         
-        echo $comment->commentLog();
-        
-//         var_dump($request);
-        
-//         dd($request->comments());
-        
-//         foreach ($request->comments as $comment) {
-//             var_dump($comment);
-//         }
+        dump($comment->commentLog());
         
         return view('components.request.index', $data);
     }
