@@ -189,7 +189,9 @@ class Requests extends Controller
         
 //         var_dump($request);
         
+        echo '<pre>';
         var_dump($request->comments());
+        echo '</pre>';
         
 //         foreach ($request->comments as $comment) {
 //             var_dump($comment);
