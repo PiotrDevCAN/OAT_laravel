@@ -14,6 +14,13 @@ class CommentLog extends Model
     protected $table = 'Comment_Log';
     
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'request';
+    
+    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool

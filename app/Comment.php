@@ -14,6 +14,13 @@ class Comment extends Model
     protected $table = 'Comments';
     
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'reference';
+    
+    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
