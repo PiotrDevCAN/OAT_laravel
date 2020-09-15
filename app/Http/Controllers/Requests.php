@@ -202,10 +202,10 @@ class Requests extends Controller
         
         dump($request->commentLogs());
         
-//         dump($commentLog->comments());
-//         dump($commentLog->request());
+        dump($commentLog->comments());
+        dump($commentLog->request());
         
-//         dump($comment->commentLog());
+        dump($comment->commentLog());
         
         return view('components.request.index', $data);
     }
