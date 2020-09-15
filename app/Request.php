@@ -49,4 +49,31 @@ class Request extends Model
     protected $attributes = [
 //         'delayed' => false,
     ];
+    
+    /**
+     * Get all of the posts for the country.
+     */
+    public function comments()
+    {
+        return $this->hasOneThrough(
+            'App\Comment',      // Post
+            'App\CommentLog',   // User
+            'request', // Foreign key on users table...
+            'reference', // Foreign key on posts table...
+            'reference', // Local key on countries table...
+            'request' // Local key on users table...
+        );
+        /*
+        return $this->hasManyThrough(
+            'App\Comment',      // Post
+            'App\CommentLog',   // User
+            'request', // Foreign key on users table...
+            'reference', // Foreign key on posts table...
+            'reference', // Local key on countries table...
+            'request' // Local key on users table...
+        );
+        */
+//         return $this->hasOneThrough('App\Comment', 'App\CommentLog');
+//         return $this->hasManyThrough('App\Comment', 'App\CommentLog');
+    }
 }

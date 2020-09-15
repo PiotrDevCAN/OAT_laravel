@@ -184,6 +184,13 @@ class Requests extends Controller
             'other' => $other
         );
         
+        
+        $request = \App\Request::find(168649);
+        
+        foreach ($request->comments as $comment) {
+            var_dump($comment);
+        }
+        
         return view('components.request.index', $data);
     }
     
