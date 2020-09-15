@@ -205,8 +205,8 @@ class Requests extends Controller
             //
             echo '<br>';
             dump($log);
-            echo $log->request;
-            echo $log->comment;
+//             echo $log->request;
+//             echo $log->comment;
         }
         
 //         dump($commentLog->getComments);
@@ -214,8 +214,8 @@ class Requests extends Controller
             //
             echo '<br>';
             dump($comment);
-            echo $log->reference;
-            echo $log->text;
+//             echo $log->reference;
+//             echo $log->text;
         }
         
 //         dump($commentLog->getRequest);
@@ -223,8 +223,8 @@ class Requests extends Controller
             //
             echo '<br>';
             dump($request);
-            echo $log->reference;
-            echo $log->requestor;
+//             echo $log->reference;
+//             echo $log->requestor;
         }
         
 //         dump($comment->getCommentLog);
@@ -232,8 +232,8 @@ class Requests extends Controller
             //
             echo '<br>';
             dump($log);
-            echo $log->request;
-            echo $log->comment;
+//             echo $log->request;
+//             echo $log->comment;
         }
         
         return view('components.request.index', $data);
