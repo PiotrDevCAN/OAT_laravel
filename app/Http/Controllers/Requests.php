@@ -202,6 +202,9 @@ class Requests extends Controller
         
         dump($requestAA);
         
+        echo $requestAA->request;
+        echo $requestAA->comment;
+        
         $request = \App\Request::find(168649);
         
         // Query the commentLog relationship
