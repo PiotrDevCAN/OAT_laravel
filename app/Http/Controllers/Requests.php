@@ -218,22 +218,24 @@ class Requests extends Controller
 //         echo $requestFirst->request;
 //         echo $requestFirst->comment;
         
-        $requestRaw = \App\Request::find(168649);
-        dump($requestRaw);
+//         $requestRaw = \App\Request::find(168649);
+//         dump($requestRaw);
         
-        $requestFirst = \App\Request::find(168649)->first();
-        dump($requestFirst);
+//         $requestFirst = \App\Request::find(168649)->first();
+//         dump($requestFirst);
         
-        $requestGet = \App\Request::find(168649)->get();
-        dump($requestGet);
+//         $requestGet = \App\Request::find(168649)->get();
+//         dump($requestGet);
         
-        $requestAll = \App\Request::find(168649)->all();
-        dump($requestAll);
+//         $requestAll = \App\Request::find(168649)->all();
+//         dump($requestAll);
         
         $request = \App\Request::find(168649);
         $request->commentLogs->dump();
         
-        $request->commentLogs->dd();
+        dump($request->commentLogs);
+        
+//         $request->commentLogs->dd();
         
 //         foreach ($request->commentLogs as $tag) {
 //             dump($tag);
