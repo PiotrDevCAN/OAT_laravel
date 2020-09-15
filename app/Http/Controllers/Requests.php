@@ -194,16 +194,24 @@ class Requests extends Controller
         info('Some helpful information!');
         
         
-        $requestAA = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
+        $requestAll = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
+        ->join('COMMENTS', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
+        ->select('COMMENT_LOG.*')
+        ->where('REQUESTS.REFERENCE', '=', 168649)
+        ->get();
+        
+        dump($requestAll);
+        
+        $requestFirst = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
             ->join('COMMENTS', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
             ->select('COMMENT_LOG.*')
             ->where('REQUESTS.REFERENCE', '=', 168649)
-            ->get();
+            ->first();
         
-        dump($requestAA);
-        
-        echo $requestAA->request;
-        echo $requestAA->comment;
+        dump($requestFirst);
+    
+        echo $requestFirst->request;
+        echo $requestFirst->comment;
         
         $request = \App\Request::find(168649);
         
