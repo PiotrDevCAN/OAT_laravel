@@ -194,31 +194,41 @@ class Requests extends Controller
         info('Some helpful information!');
         
         
-        $requestAll = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
-        ->join('COMMENTS', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
-        ->select('COMMENT_LOG.*')
-        ->where('REQUESTS.REFERENCE', '=', 168649)
-        ->get();
+//         $requestAll = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
+//             ->join('COMMENTS', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
+//             ->select('COMMENT_LOG.*')
+//             ->where('REQUESTS.REFERENCE', '=', 168649)
+//             ->get();
         
-        dump($requestAll);
+//         dump($requestAll);
         
-        foreach ($requestAll as $request) {
-            echo $request->request;
-            echo $request->comment;
-        }
+//         foreach ($requestAll as $request) {
+//             echo $request->request;
+//             echo $request->comment;
+//         }
         
-        $requestFirst = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
-            ->join('COMMENTS', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
-            ->select('COMMENT_LOG.*')
-            ->where('REQUESTS.REFERENCE', '=', 168649)
-            ->first();
+//         $requestFirst = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
+//             ->join('COMMENTS', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
+//             ->select('COMMENT_LOG.*')
+//             ->where('REQUESTS.REFERENCE', '=', 168649)
+//             ->first();
         
-        dump($requestFirst);
+//         dump($requestFirst);
     
-        echo $requestFirst->request;
-        echo $requestFirst->comment;
+//         echo $requestFirst->request;
+//         echo $requestFirst->comment;
         
-        $request = \App\Request::find(168649);
+        $requestRaw = \App\Request::find(168649);
+        dump($requestRaw);
+        
+        $requestFirst = \App\Request::find(168649)->first();
+        dump($requestFirst);
+        
+        $requestGet = \App\Request::find(168649)->get();
+        dump($requestGet);
+        
+        $requestAll = \App\Request::find(168649)->all();
+        dump($requestAll);
         
         // Query the commentLog relationship
 //         foreach($request->commentLogs as $commentLog) {
