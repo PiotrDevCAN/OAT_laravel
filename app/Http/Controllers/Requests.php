@@ -200,12 +200,12 @@ class Requests extends Controller
         
         $comment = \App\Comment::find(28634);
         
-        dump($request->commentLogs);
+        dump($request->getCommentLogs);
         
-        dump($commentLog->comments);
-        dump($commentLog->request);
+        dump($commentLog->getComments);
+        dump($commentLog->getRequest);
         
-        dump($comment->commentLog);
+        dump($comment->getCommentLog);
         
         return view('components.request.index', $data);
     }
