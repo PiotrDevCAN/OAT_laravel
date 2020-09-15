@@ -82,7 +82,7 @@ class Request extends Model
      */
     public function commentLogs()
     {
-        return $this->hasOne('App\CommentLog', 'request', 'comment');
+        return $this->hasOne('App\CommentLog', 'reference', 'comment');
     }
     
 }
