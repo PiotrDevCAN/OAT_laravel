@@ -193,6 +193,14 @@ class Requests extends Controller
         
         info('Some helpful information!');
         
+        
+        $requestAA = \App\Request::join('COMMENT_LOG', 'REQUESTS.REFERENCE', '=', 'COMMENT_LOG.REQUEST')
+            ->join('COMMENT_LOG', 'COMMENT_LOG.COMMENT', '=', 'COMMENTS.REFERENCE')
+            ->select('COMMENT_LOG.*')
+            ->get();
+        
+        dump($requestAA);
+        
         $request = \App\Request::find(168649);
         
         // Query the commentLog relationship
