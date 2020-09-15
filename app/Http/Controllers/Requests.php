@@ -198,10 +198,15 @@ class Requests extends Controller
         dump($request->commentLog);
         dump($request->commentLogs);
         
-//         foreach ($request->commentLogs as $commentLog) {
-//             echo $commentLog->request;
-//             echo $commentLog->comment;
-//         }
+        echo 'SINGLE';
+        echo $request->commentLog->request;
+        echo $request->commentLog->comment;
+        
+        echo 'MULTIPLE';
+        foreach ($request->commentLogs as $commentLog) {
+            echo $commentLog->request;
+            echo $commentLog->comment;
+        }
                 // Query the commentLog relationship
 //         foreach($request->commentLogs as $commentLog) {
 //             echo $commentLog->request;
