@@ -202,7 +202,7 @@ class Requests extends Controller
         
         dump($requestAll);
         
-        foreach ($requestAll => $request) {
+        foreach ($requestAll -> $request) {
             echo $request->request;
             echo $request->comment;
         }
