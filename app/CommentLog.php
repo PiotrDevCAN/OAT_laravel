@@ -55,7 +55,7 @@ class CommentLog extends Model
      */
     public function comments()
     {
-        return $this->hasOne(Comment::class, 'reference', 'comment');
+        return $this->hasOne('App\Comment', 'reference', 'comment');
     }
     
     /**
@@ -63,6 +63,6 @@ class CommentLog extends Model
      */
     public function request()
     {
-        return $this->belongsTo(Request::class, 'request', 'reference');
+        return $this->belongsTo('App\Request', 'comment', 'request');
     }
 }

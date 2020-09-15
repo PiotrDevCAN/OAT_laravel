@@ -48,6 +48,6 @@ class Comment extends Model
      */
     public function commentLog()
     {
-        return $this->belongsTo(CommentLog::class, 'reference', 'comment');
+        return $this->belongsTo('App\CommentLog', 'comment', 'reference');
     }
 }
