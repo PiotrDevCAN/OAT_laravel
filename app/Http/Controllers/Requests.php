@@ -195,16 +195,16 @@ class Requests extends Controller
         
         $request = \App\Request::find(168649);
         
-        $request->commentLogs->dump();
+//         $request->commentLogs->dump();
         dump($request->commentLogs);
         
-        $request->commentLog->dump();
-        dump($request->commentLog);
+//         $request->commentLog->dump();
+//         dump($request->commentLog);
         
 //         $request->commentLogs->dd();
         
-//         foreach ($request->commentLogs as $tag) {
-//             dump($tag);
+//         foreach ($request->commentLogs as $commentLog) {
+//             dump($commentLog);
 //         }
         
         // Query the commentLog relationship

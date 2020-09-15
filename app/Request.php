@@ -80,14 +80,6 @@ class Request extends Model
     /**
      * Get the commentLog record associated with the request.
      */
-    public function commentLog()
-    {
-        return $this->hasOne('App\CommentLog', 'request');
-    }
-    
-    /**
-     * Get the commentLog record associated with the request.
-     */
     public function commentLogs()
     {
         return $this->hasMany('App\CommentLog', 'request');
