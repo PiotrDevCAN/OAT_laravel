@@ -203,6 +203,7 @@ class Requests extends Controller
         dump($request->getCommentLogs);
         
         dump($commentLog->getComments);
+        
         dump($commentLog->getRequest);
         
         dump($comment->getCommentLog);
