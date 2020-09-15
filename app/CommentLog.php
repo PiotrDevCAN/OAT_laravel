@@ -11,7 +11,7 @@ class CommentLog extends Model
      *
      * @var string
      */
-    protected $table = 'Account_Approvers';
+    protected $table = 'Comment_Log';
     
     /**
      * Indicates if the model should be timestamped.
