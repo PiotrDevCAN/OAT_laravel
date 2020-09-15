@@ -231,7 +231,9 @@ class Requests extends Controller
         dump($requestAll);
         
         $request = \App\Request::find(168649);
-        dump($request->commentLogs);
+        $request->commentLogs->dump();
+        
+        $request->commentLogs->dd();
         
 //         foreach ($request->commentLogs as $tag) {
 //             dump($tag);
