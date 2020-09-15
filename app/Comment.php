@@ -46,7 +46,7 @@ class Comment extends Model
     /**
      * Get the user that owns the phone.
      */
-    public function getCommentLog()
+    public function commentLog()
     {
         return $this->belongsTo(CommentLog::class, 'reference', 'comment');
     }

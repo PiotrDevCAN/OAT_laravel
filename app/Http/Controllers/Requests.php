@@ -193,22 +193,30 @@ class Requests extends Controller
         
         info('Some helpful information!');
         
+        $request = \App\Request::find(168649);
         
-        $requestModel = \App\Request::find(168649);
-        $requestCommentLogs = $requestModel->getCommentLogs()->get();
+        // Query the commentLog relationship
+        foreach($request->commentLogs as $commentLog) {
+            echo $commentLogs->request;
+            echo $commentLogs->comment;
+        }
+        
+        
+//         $requestModel = \App\Request::find(168649);
+//         $requestCommentLogs = $requestModel->getCommentLogs()->get();
         
 //         $commentLogModel = \App\CommentLog::find(168649);
         
 //         $commentModel = \App\Comment::find(28634);
         
 //         dump($request->getCommentLogs);
-        foreach ($requestCommentLogs as $log) {
+//         foreach ($requestCommentLogs as $log) {
             //
-            echo '<br>';
-            dump($log);
+//             echo '<br>';
+//             dump($log);
 //             echo $log->request;
 //             echo $log->comment;
-        }
+//         }
         
         /*
 //         dump($commentLog->getComments);

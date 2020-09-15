@@ -80,7 +80,7 @@ class Request extends Model
     /**
      * Get the commentLog record associated with the request.
      */
-    public function getCommentLogs()
+    public function commentLogs()
     {
         return $this->hasOne(CommentLog::class, 'request', 'reference');
     }

@@ -53,7 +53,7 @@ class CommentLog extends Model
     /**
      * Get the commentLog record associated with the commentLog.
      */
-    public function getComments()
+    public function comments()
     {
         return $this->hasOne(Comment::class, 'reference', 'comment');
     }
@@ -61,7 +61,7 @@ class CommentLog extends Model
     /**
      * Get the request that owns the commentLog.
      */
-    public function getRequest()
+    public function request()
     {
         return $this->belongsTo(Request::class, 'request', 'reference');
     }
