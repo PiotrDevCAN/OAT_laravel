@@ -34,9 +34,9 @@
                     	{{ $record->account }}
                     	@isset($record->comment)
                     		<p class="ibm-ind-link ibm-icononly">
-                    		<a href="#" class="ibm-requestquote-link" data-widget="tooltip" data-contentid="preview-comments-{{ $record->comment->reference }}" style="text-decoration: none;"></a>
+                    		<a href="#" class="ibm-requestquote-link" data-widget="tooltip" data-contentid="preview-comments-{{ $record->reference }}-{{ $record->comment->reference }}" style="text-decoration: none;"></a>
                     		</p>
-                    		<div id="preview-comments-{{ $record->comment->reference }}" class="ibm-tooltip-content">
+                    		<div id="preview-comments-{{ $record->reference }}-{{ $record->comment->reference }}" class="ibm-tooltip-content">
     							<p>{{ $record->comment->text }}</p>
                             	<p>{{ $record->comment->creator }}</p>
                             	<p>{{ $record->comment->created }}</p>
