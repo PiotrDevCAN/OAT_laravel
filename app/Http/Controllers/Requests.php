@@ -159,7 +159,6 @@ class Requests extends Controller
         
         $this->prepareConditions($request);
         
-        /*
         $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
@@ -178,7 +177,6 @@ class Requests extends Controller
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($this->conditions)
             ->get();
-        */
         
         $awaiting = array();
         $approved = array();
@@ -189,17 +187,6 @@ class Requests extends Controller
             'approved' => $approved, 
             'other' => $other
         );
-        
-        $request = \App\Request::findOrFail(168649);
-        
-//         dump($request->comment->reference);
-//         dump($request->comment->text);
-//         dump($request->comment->creator);
-//         dump($request->comment->created);
-        
-        $request->comments()->dump();
-        $request->comments->dump();
-        dump($request->comments);
 
         return view('components.request.index', $data);
     }
