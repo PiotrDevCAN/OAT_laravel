@@ -80,6 +80,6 @@ class Request extends Model
      */
     public function commentLogs()
     {
-        return $this->hasMany('App\CommentLog', 'request');
+        return $this->hasMany('App\CommentLog', 'request', 'reference');
     }
 }
