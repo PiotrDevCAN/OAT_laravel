@@ -190,7 +190,7 @@ class Requests extends Controller
             'other' => $other
         );
         
-        $request = \App\Request::findOfFail(83248732874);
+        $request = \App\Request::findOrFail(83248732874);
         
         return view('components.request.index', $data);
     }
