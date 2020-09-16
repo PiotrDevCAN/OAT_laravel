@@ -213,22 +213,30 @@ class Requests extends Controller
         */
         
         // 28634
-        echo 'connection from COMMENT to COMMENT LOG';
-        $comment = \App\Comment::find(28634);
+//         echo 'connection from COMMENT to COMMENT LOG';
+//         $comment = \App\Comment::find(28634);
         
-        echo 'SINGLE RECORD';
-        $commentLog = $comment->commentLog;
-        echo $commentLog->request;
-        echo ' == ';
-        echo $commentLog->comment;
+//         echo 'SINGLE RECORD';
+//         $commentLog = $comment->commentLog;
+//         echo $commentLog->request;
+//         echo ' == ';
+//         echo $commentLog->comment;
         
-        echo 'MULITPLE RECORD';
-        $comment->commentLogs()->dump();
-//         foreach ($comment->commentLogs as $commentLog) {
-//             echo $commentLog->request;
-//             echo ' == ';
-//             echo $commentLog->comment;
-//         }
+        
+        
+        $request = \App\Request::find(168649);
+        echo 'commentLog';
+        $request->commentLog()->dump();
+        echo 'commentLogs';
+        $request->commentLogs()->dump();
+        
+        $commentLog = \App\CommentLog::find(4189);
+        echo 'comment';
+        $commentLog->comment()->dump();
+        echo 'comments';
+        $commentLog->comments()->dump();
+        
+        
         
         echo 'connection from COMMENT LOG to REQUEST';
         

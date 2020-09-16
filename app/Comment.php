@@ -50,12 +50,4 @@ class Comment extends Model
     {
         return $this->belongsTo('App\CommentLog', 'reference', 'comment');
     }
-    
-    /**
-     * Get the user that owns the phone.
-     */
-    public function commentLogs()
-    {
-        return $this->belongsToMany('App\CommentLog', null, 'comment');
-    }
 }

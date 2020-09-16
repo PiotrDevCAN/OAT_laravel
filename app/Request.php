@@ -63,16 +63,14 @@ class Request extends Model
             'reference', // Local key on mechanics table...
             'request' // Local key on cars table...
         );
-        /*
-        return $this->hasOneThrough(
-            'App\Comment',      // Owner
-            'App\CommentLog',   // Car
-            'reference', // Foreign key on cars table...
-            'reference', // Foreign key on owners table...
-            'reference', // Local key on mechanics table...
-            'request' // Local key on cars table...
-        );
-        */
+    }
+    
+    /**
+     * Get the commentLog record associated with the request.
+     */
+    public function commentLog()
+    {
+        return $this->hasOne('App\CommentLog', 'request');
     }
     
     /**
