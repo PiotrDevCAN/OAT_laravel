@@ -159,29 +159,33 @@ class Requests extends Controller
         
         $this->prepareConditions($request);
         
-        $awaiting = \App\Request::where('status', 'like', 'Awaiting%')
+        $awaitingQuery = \App\Request::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
-            ->where($this->conditions)
-            ->get();
+            ->where($this->conditions);
+//             ->get();
         
-        $approved = \App\Request::where('status', 'Approved')
+        $approvedQuery = \App\Request::where('status', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
-            ->where($this->conditions)
-            ->get();
+            ->where($this->conditions);
+//             ->get();
         
-        $other = \App\Request::where('status',  'not like', 'Awaiting%')
+        $otherQuery = \App\Request::where('status',  'not like', 'Awaiting%')
             ->where('status', '<>', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
-            ->where($this->conditions)
-            ->get();
-        
+            ->where($this->conditions);
+//             ->get();
+
+        dump($awaitingQuery->sum('hours'));
+        dump($approvedQuery->sum('hours'));
+        dump($otherQuery->sum('hours'));
+            
         $data = array(
-            'awaiting' => $awaiting,
-            'approved' => $approved, 
-            'other' => $other
+            'awaiting' => $awaiting->get(),
+            'approved' => $approved->get(), 
+            'other' => $other->get()
         );
 
         return view('components.request.index', $data);
