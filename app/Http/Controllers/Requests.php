@@ -193,9 +193,8 @@ class Requests extends Controller
         
         info('Some helpful information!');
         
-        $request = \App\Request::find(168649);
-        
         echo 'COMMENT LOG DATA';
+        $request = \App\Request::find(168649);        
         foreach ($request->commentLogs as $commentLog) {
             echo $commentLog->request;
             echo ' == ';
@@ -203,7 +202,7 @@ class Requests extends Controller
         }
         
         echo 'COMMENT DATA';
-        $commentLog = \App\Comment::find($commentLog->comment);
+        $commentLog = \App\CommentLog::find($commentLog->comment);
         foreach ($commentLog->comments as $comment) {
             echo $commentLog->reference;
             echo ' == ';
