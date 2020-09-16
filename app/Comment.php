@@ -56,6 +56,6 @@ class Comment extends Model
      */
     public function commentLogs()
     {
-        return $this->belongsToMany('App\CommentLog', 'reference', 'comment');
+        return $this->belongsToMany('App\CommentLog', null, 'comment');
     }
 }
