@@ -34,7 +34,7 @@ class Filters extends Component
      *
      * @return void
      */
-    public function __construct($awaiting, $approved, $other)
+    public function __construct($awaiting = null, $approved = null, $other = null)
     {
         $this->awaiting = $awaiting;
         $this->approved = $approved;

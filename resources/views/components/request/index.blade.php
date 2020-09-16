@@ -2,9 +2,7 @@
 
 @section('content')
 
-{{ $awaiting->count() }}
-{{ $approved->count() }}
-{{ $other->count() }}
+<x-request.filters :awaiting="$awaiting" :approved="$approved" :other="$other"/>
 
 @endsection
 
