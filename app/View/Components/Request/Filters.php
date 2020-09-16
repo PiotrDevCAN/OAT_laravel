@@ -34,8 +34,12 @@ class Filters extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($awaiting, $approved, $other)
     {
+        $this->awaiting = $awaiting;
+        $this->approved = $approved;
+        $this->other = $other;
+        
         $this->accounts = \App\Request::select('account as value')
             ->where('account', '<>', '')
             ->distinct()
