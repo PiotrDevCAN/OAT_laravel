@@ -72,8 +72,8 @@ class Request extends Model
     public function comments()
     {
         return $this->hasOneThrough(
-            'App\Comment',      // Owner
-            'App\CommentLog',   // Car
+            'App\Comment',
+            'App\CommentLog',
             'AAA', // Foreign key on cars table...
             'BBB', // Foreign key on owners table...
             'CCC', // Local key on mechanics table...
