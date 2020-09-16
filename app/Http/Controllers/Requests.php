@@ -92,6 +92,41 @@ class Requests extends Controller
         return view('components.request.create', $data);
     }
     
+    public function update($id)
+    {
+        $request = \App\Request::findOrFail($id);
+        dump($request);
+        
+        $recoverable = array(
+            'value' => 'Y',
+            'value' => 'N',
+            'value' => 'D'
+        );
+        
+        $allNatures = array (
+            "value" => "Service Out of Hours",
+            "value" => "Compliance",
+            "value" => "RFS/Revenue",
+            "value" => "RFS Schedule",
+            "value" => "Hol/Sickness Cover",
+            "value" => "T&T",
+            "value" => "Delivery Centre Load Balancing",
+            "value" => "Other"
+        );
+        
+        $recoverable = array();
+        $allNatures = array();
+        $logEntries = array();
+        
+        $data = array(
+            'recoverable' => $recoverable,
+            'allNatures' => $allNatures,
+            'logEntries' => $logEntries
+        );
+        
+        return view('components.request.update', $data);
+    }
+    
     public function index(Request $request)
     {
         /*

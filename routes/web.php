@@ -26,6 +26,9 @@ Route::prefix('request')->name('request.')->group(function () {
     
     Route::get('create', 'Requests@create')
         ->name('create');
+    
+    Route::get('/update/{id}', 'Requests@update')
+        ->name('update');
 });
 
 // Accounts
