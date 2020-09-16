@@ -71,6 +71,6 @@ class CommentLog extends Model
      */
     public function OTrequest()
     {
-        return $this->belongsTo('App\Request', 'referenceAAA', 'requestBBB');
+        return $this->belongsTo('App\Request', 'request', 'reference');
     }
 }
