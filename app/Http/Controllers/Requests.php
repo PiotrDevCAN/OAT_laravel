@@ -97,7 +97,15 @@ class Requests extends Controller
         $request = \App\Request::findOrFail($id);
         dump($request);
         
-        $recoverable = array(
+        $allCompetencies = array();
+        $allAccounts = array();
+        $allLocations = array();
+        $allImports = array(
+            'value' => 'Yes',
+            'value' => 'No'
+        );
+        
+        $allRecoverable = array(
             'value' => 'Y',
             'value' => 'N',
             'value' => 'D'
@@ -114,14 +122,17 @@ class Requests extends Controller
             "value" => "Other"
         );
         
-        $recoverable = array();
-        $allNatures = array();
-        $logEntries = array();
+        $allWeekends = array();
         
         $data = array(
-            'recoverable' => $recoverable,
+            'allCompetencies' => $allCompetencies,
+            'allAccounts' => $allAccounts,
+            'allLocations' => $allLocations,
+            'allImports' => $allImports,
+            
+            'allRecoverable' => $allRecoverable,
             'allNatures' => $allNatures,
-            'logEntries' => $logEntries
+            'allWeekends' => $allWeekends
         );
         
         return view('components.request.update', $data);
