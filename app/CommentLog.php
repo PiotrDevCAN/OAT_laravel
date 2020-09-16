@@ -63,6 +63,6 @@ class CommentLog extends Model
      */
     public function request()
     {
-        return $this->belongsToMany('App\Request', 'comment', 'request');
+        return $this->belongsToMany('App\Request', 'reference');
     }
 }

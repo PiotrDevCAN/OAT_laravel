@@ -195,69 +195,13 @@ class Requests extends Controller
         
         $request = \App\Request::find(168649);
         
-        dump($request->commentLog);
-        dump($request->commentLogs);
-        
-        echo 'SINGLE';
-        echo $request->commentLog->request;
-        echo $request->commentLog->comment;
-        
         echo 'MULTIPLE';
         foreach ($request->commentLogs as $commentLog) {
             echo $commentLog->request;
             echo $commentLog->comment;
         }
-                // Query the commentLog relationship
-//         foreach($request->commentLogs as $commentLog) {
-//             echo $commentLog->request;
-//             echo $commentLog->comment;
-//         }
         
         
-//         $requestModel = \App\Request::find(168649);
-//         $requestCommentLogs = $requestModel->getCommentLogs()->get();
-        
-//         $commentLogModel = \App\CommentLog::find(168649);
-        
-//         $commentModel = \App\Comment::find(28634);
-        
-//         dump($request->getCommentLogs);
-//         foreach ($requestCommentLogs as $log) {
-            //
-//             echo '<br>';
-//             dump($log);
-//             echo $log->request;
-//             echo $log->comment;
-//         }
-        
-        /*
-//         dump($commentLog->getComments);
-        foreach ($commentLogModel->getComments as $comment) {
-            //
-            echo '<br>';
-            dump($comment);
-//             echo $log->reference;
-//             echo $log->text;
-        }
-        
-//         dump($commentLog->getRequest);
-        foreach ($commentLogModel->getRequest as $request) {
-            //
-            echo '<br>';
-            dump($request);
-//             echo $log->reference;
-//             echo $log->requestor;
-        }
-        
-//         dump($comment->getCommentLog);
-        foreach ($commentModel->getCommentLog as $log) {
-            //
-            echo '<br>';
-            dump($log);
-//             echo $log->request;
-//             echo $log->comment;
-        }
-        */
         
         return view('components.request.index', $data);
     }
