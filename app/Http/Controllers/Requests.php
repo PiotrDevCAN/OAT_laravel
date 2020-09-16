@@ -197,7 +197,9 @@ class Requests extends Controller
             ->get();
             
         $data = array(
-            'approved' => $approved
+            'awaiting' => null,
+            'approved' => $approved,
+            'other' => null
         );
         
         return view('components.request.index', $data);

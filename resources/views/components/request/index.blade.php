@@ -2,17 +2,7 @@
 
 @section('content')
 
-<x-request.filters 
-@isset($awaiting)
-	:awaiting="$awaiting" 
-@endisset
-@isset($approved)
-	:approved="$approved"
-@endisset
-@isset($other)
-	:other="$other"
-@endisset
-/>
+<x-request.filters :awaiting="$awaiting" :approved="$approved" :other="$other"/>
 
 @endsection
 
