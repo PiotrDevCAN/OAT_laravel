@@ -195,8 +195,8 @@ class Requests extends Controller
         dump($comment->commentLog);
         
         $commentLog = \App\CommentLog::find(168649);
-        $commentLog->request()->dump();
-        dump($commentLog->request);
+        $commentLog->OTrequest()->dump();
+        dump($commentLog->OTrequest);
         
         echo 'connection from COMMENT LOG to REQUEST';
         

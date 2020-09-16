@@ -69,7 +69,7 @@ class CommentLog extends Model
     /**
      * Get the request that owns the commentLog.
      */
-    public function request()
+    public function OTrequest()
     {
         return $this->belongsTo('App\Request', 'reference');
     }
