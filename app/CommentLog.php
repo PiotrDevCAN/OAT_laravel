@@ -55,7 +55,7 @@ class CommentLog extends Model
      */
     public function comments()
     {
-        return $this->hasMany('App\Comment', 'comment');
+        return $this->hasMany('App\Comment', 'reference', 'comment');
     }
     
     /**
