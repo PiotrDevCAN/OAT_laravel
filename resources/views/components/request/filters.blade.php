@@ -62,24 +62,24 @@
             	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Summary</h3>
             </div>
         </div>
-		<div class="ibm-fluid">
+        <div class="ibm-fluid">
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" disabled="true"/>
+            	<x-ibmv18form-input name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="$awaiting->count()" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="ApprovedRequestsHours" label="Hours:" disabled="true"/>
+            	<x-ibmv18form-input name="ApprovedRequestsHours" label="Hours:" :value="" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="ApprovedRequests" label="Approved Requests:" disabled="true"/>
+            	<x-ibmv18form-input name="ApprovedRequests" label="Approved Requests:" :value="$approved->count()" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="AwaitingApprovalRequestsHours" label="Hours:" disabled="true"/>
+            	<x-ibmv18form-input name="AwaitingApprovalRequestsHours" label="Hours:" :value="" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="OtherRequests" label="Other Requests:" disabled="true"/>
+            	<x-ibmv18form-input name="OtherRequests" label="Other Requests:" :value="$other->count()" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="OtherRequestsHours" label="Hours:" disabled="true"/>
+            	<x-ibmv18form-input name="OtherRequestsHours" label="Hours:" :value="" disabled="true"/>
             </div>
        	</div>
     </div>

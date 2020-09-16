@@ -9,6 +9,7 @@ class Input extends Component
 {
     public $name;
     public $label;
+    public $value;
     public $disabled;
     
     /**
@@ -16,10 +17,11 @@ class Input extends Component
      *
      * @return void
      */
-    public function __construct($name, $label, $disabled = false)
+    public function __construct($name = null, $label = null, $value = null, $disabled = false)
     {
         $this->name = $name;
         $this->label = $label;
+        $this->value = $value;
         $this->disabled = $disabled;
     }
 
