@@ -192,7 +192,7 @@ class Requests extends Controller
         
         $comment = \App\Comment::find(28634);
         $comment->commentLog()->dump();
-        $comment->commentLog->dump();
+        dump($comment->commentLog);
         
 //         $commentLog = \App\CommentLog::find(168649);
 //         $commentLog
