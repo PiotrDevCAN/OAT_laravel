@@ -131,7 +131,10 @@ class Requests extends Controller
             "value" => "Other"
         );
         
-        $allWeekends = array();
+        $allWeekends = array(
+            'value' => 'Yes',
+            'value' => 'No'
+        );
         
         $data = array(
             'allCompetencies' => $allCompetencies,
