@@ -67,19 +67,19 @@
             	<x-ibmv18form-input name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="$awaiting->count()" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="ApprovedRequestsHours" label="Hours:" :value="" disabled="true"/>
+            	<x-ibmv18form-input name="ApprovedRequestsHours" label="Hours:" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
             	<x-ibmv18form-input name="ApprovedRequests" label="Approved Requests:" :value="$approved->count()" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="AwaitingApprovalRequestsHours" label="Hours:" :value="" disabled="true"/>
+            	<x-ibmv18form-input name="AwaitingApprovalRequestsHours" label="Hours:" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
             	<x-ibmv18form-input name="OtherRequests" label="Other Requests:" :value="$other->count()" disabled="true"/>
             </div>
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="OtherRequestsHours" label="Hours:" :value="" disabled="true"/>
+            	<x-ibmv18form-input name="OtherRequestsHours" label="Hours:" disabled="true"/>
             </div>
        	</div>
     </div>
