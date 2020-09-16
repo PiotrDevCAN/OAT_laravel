@@ -225,22 +225,29 @@ class Requests extends Controller
         
         
         $request = \App\Request::find(168649);
-        echo 'commentLog => ';
+        echo 'commentLog () ';
         dump($request->commentLog());
-        echo 'commentLogs => ';
+        echo 'commentLog PROPERTY ';
+        dump($request->commentLog);
+        echo 'commentLogs () ';
         $request->commentLogs()->dump();
+        echo 'commentLogs PROPERTY ';
+        $request->commentLogs->dump();
+        echo 'commentLogs RESULTS ';
         foreach ($request->commentLogs as $commentLog) {
             dump($commentLog);
         }
         
+        /*
         $commentLog = \App\CommentLog::find(4189);
-        echo 'comment => ';
+        echo 'comment () ';
         dump($commentLog->comment());
-        echo 'comments => ';
+        echo 'comments () ';
         $commentLog->comments()->dump();
         foreach ($commentLog->comments as $comment) {
             dump($comment);
         }
+        */
         
         
         
