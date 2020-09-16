@@ -32,9 +32,11 @@
                     <td><a href="p_request.php?ref={{ $record->reference }}">{{ $record->reference }}</a></td>
                     <td class="ibm-bold">
                     	{{ $record->account }} 
-                    	<p>{{ $record->comment->text }}</p>
-                    	<p>{{ $record->comment->creator }}</p>
-                    	<p>{{ $record->comment->created }}</p>	
+                    	@isset($$record->comment)
+                        	<p>{{ $record->comment->text }}</p>
+                        	<p>{{ $record->comment->creator }}</p>
+                        	<p>{{ $record->comment->created }}</p>
+                        @endisset
                 	</td>
                     <td>{{ $record->competency }}</td>
                     <td>{{ $record->nature }}</td>
