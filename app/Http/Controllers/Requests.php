@@ -216,11 +216,11 @@ class Requests extends Controller
         echo 'connection from COMMENT to COMMENT LOG';
         $comment = \App\Comment::find(28634);
         dump($comment->commentLogs()->dump());
-        foreach ($comment->commentLogs as $commentLog) {
-            echo $commentLog->request;
-            echo ' == ';
-            echo $commentLog->comment;
-        }
+//         foreach ($comment->commentLogs as $commentLog) {
+//             echo $commentLog->request;
+//             echo ' == ';
+//             echo $commentLog->comment;
+//         }
         
         echo 'connection from COMMENT LOG to REQUEST';
         
