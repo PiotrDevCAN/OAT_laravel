@@ -55,6 +55,6 @@ class Comment extends Model
         
         $this->belongsTo('App\CommentLog', 'reference', 'comment')->dump();
         
-        return $this->belongsToMany('App\CommentLog', 'reference', 'comment');
+        return $this->belongsTo('App\CommentLog', 'reference', 'comment');
     }
 }
