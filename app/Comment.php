@@ -49,8 +49,8 @@ class Comment extends Model
     public function commentLogs()
     {
         
-        $this->belongsToMany('App\CommentLog', 'request')->dd();
+        $this->belongsToMany('App\CommentLog')->dd();
         
-        return $this->belongsToMany('App\CommentLog', 'request');
+        return $this->belongsToMany('App\CommentLog');
     }
 }
