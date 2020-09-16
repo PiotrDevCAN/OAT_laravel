@@ -67,7 +67,7 @@ class Request extends Model
     }
     
     /**
-     * Get all of the Comments for the request.
+     * Get the Comment for the request.
      */
     public function comment()
     {
@@ -86,7 +86,7 @@ class Request extends Model
      */
     public function comments()
     {
-        return $this->hasOneThrough(
+        return $this->hasManyThrough(
             'App\Comment',
             'App\CommentLog',
             'request', // Foreign key on cars table...

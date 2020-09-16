@@ -191,15 +191,16 @@ class Requests extends Controller
         );
         
         $request = \App\Request::findOrFail(168649);
-//         $request->comments()->dump();
-//         $request->comments->dump();
-//         dump($request->comments);
-
-        dump($request->comment->reference);
-        dump($request->comment->text);
-        dump($request->comment->creator);
-        dump($request->comment->created);
         
+//         dump($request->comment->reference);
+//         dump($request->comment->text);
+//         dump($request->comment->creator);
+//         dump($request->comment->created);
+        
+        $request->comments()->dump();
+        $request->comments->dump();
+        dump($request->comments);
+
         return view('components.request.index', $data);
     }
     
