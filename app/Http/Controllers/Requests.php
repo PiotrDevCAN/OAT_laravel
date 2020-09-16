@@ -163,29 +163,25 @@ class Requests extends Controller
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($this->conditions);
-//             ->get();
         
         $approvedQuery = \App\Request::where('status', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($this->conditions);
-//             ->get();
         
         $otherQuery = \App\Request::where('status',  'not like', 'Awaiting%')
             ->where('status', '<>', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($this->conditions);
-//             ->get();
 
-        dump($awaitingQuery->sum('hours'));
-        dump($approvedQuery->sum('hours'));
-        dump($otherQuery->sum('hours'));
-            
         $data = array(
             'awaiting' => $awaitingQuery->get(),
+            'awaitingHours' => $awaitingQuery->sum('hours'),
             'approved' => $approvedQuery->get(), 
-            'other' => $otherQuery->get()
+            'approvedHours' => $approvedQuery->sum('hours'),
+            'other' => $otherQuery->get(),
+            'otherHours' => $otherQuery->sum('hours')
         );
 
         return view('components.request.index', $data);
@@ -195,15 +191,17 @@ class Requests extends Controller
     {
         $this->prepareConditions($request);
         
-        $approved = \App\Request::where('status', 'Approved')
+        $approvedQuery = \App\Request::where('status', 'Approved')
             ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->get();
+            ->where('weekenddate', '>=', '2020-08-07');
             
         $data = array(
             'awaiting' => null,
-            'approved' => $approved,
-            'other' => null
+            'awaitingHours' => 0,
+            'approved' => $approvedQuery->get(),
+            'approvedHours' => $approvedQuery->sum('hours'),
+            'other' => null,
+            'otherHours' => 0
         );
         
         return view('components.request.index', $data);
