@@ -31,8 +31,8 @@
                         	<x-ibmv18form-input name="WORKER" label="Name of individual working overtime"/>
                     	    <span class="ibm-bold">If changing this entry please allow time for Bluepages Auto Completion to work, it will overwrite this text and re-populate the two fields below.</span>
                         
-                        	<p>Name<INPUT size='50' name='workerName' id='workerName' disabled value='' ></p>
-							<p>Job Title <INPUT size='60' name='workerJob' id='workerJob' disabled value=''></p>
+                        	<p>Name <input type="hidden" size='50' name='workerName' id='workerName' disabled value='' ></p>
+							<p>Job Title <input type="hidden" size='60' name='workerJob' id='workerJob' disabled value=''></p>
                         
                         </div>
                     </div>
@@ -73,9 +73,9 @@
                    
                    <div class="ibm-fluid">
                        <div class="ibm-col-12-6">
-                       		<x-ibmv18form-input name="APPROVER_FIRST_LEVEL" label="1st Level Approver"/>
-                           	<x-ibmv18form-input name="APPROVER_SECOND_LEVEL" label="2nd Level Approver"/>
-                           	<x-ibmv18form-input name="APPROVER_THIRD_LEVEL" label="3rd Level Approver"/>
+                       		<x-ibmv18form-input name="APPROVER_FIRST_LEVEL" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                           	<x-ibmv18form-input name="APPROVER_SECOND_LEVEL" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                           	<x-ibmv18form-input name="APPROVER_THIRD_LEVEL" label="3rd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
                        </div>
                        <div class="ibm-col-12-6">
                        		<p>
