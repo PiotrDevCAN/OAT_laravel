@@ -69,7 +69,7 @@ class Request extends Model
     /**
      * Get all of the Comments for the request.
      */
-    public function comments()
+    public function comment()
     {
         return $this->hasOneThrough(
             'App\Comment',
@@ -79,5 +79,20 @@ class Request extends Model
             'reference', // Local key on mechanics table...
             'comment' // Local key on cars table...
         );
+    }
+    
+    /**
+     * Get all of the Comments for the request.
+     */
+    public function comments()
+    {
+        return $this->hasOneThrough(
+            'App\Comment',
+            'App\CommentLog',
+            'request', // Foreign key on cars table...
+            'reference', // Foreign key on owners table...
+            'reference', // Local key on mechanics table...
+            'comment' // Local key on cars table...
+            );
     }
 }
