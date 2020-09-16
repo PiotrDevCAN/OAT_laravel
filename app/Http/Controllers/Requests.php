@@ -190,9 +190,7 @@ class Requests extends Controller
             'other' => $other
         );
         
-        
-        info('Some helpful information!');
-        
+        /*
         echo 'COMMENT LOG DATA';
         $request = \App\Request::find(168649);        
         foreach ($request->commentLogs as $commentLog) {
@@ -212,6 +210,19 @@ class Requests extends Controller
             echo ' == ';
             echo $comment->created;
         }
+        */
+        
+        // 28634
+        echo 'connection from COMMENT to COMMENT LOG';
+        $comment = \App\Comment::find(28634);
+        dump($comment);
+        foreach ($comment->commentLogs as $commentLog) {
+            echo $commentLog->request;
+            echo ' == ';
+            echo $commentLog->comment;
+        }
+        
+        echo 'connection from COMMENT LOG to REQUEST';
         
         return view('components.request.index', $data);
     }
