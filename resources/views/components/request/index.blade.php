@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-request.filters/>
+<x-request.filters :awaiting="$awaiting" :approved="$approved" :other="$other"/>
 
 @endsection
 
