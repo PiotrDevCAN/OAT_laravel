@@ -203,7 +203,8 @@ class Requests extends Controller
         
         echo 'COMMENT DATA';
         $commentLog = \App\CommentLog::find($commentLog->comment);
-        foreach ($commentLog->comments as $comment) {
+        dump($commentLog);
+        /*foreach ($commentLog->comments as $comment) {
             echo $commentLog->reference;
             echo ' == ';
             echo $commentLog->text;
@@ -212,6 +213,7 @@ class Requests extends Controller
             echo ' == ';
             echo $commentLog->created;
         }
+        */
         
         return view('components.request.index', $data);
     }
