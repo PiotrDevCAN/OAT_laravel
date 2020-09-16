@@ -32,7 +32,7 @@
                     <td><a href="p_request.php?ref={{ $record->reference }}">{{ $record->reference }}</a></td>
                     <td class="ibm-bold">
                     	{{ $record->account }} 
-                    	@isset($$record->comment)
+                    	@isset($record->comment)
                         	<p>{{ $record->comment->text }}</p>
                         	<p>{{ $record->comment->creator }}</p>
                         	<p>{{ $record->comment->created }}</p>
