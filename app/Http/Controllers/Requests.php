@@ -228,6 +228,7 @@ class Requests extends Controller
         echo 'commentLog => ';
         dump($request->commentLog());
         echo 'commentLogs => ';
+        $request->commentLogs()->dump();
         foreach ($request->commentLogs() as $commentLog) {
             dump($commentLog);
         }
