@@ -195,13 +195,24 @@ class Requests extends Controller
         
         $request = \App\Request::find(168649);
         
-        echo 'MULTIPLE';
+        echo 'COMMENT LOG DATA';
         foreach ($request->commentLogs as $commentLog) {
             echo $commentLog->request;
+            echo ' == ';
             echo $commentLog->comment;
         }
         
-        
+        echo 'COMMENT DATA';
+        $commentLog = \App\Comment::find($commentLog->comment);
+        foreach ($commentLog->comments as $comment) {
+            echo $commentLog->reference;
+            echo ' == ';
+            echo $commentLog->text;
+            echo ' == ';
+            echo $commentLog->creator;
+            echo ' == ';
+            echo $commentLog->created;
+        }
         
         return view('components.request.index', $data);
     }
