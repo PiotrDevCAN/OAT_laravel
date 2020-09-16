@@ -97,9 +97,18 @@ class Requests extends Controller
         $request = \App\Request::findOrFail($id);
         dump($request);
         
-        $allCompetencies = array();
-        $allAccounts = array();
-        $allLocations = array();
+        $allCompetencies = array(
+            'value' => 'Yes',
+            'value' => 'No'
+        );
+        $allAccounts = array(
+            'value' => 'Yes',
+            'value' => 'No'
+        );
+        $allLocations = array(
+            'value' => 'Yes',
+            'value' => 'No'
+        );
         $allImports = array(
             'value' => 'Yes',
             'value' => 'No'
