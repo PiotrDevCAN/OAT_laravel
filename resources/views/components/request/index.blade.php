@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-request.filters :awaiting="$awaiting" :approvedHours="$approvedHours" :approved="$approved" :approvedHours="$approvedHours" :other="$other" :otherHours="$otherHours" />
+<x-request.filters :awaiting="$awaiting" :awaitingHours="$awaitingHours" :approved="$approved" :approvedHours="$approvedHours" :other="$other" :otherHours="$otherHours" />
 
 @endsection
 
