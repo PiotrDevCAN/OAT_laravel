@@ -190,66 +190,12 @@ class Requests extends Controller
             'other' => $other
         );
         
-        /*
-        echo 'COMMENT LOG DATA';
-        $request = \App\Request::find(168649);        
-        foreach ($request->commentLogs as $commentLog) {
-            echo $commentLog->request;
-            echo ' == ';
-            echo $commentLog->comment;
-        }
+        $comment = \App\Comment::find(168649);
+        $comment->commentLog()->dump();
+        $comment->commentLog->dump();
         
-        echo 'COMMENT DATA';
-        $commentLog = \App\CommentLog::find($commentLog->request);
-        foreach ($commentLog->comments as $comment) {
-            echo $comment->reference;
-            echo ' == ';
-            echo $comment->text;
-            echo ' == ';
-            echo $comment->creator;
-            echo ' == ';
-            echo $comment->created;
-        }
-        */
-        
-        // 28634
-//         echo 'connection from COMMENT to COMMENT LOG';
-//         $comment = \App\Comment::find(28634);
-        
-//         echo 'SINGLE RECORD';
-//         $commentLog = $comment->commentLog;
-//         echo $commentLog->request;
-//         echo ' == ';
-//         echo $commentLog->comment;
-        
-        
-        
-        $request = \App\Request::find(168649);
-        echo 'commentLog () ';
-        dump($request->commentLog());
-        echo 'commentLog PROPERTY ';
-        dump($request->commentLog);
-        echo 'commentLogs () ';
-        $request->commentLogs()->dump();
-        echo 'commentLogs PROPERTY ';
-        $request->commentLogs->dump();
-        echo 'commentLogs RESULTS ';
-        foreach ($request->commentLogs as $commentLog) {
-            dump($commentLog);
-        }
-        
-        /*
-        $commentLog = \App\CommentLog::find(4189);
-        echo 'comment () ';
-        dump($commentLog->comment());
-        echo 'comments () ';
-        $commentLog->comments()->dump();
-        foreach ($commentLog->comments as $comment) {
-            dump($comment);
-        }
-        */
-        
-        
+//         $commentLog = \App\CommentLog::find(168649);
+//         $commentLog
         
         echo 'connection from COMMENT LOG to REQUEST';
         
