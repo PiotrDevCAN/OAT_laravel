@@ -178,10 +178,6 @@ class Requests extends Controller
             ->where($this->conditions)
             ->get();
         
-        $awaiting = array();
-        $approved = array();
-        $other = array();
-        
         $data = array(
             'awaiting' => $awaiting,
             'approved' => $approved, 
