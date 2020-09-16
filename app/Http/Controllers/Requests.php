@@ -202,7 +202,7 @@ class Requests extends Controller
         }
         
         echo 'COMMENT DATA';
-        $commentLog = \App\CommentLog::find($commentLog->comment);
+        $commentLog = \App\CommentLog::find($commentLog->request);
         dump($commentLog);
         /*foreach ($commentLog->comments as $comment) {
             echo $commentLog->reference;
