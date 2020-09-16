@@ -25,6 +25,10 @@ class Filters extends Component
     public $secondApprovers;
     public $thirdApprovers;
     
+    public $awaiting;
+    public $approved;
+    public $other;
+    
     /**
      * Create a new component instance.
      *
