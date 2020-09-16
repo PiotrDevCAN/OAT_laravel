@@ -63,24 +63,32 @@
             </div>
         </div>
         <div class="ibm-fluid">
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="$awaiting->count()" disabled="true"/>
-            </div>
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="ApprovedRequestsHours" label="Hours:" disabled="true"/>
-            </div>
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="ApprovedRequests" label="Approved Requests:" :value="$approved->count()" disabled="true"/>
-            </div>
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="AwaitingApprovalRequestsHours" label="Hours:" disabled="true"/>
-            </div>
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="OtherRequests" label="Other Requests:" :value="$other->count()" disabled="true"/>
-            </div>
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input name="OtherRequestsHours" label="Hours:" disabled="true"/>
-            </div>
+            @isset($awaiting)
+                <div class="ibm-col-12-6">
+                	<x-ibmv18form-input name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="$awaiting->count()" disabled="true"/>
+                </div>
+                <div class="ibm-col-12-6">
+                	<x-ibmv18form-input name="ApprovedRequestsHours" label="Hours:" disabled="true"/>
+                </div>
+            @endisset
+            
+            @isset($approved)
+            	<div class="ibm-col-12-6">
+                	<x-ibmv18form-input name="ApprovedRequests" label="Approved Requests:" :value="$approved->count()" disabled="true"/>
+                </div>
+                <div class="ibm-col-12-6">
+                	<x-ibmv18form-input name="AwaitingApprovalRequestsHours" label="Hours:" disabled="true"/>
+                </div>
+            @endisset
+            
+            @isset($other)
+            	<div class="ibm-col-12-6">
+                	<x-ibmv18form-input name="OtherRequests" label="Other Requests:" :value="$other->count()" disabled="true"/>
+                </div>
+                <div class="ibm-col-12-6">
+                	<x-ibmv18form-input name="OtherRequestsHours" label="Hours:" disabled="true"/>
+                </div>
+            @endisset
        	</div>
     </div>
 </div>
