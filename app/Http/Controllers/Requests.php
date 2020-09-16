@@ -190,16 +190,7 @@ class Requests extends Controller
             'other' => $other
         );
         
-//         $comment = \App\Comment::find(28634);
-//         $comment->commentLog()->dump();
-//         dump($comment->commentLog);
-        
-        $commentLog = \App\CommentLog::find(168649);
-        dump($commentLog);
-        $commentLog->OTrequest()->dump();
-        dump($commentLog->OTrequest);
-        
-        echo 'connection from COMMENT LOG to REQUEST';
+        $request = \App\Request::findOfFail(83248732874);
         
         return view('components.request.index', $data);
     }
