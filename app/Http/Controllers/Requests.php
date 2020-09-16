@@ -183,9 +183,9 @@ class Requests extends Controller
         dump($otherQuery->sum('hours'));
             
         $data = array(
-            'awaiting' => $awaiting->get(),
-            'approved' => $approved->get(), 
-            'other' => $other->get()
+            'awaiting' => $awaitingQuery->get(),
+            'approved' => $approvedQuery->get(), 
+            'other' => $otherQuery->get()
         );
 
         return view('components.request.index', $data);
