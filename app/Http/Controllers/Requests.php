@@ -152,9 +152,11 @@ class Requests extends Controller
             'allWeekends' => $allWeekends
         );
         
-        $collectionA = collect($allAccounts);
+        $collectionA = collect($allLocations);
         
         $collectionB = $collectionA->collect();
+        
+        dump($allLocations);
         
         dump($collectionA->all());
         
