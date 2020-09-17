@@ -147,6 +147,16 @@ class Requests extends Controller
             'allWeekends' => $allWeekends
         );
         
+        $collectionA = collect($allWeekends);
+        
+        $collectionB = $collectionA->collect();
+        
+        echo $collectionA->all();
+        
+        echo $collectionB->all();
+        
+        dd('end');
+        
         return view('components.request.update', $data);
     }
     
