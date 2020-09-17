@@ -152,11 +152,18 @@ class Requests extends Controller
             'allWeekends' => $allWeekends
         );
         
-        $collectionA = collect($allLocations);
+        
+        $test = array(
+            'first_row' => 'first_value',
+            'second_row' => 'second_value',
+            'third_row' => 'third_value'
+        );
+        
+        $collectionA = collect($test);
         
         $collectionB = $collectionA->collect();
         
-        dump($allLocations);
+        dump($test);
         
         dump($collectionA->all());
         
