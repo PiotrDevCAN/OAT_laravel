@@ -279,27 +279,16 @@ class Requests extends Controller
         
     }
     
-    public function approve(Request $request, $ref)
+    public function approve(Request $request, $ref, $lvl, $status, $via)
     {
         dump($ref);
         
         dump($request);
         
-        if ($request->filled('ref')) {
-            dump($request->input('ref'));
-        };
+        dump($lvl);
+        dump($status);
+        dump($via);
         
-        if ($request->filled('lvl')) {
-            dump($request->input('lvl'));
-        };
-        
-        if ($request->filled('status')) {
-            dump($request->input('status'));
-        };
-        
-        if ($request->filled('status')) {
-            dump($request->input('via'));
-        };
     }
     
     public function reject(Request $request, $ref)
