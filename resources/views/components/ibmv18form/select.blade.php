@@ -11,15 +11,15 @@
             <option value="" selected>Select...</option>
         	@foreach ($arrayOfSelectableValues as $key => $value)
         	
-        	@isset($value)
-        	
-        		<option value=""></option>
-        	
-        	@else
-        	
-        		<option value="{{ $key }}" @if($selectedValue == $key) selected="selected" @endif>{{ $key }}</option>
-        	
-        	@endisset
+            	@if (is_array($value))
+            	
+            		<option value="{{ $key }}">Array given</option>
+            	
+            	@else
+            	
+            		<option value="{{ $key }}" @if($selectedValue == $key) selected="selected" @endif>{{ $value }}</option>
+            	
+            	@endisset
         	
         	
         	@endforeach
