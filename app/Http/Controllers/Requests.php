@@ -279,7 +279,7 @@ class Requests extends Controller
         
     }
     
-    public function approve($ref)
+    public function approve(Request $request, $ref)
     {
         dump($ref);
         
@@ -300,7 +300,7 @@ class Requests extends Controller
         };
     }
     
-    public function reject($ref)
+    public function reject(Request $request, $ref)
     {
         
     }
