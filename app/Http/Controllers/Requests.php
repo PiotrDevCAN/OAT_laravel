@@ -95,40 +95,45 @@ class Requests extends Controller
     public function update($id)
     {
         $request = \App\Request::findOrFail($id);
-        dump($request);
+//         dump($request);
         
-        $allCompetencies = array(
-            'value' => 'Yes',
-            'value' => 'No'
-        );
-        $allAccounts = array(
-            'value' => 'Yes',
-            'value' => 'No'
-        );
-        $allLocations = array(
-            'value' => 'Yes',
-            'value' => 'No'
-        );
+        $cc = 'UK';
+        
+        $allAccounts = \App\Account::select('APPROVER','ACCOUNT')
+            ->where('location', $cc)
+            ->get();
+        
+        $allVerified = \App\Account::select('VERIFIED','ACCOUNT')
+            ->where('location', $cc)
+            ->get();
+        
+        $allCompetencies = \App\Competency::select('APPROVER','COMPETENCY')
+            ->get();
+        
+        $allLocations = \App\Account::select('LOCATION','ACCOUNT_APPROVERS')
+            ->where('verified', '=', 'Yes')
+            ->get();
+        
         $allImports = array(
-            'value' => 'Yes',
-            'value' => 'No'
+            'Yes',
+            'No'
         );
         
         $allRecoverable = array(
-            'value' => 'Y',
-            'value' => 'N',
-            'value' => 'D'
+            'Yes' => 'Y',
+            'No' => 'N',
+            'Delivery Centre' => 'D'
         );
         
         $allNatures = array (
-            "value" => "Service Out of Hours",
-            "value" => "Compliance",
-            "value" => "RFS/Revenue",
-            "value" => "RFS Schedule",
-            "value" => "Hol/Sickness Cover",
-            "value" => "T&T",
-            "value" => "Delivery Centre Load Balancing",
-            "value" => "Other"
+            "Service Out of Hours",
+            "Compliance",
+            "RFS/Revenue",
+            "RFS Schedule",
+            "Hol/Sickness Cover",
+            "T&T",
+            "Delivery Centre Load Balancing",
+            "Other"
         );
         
         $allWeekends = array(
@@ -137,17 +142,17 @@ class Requests extends Controller
         );
         
         $data = array(
-            'allCompetencies' => $allCompetencies,
             'allAccounts' => $allAccounts,
+            'allVerified' => $allVerified,
+            'allCompetencies' => $allCompetencies,
             'allLocations' => $allLocations,
             'allImports' => $allImports,
-            
             'allRecoverable' => $allRecoverable,
             'allNatures' => $allNatures,
             'allWeekends' => $allWeekends
         );
         
-        $collectionA = collect($allWeekends);
+        $collectionA = collect($allAccounts);
         
         $collectionB = $collectionA->collect();
         
