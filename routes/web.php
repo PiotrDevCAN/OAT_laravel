@@ -27,7 +27,7 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::get('create', 'Requests@create')
         ->name('create');
     
-    Route::get('/update/{ref}', 'Requests@update')
+    Route::get('update/{ref}', 'Requests@update')
         ->name('update');
 });
 
