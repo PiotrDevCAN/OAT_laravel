@@ -231,14 +231,27 @@ class Requests extends Controller
         $allLocations = \App\Account::select('LOCATION')
             ->distinct()
             ->where('verified', 'Yes')
-            ->limit(5)
-            ->get();
+            ->limit(5);
+            
+            
+//             ->get();
         
+            
+        $keyed = $allLocations->mapWithKeys(function ($item) {
+            return [$item['LOCATION'] => $item['LOCATION']];
+        });
+            
+        
+            
+            
         echo 'raw collection ';
         dump($allLocations);
         
         echo 'underlying array ';
         dump($allLocations->all());
+        
+        echo 'keyed location ';
+        dump($keyed->all());
         
         dd('exit');
         
@@ -272,7 +285,7 @@ class Requests extends Controller
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,
-            'allLocations' => $allLocations,
+            'allLocations' => $keyed,
             'allImports' => $allImports,
             'allRecoverable' => $allRecoverable,
             'allNatures' => $allNatures,
