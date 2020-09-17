@@ -63,8 +63,15 @@
                     <td class="ibm-bold">{{ $record->status }}</td>
                     <x-request.approvers-info :record="$record"/>
                     <td><x-mailto-link :email="$record->requestor"/></td>
-                    <td><a href="{{ route('request.update', ['ref' => $record->supercedes]) }}">{{ $record->supercedes }}</a>
-                    <td><a href="{{ route('request.update', ['ref' => $record->supercededby]) }}">{{ $record->supercededby }}</a></td>
+                    <td>
+                    @isset($record->supercedes)
+	                    <a href="{{ route('request.update', ['ref' => $record->supercedes]) }}">{{ $record->supercedes }}</a>
+                    @endisset
+                    <td>
+                    @isset($record->supercededby)
+	                    <a href="{{ route('request.update', ['ref' => $record->supercededby]) }}">{{ $record->supercededby }}</a>
+                    @endisset
+                    </td>
                     <td>{{ $record->claim_acc_id }}</td>
                     <td>{{ $record->created_ts }}</td>
                 </tr>
