@@ -92,26 +92,30 @@ class Requests extends Controller
         return view('components.request.create', $data);
     }
     
-    public function update($id)
+    public function update($ref)
     {
-        $request = \App\Request::findOrFail($id);
+        $request = \App\Request::findOrFail($ref);
 //         dump($request);
         
         $cc = 'UK';
         
         $allAccounts = \App\Account::select('APPROVER','ACCOUNT')
+            ->distinct()
             ->where('location', $cc)
             ->get();
         
         $allVerified = \App\Account::select('VERIFIED','ACCOUNT')
+            ->distinct()
             ->where('location', $cc)
             ->get();
         
         $allCompetencies = \App\Competency::select('APPROVER','COMPETENCY')
+            ->distinct()
             ->get();
         
         $allLocations = \App\Account::select('LOCATION')
-            ->where('verified', '=', 'Yes')
+            ->distinct()
+            ->where('verified', 'Yes')
             ->limit(5)
             ->get();
         

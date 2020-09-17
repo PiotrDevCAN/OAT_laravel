@@ -29,7 +29,7 @@
             <tbody>
                 @foreach ($records as $key => $record)
                 <tr>
-                    <td><a href="p_request.php?ref={{ $record->reference }}">{{ $record->reference }}</a></td>
+                    <td><a href="{{ route('request.update', ['ref' => $record->reference]) }}">{{ $record->reference }}</a></td>
                     <td class="ibm-bold">
                     	{{ $record->account }}
                     	@isset($record->comment)
@@ -63,8 +63,8 @@
                     <td class="ibm-bold">{{ $record->status }}</td>
                     <x-request.approvers-info :record="$record"/>
                     <td><x-mailto-link :email="$record->requestor"/></td>
-                    <td><a href="p_request.php?ref={{ $record->supercedes }}">{{ $record->supercedes }}</a>
-                    <td><a href="p_request.php?ref={{ $record->supercededby }}">{{ $record->supercededby }}</a></td>
+                    <td><a href="{{ route('request.update', ['ref' => $record->supercedes]) }}">{{ $record->supercedes }}</a>
+                    <td><a href="{{ route('request.update', ['ref' => $record->supercededby]) }}">{{ $record->supercededby }}</a></td>
                     <td>{{ $record->claim_acc_id }}</td>
                     <td>{{ $record->created_ts }}</td>
                 </tr>
