@@ -33,10 +33,10 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::get('delete/{ref}', 'Requests@delete')
         ->name('delete');
         
-    Route::get('approve/{ref}', 'Requests@approve')
+    Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'Requests@approve')
         ->name('approve');
         
-    Route::get('reject/{ref}', 'Requests@reject')
+    Route::get('reject/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'Requests@reject')
         ->name('reject');
 });
 

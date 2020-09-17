@@ -159,8 +159,8 @@ class Requests extends Controller
         $this->prepareConditions($request);
         
         $approvedQuery = \App\Request::where('status', 'Approved')
-        ->whereNull('delete_flag')
-        ->where('weekenddate', '>=', '2020-08-07');
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07');
         
         $data = array(
             'awaiting' => null,
@@ -281,7 +281,23 @@ class Requests extends Controller
     
     public function approve($ref)
     {
+        dump($ref);
         
+        if ($request->filled('ref')) {
+            dump($request->input('ref'));
+        };
+        
+        if ($request->filled('lvl')) {
+            dump($request->input('lvl'));
+        };
+        
+        if ($request->filled('status')) {
+            dump($request->input('status'));
+        };
+        
+        if ($request->filled('status')) {
+            dump($request->input('via'));
+        };
     }
     
     public function reject($ref)
