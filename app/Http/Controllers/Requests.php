@@ -236,10 +236,12 @@ class Requests extends Controller
         
             
         $keyed = $allLocations->mapWithKeys(function ($item) {
-            return [$item['LOCATION'] => $item['LOCATION']];
+            return [$item['location'] => $item['location']];
         });
             
-        
+        $keyed2 = $allLocations->mapWithKeys(function ($item) {
+            return [$item->location => $item->location];
+        });
             
             
         echo 'raw collection ';
@@ -250,6 +252,9 @@ class Requests extends Controller
         
         echo 'keyed location ';
         dump($keyed->all());
+        
+        echo 'keyed 2 location ';
+        dump($keyed2->all());
         
         dd('exit');
         
