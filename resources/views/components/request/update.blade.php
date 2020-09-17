@@ -55,7 +55,8 @@
                 	<div class="ibm-fluid">
                         <div class="ibm-col-12-6">
                             <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :arrayOfSelectableValues="$allLocations"/>
-                            <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :arrayOfSelectableValues="$allLocations->get()"/>
+                            <x-ibmv18form-select name="RECOVERABLE" label="Recoverable" :arrayOfSelectableValues="$allRecoverable"/>
+                            <x-ibmv18form-select name="IMPORT" label="Is worker an Import to SO Delivery ?" :arrayOfSelectableValues="$allImports"/>
                         </div>
                         <div class="ibm-col-12-6">
                         </div>
