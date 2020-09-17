@@ -4,6 +4,12 @@
 
 <x-log.filters/>
 
-<x-log.table name="Logs" :records="$records" />
+@endsection
+
+@section('bottom-section')
+
+	@isset($records)
+		<x-log.table name="Logs" :records="$records" />
+    @endisset
 
 @endsection

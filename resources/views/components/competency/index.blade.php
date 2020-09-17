@@ -4,6 +4,12 @@
 
 <x-competency.filters/>
 
-<x-competency.table name="serviceLinesTable" :records="$records" />
+@endsection
+
+@section('bottom-section')
+
+	@isset($records)
+		<x-competency.table name="serviceLinesTable" :records="$records" />
+    @endisset
 
 @endsection

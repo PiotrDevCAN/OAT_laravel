@@ -4,6 +4,12 @@
 
 <x-account.filters/>
 
-<x-account.table name="accountsTable" :records="$records" />
+@endsection
+
+@section('bottom-section')
+
+	@isset($records)
+		<x-account.table name="accountsTable" :records="$records" />
+    @endisset
 
 @endsection

@@ -8,7 +8,7 @@
 
 @section('bottom-section')
 
-	@isset($$records)
+	@isset($records)
     	<x-delegate.table name="delegateTable" :records="$records" />
     @endisset
 
