@@ -18,12 +18,12 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->serviceLines = \App\Competency::select('competency as value')
+        $this->serviceLines = \App\Competency::select('competency')
             ->where('competency', '<>', '')
             ->distinct()
             ->get();
         
-        $this->approvers = \App\Competency::select('approver as value')
+        $this->approvers = \App\Competency::select('approver')
             ->where('approver', '<>', '')
             ->distinct()
             ->get();

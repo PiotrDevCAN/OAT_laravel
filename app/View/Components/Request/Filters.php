@@ -46,66 +46,66 @@ class Filters extends Component
         $this->other = $other;
         $this->otherHours = $otherHours;
         
-        $this->accounts = \App\Request::select('account as value')
+        $this->accounts = \App\Request::select('account')
             ->where('account', '<>', '')
             ->distinct()
             ->get();
         
-        $this->reasons = \App\Request::select('nature as value')
+        $this->reasons = \App\Request::select('nature')
             ->where('nature', '<>', '')
             ->distinct()
             ->get();
         
-        $this->names = \App\Request::select('worker as value')
+        $this->names = \App\Request::select('worker')
             ->where('worker', '<>', '')
             ->distinct()
             ->get();
         
-        $this->types = \App\Request::select('approvaltype as value')
+        $this->types = \App\Request::select('approvaltype')
             ->where('approvaltype', '<>', '')
             ->distinct()
             ->get();
         
-        $this->serviceLines = \App\Request::select('competency as value')
+        $this->serviceLines = \App\Request::select('competency')
             ->where('competency', '<>', '')
             ->distinct()
             ->get();
         
-        $this->statuses = \App\Request::select('status as value')
+        $this->statuses = \App\Request::select('status')
             ->where('status', '<>', '')
             ->distinct()
             ->get();
         
-        $this->requestors = \App\Request::select('requestor as value')
+        $this->requestors = \App\Request::select('requestor')
             ->where('requestor', '<>', '')
             ->distinct()
             ->get();
         
-        $this->locations = \App\Request::select('location as value')
+        $this->locations = \App\Request::select('location')
             ->where('location', '<>', '')
             ->distinct()
             ->get();
         
-        $this->weekenddates = \App\Request::select('weekenddate as value')
+        $this->weekenddates = \App\Request::select('weekenddate')
             ->distinct()
             ->get();
         
-        $this->imports = \App\Request::select('import as value')
+        $this->imports = \App\Request::select('import')
             ->where('import', '<>', '')
             ->distinct()
             ->get();
         
-        $this->firstApprovers = \App\Request::select('approver_first_level as value')
+        $this->firstApprovers = \App\Request::select('approver_first_level')
             ->where('approver_first_level', '<>', '')
             ->distinct()
             ->get();
         
-        $this->secondApprovers = \App\Request::select('approver_second_level as value')
+        $this->secondApprovers = \App\Request::select('approver_second_level')
             ->where('approver_second_level', '<>', '')
             ->distinct()
             ->get();
         
-        $this->thirdApprovers = \App\Request::select('approver_third_level as value')
+        $this->thirdApprovers = \App\Request::select('approver_third_level')
             ->where('approver_third_level', '<>', '')
             ->distinct()
             ->get();

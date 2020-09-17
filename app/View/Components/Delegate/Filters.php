@@ -19,17 +19,17 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->userIntranets = \App\Delegate::select('user_intranet as value')
+        $this->userIntranets = \App\Delegate::select('user_intranet')
             ->where('user_intranet', '<>', '')
             ->distinct()
             ->get();
         
-        $this->delegateIntranets = \App\Delegate::select('delegate_intranet as value')
+        $this->delegateIntranets = \App\Delegate::select('delegate_intranet')
             ->where('delegate_intranet', '<>', '')
             ->distinct()
             ->get();
         
-        $this->delegateNotesIds = \App\Delegate::select('delegate_notesid as value')
+        $this->delegateNotesIds = \App\Delegate::select('delegate_notesid')
             ->where('delegate_notesid', '<>', '')
             ->distinct()
             ->get();

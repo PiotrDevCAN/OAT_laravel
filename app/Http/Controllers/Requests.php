@@ -181,21 +181,21 @@ class Requests extends Controller
             ->where('weekenddate', '>=', '2020-08-07')
             ->get();
         
-        $recoverable = array(
-            'value' => 'Y',
-            'value' => 'N',
-            'value' => 'D'
+        $allRecoverable = array(
+            'Y' => 'Yes',
+            'N' => 'No',
+            'D' => 'Delivery Centre'
         );
         
         $allNatures = array (
-            "value" => "Service Out of Hours",
-            "value" => "Compliance",
-            "value" => "RFS/Revenue",
-            "value" => "RFS Schedule",
-            "value" => "Hol/Sickness Cover",
-            "value" => "T&T",
-            "value" => "Delivery Centre Load Balancing",
-            "value" => "Other"
+            "Service Out of Hours",
+            "Compliance",
+            "RFS/Revenue",
+            "RFS Schedule",
+            "Hol/Sickness Cover",
+            "T&T",
+            "Delivery Centre Load Balancing",
+            "Other"
         );
         
         $data = array(
@@ -281,17 +281,10 @@ class Requests extends Controller
     
     public function approve(Request $request, $ref, $lvl, $status, $via)
     {
-        dump($ref);
-        
-        dump($request);
-        
-        dump($lvl);
-        dump($status);
-        dump($via);
         
     }
     
-    public function reject(Request $request, $ref)
+    public function reject(Request $request, $ref, $lvl, $status, $via)
     {
         
     }

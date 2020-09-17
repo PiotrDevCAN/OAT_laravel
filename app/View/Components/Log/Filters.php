@@ -19,19 +19,19 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->logEntries = \App\Log::select('log_entry as value')
+        $this->logEntries = \App\Log::select('log_entry')
             ->where('log_entry', '<>', '')
             ->distinct()
             ->limit(100)
             ->get();
         
-        $this->lastUpdates = \App\Log::select('last_updater as value')
+        $this->lastUpdates = \App\Log::select('last_updater')
             ->where('last_updater', '<>', '')
             ->distinct()
             ->limit(100)
             ->get();
         
-        $this->lastUpdaters = \App\Log::select('last_updated as value')
+        $this->lastUpdaters = \App\Log::select('last_updated')
             ->distinct()
             ->limit(100)
             ->get();
