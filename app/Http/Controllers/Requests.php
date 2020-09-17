@@ -164,9 +164,10 @@ class Requests extends Controller
         $collectionB = $collectionA->collect();
         
         dump($test);
+        dump($collectionA);
+        dump($collectionB);
         
         dump($collectionA->all());
-        
         dump($collectionB->all());
         
         dd('end');
