@@ -232,29 +232,16 @@ class Requests extends Controller
             ->distinct()
             ->where('verified', 'Yes')
             ->limit(5)
-            ->get();
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item['location'] => $item['location']];
+            });
         
-            
-        $keyed = $allLocations->mapWithKeys(function ($item) {
-            return [$item['location'] => $item['location']];
-        });
-            
-        $keyed2 = $allLocations->mapWithKeys(function ($item) {
-            return [$item->location => $item->location];
-        });
-            
-            
         echo 'raw collection ';
         dump($allLocations);
         
         echo 'underlying array ';
         dump($allLocations->all());
-        
-        echo 'keyed location ';
-        dump($keyed->all());
-        
-        echo 'keyed 2 location ';
-        dump($keyed2->all());
         
         dd('exit');
         
@@ -288,7 +275,7 @@ class Requests extends Controller
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,
-            'allLocations' => $keyed,
+            'allLocations' => $allLocations,
             'allImports' => $allImports,
             'allRecoverable' => $allRecoverable,
             'allNatures' => $allNatures,
