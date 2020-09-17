@@ -29,6 +29,12 @@ Route::prefix('request')->name('request.')->group(function () {
     
     Route::get('update/{ref}', 'Requests@update')
         ->name('update');
+    
+    Route::get('approve/{ref}', 'Requests@approve')
+        ->name('approve');
+        
+    Route::get('reject/{ref}', 'Requests@reject')
+        ->name('reject');
 });
 
 // Accounts

@@ -273,4 +273,14 @@ class Requests extends Controller
         
         return view('components.request.index', $data);
     }
+    
+    public function approve($ref)
+    {
+        
+    }
+    
+    public function reject($ref)
+    {
+        
+    }
 }

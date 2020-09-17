@@ -29,7 +29,11 @@
             <tbody>
                 @foreach ($records as $key => $record)
                 <tr>
-                    <td><a href="{{ route('request.update', ['ref' => $record->reference]) }}">{{ $record->reference }}</a></td>
+                    <td>
+                    @isset($record->reference)
+                    	<a href="{{ route('request.update', ['ref' => $record->reference]) }}">{{ $record->reference }}</a>
+                    @endisset
+                    </td>
                     <td class="ibm-bold">
                     	{{ $record->account }}
                     	@isset($record->comment)
