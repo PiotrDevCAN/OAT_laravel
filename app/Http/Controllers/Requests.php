@@ -160,19 +160,20 @@ class Requests extends Controller
             'third_row' => 'third_value'
         );
         
-        $collectionA = collect($test);
+//         $collectionA = collect($test);
         
-        $collectionB = $collectionA->collect();
+//         $collectionB = $collectionA->collect();
         
         dump($test);
         dump($allLocations);
+        dump($allLocations->all());
 //         dump($collectionA);
 //         dump($collectionB);
         
 //         dump($collectionA->all());
 //         dump($collectionB->all());
         
-        dd('end');
+//         dd('end');
         
         return view('components.request.update', $data);
     }
