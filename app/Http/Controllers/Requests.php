@@ -112,6 +112,7 @@ class Requests extends Controller
         
         $allLocations = \App\Account::select('LOCATION')
             ->where('verified', '=', 'Yes')
+            ->limit(5)
             ->get();
         
         $allImports = array(
@@ -164,11 +165,12 @@ class Requests extends Controller
         $collectionB = $collectionA->collect();
         
         dump($test);
-        dump($collectionA);
-        dump($collectionB);
+        dump($allLocations);
+//         dump($collectionA);
+//         dump($collectionB);
         
-        dump($collectionA->all());
-        dump($collectionB->all());
+//         dump($collectionA->all());
+//         dump($collectionB->all());
         
         dd('end');
         
