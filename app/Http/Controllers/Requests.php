@@ -234,6 +234,14 @@ class Requests extends Controller
             ->limit(5)
             ->get();
         
+        echo 'raw collection ';
+        dump($allLocations);
+        
+        echo 'underlying array ';
+        dump($allLocations->all());
+        
+        dd('exit');
+        
         $allImports = array(
             'Yes',
             'No'
