@@ -151,9 +151,9 @@ class Requests extends Controller
         
         $collectionB = $collectionA->collect();
         
-        echo $collectionA->all();
+        dump($collectionA->all());
         
-        echo $collectionB->all();
+        dump($collectionB->all());
         
         dd('end');
         
