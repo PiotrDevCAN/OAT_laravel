@@ -274,6 +274,11 @@ class Requests extends Controller
         return view('components.request.index', $data);
     }
     
+    public function delete($ref)
+    {
+        
+    }
+    
     public function approve($ref)
     {
         
