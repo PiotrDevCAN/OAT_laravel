@@ -55,6 +55,7 @@
                 	<div class="ibm-fluid">
                         <div class="ibm-col-12-6">
                             <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :arrayOfSelectableValues="$allLocations"/>
+                            <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :arrayOfSelectableValues="$allLocations->get()"/>
                         </div>
                         <div class="ibm-col-12-6">
                         </div>
