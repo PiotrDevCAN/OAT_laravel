@@ -110,7 +110,7 @@ class Requests extends Controller
         $allCompetencies = \App\Competency::select('APPROVER','COMPETENCY')
             ->get();
         
-        $allLocations = \App\Account::select('LOCATION','ACCOUNT_APPROVERS')
+        $allLocations = \App\Account::select('LOCATION')
             ->where('verified', '=', 'Yes')
             ->get();
         
