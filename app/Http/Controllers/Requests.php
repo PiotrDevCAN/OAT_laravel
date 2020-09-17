@@ -121,9 +121,9 @@ class Requests extends Controller
         );
         
         $allRecoverable = array(
-            'Yes' => 'Y',
-            'No' => 'N',
-            'Delivery Centre' => 'D'
+            'Y' => 'Yes',
+            'N' => 'No',
+            'D' => 'Delivery Centre'
         );
         
         $allNatures = array (
@@ -138,8 +138,7 @@ class Requests extends Controller
         );
         
         $allWeekends = array(
-            'value' => 'Yes',
-            'value' => 'No'
+            
         );
         
         $data = array(
@@ -152,28 +151,6 @@ class Requests extends Controller
             'allNatures' => $allNatures,
             'allWeekends' => $allWeekends
         );
-        
-        
-        $test = array(
-            'first_row' => 'first_value',
-            'second_row' => 'second_value',
-            'third_row' => 'third_value'
-        );
-        
-//         $collectionA = collect($test);
-        
-//         $collectionB = $collectionA->collect();
-        
-        dump($test);
-        dump($allLocations);
-        dump($allLocations->all());
-//         dump($collectionA);
-//         dump($collectionB);
-        
-//         dump($collectionA->all());
-//         dump($collectionB->all());
-        
-//         dd('end');
         
         return view('components.request.update', $data);
     }
