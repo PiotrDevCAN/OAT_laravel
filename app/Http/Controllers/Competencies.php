@@ -44,4 +44,14 @@ class Competencies extends Controller
         
         return view('components.competency.index', $data);
     }
+    
+    public function update($ref)
+    {
+        //
+    }
+    
+    public function delete($ref)
+    {
+        //
+    }
 }

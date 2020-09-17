@@ -48,4 +48,14 @@ class Delegates extends Controller
         
         return view('myDelegates', $data);
     }
+    
+    public function update($ref)
+    {
+        //
+    }
+    
+    public function delete($ref)
+    {
+        //
+    }
 }

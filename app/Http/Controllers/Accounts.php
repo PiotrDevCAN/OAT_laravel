@@ -43,4 +43,14 @@ class Accounts extends Controller
         
         return view('components.account.index', $data);
     }
+    
+    public function update($ref)
+    {
+        //
+    }
+    
+    public function delete($ref)
+    {
+        //
+    }
 }
