@@ -13,11 +13,11 @@
         	
         	@isset($value)
         	
-        		<option value="{{ trim($value->value) }}" @if($selectedValue == trim($value->value)) selected="selected" @endif>{{ trim($value->value) }}</option>
+        		<option value=""></option>
         	
         	@else
         	
-        		<option value="{{ trim($key) }}" @if($selectedValue == trim($key)) selected="selected" @endif>{{ trim($key) }}</option>
+        		<option value="{{ $key }}" @if($selectedValue == $key) selected="selected" @endif>{{ $key }}</option>
         	
         	@endisset
         	
