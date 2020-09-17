@@ -56,8 +56,7 @@
                         <div class="ibm-col-12-6">
                         	{{-- <x-ibmv18form-select name="COMPETENCY" label="Service Line of person working overtime" :arrayOfSelectableValues="$allCompetencies"/> --}
                             {{-- <x-ibmv18form-select name="ACCOUNT" label="Account" :arrayOfSelectableValues="$allAccounts"/> --}
-                            <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :arrayOfSelectableValues="$allLocations"/>
-                            <x-ibmv18form-select name="LOCATION_a" label="IBM country of employment" :arrayOfSelectableValues="$allLocations->all()"/>
+                            {{-- <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :arrayOfSelectableValues="$allLocations"/> --}
                             {{-- <x-ibmv18form-select name="IMPORT" label="Is worker an Import to SO Delivery ?" :arrayOfSelectableValues="$allImports"/> --}
                             
                    		</div>
