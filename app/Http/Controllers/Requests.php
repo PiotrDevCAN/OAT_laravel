@@ -231,10 +231,8 @@ class Requests extends Controller
         $allLocations = \App\Account::select('LOCATION')
             ->distinct()
             ->where('verified', 'Yes')
-            ->limit(5);
-            
-            
-//             ->get();
+            ->limit(5)
+            ->get();
         
             
         $keyed = $allLocations->mapWithKeys(function ($item) {
