@@ -283,6 +283,8 @@ class Requests extends Controller
     {
         dump($ref);
         
+        dump($request);
+        
         if ($request->filled('ref')) {
             dump($request->input('ref'));
         };
