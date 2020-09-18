@@ -52,7 +52,7 @@
                             <p>
                                 <label class="ibm-column-field-label ibm-bold" for="DETAILS">Details of overtime activity <span class="ibm-required"></span></label>
                                 <span>
-                                    <textarea type="text" value="{{ $record->details }}" rows="10" cols="100" id="DETAILS" name="details"></textarea>
+                                    <textarea type="text" rows="10" cols="100" id="DETAILS" name="details">{{ $record->details }}</textarea>
                                 </span>
                             </p>
                         </div>
