@@ -28,8 +28,8 @@ class Select extends Component
     public $selected;
     public $disabled;
     
-    public $displayValue;
-    public $returnValue;
+    public $displayValue = 'initial';
+    public $returnValue = 'initial';
     
     /**
      * Create a new component instance.
