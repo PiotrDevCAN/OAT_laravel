@@ -176,7 +176,7 @@ class Requests extends Controller
     
     public function create()
     {
-        $request = new \App\Request;
+        $record = new \App\Request;
         
         $allAccounts = \App\Account::accounts();
         
@@ -197,7 +197,7 @@ class Requests extends Controller
         );
         
         $data = array(
-            'request' => $request,
+            'record' => $record,
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,
@@ -214,7 +214,6 @@ class Requests extends Controller
     public function update($ref)
     {
         $record = \App\Request::findOrFail($ref);
-//         dump($record);
         
         $allAccounts = \App\Account::accounts();
         
