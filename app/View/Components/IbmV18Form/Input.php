@@ -11,7 +11,6 @@ class Input extends Component
     public $model;
     public $fieldName;
     public $label;
-    public $value;
     public $disabled;
     public $placeholder;
     
@@ -24,12 +23,11 @@ class Input extends Component
     
 //     function formInput($title, $fieldName, $state = null, $size = '20', $class = 'col-md-9', $help = null, $width = '30%', $onchange = null, $colspan = '1', $linkWidth = '70%', $dataPlacement = 'top', $typeAttribute = 'text')
     
-    public function __construct(Model $model = null, $fieldName = null, $label = null, $value = null, $disabled = false, $placeholder = null)
+    public function __construct(Model $model = null, $fieldName = null, $label = null, $disabled = false, $placeholder = null)
     {
         $this->model = $model;
         $this->fieldName = $fieldName;
         $this->label = $label;
-        $this->value = $value;
         $this->disabled = $disabled;
         $this->placeholder = $placeholder;
     }
