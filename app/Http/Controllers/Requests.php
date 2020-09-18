@@ -186,7 +186,7 @@ class Requests extends Controller
         
         $allImports = \App\Request::imports();
         
-        $allRecoverable = \App\Request::recoverable();
+        $allRecoverable = \App\Request::recoverables();
         
         $allNatures = \App\Request::natures();
         
@@ -224,7 +224,7 @@ class Requests extends Controller
         
         $allImports = \App\Request::imports();
         
-        $allRecoverable = \App\Request::recoverable();
+        $allRecoverable = \App\Request::recoverables();
         
         $allNatures = \App\Request::natures();
         

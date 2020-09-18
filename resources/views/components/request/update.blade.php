@@ -62,6 +62,7 @@
                                 <x-ibmv18form-select :model="$record" fieldName="IMPORT" label="Is worker an Import to SO Delivery ?" :arrayOfSelectableValues="$allImports" wayToHandleArray="displayValueReturnValue"/>
                        		</div>
                             <div class="ibm-col-12-6">
+                                <x-ibmv18form-select :model="$record" fieldName="RECOVERABLE" label="Recoverable" :arrayOfSelectableValues="$allRecoverable" wayToHandleArray="displayValueReturnValue"/>
                                 <x-ibmv18form-select :model="$record" fieldName="NATURE" label="Nature" :arrayOfSelectableValues="$allNatures" wayToHandleArray="displayValueReturnValue"/>
                                 <x-ibmv18form-select :model="$record" fieldName="WEEKENDDATE" label="Weekending" :arrayOfSelectableValues="$allWeekends" wayToHandleArray="displayValueReturnValue"/>
                                 <x-ibmv18form-input fieldName="HOURS" label="Hours required"/>

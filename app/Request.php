@@ -58,7 +58,7 @@ class Request extends Model
         ));
     }
     
-    public static function recoverable()
+    public static function recoverables()
     {
         return collect(array(
             'Y' => 'Yes',
