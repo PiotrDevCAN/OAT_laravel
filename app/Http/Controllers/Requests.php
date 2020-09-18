@@ -219,7 +219,7 @@ class Requests extends Controller
             ->where('location', $cc)
             ->get()
             ->mapWithKeys(function ($item) {
-                return [$item['approver'] => $item['account']];
+                return [$item->account => $item->approver];
             });
         
         $allVerified = \App\Account::select('verified','account')
@@ -227,48 +227,25 @@ class Requests extends Controller
             ->where('location', $cc)
             ->get()
             ->mapWithKeys(function ($item) {
-                return [$item['verified'] => $item['account']];
+                return [$item->account => $item->verified];
             });
         
         $allCompetencies = \App\Competency::select('approver','competency')
             ->distinct()
             ->get()
             ->mapWithKeys(function ($item) {
-                return [$item['approver'] => $item['competency']];
+                return [$item->competency => $item->approver];
             });
         
         $allLocations = \App\Account::select('location')
             ->distinct()
             ->where('verified', 'Yes')
+            ->where('location', '<>', '')
             ->limit(5)
             ->get()
             ->mapWithKeys(function ($item) {
-                return [$item['location'] => $item['location']];
+                return [$item->location => $item->location];
             });
-            
-            
-                $allLocations2 = \App\Account::select('location')
-                ->distinct()
-                ->where('verified', 'Yes')
-                ->limit(5)
-                ->get()
-                ->mapWithKeys(function ($item) {
-                    return [$item->location => $item->location];
-                });
-        
-        echo 'raw collection ';
-        dump($allLocations);
-        
-        echo 'underlying array ';
-        dump($allLocations->all());
-        
-        echo 'raw collection ';
-        dump($allLocations2);
-        
-        echo 'underlying array ';
-        dump($allLocations2->all());
-        
-//         dd('exit');
         
         $allImports = array(
             'Yes',
