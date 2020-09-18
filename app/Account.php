@@ -38,6 +38,8 @@ class Account extends Model
     
     public static function accounts()
     {
+        $cc = 'UK';
+        
         return self::select('approver','account')
             ->distinct()
             ->where('location', $cc)
@@ -49,6 +51,8 @@ class Account extends Model
     
     public static function verified()
     {
+        $cc = 'UK';
+        
         return self::select('verified','account')
             ->distinct()
             ->where('location', $cc)

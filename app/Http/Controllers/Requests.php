@@ -214,8 +214,6 @@ class Requests extends Controller
         $request = \App\Request::findOrFail($ref);
 //         dump($request);
         
-        $cc = 'UK';
-        
         $allAccounts = \App\Account::accounts();
         
         $allVerified = \App\Account::verified();
