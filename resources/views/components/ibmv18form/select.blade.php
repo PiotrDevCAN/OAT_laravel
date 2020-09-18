@@ -23,6 +23,9 @@
                     @case($selectDisplayKeyReturnValue)
                         <option value='{{ $value }}' @if(in_array($value, $selectedValues)) selected='selected' @endif disabled='disabled'>{{ $key }}</option>
                   		@break
+              		@case($selectDisplayKeyReturnKey)
+              			<option value='{{ $key }}' @if(in_array($key, $selectedValues)) selected='selected' @endif disabled='disabled'>{{ $key }}</option>
+                  		@break
                 	@case($selectDisplayValueReturnValue)
                     @default
                     	<option value='{{ $value }}' @if(in_array($value, $selectedValues)) selected='selected' @endif disabled='disabled'>{{ $value }}</option>

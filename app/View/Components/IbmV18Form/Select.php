@@ -10,6 +10,7 @@ class Select extends Component
     public $selectDisplayValueReturnValue = 'displayValueReturnValue';
     public $selectDisplayValueReturnKey   = 'displayValueReturnKey';
     public $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
+    public $selectDisplayKeyReturnKey     = 'displayKeyReturnKey';
     public $selectAcceptMultipleValues    = true;
     
     public $model;
