@@ -11,7 +11,7 @@
             data-placeholder="{{ $placeHolder }}" 
             data-allow-clear="true"
     	>
-            @isset($placeHolder) 
+            @isset($placeHolder)
             	<option value=''>{{ $placeHolder }}></option>
             @endisset
             

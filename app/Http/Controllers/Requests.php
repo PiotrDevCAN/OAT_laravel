@@ -211,8 +211,8 @@ class Requests extends Controller
     
     public function update($ref)
     {
-        $request = \App\Request::findOrFail($ref);
-//         dump($request);
+        $record = \App\Request::findOrFail($ref);
+//         dump($record);
         
         $allAccounts = \App\Account::accounts();
         
@@ -233,7 +233,7 @@ class Requests extends Controller
         );
         
         $data = array(
-            'request' => $request,
+            'record' => $record,
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,

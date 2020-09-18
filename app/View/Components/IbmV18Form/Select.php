@@ -12,6 +12,7 @@ class Select extends Component
     public static $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
     public static $selectAcceptMultipleValues    = true;
     
+    public $model;
     public $wayToHandleArray;
     public $arrayOfSelectableValues;
     public $label;
@@ -28,13 +29,14 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct($wayToHandleArray = null, $arrayOfSelectableValues, $label, $fieldName, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
+    public function __construct($model = null, $wayToHandleArray = null, $arrayOfSelectableValues, $label, $fieldName, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
     {
-        $allowMultipleSelections = is_array($this->$fieldName);
+        $allowMultipleSelections = is_array($model->$fieldName);
         $wayToHandleArray = empty($wayToHandleArray) ? self::$selectDisplayValueReturnValue : $wayToHandleArray;
-        $selectedValues = $allowMultipleSelections ? $this->$fieldName : array($this->$fieldName => $this->$fieldName);
+        $selectedValues = $allowMultipleSelections ? $model->$fieldName : array($model->$fieldName => $model->$fieldName);
         $disabled = ($readonly) ? ' disabledSelect ' : null;
         
+        $this->model = $model;
         $this->wayToHandleArray = $wayToHandleArray;
         $this->arrayOfSelectableValues = $arrayOfSelectableValues;
         $this->label = $label;
