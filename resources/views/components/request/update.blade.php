@@ -25,15 +25,15 @@
                 <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 
                 <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Request for Overtime to be worked</h3>
-                <p>
-                    <label class="ibm-column-field-label ibm-bold" for="STATUS">Status</label>
-                    <span id="STATUS">
-                        {{ $record->status }}
-                    </span>
-                </p>
                 <form id="create" class="ibm-column-form" method="post" action="">
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
+                            <p>
+                                <label class="ibm-column-field-label ibm-bold" for="STATUS">Status</label>
+                                <span id="STATUS">
+                                    {{ $record->status }}
+                                </span>
+                            </p>
                         	<x-ibmv18form-input name="WORKER" label="Name of individual working overtime"/>
                     	    <span class="ibm-bold">If changing this entry please allow time for Bluepages Auto Completion to work, it will overwrite this text and re-populate the two fields below.</span>
                         	
