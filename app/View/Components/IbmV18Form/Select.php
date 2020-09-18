@@ -12,46 +12,41 @@ class Select extends Component
     public static $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
     public static $selectAcceptMultipleValues    = true;
     
-    public $name;
-    public $label;
+    public $wayToHandleArray;
     public $arrayOfSelectableValues;
-    public $selectedValue;
+    public $label;
+    public $fieldName;
+    public $readonly;
+    public $classCSS;
+    public $onChange;
+    public $placeHolder;
+    public $arrayOfDisabledValues;
+    public $selectedValues;
     
     /**
      * Create a new component instance.
      *
      * @return void
      */
-//     public function __construct($name, $label, $arrayOfSelectableValues, $selectedValue = null)
-    public function __construct($wayToHandleArray = null, $arrayOfSelectableValues, $label, $fieldName, $readonly = false, $class = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
+    public function __construct($wayToHandleArray = null, $arrayOfSelectableValues, $label, $fieldName, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
     {
         $allowMultipleSelections = is_array($this->$fieldName);
         $wayToHandleArray = empty($wayToHandleArray) ? self::$selectDisplayValueReturnValue : $wayToHandleArray;
         $selectedValues = $allowMultipleSelections ? $this->$fieldName : array($this->$fieldName => $this->$fieldName);
         $disabled = ($readonly) ? ' disabledSelect ' : null;
         
-        $this->name = $name;
-        $this->label = $label;
+        $this->wayToHandleArray = $wayToHandleArray;
         $this->arrayOfSelectableValues = $arrayOfSelectableValues;
-        $this->selectedValue = $selectedValue;
+        $this->label = $label;
+        $this->fieldName = $fieldName;
+        $this->readonly = $readonly;
+        $this->classCSS = $classCSS;
+        $this->onChange = $onChange;
+        $this->placeHolder = $placeHolder;
+        $this->arrayOfDisabledValues = $arrayOfDisabledValues;
+        $this->selectedValues = $selectedValues;
     }
     
-    /*
-    public function __construct($wayToHandleArray=null, $arrayOfSelectableValues, $label, $fieldName, $readonly=false, $class = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues=array())
-    {
-        
-        $allowMultipleSelections = is_array($this->$fieldName);
-        $wayToHandleArray = empty($wayToHandleArray) ? self::$selectDisplayValueReturnValue : $wayToHandleArray;
-        $selectedValues = $allowMultipleSelections ? $this->$fieldName : array($this->$fieldName => $this->$fieldName);
-        $disabled = ($readonly or ($this->mode == FormClass::$modeDISPLAY)) ? ' disabledSelect ' : null;
-        
-        $this->name = $name;
-        $this->label = $label;
-        $this->arrayOfSelectableValues = $arrayOfSelectableValues;
-        $this->selectedValue = $selectedValue;
-    }
-    */
-
     /**
      * Get the view / contents that represent the component.
      *
