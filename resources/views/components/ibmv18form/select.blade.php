@@ -20,7 +20,7 @@
         	
         		{{-- @if(in_array($key, $selectedValues)) selected='selected' @endif disabled='disabled' --}}
         		
-        		$prepareOption($key, $value)
+        		{{ $prepareOption($key, $value) }}
         		
         		<option value='{{ $returnValue }}'>{{ $displayValue }}</option>
         	@endforeach
