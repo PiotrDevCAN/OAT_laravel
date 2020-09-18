@@ -56,7 +56,7 @@
                 	<div class="ibm-fluid">
                         <div class="ibm-fluid">
                             <div class="ibm-col-12-6">
-                            	<x-ibmv18form-select :model="$record" label="Service Line of person working overtime" field-name="COMPETENCY" way-to-handle-array="displayValueReturnValue"  :array-of-selectable-values="$allCompetencies" />
+                            	<x-ibmv18form-select :model="$record" way-to-handle-array="displayKeyReturnKey"  :array-of-selectable-values="$allCompetencies" label="Service Line of person working overtime" field-name="COMPETENCY" />
                                 <x-ibmv18form-select :model="$record" way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allAccounts" label="Account" field-name="ACCOUNT"/>
                                 <x-ibmv18form-select :model="$record" way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allLocations" label="IBM country of employment" field-name="LOCATION"/>
                                 <x-ibmv18form-select :model="$record" way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allImports" label="Is worker an Import to SO Delivery ?" field-name="IMPORT"/>

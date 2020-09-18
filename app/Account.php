@@ -68,7 +68,6 @@ class Account extends Model
             ->distinct()
             ->where('verified', 'Yes')
             ->where('location', '<>', '')
-            ->limit(5)
             ->get()
             ->mapWithKeys(function ($item) {
                 return [$item->location => $item->location];

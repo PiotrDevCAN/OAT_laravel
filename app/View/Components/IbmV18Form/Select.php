@@ -31,12 +31,6 @@ class Select extends Component
      */
     public function __construct($model = null, $wayToHandleArray = null, $arrayOfSelectableValues, $label, $fieldName, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
     {
-        
-        echo '$wayToHandleArray';
-        dump($wayToHandleArray);
-        echo '$arrayOfSelectableValues';
-        dump($arrayOfSelectableValues);
-        
         $allowMultipleSelections = is_array($model->$fieldName);
         $wayToHandleArray = empty($wayToHandleArray) ? self::$selectDisplayValueReturnValue : $wayToHandleArray;
         $selectedValues = $allowMultipleSelections ? $model->$fieldName : array($model->$fieldName => $model->$fieldName);
