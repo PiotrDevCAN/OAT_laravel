@@ -176,7 +176,7 @@ class Requests extends Controller
     
     public function create()
     {
-        $request = \App\Request::create();
+        $request = new \App\Request;
         
         $allAccounts = \App\Account::accounts();
         
