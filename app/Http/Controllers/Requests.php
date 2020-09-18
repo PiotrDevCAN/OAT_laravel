@@ -176,6 +176,8 @@ class Requests extends Controller
     
     public function create()
     {
+        $request = \App\Request::create();
+        
         $allAccounts = \App\Account::accounts();
         
         $allVerified = \App\Account::verified();
@@ -195,7 +197,7 @@ class Requests extends Controller
         );
         
         $data = array(
-//             'request' => $request,
+            'request' => $request,
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,
