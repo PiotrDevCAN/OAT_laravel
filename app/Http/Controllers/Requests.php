@@ -127,20 +127,20 @@ class Requests extends Controller
         $this->prepareConditions($request);
         
         $awaitingQuery = \App\Request::where('status', 'like', 'Awaiting%')
-        ->whereNull('delete_flag')
-        ->where('weekenddate', '>=', '2020-08-07')
-        ->where($this->conditions);
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->where($this->conditions);
         
         $approvedQuery = \App\Request::where('status', 'Approved')
-        ->whereNull('delete_flag')
-        ->where('weekenddate', '>=', '2020-08-07')
-        ->where($this->conditions);
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->where($this->conditions);
         
         $otherQuery = \App\Request::where('status',  'not like', 'Awaiting%')
-        ->where('status', '<>', 'Approved')
-        ->whereNull('delete_flag')
-        ->where('weekenddate', '>=', '2020-08-07')
-        ->where($this->conditions);
+            ->where('status', '<>', 'Approved')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->where($this->conditions);
         
         $data = array(
             'awaiting' => $awaitingQuery->get(),
@@ -176,32 +176,34 @@ class Requests extends Controller
     
     public function create()
     {
-        $approved = \App\Request::where('status', 'Approved')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->get();
+        $allAccounts = \App\Account::accounts();
         
-        $allRecoverable = array(
-            'Y' => 'Yes',
-            'N' => 'No',
-            'D' => 'Delivery Centre'
-        );
+        $allVerified = \App\Account::verified();
         
-        $allNatures = array (
-            "Service Out of Hours",
-            "Compliance",
-            "RFS/Revenue",
-            "RFS Schedule",
-            "Hol/Sickness Cover",
-            "T&T",
-            "Delivery Centre Load Balancing",
-            "Other"
+        $allLocations = \App\Account::locations();
+        
+        $allCompetencies = \App\Competency::competencies();
+        
+        $allImports = \App\Request::imports();
+        
+        $allRecoverable = \App\Request::recoverable();
+        
+        $allNatures = \App\Request::natures();
+        
+        $allWeekends = array(
+            //
         );
         
         $data = array(
-            'recoverable' => $recoverable,
+            'request' => $request,
+            'allAccounts' => $allAccounts,
+            'allVerified' => $allVerified,
+            'allCompetencies' => $allCompetencies,
+            'allLocations' => $allLocations,
+            'allImports' => $allImports,
+            'allRecoverable' => $allRecoverable,
             'allNatures' => $allNatures,
-            'logEntries' => $approved
+            'allWeekends' => $allWeekends
         );
         
         return view('components.request.create', $data);
@@ -214,66 +216,26 @@ class Requests extends Controller
         
         $cc = 'UK';
         
-        $allAccounts = \App\Account::select('approver','account')
-            ->distinct()
-            ->where('location', $cc)
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->account => $item->approver];
-            });
+        $allAccounts = \App\Account::accounts();
         
-        $allVerified = \App\Account::select('verified','account')
-            ->distinct()
-            ->where('location', $cc)
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->account => $item->verified];
-            });
+        $allVerified = \App\Account::verified();
         
-        $allCompetencies = \App\Competency::select('approver','competency')
-            ->distinct()
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->competency => $item->approver];
-            });
+        $allLocations = \App\Account::locations();
         
-        $allLocations = \App\Account::select('location')
-            ->distinct()
-            ->where('verified', 'Yes')
-            ->where('location', '<>', '')
-            ->limit(5)
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->location => $item->location];
-            });
+        $allCompetencies = \App\Competency::competencies();
         
-        $allImports = array(
-            'Yes',
-            'No'
-        );
+        $allImports = \App\Request::imports();
         
-        $allRecoverable = array(
-            'Y' => 'Yes',
-            'N' => 'No',
-            'D' => 'Delivery Centre'
-        );
+        $allRecoverable = \App\Request::recoverable();
         
-        $allNatures = array (
-            "Service Out of Hours",
-            "Compliance",
-            "RFS/Revenue",
-            "RFS Schedule",
-            "Hol/Sickness Cover",
-            "T&T",
-            "Delivery Centre Load Balancing",
-            "Other"
-        );
+        $allNatures = \App\Request::natures();
         
         $allWeekends = array(
-            
+            //
         );
         
         $data = array(
+            'request' => $request,
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,

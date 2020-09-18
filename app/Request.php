@@ -50,6 +50,37 @@ class Request extends Model
 //         'delayed' => false,
     ];
     
+    public static function imports()
+    {
+        return array(
+            'Yes',
+            'No'
+        );
+    }
+    
+    public static function recoverable()
+    {
+        return array(
+            'Y' => 'Yes',
+            'N' => 'No',
+            'D' => 'Delivery Centre'
+        );
+    }
+    
+    public static function natures()
+    {
+        return array (
+            "Service Out of Hours",
+            "Compliance",
+            "RFS/Revenue",
+            "RFS Schedule",
+            "Hol/Sickness Cover",
+            "T&T",
+            "Delivery Centre Load Balancing",
+            "Other"
+        );
+    }
+    
     /**
      * Get the commentLog record associated with the request.
      */

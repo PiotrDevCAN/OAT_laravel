@@ -33,6 +33,16 @@ class Competency extends Model
      * @var array
      */
     protected $attributes = [
-    //         'delayed' => false,
+//         'delayed' => false,
     ];
+    
+    public static function competencies()
+    {
+        return self::select('approver','competency')
+            ->distinct()
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->competency => $item->approver];
+            });
+    }
 }

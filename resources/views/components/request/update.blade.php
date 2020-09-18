@@ -25,6 +25,7 @@
                 <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 
                 <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Request for Overtime to be worked</h3>
+                <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Status</h3>
                 <form id="create" class="ibm-column-form" method="post" action="">
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
@@ -46,7 +47,7 @@
                             <p>
                                 <label class="ibm-column-field-label ibm-bold" for="DETAILS">Details of overtime activity <span class="ibm-required"></span></label>
                                 <span>
-                                    <textarea type="text" value="" rows="10" cols="100" id="DETAILS" name="title"></textarea>
+                                    <textarea type="text" value="" rows="10" cols="100" id="DETAILS" name="details"></textarea>
                                 </span>
                             </p>
                         </div>

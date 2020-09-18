@@ -33,6 +33,41 @@ class Account extends Model
      * @var array
      */
     protected $attributes = [
-    //         'delayed' => false,
+//         'delayed' => false,
     ];
+    
+    public static function accounts()
+    {
+        return self::select('approver','account')
+            ->distinct()
+            ->where('location', $cc)
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->account => $item->approver];
+            });
+    }
+    
+    public static function verified()
+    {
+        return self::select('verified','account')
+            ->distinct()
+            ->where('location', $cc)
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->account => $item->verified];
+            });
+    }
+    
+    public static function locations()
+    {
+        return self::select('location')
+            ->distinct()
+            ->where('verified', 'Yes')
+            ->where('location', '<>', '')
+            ->limit(5)
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->location => $item->location];
+            });
+    }
 }
