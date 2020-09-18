@@ -7,10 +7,10 @@ use App\Request;
 
 class Select extends Component
 {
-    public static $selectDisplayValueReturnValue = 'displayValueReturnValue';
-    public static $selectDisplayValueReturnKey   = 'displayValueReturnKey';
-    public static $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
-    public static $selectAcceptMultipleValues    = true;
+    public $selectDisplayValueReturnValue = 'displayValueReturnValue';
+    public $selectDisplayValueReturnKey   = 'displayValueReturnKey';
+    public $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
+    public $selectAcceptMultipleValues    = true;
     
     public $model;
     public $wayToHandleArray;
