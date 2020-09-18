@@ -100,8 +100,8 @@ class Select extends Component
                 break;
         }
         
-        dump($this->displayValue);
-        dump($this->returnValue);
+        echo '"'.$this->displayValue.'"';
+        echo '"'.$this->returnValue.'"';
         
     }
     
