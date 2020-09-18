@@ -105,6 +105,16 @@ class Select extends Component
         
     }
     
+    public function getDisplayValue()
+    {
+        return $this->displayValue;
+    }
+    
+    public function getReturnValue()
+    {
+        return $this->returnValue;
+    }
+    
     /**
      * Get the view / contents that represent the component.
      *

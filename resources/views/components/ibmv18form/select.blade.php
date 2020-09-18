@@ -19,7 +19,7 @@
         		
         		{{ $prepareOption($key, $value) }}
         		
-        		<option value='{{ $returnValue }}'>{{ $displayValue }}</option>
+        		<option value='{{ $getReturnValue() }}'>{{ $getDisplayValue() }}</option>
         	@endforeach
         </select>
     </span>
