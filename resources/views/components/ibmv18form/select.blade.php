@@ -2,7 +2,7 @@
     <label for="{{ $name }}">{{ $label }}</label>
     <span>
         <select name="{{ $name }}" id="{{ $name }}" class="ibm-fullwidth">
-            <option value="" selected>Select...</option>
+            <option value="">Select...</option>
         	@foreach ($arrayOfSelectableValues as $key => $value)
         		<option value="{{ $key }}" @if($selectedValue == $key) selected="selected" @endif>{{ $value }}</option>
             @endforeach

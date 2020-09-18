@@ -29,6 +29,22 @@ class Select extends Component
         $this->arrayOfSelectableValues = $arrayOfSelectableValues;
         $this->selectedValue = $selectedValue;
     }
+    
+    /*
+    public function __construct($wayToHandleArray=null, $arrayOfSelectableValues, $label, $fieldName, $readonly=false, $class = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues=array())
+    {
+        
+        $allowMultipleSelections = is_array($this->$fieldName);
+        $wayToHandleArray = empty($wayToHandleArray) ? self::$selectDisplayValueReturnValue : $wayToHandleArray;
+        $selectedValues = $allowMultipleSelections ? $this->$fieldName : array($this->$fieldName => $this->$fieldName);
+        $disabled = ($readonly or ($this->mode == FormClass::$modeDISPLAY)) ? ' disabledSelect ' : null;
+        
+        $this->name = $name;
+        $this->label = $label;
+        $this->arrayOfSelectableValues = $arrayOfSelectableValues;
+        $this->selectedValue = $selectedValue;
+    }
+    */
 
     /**
      * Get the view / contents that represent the component.
