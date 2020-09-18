@@ -25,7 +25,12 @@
                 <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 
                 <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Request for Overtime to be worked</h3>
-                <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Status</h3><p>{{ $record->status }}</p>
+                <p>
+                    <label class="ibm-column-field-label ibm-bold" for="STATUS">Status</label>
+                    <span id="STATUS">
+                        {{ $record->status }}
+                    </span>
+                </p>
                 <form id="create" class="ibm-column-form" method="post" action="">
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
