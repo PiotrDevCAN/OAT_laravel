@@ -99,19 +99,19 @@ class Select extends Component
                 $this->returnValue  = trim($value);
                 break;
         }
-        
-        echo '"'.$this->displayValue.'"';
-        echo '"'.$this->returnValue.'"';
-        
     }
     
-    public function getDisplayValue()
+    public function getDisplayValue($key, $value)
     {
+        $this->prepareOption($key, $value);
+        
         return $this->displayValue;
     }
     
-    public function getReturnValue()
+    public function getReturnValue($key, $value)
     {
+        $this->prepareOption($key, $value);
+        
         return $this->returnValue;
     }
     

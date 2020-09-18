@@ -16,10 +16,7 @@
             @endisset
             
         	@foreach ($arrayOfSelectableValues as $key => $value)
-        		
-        		{{ $prepareOption($key, $value) }}
-        		
-        		<option value='{{ $getReturnValue() }}'>{{ $getDisplayValue() }}</option>
+        		<option value='{{ $getReturnValue($key, $value) }}'>{{ $getDisplayValue($key, $value) }}</option>
         	@endforeach
         </select>
     </span>
