@@ -7,10 +7,10 @@ use App\Request;
 
 class Select extends Component
 {
-    public $selectDisplayValueReturnValue = 'displayValueReturnValue';
-    public $selectDisplayValueReturnKey   = 'displayValueReturnKey';
-    public $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
-    public $selectDisplayKeyReturnKey     = 'displayKeyReturnKey';
+    public static $selectDisplayValueReturnValue = 'displayValueReturnValue';
+    public static $selectDisplayValueReturnKey   = 'displayValueReturnKey';
+    public static $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
+    public static $selectDisplayKeyReturnKey     = 'displayKeyReturnKey';
     public $selectAcceptMultipleValues    = true;
     
     public $model;
@@ -24,6 +24,12 @@ class Select extends Component
     public $placeHolder;
     public $arrayOfDisabledValues;
     public $selectedValues;
+    
+    public $selected;
+    public $disabled;
+    
+    public $displayValue;
+    public $returnValue;
     
     /**
      * Create a new component instance.
@@ -48,6 +54,51 @@ class Select extends Component
         $this->placeHolder = $placeHolder;
         $this->arrayOfDisabledValues = $arrayOfDisabledValues;
         $this->selectedValues = $selectedValues;
+    }
+    
+    /**
+     * Determine if the given option is the current selected option.
+     *
+     * @param  string  $option
+     * @return bool
+     */
+    public function isSelected($option)
+    {
+        return $option === $this->selected;
+    }
+    
+    /**
+     * Determine if the given option is the current disabled option.
+     *
+     * @param  string  $option
+     * @return bool
+     */
+    public function isDisabled($option)
+    {
+        return $option === $this->disabled;
+    }
+    
+    public function prepareOption($key, $value)
+    {
+        switch ($this->wayToHandleArray) {
+            case self::$selectDisplayValueReturnKey:
+                $this->displayValue = trim($value);
+                $this->returnValue  = trim($key);
+                break;
+            case self::$selectDisplayKeyReturnValue:
+                $this->displayValue = trim($key);
+                $this->returnValue  = trim($value);
+                break;
+            case self::$selectDisplayKeyReturnKey:
+                $this->displayValue = trim($key);
+                $this->returnValue  = trim($key);
+                break;
+            case self::$selectDisplayValueReturnValue:
+            default:
+                $this->displayValue = trim($value);
+                $this->returnValue  = trim($value);
+                break;
+        }
     }
     
     /**
