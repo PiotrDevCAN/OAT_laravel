@@ -195,7 +195,7 @@ class Requests extends Controller
         );
         
         $data = array(
-            'request' => $request,
+//             'request' => $request,
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,
