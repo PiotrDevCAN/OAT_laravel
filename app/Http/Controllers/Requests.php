@@ -214,21 +214,30 @@ class Requests extends Controller
         
         $cc = 'UK';
         
-        $allAccounts = \App\Account::select('APPROVER','ACCOUNT')
+        $allAccounts = \App\Account::select('approver','account')
             ->distinct()
             ->where('location', $cc)
-            ->get();
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item['approver'] => $item['account']];
+            });
         
-        $allVerified = \App\Account::select('VERIFIED','ACCOUNT')
+        $allVerified = \App\Account::select('verified','account')
             ->distinct()
             ->where('location', $cc)
-            ->get();
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item['verified'] => $item['account']];
+            });
         
-        $allCompetencies = \App\Competency::select('APPROVER','COMPETENCY')
+        $allCompetencies = \App\Competency::select('approver','competency')
             ->distinct()
-            ->get();
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item['approver'] => $item['competency']];
+            });
         
-        $allLocations = \App\Account::select('LOCATION')
+        $allLocations = \App\Account::select('location')
             ->distinct()
             ->where('verified', 'Yes')
             ->limit(5)
@@ -236,12 +245,28 @@ class Requests extends Controller
             ->mapWithKeys(function ($item) {
                 return [$item['location'] => $item['location']];
             });
+            
+            
+                $allLocations2 = \App\Account::select('location')
+                ->distinct()
+                ->where('verified', 'Yes')
+                ->limit(5)
+                ->get()
+                ->mapWithKeys(function ($item) {
+                    return [$item->location => $item->location];
+                });
         
         echo 'raw collection ';
         dump($allLocations);
         
         echo 'underlying array ';
         dump($allLocations->all());
+        
+        echo 'raw collection ';
+        dump($allLocations2);
+        
+        echo 'underlying array ';
+        dump($allLocations2->all());
         
 //         dd('exit');
         
