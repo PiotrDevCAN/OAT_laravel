@@ -208,7 +208,7 @@ class Requests extends Controller
             'allWeekends' => $allWeekends
         );
         
-        return view('components.request.create', $data);
+        return view('components.request.record', $data);
     }
     
     public function update($ref)
@@ -246,7 +246,7 @@ class Requests extends Controller
             'allWeekends' => $allWeekends
         );
         
-        return view('components.request.update', $data);
+        return view('components.request.record', $data);
     }
     
     public function delete($ref)
