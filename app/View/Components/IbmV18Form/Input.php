@@ -4,10 +4,12 @@ namespace App\View\Components\IbmV18Form;
 
 use Illuminate\View\Component;
 use App\Request;
+use Illuminate\Database\Eloquent\Model;
 
 class Input extends Component
 {
-    public $name;
+    public $model;
+    public $fieldName;
     public $label;
     public $value;
     public $disabled;
@@ -18,9 +20,14 @@ class Input extends Component
      *
      * @return void
      */
-    public function __construct($name = null, $label = null, $value = null, $disabled = false, $placeholder = null)
+    
+    
+//     function formInput($title, $fieldName, $state = null, $size = '20', $class = 'col-md-9', $help = null, $width = '30%', $onchange = null, $colspan = '1', $linkWidth = '70%', $dataPlacement = 'top', $typeAttribute = 'text')
+    
+    public function __construct(Model $model = null, $fieldName = null, $label = null, $value = null, $disabled = false, $placeholder = null)
     {
-        $this->name = $name;
+        $this->model = $model;
+        $this->fieldName = $fieldName;
         $this->label = $label;
         $this->value = $value;
         $this->disabled = $disabled;

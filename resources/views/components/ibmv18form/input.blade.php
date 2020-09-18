@@ -1,6 +1,6 @@
 <p class="ibm-form-elem-grp">
-	<label for="{{ $name }}">{{ $label }}</label>
+	<label for="{{ $field-name }}">{{ $label }}</label>
 	<span>
-        <input type="text" value="{{ $value }}" size="40" name="{{ $label }}" @isset($placeholder) placeholder="{{ $placeholder }}" @endisset @if($disabled == true) disabled @endif>
+        <input type="text" value="{{ $record->$field-name }}" size="40" name="{{ $label }}" @isset($placeholder) placeholder="{{ $placeholder }}" @endisset @if($disabled == true) disabled @endif>
     </span>
 </p>

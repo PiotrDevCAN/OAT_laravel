@@ -4,6 +4,7 @@ namespace App\View\Components\IbmV18Form;
 
 use Illuminate\View\Component;
 use App\Request;
+use Illuminate\Database\Eloquent\Model;
 
 class Select extends Component
 {
@@ -36,7 +37,7 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct($model = null, $wayToHandleArray = null, $arrayOfSelectableValues, $label, $fieldName, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
+    public function __construct(Model $model = null, $wayToHandleArray = null, $arrayOfSelectableValues, $label, $fieldName, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
     {
         $allowMultipleSelections = is_array($model->$fieldName);
         $wayToHandleArray = empty($wayToHandleArray) ? self::$selectDisplayValueReturnValue : $wayToHandleArray;
