@@ -16,9 +16,6 @@
             @endisset
             
         	@foreach ($arrayOfSelectableValues as $key => $value)
-        	
-        	
-        		{{-- @if(in_array($key, $selectedValues)) selected='selected' @endif disabled='disabled' --}}
         		
         		{{ $prepareOption($key, $value) }}
         		

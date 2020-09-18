@@ -98,6 +98,9 @@ class Select extends Component
                 $this->displayValue = trim($value);
                 $this->returnValue  = trim($value);
                 break;
+                
+            dump($this->displayValue);
+            dump($this->returnValue);
         }
     }
     
