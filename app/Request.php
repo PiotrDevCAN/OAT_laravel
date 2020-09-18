@@ -52,24 +52,24 @@ class Request extends Model
     
     public static function imports()
     {
-        return array(
+        return collect(array(
             'Yes',
             'No'
-        );
+        ));
     }
     
     public static function recoverable()
     {
-        return array(
+        return collect(array(
             'Y' => 'Yes',
             'N' => 'No',
             'D' => 'Delivery Centre'
-        );
+        ));
     }
     
     public static function natures()
     {
-        return array (
+        return collect(array (
             "Service Out of Hours",
             "Compliance",
             "RFS/Revenue",
@@ -78,7 +78,7 @@ class Request extends Model
             "T&T",
             "Delivery Centre Load Balancing",
             "Other"
-        );
+        ));
     }
     
     /**
