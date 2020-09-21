@@ -1,9 +1,9 @@
-<p class='ibm-form-elem-grp' id='{{ $field-name }}."FormGroup"?>'>
+<p class='ibm-form-elem-grp' id='{{ $fieldName }}."FormGroup"?>'>
     <label for='{{ $fieldName }}'>{{ $label }}</label>
     <span>
         <select 
-        	name='{{ $field-name }}' 
-        	id='{{ $field-name}}' 
+        	name='{{ $fieldName }}' 
+        	id='{{ $fieldName}}' 
         	class='{{ $classCSS }} ibm-fullwidth'
 			required='required' 
 			@isset($onChange) {{!! $onChange !!}} @endisset
