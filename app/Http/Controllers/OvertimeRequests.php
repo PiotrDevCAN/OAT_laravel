@@ -148,8 +148,10 @@ class OvertimeRequests extends Controller
         $data = array(
             'awaiting' => $awaitingQuery->get(),
             'awaitingHours' => $awaitingQuery->sum('hours'),
+            
             'approved' => $approvedQuery->get(),
             'approvedHours' => $approvedQuery->sum('hours'),
+            
             'other' => $otherQuery->get(),
             'otherHours' => $otherQuery->sum('hours')
         );
@@ -166,12 +168,8 @@ class OvertimeRequests extends Controller
             ->where('weekenddate', '>=', '2020-08-07');
         
         $data = array(
-            'awaiting' => null,
-            'awaitingHours' => 0,
             'approved' => $approvedQuery->get(),
-            'approvedHours' => $approvedQuery->sum('hours'),
-            'other' => null,
-            'otherHours' => 0
+            'approvedHours' => $approvedQuery->sum('hours')
         );
         
         return view('components.request.index', $data);

@@ -7,7 +7,6 @@ use App\OvertimeRequest;
 
 class Filters extends Component
 {
-    
     public $accounts;
     public $reasons;
     public $names;
@@ -27,8 +26,10 @@ class Filters extends Component
     
     public $awaiting;
     public $awaitingHours;
+    
     public $approved;
     public $approvedHours;
+    
     public $other;
     public $otherHours;
     
@@ -39,13 +40,6 @@ class Filters extends Component
      */
     public function __construct($awaiting = null, $awaitingHours = 0, $approved = null, $approvedHours = 0, $other = null, $otherHours = 0)
     {
-        $this->awaiting = $awaiting;
-        $this->awaitingHours = $awaitingHours;
-        $this->approved = $approved;
-        $this->approvedHours = $approvedHours;
-        $this->other = $other;
-        $this->otherHours = $otherHours;
-        
         $this->accounts = OvertimeRequest::select('account')
             ->where('account', '<>', '')
             ->distinct()
@@ -109,6 +103,15 @@ class Filters extends Component
             ->where('approver_third_level', '<>', '')
             ->distinct()
             ->get();
+        
+        $this->awaiting = $awaiting;
+        $this->awaitingHours = $awaitingHours;
+        
+        $this->approved = $approved;
+        $this->approvedHours = $approvedHours;
+        
+        $this->other = $other;
+        $this->otherHours = $otherHours;
     }
 
     /**
