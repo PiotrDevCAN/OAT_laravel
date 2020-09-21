@@ -63,7 +63,7 @@ class Select extends Component
     public function isSelected($option)
     {
 //         return $option === $model->selected;
-        return true;
+        return false;
     }
     
     /**
@@ -75,7 +75,7 @@ class Select extends Component
     public function isDisabled($option)
     {
 //         return $option === $model->fieldName;
-        return true;
+        return false;
     }
     
     public function prepareOption($key, $value)
