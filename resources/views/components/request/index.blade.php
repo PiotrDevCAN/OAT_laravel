@@ -2,11 +2,7 @@
 
 @section('content')
 
-<x-request.filters 
-	@isset($awaiting) :awaiting="$awaiting" :awaiting-hours="$awaitingHours" @endisset
-	@isset($approved) :approved="$approved" :approved-hours="$approvedHours" @endisset
-	@isset($other) :other="$other" :other-hours="$otherHours" @endisset
-/>
+<x-request.filters @isset($awaiting) :awaiting="$awaiting" :awaiting-hours="$awaitingHours" @endisset @isset($approved) :approved="$approved" :approved-hours="$approvedHours" @endisset @isset($other) :other="$other" :other-hours="$otherHours" @endisset />
 
 @endsection
 
