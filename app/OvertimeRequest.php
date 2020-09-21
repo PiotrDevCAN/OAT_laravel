@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Request extends Model
+class OvertimeRequest extends Model
 {
     /**
      * The table associated with the model.

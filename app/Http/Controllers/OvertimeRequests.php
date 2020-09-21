@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\OvertimeRequest;
+use App\Competency;
+use App\Account;
 
 set_time_limit(7200);
 
-class Requests extends Controller
+class OvertimeRequests extends Controller
 {
     public $conditions = array();
     
@@ -126,17 +129,17 @@ class Requests extends Controller
             
         $this->prepareConditions($request);
         
-        $awaitingQuery = \App\Request::where('status', 'like', 'Awaiting%')
+        $awaitingQuery = OvertimeRequest::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($this->conditions);
         
-        $approvedQuery = \App\Request::where('status', 'Approved')
+        $approvedQuery = OvertimeRequest::where('status', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($this->conditions);
         
-        $otherQuery = \App\Request::where('status',  'not like', 'Awaiting%')
+        $otherQuery = OvertimeRequest::where('status',  'not like', 'Awaiting%')
             ->where('status', '<>', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
@@ -158,7 +161,7 @@ class Requests extends Controller
     {
         $this->prepareConditions($request);
         
-        $approvedQuery = \App\Request::where('status', 'Approved')
+        $approvedQuery = OvertimeRequest::where('status', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07');
         
@@ -176,21 +179,21 @@ class Requests extends Controller
     
     public function create()
     {
-        $record = new \App\Request;
+        $record = new OvertimeRequest;
         
-        $allAccounts = \App\Account::accounts();
+        $allAccounts = Account::accounts();
         
-        $allVerified = \App\Account::verified();
+        $allVerified = Account::verified();
         
-        $allLocations = \App\Account::locations();
+        $allLocations = Account::locations();
         
-        $allCompetencies = \App\Competency::competencies();
+        $allCompetencies = Competency::competencies();
         
-        $allImports = \App\Request::imports();
+        $allImports = OvertimeRequest::imports();
         
-        $allRecoverable = \App\Request::recoverables();
+        $allRecoverable = OvertimeRequest::recoverables();
         
-        $allNatures = \App\Request::natures();
+        $allNatures = OvertimeRequest::natures();
         
         $allWeekends = array(
             //
@@ -213,21 +216,21 @@ class Requests extends Controller
     
     public function update($ref)
     {
-        $record = \App\Request::findOrFail($ref);
+        $record = OvertimeRequest::findOrFail($ref);
         
-        $allAccounts = \App\Account::accounts();
+        $allAccounts = Account::accounts();
         
-        $allVerified = \App\Account::verified();
+        $allVerified = Account::verified();
         
-        $allLocations = \App\Account::locations();
+        $allLocations = Account::locations();
         
-        $allCompetencies = \App\Competency::competencies();
+        $allCompetencies = Competency::competencies();
         
-        $allImports = \App\Request::imports();
+        $allImports = OvertimeRequest::imports();
         
-        $allRecoverable = \App\Request::recoverables();
+        $allRecoverable = OvertimeRequest::recoverables();
         
-        $allNatures = \App\Request::natures();
+        $allNatures = OvertimeRequest::natures();
         
         $allWeekends = array(
             //

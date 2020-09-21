@@ -3,7 +3,7 @@
 namespace App\View\Components\Delegate;
 
 use Illuminate\View\Component;
-use App\Request;
+use App\Delegate;
 
 class Filters extends Component
 {
@@ -19,17 +19,17 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->userIntranets = \App\Delegate::select('user_intranet')
+        $this->userIntranets = Delegate::select('user_intranet')
             ->where('user_intranet', '<>', '')
             ->distinct()
             ->get();
         
-        $this->delegateIntranets = \App\Delegate::select('delegate_intranet')
+        $this->delegateIntranets = Delegate::select('delegate_intranet')
             ->where('delegate_intranet', '<>', '')
             ->distinct()
             ->get();
         
-        $this->delegateNotesIds = \App\Delegate::select('delegate_notesid')
+        $this->delegateNotesIds = Delegate::select('delegate_notesid')
             ->where('delegate_notesid', '<>', '')
             ->distinct()
             ->get();

@@ -3,7 +3,7 @@
 namespace App\View\Components\Competency;
 
 use Illuminate\View\Component;
-use App\Request;
+use App\Competency;
 
 class Filters extends Component
 {
@@ -18,12 +18,12 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->serviceLines = \App\Competency::select('competency')
+        $this->serviceLines = Competency::select('competency')
             ->where('competency', '<>', '')
             ->distinct()
             ->get();
         
-        $this->approvers = \App\Competency::select('approver')
+        $this->approvers = Competency::select('approver')
             ->where('approver', '<>', '')
             ->distinct()
             ->get();

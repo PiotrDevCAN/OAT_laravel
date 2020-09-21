@@ -4,6 +4,7 @@ namespace App\View\Components\Account;
 
 use Illuminate\View\Component;
 use Illuminate\Http\Request;
+use App\Account;
 
 class Filters extends Component
 {
@@ -19,22 +20,22 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->accounts = \App\Account::select('account')
+        $this->accounts = Account::select('account')
             ->where('account', '<>', '')
             ->distinct()
             ->get();
         
-        $this->approvers = \App\Account::select('approver')
+        $this->approvers = Account::select('approver')
             ->where('approver', '<>', '')
             ->distinct()
             ->get();
         
-        $this->verified = \App\Account::select('verified')
+        $this->verified = Account::select('verified')
             ->where('location', '<>', '')
             ->distinct()
             ->get();
         
-        $this->locations = \App\Account::select('location')
+        $this->locations = Account::select('location')
             ->where('location', '<>', '')
             ->distinct()
             ->get();

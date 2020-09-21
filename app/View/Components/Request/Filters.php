@@ -3,7 +3,7 @@
 namespace App\View\Components\Request;
 
 use Illuminate\View\Component;
-use App\Request;
+use App\OvertimeRequest;
 
 class Filters extends Component
 {
@@ -46,66 +46,66 @@ class Filters extends Component
         $this->other = $other;
         $this->otherHours = $otherHours;
         
-        $this->accounts = \App\Request::select('account')
+        $this->accounts = OvertimeRequest::select('account')
             ->where('account', '<>', '')
             ->distinct()
             ->get();
         
-        $this->reasons = \App\Request::select('nature')
+        $this->reasons = OvertimeRequest::select('nature')
             ->where('nature', '<>', '')
             ->distinct()
             ->get();
         
-        $this->names = \App\Request::select('worker')
+        $this->names = OvertimeRequest::select('worker')
             ->where('worker', '<>', '')
             ->distinct()
             ->get();
         
-        $this->types = \App\Request::select('approvaltype')
+        $this->types = OvertimeRequest::select('approvaltype')
             ->where('approvaltype', '<>', '')
             ->distinct()
             ->get();
         
-        $this->serviceLines = \App\Request::select('competency')
+        $this->serviceLines = OvertimeRequest::select('competency')
             ->where('competency', '<>', '')
             ->distinct()
             ->get();
         
-        $this->statuses = \App\Request::select('status')
+        $this->statuses = OvertimeRequest::select('status')
             ->where('status', '<>', '')
             ->distinct()
             ->get();
         
-        $this->requestors = \App\Request::select('requestor')
+        $this->requestors = OvertimeRequest::select('requestor')
             ->where('requestor', '<>', '')
             ->distinct()
             ->get();
         
-        $this->locations = \App\Request::select('location')
+        $this->locations = OvertimeRequest::select('location')
             ->where('location', '<>', '')
             ->distinct()
             ->get();
         
-        $this->weekenddates = \App\Request::select('weekenddate')
+        $this->weekenddates = OvertimeRequest::select('weekenddate')
             ->distinct()
             ->get();
         
-        $this->imports = \App\Request::select('import')
+        $this->imports = OvertimeRequest::select('import')
             ->where('import', '<>', '')
             ->distinct()
             ->get();
         
-        $this->firstApprovers = \App\Request::select('approver_first_level')
+        $this->firstApprovers = OvertimeRequest::select('approver_first_level')
             ->where('approver_first_level', '<>', '')
             ->distinct()
             ->get();
         
-        $this->secondApprovers = \App\Request::select('approver_second_level')
+        $this->secondApprovers = OvertimeRequest::select('approver_second_level')
             ->where('approver_second_level', '<>', '')
             ->distinct()
             ->get();
         
-        $this->thirdApprovers = \App\Request::select('approver_third_level')
+        $this->thirdApprovers = OvertimeRequest::select('approver_third_level')
             ->where('approver_third_level', '<>', '')
             ->distinct()
             ->get();

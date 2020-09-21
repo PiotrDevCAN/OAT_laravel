@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Delegate;
 
 class Delegates extends Controller
 {
@@ -31,7 +32,7 @@ class Delegates extends Controller
             $this->conditions[] = array('delegate_notesid', '=', $request->input('DelegateNotesId'));
         };
         
-        $records = \App\Delegate::where($this->conditions)->get();
+        $records = Delegate::where($this->conditions)->get();
         
         $data = array(
             'records' => $records

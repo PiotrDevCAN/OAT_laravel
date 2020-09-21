@@ -16,27 +16,27 @@ use Illuminate\Support\Facades\Route;
 // Home
 Route::get('/', 'Index');
 
-// Requests
+// OvertimeRequests
 Route::prefix('request')->name('request.')->group(function () {
-    Route::match(['get', 'post'], 'list', 'Requests@index')
+    Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
         ->name('list');
         
-    Route::get('approved', 'Requests@approvedList')
+    Route::get('approved', 'OvertimeRequests@approvedList')
         ->name('approved');
     
-    Route::get('create', 'Requests@create')
+    Route::get('create', 'OvertimeRequests@create')
         ->name('create');
     
-    Route::get('update/{ref}', 'Requests@update')
+    Route::get('update/{ref}', 'OvertimeRequests@update')
         ->name('update');
 
-    Route::get('delete/{ref}', 'Requests@delete')
+    Route::get('delete/{ref}', 'OvertimeRequests@delete')
         ->name('delete');
         
-    Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'Requests@approve')
+    Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')
         ->name('approve');
         
-    Route::get('reject/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'Requests@reject')
+    Route::get('reject/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@reject')
         ->name('reject');
 });
 

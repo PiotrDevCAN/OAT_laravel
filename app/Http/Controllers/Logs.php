@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Log;
 
 class Logs extends Controller
 {
@@ -20,7 +21,7 @@ class Logs extends Controller
             $this->conditions[] = array('last_updater', '=', $request->input('LastUpdater'));
         };
         
-        $records = \App\Log::where($this->conditions)->limit(100)->get();
+        $records = Log::where($this->conditions)->limit(100)->get();
         
         $data = array(
             'records' => $records

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Account;
 
 class Accounts extends Controller
 {
@@ -35,7 +36,7 @@ class Accounts extends Controller
             $this->conditions[] = array('location', '=', $request->input('Location'));
         };
         
-        $records = \App\Account::where($this->conditions)->get();
+        $records = Account::where($this->conditions)->get();
         
         $data = array(
             'records' => $records

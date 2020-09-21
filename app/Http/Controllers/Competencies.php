@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Competency;
 
 class Competencies extends Controller
 {
@@ -36,7 +37,7 @@ class Competencies extends Controller
             $this->conditions[] = array('approver', '=', $request->input('Approver'));
         };
         
-        $records = \App\Competency::where($this->conditions)->get();
+        $records = Competency::where($this->conditions)->get();
         
         $data = array(
             'records' => $records
