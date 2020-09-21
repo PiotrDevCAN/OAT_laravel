@@ -64,7 +64,7 @@
         </div>
         <div class="ibm-fluid">
         	
-        	<x-ibmv18form-input/>
+        	<x-ibmv18form-input field-name="ABC" label="Approved Requests:" />
         	
        	</div>
     </div>
