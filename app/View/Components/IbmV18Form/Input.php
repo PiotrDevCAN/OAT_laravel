@@ -6,11 +6,11 @@ use Illuminate\View\Component;
 
 class Input extends Component
 {
-    public $fieldName;
-    public $label;
-    public $selectedValue;
-    public $disabled;
-    public $placeholder;
+//     public $fieldName;
+//     public $label;
+//     public $selectedValue;
+//     public $disabled;
+//     public $placeholder;
     
     /**
      * Create a new component instance.
@@ -20,11 +20,11 @@ class Input extends Component
     
     public function __construct($fieldName = null, $label = null, $selectedValue = null, $disabled = false, $placeholder = null)
     {
-        $this->fieldName = $fieldName;
-        $this->label = $label;
-        $this->selectedValue = $selectedValue;
-        $this->disabled = $disabled;
-        $this->placeholder = $placeholder;
+//         $this->fieldName = $fieldName;
+//         $this->label = $label;
+//         $this->selectedValue = $selectedValue;
+//         $this->disabled = $disabled;
+//         $this->placeholder = $placeholder;
     }
 
     /**
