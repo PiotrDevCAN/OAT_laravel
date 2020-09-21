@@ -211,7 +211,7 @@ class OvertimeRequests extends Controller
             'allWeekends' => $allWeekends
         );
         
-        return view('components.request.record', $data);
+        return view('components.request.create', $data);
     }
     
     public function update($ref)
@@ -248,7 +248,7 @@ class OvertimeRequests extends Controller
             'allWeekends' => $allWeekends
         );
         
-        return view('components.request.record', $data);
+        return view('components.request.update', $data);
     }
     
     public function delete($ref)
