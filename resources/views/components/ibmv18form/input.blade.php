@@ -7,5 +7,3 @@
 
 
 @isset($fieldName) fieldName="{{ $fieldName }}" @endisset
-
-@isset($field-name) field-name="{{ $fieldName }}" @endisset
