@@ -4,13 +4,13 @@
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Delegates List Filters</h3>
 		<div class="ibm-fluid">
 			<div class="ibm-col-12-4">
-            	<x-ibmv18form-select name="UserIntranet" label="User Intranet:" :arrayOfSelectableValues="$userIntranets" :selectedValue="request()->input('UserIntranet')"/>
+            	<x-ibmv18form-select name="UserIntranet" label="User Intranet:" :array-of-selectable-values="$userIntranets" :selected-value="request()->input('UserIntranet')"/>
             </div>
             <div class="ibm-col-12-4">
-            	<x-ibmv18form-select name="DelegateIntranet" label="Delegate Intranet:" :arrayOfSelectableValues="$delegateIntranets" :selectedValue="request()->input('DelegateIntranet')"/>
+            	<x-ibmv18form-select name="DelegateIntranet" label="Delegate Intranet:" :array-of-selectable-values="$delegateIntranets" :selected-value="request()->input('DelegateIntranet')"/>
             </div>
             <div class="ibm-col-12-4">
-            	<x-ibmv18form-select name="DelegateNotesId" label="Delegate Notes Id:" :arrayOfSelectableValues="$delegateNotesIds" :selectedValue="request()->input('DelegateNotesId')"/>
+            	<x-ibmv18form-select name="DelegateNotesId" label="Delegate Notes Id:" :array-of-selectable-values="$delegateNotesIds" :selected-value="request()->input('DelegateNotesId')"/>
             </div>
             <div class="ibm-col-12-12">
             	<p class="ibm-button-link ibm-ind-link">

@@ -3,8 +3,6 @@
 namespace App\View\Components\IbmV18Form;
 
 use Illuminate\View\Component;
-use App\Request;
-use Illuminate\Database\Eloquent\Model;
 
 class Select extends Component
 {
@@ -14,7 +12,6 @@ class Select extends Component
     public static $selectDisplayKeyReturnKey     = 'displayKeyReturnKey';
     public $selectAcceptMultipleValues    = true;
     
-    public $model;
     public $wayToHandleArray;
     public $arrayOfSelectableValues;
     public $label;
@@ -39,9 +36,10 @@ class Select extends Component
      */
     public function __construct($wayToHandleArray = null, $arrayOfSelectableValues = array(), $label = null, $fieldName = null, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
     {
-        $allowMultipleSelections = is_array($model->$fieldName);
+        $allowMultipleSelections = false;
         $wayToHandleArray = empty($wayToHandleArray) ? self::$selectDisplayValueReturnValue : $wayToHandleArray;
-        $selectedValues = $allowMultipleSelections ? $model->$fieldName : array($model->$fieldName => $model->$fieldName);
+//         $selectedValues = $allowMultipleSelections ? $model->$fieldName : array($model->$fieldName => $model->$fieldName);
+        $selectedValues = null;
         $disabled = ($readonly) ? ' disabledSelect ' : null;
         
         $this->wayToHandleArray = $wayToHandleArray;
@@ -64,7 +62,8 @@ class Select extends Component
      */
     public function isSelected($option)
     {
-        return $option === $model->selected;
+//         return $option === $model->selected;
+        return true;
     }
     
     /**
@@ -75,7 +74,8 @@ class Select extends Component
      */
     public function isDisabled($option)
     {
-        return $option === $model->fieldName;
+//         return $option === $model->fieldName;
+        return true;
     }
     
     public function prepareOption($key, $value)

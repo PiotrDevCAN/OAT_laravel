@@ -55,15 +55,15 @@
                 	<div class="ibm-fluid">
                         <div class="ibm-fluid">
                             <div class="ibm-col-12-6">
-                            	<x-ibmv18form-select name="COMPETENCY" label="Service Line of person working overtime" :arrayOfSelectableValues="$allCompetencies"/>
-                                <x-ibmv18form-select name="ACCOUNT" label="Account" :arrayOfSelectableValues="$allAccounts"/>
-                                <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :arrayOfSelectableValues="$allLocations"/>
-                                <x-ibmv18form-select name="IMPORT" label="Is worker an Import to SO Delivery ?" :arrayOfSelectableValues="$allImports"/>
+                            	<x-ibmv18form-select name="COMPETENCY" label="Service Line of person working overtime" :array-of-selectable-values="$allCompetencies"/>
+                                <x-ibmv18form-select name="ACCOUNT" label="Account" :array-of-selectable-values="$allAccounts"/>
+                                <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :array-of-selectable-values="$allLocations"/>
+                                <x-ibmv18form-select name="IMPORT" label="Is worker an Import to SO Delivery ?" :array-of-selectable-values="$allImports"/>
                        		</div>
                             <div class="ibm-col-12-6">
-                                <x-ibmv18form-select name="RECOVERABLE" label="Recoverable" :arrayOfSelectableValues="$allRecoverable"/>
-                                <x-ibmv18form-select name="NATURE" label="Nature" :arrayOfSelectableValues="$allNatures"/>
-                                <x-ibmv18form-select name="WEEKENDDATE" label="Weekending" :arrayOfSelectableValues="$allWeekends"/>
+                                <x-ibmv18form-select name="RECOVERABLE" label="Recoverable" :array-of-selectable-values="$allRecoverable"/>
+                                <x-ibmv18form-select name="NATURE" label="Nature" :array-of-selectable-values="$allNatures"/>
+                                <x-ibmv18form-select name="WEEKENDDATE" label="Weekending" :array-of-selectable-values="$allWeekends"/>
                                 <x-ibmv18form-input name="HOURS" label="Hours required"/>
                                 <x-ibmv18form-input name="CLAIM_ACC_ID" label="Claim Code/ Account Id"/>
     	                    </div>

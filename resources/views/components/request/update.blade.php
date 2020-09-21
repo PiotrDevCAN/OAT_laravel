@@ -34,7 +34,7 @@
                                     {{ $record->status }}
                                 </span>
                             </p>
-                        	<x-ibmv18form-input :model="$record" field-name="worker" label="Name of individual working overtime"/>
+                        	<x-ibmv18form-input field-name="worker" label="Name of individual working overtime"/>
                     	    <span class="ibm-bold">If changing this entry please allow time for Bluepages Auto Completion to work, it will overwrite this text and re-populate the two fields below.</span>
                         	
                         	<p>Name <input type="hidden" size='50' field-name='workerName' id='workerName' disabled value='' ></p>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                        	<x-ibmv18form-input :model="$record" field-name="title" label="Title"/>
+                        	<x-ibmv18form-input field-name="title" label="Title"/>
                         </div>
                 	</div>
                 	<div class="ibm-fluid">
@@ -61,17 +61,17 @@
                 	<div class="ibm-fluid">
                         <div class="ibm-fluid">
                             <div class="ibm-col-12-6">
-                            	<x-ibmv18form-select :model="$record" way-to-handle-array="displayKeyReturnKey"  :array-of-selectable-values="$allCompetencies" label="Service Line of person working overtime" field-name="COMPETENCY" />
-                                <x-ibmv18form-select :model="$record" way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allAccounts" label="Account" field-name="ACCOUNT"/>
-                                <x-ibmv18form-select :model="$record" way-to-handle-array="displayValueReturnKey" :array-of-selectable-values="$allLocations" label="IBM country of employment" field-name="LOCATION"/>
-                                <x-ibmv18form-select :model="$record" way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allImports" label="Is worker an Import to SO Delivery ?" field-name="IMPORT"/>
+                            	<x-ibmv18form-select way-to-handle-array="displayKeyReturnKey"  :array-of-selectable-values="$allCompetencies" label="Service Line of person working overtime" field-name="COMPETENCY" />
+                                <x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allAccounts" label="Account" field-name="ACCOUNT"/>
+                                <x-ibmv18form-select way-to-handle-array="displayValueReturnKey" :array-of-selectable-values="$allLocations" label="IBM country of employment" field-name="LOCATION"/>
+                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allImports" label="Is worker an Import to SO Delivery ?" field-name="IMPORT"/>
                        		</div>
                             <div class="ibm-col-12-6">
-                                <x-ibmv18form-select :model="$record" way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allRecoverable" label="Recoverable" field-name="RECOVERABLE"/>
-                                <x-ibmv18form-select :model="$record" way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allNatures" label="Nature" field-name="NATURE"/>
-                                <x-ibmv18form-select :model="$record" way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allWeekends" label="Weekending" field-name="WEEKENDDATE"/>
-                                <x-ibmv18form-input :model="$record" field-name="hours" label="Hours required"/>
-                                <x-ibmv18form-input :model="$record" field-name="claim_acc_id" label="Claim Code/ Account Id"/>
+                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allRecoverable" label="Recoverable" field-name="RECOVERABLE"/>
+                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allNatures" label="Nature" field-name="NATURE"/>
+                                <x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allWeekends" label="Weekending" field-name="WEEKENDDATE"/>
+                                <x-ibmv18form-input field-name="hours" label="Hours required"/>
+                                <x-ibmv18form-input field-name="claim_acc_id" label="Claim Code/ Account Id"/>
     	                    </div>
                        </div>
                    </div>
@@ -80,9 +80,9 @@
                    
                    <div class="ibm-fluid">
                        <div class="ibm-col-12-6">
-                       		<x-ibmv18form-input :model="$record" field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                           	<x-ibmv18form-input :model="$record" field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                           	<x-ibmv18form-input :model="$record" field-name="approver_third_level" label="3rd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                       		<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                           	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                           	<x-ibmv18form-input field-name="approver_third_level" label="3rd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
                        </div>
                        <div class="ibm-col-12-6">
                        		<p>
