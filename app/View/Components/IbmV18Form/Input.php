@@ -8,6 +8,7 @@ class Input extends Component
 {
     public $fieldName;
     public $label;
+    public $selectedValue;
     public $disabled;
     public $placeholder;
     
@@ -17,16 +18,11 @@ class Input extends Component
      * @return void
      */
     
-    public function __construct($selectedValue = null, $fieldName = null, $label = null, $disabled = false, $placeholder = null)
+    public function __construct($fieldName = null, $label = null, $selectedValue = null, $disabled = false, $placeholder = null)
     {
-        
-        dump($selectedValue);
-        dump($fieldName);
-        dump($label);
-        
         $this->fieldName = $fieldName;
-        $this->selectedValue = $selectedValue;
         $this->label = $label;
+        $this->selectedValue = $selectedValue;
         $this->disabled = $disabled;
         $this->placeholder = $placeholder;
     }

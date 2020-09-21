@@ -44,7 +44,7 @@
                     </div>
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                        	<x-ibmv18form-input field-name="title" label="Title" selected-value="Test"/>
+                        	<x-ibmv18form-input field-name="title" label="Title"/>
                         </div>
                 	</div>
                 	<div class="ibm-fluid">
