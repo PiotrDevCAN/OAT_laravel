@@ -28,7 +28,7 @@
                 <form id="create" class="ibm-column-form" method="post" action="">
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                        	<x-ibmv18form-input name="WORKER" label="Name of individual working overtime"/>
+                        	<x-ibmv18form-input field-name="WORKER" label="Name of individual working overtime"/>
                     	    <span class="ibm-bold">If changing this entry please allow time for Bluepages Auto Completion to work, it will overwrite this text and re-populate the two fields below.</span>
                         
                         	<p>Name<input size='50' name='workerName' id='workerName' disabled value='' ></p>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                        	<x-ibmv18form-input name="TITLE" label="Title"/>
+                        	<x-ibmv18form-input field-name="TITLE" label="Title"/>
                         </div>
                 	</div>
                 	<div class="ibm-fluid">
@@ -55,17 +55,17 @@
                 	<div class="ibm-fluid">
                         <div class="ibm-fluid">
                             <div class="ibm-col-12-6">
-                            	<x-ibmv18form-select name="COMPETENCY" label="Service Line of person working overtime" :array-of-selectable-values="$allCompetencies"/>
-                                <x-ibmv18form-select name="ACCOUNT" label="Account" :array-of-selectable-values="$allAccounts"/>
-                                <x-ibmv18form-select name="LOCATION" label="IBM country of employment" :array-of-selectable-values="$allLocations"/>
-                                <x-ibmv18form-select name="IMPORT" label="Is worker an Import to SO Delivery ?" :array-of-selectable-values="$allImports"/>
+                            	<x-ibmv18form-select field-name="COMPETENCY" label="Service Line of person working overtime" :array-of-selectable-values="$allCompetencies"/>
+                                <x-ibmv18form-select field-name="ACCOUNT" label="Account" :array-of-selectable-values="$allAccounts"/>
+                                <x-ibmv18form-select field-name="LOCATION" label="IBM country of employment" :array-of-selectable-values="$allLocations"/>
+                                <x-ibmv18form-select field-name="IMPORT" label="Is worker an Import to SO Delivery ?" :array-of-selectable-values="$allImports"/>
                        		</div>
                             <div class="ibm-col-12-6">
-                                <x-ibmv18form-select name="RECOVERABLE" label="Recoverable" :array-of-selectable-values="$allRecoverable"/>
-                                <x-ibmv18form-select name="NATURE" label="Nature" :array-of-selectable-values="$allNatures"/>
-                                <x-ibmv18form-select name="WEEKENDDATE" label="Weekending" :array-of-selectable-values="$allWeekends"/>
-                                <x-ibmv18form-input name="HOURS" label="Hours required"/>
-                                <x-ibmv18form-input name="CLAIM_ACC_ID" label="Claim Code/ Account Id"/>
+                                <x-ibmv18form-select field-name="RECOVERABLE" label="Recoverable" :array-of-selectable-values="$allRecoverable"/>
+                                <x-ibmv18form-select field-name="NATURE" label="Nature" :array-of-selectable-values="$allNatures"/>
+                                <x-ibmv18form-select field-name="WEEKENDDATE" label="Weekending" :array-of-selectable-values="$allWeekends"/>
+                                <x-ibmv18form-input field-name="HOURS" label="Hours required"/>
+                                <x-ibmv18form-input field-name="CLAIM_ACC_ID" label="Claim Code/ Account Id"/>
     	                    </div>
                        </div>
                    </div>
@@ -74,9 +74,9 @@
                    
                    <div class="ibm-fluid">
                        <div class="ibm-col-12-6">
-                       		<x-ibmv18form-input name="APPROVER_FIRST_LEVEL" label="1st Level Approver"/>
-                           	<x-ibmv18form-input name="APPROVER_SECOND_LEVEL" label="2nd Level Approver"/>
-                           	<x-ibmv18form-input name="APPROVER_THIRD_LEVEL" label="3rd Level Approver"/>
+                       		<x-ibmv18form-input field-name="APPROVER_FIRST_LEVEL" label="1st Level Approver"/>
+                           	<x-ibmv18form-input field-name="APPROVER_SECOND_LEVEL" label="2nd Level Approver"/>
+                           	<x-ibmv18form-input field-name="APPROVER_THIRD_LEVEL" label="3rd Level Approver"/>
                        </div>
                        <div class="ibm-col-12-6">
                        		<p>
