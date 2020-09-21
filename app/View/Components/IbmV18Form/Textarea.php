@@ -3,7 +3,6 @@
 namespace App\View\Components\IbmV18Form;
 
 use Illuminate\View\Component;
-use App\Request;
 
 class Textarea extends Component
 {
