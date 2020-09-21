@@ -37,7 +37,7 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct(Model $model = null, $wayToHandleArray = null, $arrayOfSelectableValues, $label, $fieldName, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
+    public function __construct(Model $model = null, $wayToHandleArray = null, $arrayOfSelectableValues = array(), $label = null, $fieldName = null, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
     {
         $allowMultipleSelections = is_array($model->$fieldName);
         $wayToHandleArray = empty($wayToHandleArray) ? self::$selectDisplayValueReturnValue : $wayToHandleArray;
@@ -65,7 +65,7 @@ class Select extends Component
      */
     public function isSelected($option)
     {
-        return $option === $this->selected;
+        return $option === $model->selected;
     }
     
     /**
@@ -76,7 +76,7 @@ class Select extends Component
      */
     public function isDisabled($option)
     {
-        return $option === $this->disabled;
+        return $option === $model->fieldName;
     }
     
     public function prepareOption($key, $value)
