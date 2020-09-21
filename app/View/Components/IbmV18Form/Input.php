@@ -6,11 +6,11 @@ use Illuminate\View\Component;
 
 class Input extends Component
 {
-    public $fieldName;
-    public $label;
-    public $selectedValue;
-    public $disabled;
-    public $placeholder;
+//     public $fieldName;
+//     public $label;
+//     public $selectedValue;
+//     public $disabled;
+//     public $placeholder;
     
     /**
      * Create a new component instance.
