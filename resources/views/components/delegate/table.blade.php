@@ -14,11 +14,11 @@
             <tbody>
                 @foreach ($records as $record)
                 <tr>
-                	<td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-edit-link" href="{{ route('admin.delegate.edit', ['ref' => '1']) }}"></a></p></td>
+                	<td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-edit-link" href="{{ route('admin.delegate.edit', ['user_intranet' => Str::of($record->user_intranet)->trim(), 'delegate_intranet' => Str::of($record->delegate_intranet)->trim()]) }}"></a></p></td>
                     <td>{{ $record->user_intranet }}</td>
                     <td>{{ $record->delegate_intranet }}</td>
                     <td>{{ $record->delegate_notesid }}</td>
-                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-close-link" href="{{ route('admin.delegate.delete', ['ref' => '1']) }}"></a></p></td>
+                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-close-link" href="{{-- route('admin.delegate.delete', ['ref' => '1']) --}}"></a></p></td>
                 </tr>
                 @endforeach
             </tbody>

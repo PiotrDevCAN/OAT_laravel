@@ -59,11 +59,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Show the form for creating a new resource.
         Route::get('create', 'Delegates@create')
             ->name('create');
-            
+        
         // Show the form for editing the specified resource.
-        Route::get('edit/{ref}', 'Delegates@edit')
+        Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
             ->name('edit');
-            
+        
         Route::get('my', 'Delegates@my')
             ->name('my');
     });
@@ -76,9 +76,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Show the form for creating a new resource.
         Route::get('create', 'Competencies@create')
             ->name('create');
-            
+        
         // Show the form for editing the specified resource.
-        Route::get('edit/{ref}', 'Competencies@edit')
+        Route::get('edit/{competency}/{approver}', 'Competencies@edit')
             ->name('edit');
         
     });
