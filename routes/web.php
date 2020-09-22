@@ -32,19 +32,6 @@ Route::prefix('request')->name('request.')->group(function () {
     // Show the form for editing the specified resource.
     Route::get('edit/{ref}', 'OvertimeRequests@edit')
         ->name('edit');
-    
-    // type of parameter constrained in RouteServiceProvider
-//     Route::get('edit/{ref}', function ($ref) {
-//         return (new OvertimeRequests)->edit($ref);
-//     })
-//         ->where('ref', '[0-9]+')
-//         ->name('edit');
-    
-//     Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')
-//         ->name('approve');
-        
-//     Route::get('reject/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@reject')
-//         ->name('reject');
 });
 
 // Accounts
@@ -55,14 +42,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Accounts@index')
             ->name('list');
         
-        Route::get('show', 'Accounts@show')
-            ->name('show');
+        // Show the form for creating a new resource.
+        Route::get('create', 'Accounts@create')
+        ->name('create');
         
-//         Route::get('update/{ref}', 'Accounts@update')
-//             ->name('update');
-        
-//         Route::get('delete/{ref}', 'Accounts@delete')
-//             ->name('delete');
+        // Show the form for editing the specified resource.
+        Route::get('edit/{ref}', 'Accounts@edit')
+        ->name('edit');        
     });
     
     // Delegates
@@ -70,17 +56,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Delegates@index')
             ->name('list');
         
-        Route::get('show', 'Delegates@show')
-            ->name('show');
+        // Show the form for creating a new resource.
+        Route::get('create', 'Delegates@create')
+            ->name('create');
+            
+        // Show the form for editing the specified resource.
+        Route::get('edit/{ref}', 'Delegates@edit')
+            ->name('edit');
             
         Route::get('my', 'Delegates@my')
             ->name('my');
-            
-//         Route::get('update/{ref}', 'Delegates@update')
-//             ->name('update');
-            
-//         Route::get('delete/{ref}', 'Delegates@delete')
-//             ->name('delete');
     });
     
     // Competencies
@@ -88,14 +73,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Competencies@index')
             ->name('list');
         
-        Route::get('show', 'Competencies@show')
-            ->name('show');
-        
-//         Route::get('update/{ref}', 'Competencies@update')
-//             ->name('update');
+        // Show the form for creating a new resource.
+        Route::get('create', 'Competencies@create')
+            ->name('create');
             
-//         Route::get('delete/{ref}', 'Competencies@delete')
-//             ->name('delete');
+        // Show the form for editing the specified resource.
+        Route::get('edit/{ref}', 'Competencies@edit')
+            ->name('edit');
+        
     });
     
     // Logs
