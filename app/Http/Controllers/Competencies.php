@@ -57,15 +57,18 @@ class Competencies extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  string  $user_intranet
-     * @param  string  $delegate_intranet
+     * @param  string  $competency
+     * @param  string  $approver
      * @return \Illuminate\Http\Response
      */
-    public function edit($user_intranet, $delegate_intranet)
+    public function edit($competency, $approver)
     {
-        $model = Competency::findOrFail($ref);
+        $model = Competency::where('competency', $competency)
+            ->where('approver', $approver);
         
-        $data = array();
+        $data = array(
+            'record' => $model
+        );
         
         return view('components.competency.edit', $data);
     }

@@ -73,7 +73,9 @@ class Accounts extends Controller
         $model = Account::where('account', $account)
             ->where('location', $location);
         
-        $data = array();
+        $data = array(
+            'record' => $model
+        );
         
         return view('components.account.edit', $data);
     }
