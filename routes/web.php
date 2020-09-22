@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 // Home
 Route::get('/', 'Index');
 
-// OvertimeRequests
+// Overtime Requests
 Route::prefix('request')->name('request.')->group(function () {
     Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
         ->name('list');
@@ -24,20 +24,20 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::get('approved', 'OvertimeRequests@approvedList')
         ->name('approved');
     
-    Route::get('create', 'OvertimeRequests@create')
-        ->name('create');
+//     Route::get('create', 'OvertimeRequests@create')
+//         ->name('create');
     
-    Route::get('update/{ref}', 'OvertimeRequests@update')
-        ->name('update');
+//     Route::get('update/{ref}', 'OvertimeRequests@update')
+//         ->name('update');
 
-    Route::get('delete/{ref}', 'OvertimeRequests@delete')
-        ->name('delete');
+//     Route::get('delete/{ref}', 'OvertimeRequests@delete')
+//         ->name('delete');
         
-    Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')
-        ->name('approve');
+//     Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')
+//         ->name('approve');
         
-    Route::get('reject/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@reject')
-        ->name('reject');
+//     Route::get('reject/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@reject')
+//         ->name('reject');
 });
 
 // Accounts
@@ -48,32 +48,32 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Accounts@index')
             ->name('list');
         
-        Route::get('create', 'Accounts@create')
-            ->name('create');
+//         Route::get('create', 'Accounts@create')
+//             ->name('create');
         
-        Route::get('update/{ref}', 'Accounts@update')
-            ->name('update');
+//         Route::get('update/{ref}', 'Accounts@update')
+//             ->name('update');
         
-        Route::get('delete/{ref}', 'Accounts@delete')
-            ->name('delete');
+//         Route::get('delete/{ref}', 'Accounts@delete')
+//             ->name('delete');
     });
     
     // Delegates
     Route::prefix('delegate')->name('delegate.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Delegates@index')
             ->name('list');
-        
-        Route::get('create', 'Delegates@create')
-            ->name('create');
             
-        Route::get('update/{ref}', 'Delegates@update')
-            ->name('update');
-            
-        Route::get('delete/{ref}', 'Delegates@delete')
-            ->name('delete');
-        
         Route::get('my', 'Delegates@my')
             ->name('my');
+            
+//         Route::get('create', 'Delegates@create')
+//             ->name('create');
+            
+//         Route::get('update/{ref}', 'Delegates@update')
+//             ->name('update');
+            
+//         Route::get('delete/{ref}', 'Delegates@delete')
+//             ->name('delete');
     });
     
     // Competencies
@@ -81,14 +81,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Competencies@index')
             ->name('list');
         
-        Route::get('create', 'Competencies@create')
-            ->name('create');
+//         Route::get('create', 'Competencies@create')
+//             ->name('create');
         
-        Route::get('update/{ref}', 'Competencies@update')
-            ->name('update');
+//         Route::get('update/{ref}', 'Competencies@update')
+//             ->name('update');
             
-        Route::get('delete/{ref}', 'Competencies@delete')
-            ->name('delete');
+//         Route::get('delete/{ref}', 'Competencies@delete')
+//             ->name('delete');
     });
     
     // Logs
