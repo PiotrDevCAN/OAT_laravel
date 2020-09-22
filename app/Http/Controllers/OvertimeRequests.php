@@ -113,7 +113,7 @@ class OvertimeRequests extends Controller
      */
     public function create()
     {
-        $record = new OvertimeRequest;
+        $model = new OvertimeRequest;
 
         $allAccounts = Account::accounts();
         $allVerified = Account::verified();
@@ -127,7 +127,7 @@ class OvertimeRequests extends Controller
         );
 
         $data = array(
-            'record' => $record,
+            'record' => $model,
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,
@@ -149,7 +149,7 @@ class OvertimeRequests extends Controller
      */
     public function edit($id)
     {
-        $record = new OvertimeRequest;
+        $model = new OvertimeRequest::findOrFail($id);
         
         $allAccounts = Account::accounts();
         $allVerified = Account::verified();
@@ -163,7 +163,7 @@ class OvertimeRequests extends Controller
         );
         
         $data = array(
-            'record' => $record,
+            'record' => $model,
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,
