@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\OvertimeRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,13 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('create');
     
     // Show the form for editing the specified resource.
-    Route::get('edit/{ref}', 'OvertimeRequests@edit')
+//     Route::get('edit/{ref}', 'OvertimeRequests@edit')
+//         ->name('edit');
+    
+    Route::get('edit/{ref}', function ($ref) {
+        return (new OvertimeRequest)->edit($ref);
+    })
+        ->where('ref', '[0-9]+')
         ->name('edit');
     
 //     Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')

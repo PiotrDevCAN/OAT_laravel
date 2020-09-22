@@ -15,6 +15,19 @@ class OvertimeRequest extends Controller
      */
     public function store(Request $request)
     {
+        
+        // single update
+//         $flight = App\Flight::find(1);
+        
+//         $flight->name = 'New Flight Name';
+        
+//         $flight->save();
+        
+        // mass update
+//         App\Flight::where('active', 1)
+//             ->where('destination', 'San Diego')
+//             ->update(['delayed' => 1]);
+        
         return view('components.request.store');
     }
     
@@ -26,6 +39,10 @@ class OvertimeRequest extends Controller
      */
     public function show($id)
     {
+        
+        // Retrieve a model by its primary key...
+//         $flight = App\Flight::find(1);
+        
         $record = new OvertimeRequest;
         
         $allAccounts = Account::accounts();
@@ -74,6 +91,10 @@ class OvertimeRequest extends Controller
      */
     public function destroy($id)
     {
+        
+        // destroy action
+//         App\Flight::destroy(1);
+        
         return view('components.request.destroy');
     }
     
