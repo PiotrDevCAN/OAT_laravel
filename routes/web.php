@@ -47,7 +47,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->name('create');
         
         // Show the form for editing the specified resource.
-        Route::get('edit/{ref}', 'Accounts@edit')
+        Route::get('edit/{account}/{location}', 'Accounts@edit')
         ->name('edit');        
     });
     

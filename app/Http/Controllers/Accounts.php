@@ -64,12 +64,14 @@ class Accounts extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $ref
+     * @param  string  $account
+     * @param  string  $location
      * @return \Illuminate\Http\Response
      */
-    public function edit($ref)
+    public function edit($account, $location)
     {
-        $model = Account::findOrFail($ref);
+        $model = Account::where('account', $account)
+            ->where('location', $location);
         
         $data = array();
         

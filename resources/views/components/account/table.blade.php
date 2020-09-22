@@ -15,7 +15,7 @@
             <tbody>
                 @foreach ($records as $record)
                 <tr>
-                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-edit-link" href="{{ route('admin.account.edit', ['ref' => $]) }}"></a></p></td>
+                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-edit-link" href="{{ route('admin.account.edit', ['account' => $record->account, 'location' => $record->location]) }}"></a></p></td>
                     <td>{{ $record->account }}</td>
                     <td>{{ $record->approver }}</td>
                     <td>{{ $record->verified }}</td>
