@@ -30,14 +30,15 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('create');
     
     // Show the form for editing the specified resource.
-//     Route::get('edit/{ref}', 'OvertimeRequests@edit')
-//         ->name('edit');
-    
-    Route::get('edit/{ref}', function ($ref) {
-        return (new OvertimeRequests)->edit($ref);
-    })
-        ->where('ref', '[0-9]+')
+    Route::get('edit/{ref}', 'OvertimeRequests@edit')
         ->name('edit');
+    
+    // type of parameter constrained in RouteServiceProvider
+//     Route::get('edit/{ref}', function ($ref) {
+//         return (new OvertimeRequests)->edit($ref);
+//     })
+//         ->where('ref', '[0-9]+')
+//         ->name('edit');
     
 //     Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')
 //         ->name('approve');
