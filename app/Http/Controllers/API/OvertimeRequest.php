@@ -25,40 +25,7 @@ class OvertimeRequest extends Controller
      */
     public function store(Request $request)
     {
-
-//         $record = new OvertimeRequest;
-
-//         $allAccounts = Account::accounts();
-
-//         $allVerified = Account::verified();
-
-//         $allLocations = Account::locations();
-
-//         $allCompetencies = Competency::competencies();
-
-//         $allImports = OvertimeRequest::imports();
-
-//         $allRecoverable = OvertimeRequest::recoverables();
-
-//         $allNatures = OvertimeRequest::natures();
-
-//         $allWeekends = array(
-//             //
-//         );
-
-//         $data = array(
-//             'record' => $record,
-//             'allAccounts' => $allAccounts,
-//             'allVerified' => $allVerified,
-//             'allCompetencies' => $allCompetencies,
-//             'allLocations' => $allLocations,
-//             'allImports' => $allImports,
-//             'allRecoverable' => $allRecoverable,
-//             'allNatures' => $allNatures,
-//             'allWeekends' => $allWeekends
-//         );
-
-//         return view('components.request.create', $data);
+        //
     }
 
     /**

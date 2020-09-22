@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\OvertimeRequest;
 use Illuminate\Http\Request;
+use App\Account;
+use App\Competency;
 
 class OvertimeRequests extends Controller
 {
@@ -111,7 +113,32 @@ class OvertimeRequests extends Controller
      */
     public function create()
     {
-        return view('components.request.create');
+        $record = new OvertimeRequest;
+
+        $allAccounts = Account::accounts();
+        $allVerified = Account::verified();
+        $allLocations = Account::locations();
+        $allCompetencies = Competency::competencies();
+        $allImports = OvertimeRequest::imports();
+        $allRecoverable = OvertimeRequest::recoverables();
+        $allNatures = OvertimeRequest::natures();
+        $allWeekends = array(
+            //
+        );
+
+        $data = array(
+            'record' => $record,
+            'allAccounts' => $allAccounts,
+            'allVerified' => $allVerified,
+            'allCompetencies' => $allCompetencies,
+            'allLocations' => $allLocations,
+            'allImports' => $allImports,
+            'allRecoverable' => $allRecoverable,
+            'allNatures' => $allNatures,
+            'allWeekends' => $allWeekends
+        );
+
+        return view('components.request.create', $data);
     }
 
     /**
