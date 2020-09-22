@@ -12,8 +12,7 @@
                 
                 <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Request for Overtime to be worked</h3>
                 
-                user_intranet
-                delegate_intranet
+                {{ dump($record) }}
                 
                 {{ Form::open(['route' => [Route::currentRouteName(), $record->user_intranet, $record->delegate_intranet], 'id' => 'record', 'class'  => 'ibm-column-form' ]) }}
                     <div class="ibm-fluid">
