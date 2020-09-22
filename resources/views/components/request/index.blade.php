@@ -4,7 +4,7 @@
 
 <x-request.filters/>
 
-<x-request.summary :awaiting="$awaiting" :awaiting-hours="$awaitingHours" :approved="$approved" :approved-hours="$approvedHours" :other="$other" :other-hours="$otherHours" basic-attribute="test_1"  basic-attribute-2="test_2"/>
+<x-request.summary :awaiting="{{ $awaiting or "default" }}" :awaiting-hours="$awaitingHours" :approved="{{ $approved or "default" }}" :approved-hours="$approvedHours" :other="{{ $other or "default" }}" :other-hours="$otherHours"/>
 
 @endsection
 
