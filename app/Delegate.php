@@ -25,7 +25,7 @@ class Delegate extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['user_intranet', 'delegate_intranet', 'delegate_notesid'];
     
     /**
      * The model's default values for attributes.
@@ -33,6 +33,6 @@ class Delegate extends Model
      * @var array
      */
     protected $attributes = [
-    //         'delayed' => false,
+//         'delayed' => false,
     ];
 }
