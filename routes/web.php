@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\OvertimeRequest;
+use App\Http\Controllers\OvertimeRequests;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ Route::prefix('request')->name('request.')->group(function () {
 //         ->name('edit');
     
     Route::get('edit/{ref}', function ($ref) {
-        return (new OvertimeRequest)->edit($ref);
+        return (new OvertimeRequests)->edit($ref);
     })
         ->where('ref', '[0-9]+')
         ->name('edit');
