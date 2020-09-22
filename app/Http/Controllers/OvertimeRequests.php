@@ -160,6 +160,31 @@ class OvertimeRequests extends Controller
      */
     public function show($id)
     {
+        $record = new OvertimeRequest;
+        
+        $allAccounts = Account::accounts();
+        $allVerified = Account::verified();
+        $allLocations = Account::locations();
+        $allCompetencies = Competency::competencies();
+        $allImports = OvertimeRequest::imports();
+        $allRecoverable = OvertimeRequest::recoverables();
+        $allNatures = OvertimeRequest::natures();
+        $allWeekends = array(
+            //
+        );
+        
+        $data = array(
+            'record' => $record,
+            'allAccounts' => $allAccounts,
+            'allVerified' => $allVerified,
+            'allCompetencies' => $allCompetencies,
+            'allLocations' => $allLocations,
+            'allImports' => $allImports,
+            'allRecoverable' => $allRecoverable,
+            'allNatures' => $allNatures,
+            'allWeekends' => $allWeekends
+        );
+        
         return view('components.request.show', $data);
     }
 
@@ -171,7 +196,32 @@ class OvertimeRequests extends Controller
      */
     public function edit($id)
     {
-        return view('components.request.edit');
+        $record = new OvertimeRequest;
+        
+        $allAccounts = Account::accounts();
+        $allVerified = Account::verified();
+        $allLocations = Account::locations();
+        $allCompetencies = Competency::competencies();
+        $allImports = OvertimeRequest::imports();
+        $allRecoverable = OvertimeRequest::recoverables();
+        $allNatures = OvertimeRequest::natures();
+        $allWeekends = array(
+            //
+        );
+        
+        $data = array(
+            'record' => $record,
+            'allAccounts' => $allAccounts,
+            'allVerified' => $allVerified,
+            'allCompetencies' => $allCompetencies,
+            'allLocations' => $allLocations,
+            'allImports' => $allImports,
+            'allRecoverable' => $allRecoverable,
+            'allNatures' => $allNatures,
+            'allWeekends' => $allWeekends
+        );
+        
+        return view('components.request.edit', $data);
     }
 
     /**
