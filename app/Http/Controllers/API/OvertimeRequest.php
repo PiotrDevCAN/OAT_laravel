@@ -8,16 +8,6 @@ use Illuminate\Http\Request;
 class OvertimeRequest extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -25,9 +15,9 @@ class OvertimeRequest extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('components.request.store');
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -36,9 +26,34 @@ class OvertimeRequest extends Controller
      */
     public function show($id)
     {
-        //
+        $record = new OvertimeRequest;
+        
+        $allAccounts = Account::accounts();
+        $allVerified = Account::verified();
+        $allLocations = Account::locations();
+        $allCompetencies = Competency::competencies();
+        $allImports = OvertimeRequest::imports();
+        $allRecoverable = OvertimeRequest::recoverables();
+        $allNatures = OvertimeRequest::natures();
+        $allWeekends = array(
+            //
+        );
+        
+        $data = array(
+            'record' => $record,
+            'allAccounts' => $allAccounts,
+            'allVerified' => $allVerified,
+            'allCompetencies' => $allCompetencies,
+            'allLocations' => $allLocations,
+            'allImports' => $allImports,
+            'allRecoverable' => $allRecoverable,
+            'allNatures' => $allNatures,
+            'allWeekends' => $allWeekends
+        );
+        
+        return view('components.request.show', $data);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -47,44 +62,10 @@ class OvertimeRequest extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {        
-
-//         $record = OvertimeRequest::findOrFail($ref);
-
-//         $allAccounts = Account::accounts();
-
-//         $allVerified = Account::verified();
-
-//         $allLocations = Account::locations();
-
-//         $allCompetencies = Competency::competencies();
-
-//         $allImports = OvertimeRequest::imports();
-
-//         $allRecoverable = OvertimeRequest::recoverables();
-
-//         $allNatures = OvertimeRequest::natures();
-
-//         $allWeekends = array(
-//             //
-//         );
-
-//         $data = array(
-//             'record' => $record,
-//             'allAccounts' => $allAccounts,
-//             'allVerified' => $allVerified,
-//             'allCompetencies' => $allCompetencies,
-//             'allLocations' => $allLocations,
-//             'allImports' => $allImports,
-//             'allRecoverable' => $allRecoverable,
-//             'allNatures' => $allNatures,
-//             'allWeekends' => $allWeekends
-//         );
-
-//         return view('components.request.update', $data);
-        
+    {
+        return view('components.request.update');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -93,9 +74,9 @@ class OvertimeRequest extends Controller
      */
     public function destroy($id)
     {
-        //
+        return view('components.request.destroy');
     }
-
+    
 //     public function approve(Request $request, $ref, $lvl, $status, $via)
 //     {
 

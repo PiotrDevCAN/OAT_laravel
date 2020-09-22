@@ -32,10 +32,6 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::get('store', 'OvertimeRequests@store')
         ->name('store');
     
-    // Display the specified resource.
-    Route::get('show/{ref}', 'OvertimeRequests@show')
-        ->name('show');
-    
     // Show the form for editing the specified resource.
     Route::get('edit/{ref}', 'OvertimeRequests@edit')
         ->name('edit');
