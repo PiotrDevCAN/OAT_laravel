@@ -149,7 +149,7 @@ class OvertimeRequests extends Controller
      */
     public function edit($id)
     {
-        $model = new OvertimeRequest::findOrFail($id);
+        $model = OvertimeRequest::findOrFail($id);
         
         $allAccounts = Account::accounts();
         $allVerified = Account::verified();
