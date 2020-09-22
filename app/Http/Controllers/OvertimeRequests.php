@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\OvertimeRequest;
 use Illuminate\Http\Request;
+use App\OvertimeRequest;
 use App\Account;
 use App\Competency;
 
@@ -155,21 +155,21 @@ class OvertimeRequests extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\OvertimeRequest  $overtimeRequest
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(OvertimeRequest $overtimeRequest)
+    public function show($id)
     {
-        return view('components.request.show');
+        return view('components.request.show', $data);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\OvertimeRequest  $overtimeRequest
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(OvertimeRequest $overtimeRequest)
+    public function edit($id)
     {
         return view('components.request.edit');
     }
@@ -178,10 +178,10 @@ class OvertimeRequests extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\OvertimeRequest  $overtimeRequest
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OvertimeRequest $overtimeRequest)
+    public function update(Request $request, $id)
     {
         return view('components.request.update');
     }
@@ -189,10 +189,10 @@ class OvertimeRequests extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\OvertimeRequest  $overtimeRequest
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OvertimeRequest $overtimeRequest)
+    public function destroy($id)
     {
         return view('components.request.destroy');
     }

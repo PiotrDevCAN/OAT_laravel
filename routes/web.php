@@ -33,11 +33,11 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('store');
     
     // Display the specified resource.
-    Route::get('show', 'OvertimeRequests@show')
+    Route::get('show/{ref}', 'OvertimeRequests@show')
         ->name('show');
     
     // Show the form for editing the specified resource.
-    Route::get('edit', 'OvertimeRequests@edit')
+    Route::get('edit/{ref}', 'OvertimeRequests@edit')
         ->name('edit');
     
     // Update the specified resource in storage.
