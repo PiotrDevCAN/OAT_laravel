@@ -11,7 +11,11 @@
                 <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 
                 <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Request for Overtime to be worked</h3>
-                {{ Form::open(['route' => Route::currentRouteName(), 'id' => 'record', 'class'  => 'ibm-column-form' ]) }}
+                
+                user_intranet
+                delegate_intranet
+                
+                {{ Form::open(['route' => [Route::currentRouteName(), $record->user_intranet, $record->delegate_intranet], 'id' => 'record', 'class'  => 'ibm-column-form' ]) }}
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
                             <x-ibmv18form-input field-name="delegate" label="Delegate"/>
