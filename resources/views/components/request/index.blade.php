@@ -1,4 +1,4 @@
-@extends('list')
+@extends('components.request.list')
 
 @section('summary')
 
