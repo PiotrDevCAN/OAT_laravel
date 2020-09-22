@@ -31,9 +31,6 @@
                             <p>
                                 <label class="ibm-column-field-label ibm-bold" for="STATUS">Status</label>
                                 <span id="STATUS">
-                                	@isset($record)
-                                		{{ $record->status }}
-                                    @endisset
                                 </span>
                             </p>
                         	<x-ibmv18form-input field-name="worker" label="Name of individual working overtime"/>
@@ -55,9 +52,6 @@
                                 <label class="ibm-column-field-label ibm-bold" for="DETAILS">Details of overtime activity <span class="ibm-required"></span></label>
                                 <span>
                                     <textarea type="text" rows="10" cols="100" id="DETAILS" name="details">
-                                    @isset($record)
-                                		{{ $record->details }}
-                                    @endisset
                                     </textarea>
                                 </span>
                             </p>
