@@ -7,21 +7,30 @@ use App\Log;
 
 class Logs extends Controller
 {
-    public $conditions = array();
+    private function preparePredicates($request)
+    {
+        $predicates = array();
+        
+        if ($request->filled('LogEntry')) {
+            $predicates[] = array('log_entry', '=', $request->input('LogEntry'));
+        };
+        if ($request->filled('LastUpdated')) {
+            $predicates[] = array('last_updated', '=', $request->input('LastUpdated'));
+        };
+        if ($request->filled('LastUpdater')) {
+            $predicates[] = array('last_updater', '=', $request->input('LastUpdater'));
+        };
+        
+        return $predicates;
+    }
     
     public function index(Request $request)
     {
-        if ($request->filled('LogEntry')) {
-            $this->conditions[] = array('log_entry', '=', $request->input('LogEntry'));
-        };
-        if ($request->filled('LastUpdated')) {
-            $this->conditions[] = array('last_updated', '=', $request->input('LastUpdated'));
-        };
-        if ($request->filled('LastUpdater')) {
-            $this->conditions[] = array('last_updater', '=', $request->input('LastUpdater'));
-        };
+        $predicates = $this->preparePredicates($request);
         
-        $records = Log::where($this->conditions)->limit(100)->get();
+        $records = Log::where($predicates)
+            ->limit(100)
+            ->get();
         
         $data = array(
             'records' => $records

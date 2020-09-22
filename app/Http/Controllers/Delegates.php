@@ -7,38 +7,69 @@ use App\Delegate;
 
 class Delegates extends Controller
 {
-    public $conditions = array();
-    
-//     save
-    
-//     if(isset($_REQUEST['mode']) and isset($_REQUEST['DELEGATE_INTRANET'])){
-//         if($_REQUEST['mode']=='delete'){
-//             DelegateTable::deleteDelegate($_REQUEST['DELEGATE_INTRANET'],false);
-//         }
-//     }elseif(isset($_REQUEST['DELEGATE_INTRANET'])){
-//         DelegateTable::insertDelegate($_REQUEST['DELEGATE_INTRANET'],$_REQUEST['DELEGATE_NOTESID']);
-//     }
-    
-    
-    public function index(Request $request)
+    private function preparePredicates($request)
     {
+        $predicates = array();
+        
         if ($request->filled('UserIntranet')) {
-            $this->conditions[] = array('user_intranet', '=', $request->input('UserIntranet'));
+            $predicates[] = array('user_intranet', '=', $request->input('UserIntranet'));
         };
         if ($request->filled('DelegateIntranet')) {
-            $this->conditions[] = array('delegate_intranet', '=', $request->input('DelegateIntranet'));
+            $predicates[] = array('delegate_intranet', '=', $request->input('DelegateIntranet'));
         };
         if ($request->filled('DelegateNotesId')) {
-            $this->conditions[] = array('delegate_notesid', '=', $request->input('DelegateNotesId'));
+            $predicates[] = array('delegate_notesid', '=', $request->input('DelegateNotesId'));
         };
         
-        $records = Delegate::where($this->conditions)->get();
+        return $predicates;
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $predicates = $this->preparePredicates($request);
+        
+        $records = Delegate::where($predicates)
+            ->get();
         
         $data = array(
             'records' => $records
         );
         
         return view('components.delegate.index', $data);
+    }
+    
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $model = new Delegate();
+        
+        $data = array();
+        
+        return view('components.delegates.create', $data);
+    }
+    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $ref
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($ref)
+    {
+        $model = Delegate::findOrFail($ref);
+        
+        $data = array();
+        
+        return view('components.delegates.edit', $data);
     }
     
     public function my()
@@ -48,15 +79,5 @@ class Delegates extends Controller
         );
         
         return view('myDelegates', $data);
-    }
-    
-    public function update($ref)
-    {
-        //
-    }
-    
-    public function delete($ref)
-    {
-        //
     }
 }

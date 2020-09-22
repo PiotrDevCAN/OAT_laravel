@@ -8,35 +8,37 @@ use App\Account;
 
 class Accounts extends Controller
 {
-    public $conditions = array();
-    
-//     switch ($_REQUEST['function']) {
-//         case 'edit':
-//             $account->setFromArray(array('ACCOUNT'=>$_REQUEST['ACCOUNT'],'LOCATION'=>$_REQUEST['LOCATION']));
-//             break;
-//         case 'delete':
-//             $accountApproTable->deleteData("ACCOUNT='" . trim($_REQUEST['ACCOUNT']) . "' AND LOCATION='" . trim($_REQUEST['LOCATION']) . "' ");
-//             break;
-//         default:
-//             echo "Function " . $_REQUEST['function'] . " not recognised";
-//             break;
-    
-    public function index(Request $request)
+    private function preparePredicates($request)
     {
+        $predicates = array();
+        
         if ($request->filled('Account')) {
-            $this->conditions[] = array('account', '=', $request->input('Account'));
+            $predicates[] = array('account', '=', $request->input('Account'));
         };
         if ($request->filled('Approver')) {
-            $this->conditions[] = array('approver', '=', $request->input('Approver'));
+            $predicates[] = array('approver', '=', $request->input('Approver'));
         };
         if ($request->filled('Verified')) {
-            $this->conditions[] = array('verified', '=', $request->input('Verified'));
+            $predicates[] = array('verified', '=', $request->input('Verified'));
         };
         if ($request->filled('Location')) {
-            $this->conditions[] = array('location', '=', $request->input('Location'));
+            $predicates[] = array('location', '=', $request->input('Location'));
         };
         
-        $records = Account::where($this->conditions)->get();
+        return $predicates;
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $predicates = $this->preparePredicates($request);
+        
+        $records = Account::where($predicates)
+            ->get();
         
         $data = array(
             'records' => $records
@@ -45,13 +47,32 @@ class Accounts extends Controller
         return view('components.account.index', $data);
     }
     
-    public function update($ref)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        //
+        $model = new Account();
+        
+        $data = array();
+        
+        return view('components.account.create', $data);
     }
     
-    public function delete($ref)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $ref
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($ref)
     {
-        //
+        $model = Account::findOrFail($ref);
+        
+        $data = array();
+        
+        return view('components.account.edit', $data);
     }
 }
