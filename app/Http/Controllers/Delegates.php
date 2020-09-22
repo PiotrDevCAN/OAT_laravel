@@ -60,10 +60,11 @@ class Delegates extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $ref
+     * @param  string  $user_intranet
+     * @param  string  $delegate_intranet
      * @return \Illuminate\Http\Response
      */
-    public function edit($ref)
+    public function edit($user_intranet, $delegate_intranet)
     {
         $model = Delegate::findOrFail($ref);
         

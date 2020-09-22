@@ -7,42 +7,66 @@ use App\Competency;
 
 class Competencies extends Controller
 {
-    public $conditions = array();
     
-//     if(isset($_REQUEST['function'])){
-//         switch($_REQUEST['function']){
-//             case "delete":
-//                 if(isset($_REQUEST['COMPETENCY']))	{ Competency::deleteFromDb($_REQUEST['COMPETENCY']);} else {echo "<BR> No competency specified";}
-//                 break;
-//             case "add":
-//                 if(isset($_REQUEST['COMPETENCY']) && isset($_REQUEST['APPROVER']))	{ Competency::insertToDb($_REQUEST['COMPETENCY'],$_REQUEST['APPROVER']);} else {echo "<BR> No competency/approver specified";}
-//                 break;
-//             case "save":
-//                 if(isset($_REQUEST['COMPETENCY']) && isset($_REQUEST['APPROVER']))	{ Competency::deleteFromDb($_REQUEST['COMPETENCY']);} else {echo "<BR> Please specifiy competency and approver.";}
-//                 if(isset($_REQUEST['COMPETENCY']) && isset($_REQUEST['APPROVER']))	{ Competency::insertToDb($_REQUEST['COMPETENCY'],$_REQUEST['APPROVER']);} else {echo "<BR> No competency/approver specified";}
-//                 break;
-//             case "edit";
-//             break;
-//             default :
-//                 echo "Unknown function requested : " .  $_REQUEST['function'];
-//         }
-//     }
-    
-    public function index(Request $request)
+    private function preparePredicates($request)
     {
+        $predicates = array();
+        
         if ($request->filled('ServiceLine')) {
-            $this->conditions[] = array('competency', '=', $request->input('ServiceLine'));
+            $predicates[] = array('competency', '=', $request->input('ServiceLine'));
         };
         if ($request->filled('Approver')) {
-            $this->conditions[] = array('approver', '=', $request->input('Approver'));
+            $predicates[] = array('approver', '=', $request->input('Approver'));
         };
         
-        $records = Competency::where($this->conditions)->get();
+        return $predicates;
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $predicates = $this->preparePredicates($request);
+        
+        $records = Competency::where($predicates)->get();
         
         $data = array(
             'records' => $records
         );
         
         return view('components.competency.index', $data);
+    }
+    
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $model = new Competency();
+        
+        $data = array();
+        
+        return view('components.competency.create', $data);
+    }
+    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  string  $user_intranet
+     * @param  string  $delegate_intranet
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($user_intranet, $delegate_intranet)
+    {
+        $model = Competency::findOrFail($ref);
+        
+        $data = array();
+        
+        return view('components.competency.edit', $data);
     }
 }
