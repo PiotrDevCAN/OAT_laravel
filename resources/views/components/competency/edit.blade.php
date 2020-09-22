@@ -1,1 +1,1 @@
-@extends('components.request.record')
+@extends('components.competency.record')
