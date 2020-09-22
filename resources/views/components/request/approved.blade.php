@@ -1,4 +1,4 @@
-@extends('index')
+@extends('list')
 
 @section('summary')
 
