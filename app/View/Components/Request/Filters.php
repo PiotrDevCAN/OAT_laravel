@@ -24,21 +24,12 @@ class Filters extends Component
     public $secondApprovers;
     public $thirdApprovers;
     
-    public $awaiting;
-    public $awaitingHours;
-    
-    public $approved;
-    public $approvedHours;
-    
-    public $other;
-    public $otherHours;
-    
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($awaiting = null, $awaitingHours = 0, $approved = null, $approvedHours = 0, $other = null, $otherHours = 0)
+    public function __construct()
     {
         $this->accounts = OvertimeRequest::select('account')
             ->where('account', '<>', '')
@@ -103,15 +94,6 @@ class Filters extends Component
             ->where('approver_third_level', '<>', '')
             ->distinct()
             ->get();
-        
-        $this->awaiting = $awaiting;
-        $this->awaitingHours = $awaitingHours;
-        
-        $this->approved = $approved;
-        $this->approvedHours = $approvedHours;
-        
-        $this->other = $other;
-        $this->otherHours = $otherHours;
     }
 
     /**
