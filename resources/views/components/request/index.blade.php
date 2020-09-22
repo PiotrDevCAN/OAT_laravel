@@ -3,8 +3,10 @@
 @section('content')
 
 <x-request.filters/>
-
-<x-request.summary :awaiting="{{ $awaiting or "default" }}" :awaiting-hours="$awaitingHours" :approved="{{ $approved or "default" }}" :approved-hours="$approvedHours" :other="{{ $other or "default" }}" :other-hours="$otherHours"/>
+    
+    @hasSection('summary')
+        @yield('summary')
+    @endif
 
 @endsection
 
