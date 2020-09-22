@@ -62,6 +62,9 @@
             	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Summary</h3>
             </div>
         </div>
+        
+        attributes {{ $attributes }} attributes
+        
         <div class="ibm-fluid">
         	@isset($awaiting)
                 <div class="ibm-col-12-6">

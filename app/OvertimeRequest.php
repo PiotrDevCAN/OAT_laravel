@@ -126,4 +126,60 @@ class OvertimeRequest extends Model
             'comment' // Local key on cars table...
             );
     }
+    
+    public function awaiting($predicates)
+    {
+        return $this::where('status', 'like', 'Awaiting%')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->where($predicates)
+            ->get();
+    }
+    
+    public function sumAwaitingHours($predicates)
+    {
+        return $this::where('status', 'like', 'Awaiting%')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->where($predicates)
+            ->sum('hours');
+    }
+    
+    public function approved($predicates)
+    {
+        return $this::where('status', 'Approved')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->where($predicates)
+            ->get();
+    }
+    
+    public function sumApprovedHours($predicates)
+    {
+        return $this::where('status', 'Approved')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->where($predicates)
+            ->sum('hours');
+    }
+    
+    public function other($predicates)
+    {
+        return $this::where('status',  'not like', 'Awaiting%')
+            ->where('status', '<>', 'Approved')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->where($predicates)
+            ->get();
+    }
+    
+    public function sumOtherHours($predicates)
+    {
+        return $this::where('status',  'not like', 'Awaiting%')
+            ->where('status', '<>', 'Approved')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-08-07')
+            ->where($predicates)
+            ->sum('hours');
+    }
 }

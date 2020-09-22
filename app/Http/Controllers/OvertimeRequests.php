@@ -11,55 +11,57 @@ set_time_limit(7200);
 
 class OvertimeRequests extends Controller
 {
-    public $conditions = array();
-    
-    private function prepareConditions($request){
+    private function preparePredicates($request)
+    {
+        $predicates = array();
         
         if ($request->filled('Account')) {
-            $this->conditions[] = array('account', '=', $request->input('Account'));
+            $predicates[] = array('account', '=', $request->input('Account'));
         };
         if ($request->filled('Reason')) {
-            $this->conditions[] = array('reason', '=', $request->input('Reason'));
+            $predicates[] = array('reason', '=', $request->input('Reason'));
         };
         if ($request->filled('Name')) {
-            $this->conditions[] = array('name', '=', $request->input('Name'));
+            $predicates[] = array('name', '=', $request->input('Name'));
         };
         if ($request->filled('Type')) {
-            $this->conditions[] = array('type', '=', $request->input('Type'));
+            $predicates[] = array('type', '=', $request->input('Type'));
         };
         
         if ($request->filled('ServiceLine')) {
-            $this->conditions[] = array('competency', '=', $request->input('ServiceLine'));
+            $predicates[] = array('competency', '=', $request->input('ServiceLine'));
         };
         if ($request->filled('Status')) {
-            $this->conditions[] = array('status', '=', $request->input('Status'));
+            $predicates[] = array('status', '=', $request->input('Status'));
         };
         if ($request->filled('Requestor')) {
-            $this->conditions[] = array('requestor', '=', $request->input('Requestor'));
+            $predicates[] = array('requestor', '=', $request->input('Requestor'));
         };
         if ($request->filled('Location')) {
-            $this->conditions[] = array('location', '=', $request->input('Location'));
+            $predicates[] = array('location', '=', $request->input('Location'));
         };
         
         if ($request->filled('WeekendStart')) {
-            $this->conditions[] = array('weekenddate', '>=', $request->input('WeekendStart'));
+            $predicates[] = array('weekenddate', '>=', $request->input('WeekendStart'));
         };
         if ($request->filled('WeekendEnd')) {
-            $this->conditions[] = array('weekenddate', '<=', $request->input('WeekendEnd'));
+            $predicates[] = array('weekenddate', '<=', $request->input('WeekendEnd'));
         };
         if ($request->filled('Import')) {
-            $this->conditions[] = array('import', '=', $request->input('Import'));
+            $predicates[] = array('import', '=', $request->input('Import'));
         };
         
         if ($request->filled('FirstApprover')) {
-            $this->conditions[] = array('approver_first_level', '=', $request->input('FirstApprover'));
+            $predicates[] = array('approver_first_level', '=', $request->input('FirstApprover'));
         };
         if ($request->filled('SecondApprover')) {
-            $this->conditions[] = array('approver_second_level', '=', $request->input('SecondApprover'));
+            $predicates[] = array('approver_second_level', '=', $request->input('SecondApprover'));
         };
         if ($request->filled('ThirdApprover')) {
-            $this->conditions[] = array('approver_third_level', '=', $request->input('ThirdApprover'));
+            $predicates[] = array('approver_third_level', '=', $request->input('ThirdApprover'));
         };
+        
+        return $predicates;
     }
     
     public function index(Request $request)
@@ -127,33 +129,19 @@ class OvertimeRequests extends Controller
         //             $counter = $this->memcache->get($cacheKey);
         //         }
             
-        $this->prepareConditions($request);
+        $predicates = $this->preparePredicates($request);
         
-        $awaitingQuery = OvertimeRequest::where('status', 'like', 'Awaiting%')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->where($this->conditions);
-        
-        $approvedQuery = OvertimeRequest::where('status', 'Approved')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->where($this->conditions);
-        
-        $otherQuery = OvertimeRequest::where('status',  'not like', 'Awaiting%')
-            ->where('status', '<>', 'Approved')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->where($this->conditions);
+        $overtimeRequest = new OvertimeRequest;
         
         $data = array(
-            'awaiting' => $awaitingQuery->get(),
-            'awaitingHours' => $awaitingQuery->sum('hours'),
+            'awaiting' => $overtimeRequest->awaiting($predicates),
+            'awaitingHours' => $overtimeRequest->sumAwaitingHours($predicates),
             
-            'approved' => $approvedQuery->get(),
-            'approvedHours' => $approvedQuery->sum('hours'),
+            'approved' => $overtimeRequest->approved($predicates),
+            'approvedHours' => $overtimeRequest->sumApprovedHours($predicates),
             
-            'other' => $otherQuery->get(),
-            'otherHours' => $otherQuery->sum('hours')
+            'other' => $overtimeRequest->other($predicates),
+            'otherHours' => $overtimeRequest->sumOtherHours($predicates)
         );
         
         return view('components.request.index', $data);
@@ -161,15 +149,13 @@ class OvertimeRequests extends Controller
     
     public function approvedList(Request $request)
     {
-        $this->prepareConditions($request);
+        $predicates = $this->preparePredicates($request);
         
-        $approvedQuery = OvertimeRequest::where('status', 'Approved')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07');
+        $overtimeRequest = new OvertimeRequest;
         
         $data = array(
-            'approved' => $approvedQuery->get(),
-            'approvedHours' => $approvedQuery->sum('hours')
+            'approved' => $overtimeRequest->approved($predicates),
+            'approvedHours' => $overtimeRequest->sumApprovedHours($predicates)
         );
         
         return view('components.request.index', $data);
