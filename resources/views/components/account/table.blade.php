@@ -15,7 +15,8 @@
             <tbody>
                 @foreach ($records as $record)
                 <tr>
-                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-edit-link" href="{{ route('admin.account.edit', ['account' => Str::of($record->account)->trim(), 'location' => Str::of($record->location)->trim()] }}"></a></p></td>
+                    <td><p class="ibm-ind-link ibm-icononly ibm-nospacing"><a class="ibm-edit-link" href="{{ 
+                    route('admin.account.edit', ['account' => Str::of($record->account)->trim(), 'location' => Str::of($record->location)->trim()]) }}"></a></p></td>
                     <td>{{ $record->account }}</td>
                     <td>{{ $record->approver }}</td>
                     <td>{{ $record->verified }}</td>
