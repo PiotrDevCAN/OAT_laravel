@@ -1,3 +1,4 @@
+{{ Form::open(['route' => Route::currentRouteName(), 'id' => 'summaryForm', 'class'  => 'ibm-row-form' ]) }}
 <div class="ibm-card">
     <div class="ibm-card__content">
 		<div class="ibm-fluid">
@@ -35,3 +36,4 @@
        	</div>
     </div>
 </div>
+{{ Form::close() }}
