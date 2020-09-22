@@ -54,7 +54,7 @@ class Delegates extends Controller
         
         $data = array();
         
-        return view('components.delegates.create', $data);
+        return view('components.delegate.create', $data);
     }
     
     /**
@@ -73,7 +73,7 @@ class Delegates extends Controller
             'record' => $model
         );
         
-        return view('components.delegates.edit', $data);
+        return view('components.delegate.edit', $data);
     }
     
     public function my()
