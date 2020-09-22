@@ -21,29 +21,17 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
         ->name('list');
     
-    Route::get('approved', 'OvertimeRequests@approved')
+    Route::match(['get', 'post'], 'approved', 'OvertimeRequests@approved')
         ->name('approved');
     
     // Show the form for creating a new resource.
     Route::get('create', 'OvertimeRequests@create')
         ->name('create');
     
-    // Store a newly created resource in storage.
-    Route::get('store', 'OvertimeRequests@store')
-        ->name('store');
-    
     // Show the form for editing the specified resource.
     Route::get('edit/{ref}', 'OvertimeRequests@edit')
         ->name('edit');
     
-    // Update the specified resource in storage.
-    Route::get('update/{ref}', 'OvertimeRequests@update')
-        ->name('update');
-    
-    // Remove the specified resource from storage.
-    Route::get('destroy/{ref}', 'OvertimeRequests@destroy')
-        ->name('destroy');
-        
 //     Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')
 //         ->name('approve');
         
