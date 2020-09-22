@@ -158,7 +158,7 @@ class OvertimeRequests extends Controller
             'approvedHours' => $overtimeRequest->sumApprovedHours($predicates)
         );
         
-        return view('components.request.index', $data);
+        return view('components.request.approved', $data);
     }
     
     public function create()
