@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\OvertimeRequest;
 use Illuminate\Http\Request;
+use App\OvertimeRequest;
+use App\Competency;
+use App\Account;
+
+set_time_limit(7200);
 
 class OvertimeRequests extends Controller
 {
@@ -84,13 +88,29 @@ class OvertimeRequests extends Controller
         
         return view('components.request.index', $data);
     }
-
+    
     /**
-     * Display a listing of the resource.
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function approved(Request $request)
+    public function create()
+    {
+        return view('components.request.create');
+    }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\OvertimeRequest  $overtimeRequest
+     * @return \Illuminate\Http\Response
+     */
+    public function show(OvertimeRequest $overtimeRequest)
+    {
+        return view('components.request.show');
+    }
+    
+    public function approvedList(Request $request)
     {
         $predicates = $this->preparePredicates($request);
         
@@ -102,71 +122,5 @@ class OvertimeRequests extends Controller
         );
         
         return view('components.request.approved', $data);
-    }
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('components.request.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        return view('components.request.store');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\OvertimeRequest  $overtimeRequest
-     * @return \Illuminate\Http\Response
-     */
-    public function show(OvertimeRequest $overtimeRequest)
-    {
-        return view('components.request.show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\OvertimeRequest  $overtimeRequest
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(OvertimeRequest $overtimeRequest)
-    {
-        return view('components.request.edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\OvertimeRequest  $overtimeRequest
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, OvertimeRequest $overtimeRequest)
-    {
-        return view('components.request.update');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\OvertimeRequest  $overtimeRequest
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(OvertimeRequest $overtimeRequest)
-    {
-        return view('components.request.destroy');
     }
 }

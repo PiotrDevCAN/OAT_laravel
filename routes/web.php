@@ -20,18 +20,33 @@ Route::get('/', 'Index');
 Route::prefix('request')->name('request.')->group(function () {
     Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
         ->name('list');
-        
-    Route::get('approved', 'OvertimeRequests@approvedList')
+    
+    Route::get('approved', 'OvertimeRequests@approved')
         ->name('approved');
     
-//     Route::get('create', 'OvertimeRequests@create')
-//         ->name('create');
+    // Show the form for creating a new resource.
+    Route::get('create', 'OvertimeRequests@create')
+        ->name('create');
     
-//     Route::get('update/{ref}', 'OvertimeRequests@update')
-//         ->name('update');
-
-//     Route::get('delete/{ref}', 'OvertimeRequests@delete')
-//         ->name('delete');
+    // Store a newly created resource in storage.
+    Route::get('store', 'OvertimeRequests@store')
+        ->name('store');
+    
+    // Display the specified resource.
+    Route::get('show', 'OvertimeRequests@show')
+        ->name('show');
+    
+    // Show the form for editing the specified resource.
+    Route::get('edit', 'OvertimeRequests@edit')
+        ->name('edit');
+    
+    // Update the specified resource in storage.
+    Route::get('update/{ref}', 'OvertimeRequests@update')
+        ->name('update');
+    
+    // Remove the specified resource from storage.
+    Route::get('destroy/{ref}', 'OvertimeRequests@destroy')
+        ->name('destroy');
         
 //     Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')
 //         ->name('approve');
@@ -48,8 +63,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Accounts@index')
             ->name('list');
         
-//         Route::get('create', 'Accounts@create')
-//             ->name('create');
+        Route::get('show', 'Accounts@show')
+            ->name('show');
         
 //         Route::get('update/{ref}', 'Accounts@update')
 //             ->name('update');
@@ -62,12 +77,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('delegate')->name('delegate.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Delegates@index')
             ->name('list');
+        
+        Route::get('show', 'Delegates@show')
+            ->name('show');
             
         Route::get('my', 'Delegates@my')
             ->name('my');
-            
-//         Route::get('create', 'Delegates@create')
-//             ->name('create');
             
 //         Route::get('update/{ref}', 'Delegates@update')
 //             ->name('update');
@@ -81,8 +96,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Competencies@index')
             ->name('list');
         
-//         Route::get('create', 'Competencies@create')
-//             ->name('create');
+        Route::get('show', 'Competencies@show')
+            ->name('show');
         
 //         Route::get('update/{ref}', 'Competencies@update')
 //             ->name('update');
