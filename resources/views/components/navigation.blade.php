@@ -4,11 +4,13 @@
             <li id="ibm-overview" role="presentation"><a href="/" role="treeitem">Home</a></li>
             @foreach ($menuList as $key => $value)
                 @if (is_array($value))
-    			<li role="presentation" aria-expanded="true" ><span class="ibm-subnav-heading">{{ $key }}</span>
+    			<li role="presentation" aria-expanded="true" >
+    				<span class="ibm-subnav-heading">{{ $key }}</span>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
         					@if (is_array($subValue))
-        						<li role="presentation"><span class="ibm-subnav-heading" style="padding-left: 10px;">{{ $subKey }}</span>
+        						<li role="presentation" @if (in_array(Route::currentRouteName(), array_values($subValue)) aria-expanded="true" @endif >
+        							<span class="ibm-subnav-heading" style="padding-left: 10px;">{{ $subKey }}</span>
         							<ul role="group">
                 						@foreach ($subValue as $subSubKey => $subSubValue)
                 							<li role="presentation"><a href="{{ route($subSubValue) }}" role="treeitem" @if (Route::currentRouteName() == $subSubValue)aria-selected="true"@endif>{{ $subSubKey }}</a> </li>
