@@ -43,14 +43,14 @@ Route::prefix('request')->name('request.')->group(function () {
 Route::prefix('account')->name('account.')->group(function () {
     Route::get('store', 'Accounts@store')
         ->name('store');
-        
-        Route::get('show/{ref}', 'Accounts@show')
+    
+    Route::get('show/{account}/{location}', 'Accounts@show')
         ->name('show');
         
-    Route::get('update/{ref}', 'Accounts@update')
+    Route::get('update/{account}/{location}', 'Accounts@update')
         ->name('update');
 
-    Route::get('destroy/{ref}', 'Accounts@destroy')
+    Route::get('destroy/{account}/{location}', 'Accounts@destroy')
         ->name('destroy');
 });
 
@@ -59,13 +59,13 @@ Route::prefix('delegate')->name('delegate.')->group(function () {
     Route::get('store', 'Delegates@store')
         ->name('store');
         
-    Route::get('show/{ref}', 'Delegates@show')
+    Route::get('show/{user_intranet}/{delegate_intranet}', 'Delegates@show')
         ->name('show');
         
-    Route::get('update/{ref}', 'Delegates@update')
+    Route::get('update/{user_intranet}/{delegate_intranet}', 'Delegates@update')
         ->name('update');
 
-    Route::get('destroy/{ref}', 'Delegates@destroy')
+    Route::get('destroy/{user_intranet}/{delegate_intranet}', 'Delegates@destroy')
         ->name('destroy');
 });
 
@@ -74,12 +74,12 @@ Route::prefix('competency')->name('competency.')->group(function () {
     Route::get('store', 'Competencies@store')
         ->name('store');
         
-    Route::get('show/{ref}', 'Competencies@show')
+    Route::get('show/{competency}/{approver}', 'Competencies@show')
         ->name('show');
         
-    Route::get('update/{ref}', 'Competencies@update')
+    Route::get('update/{competency}/{approver}', 'Competencies@update')
         ->name('update');
 
-    Route::get('destroy/{ref}', 'Competencies@destroy')
+    Route::get('destroy/{competency}/{approver}', 'Competencies@destroy')
         ->name('destroy');
 });

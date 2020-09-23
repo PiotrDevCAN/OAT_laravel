@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Competency extends Controller
+class Competencies extends Controller
 {
     /**
      * Store a newly created resource in storage.
@@ -21,10 +21,11 @@ class Competency extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $competency
+     * @param  string  $approver
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($competency, $approver)
     {
         //
     }
@@ -33,10 +34,11 @@ class Competency extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $competency
+     * @param  string  $approver
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $competency, $approver)
     {
         //
     }
@@ -44,10 +46,11 @@ class Competency extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $competency
+     * @param  string  $approver
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($competency, $approver)
     {
         //
     }

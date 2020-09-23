@@ -42,12 +42,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Accounts@index')
             ->name('list');
         
-        // Show the form for creating a new resource.
-        Route::get('create', 'Accounts@create')
+    // Show the form for creating a new resource.
+    Route::get('create', 'Accounts@create')
         ->name('create');
         
-        // Show the form for editing the specified resource.
-        Route::get('edit/{account}/{location}', 'Accounts@edit')
+    // Show the form for editing the specified resource.
+    Route::get('edit/{account}/{location}', 'Accounts@edit')
         ->name('edit');        
     });
     

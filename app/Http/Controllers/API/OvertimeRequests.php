@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class OvertimeRequest extends Controller
+class OvertimeRequests extends Controller
 {
     /**
      * Store a newly created resource in storage.

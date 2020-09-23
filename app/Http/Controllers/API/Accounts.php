@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Delegate extends Controller
+class Accounts extends Controller
 {
     /**
      * Store a newly created resource in storage.
@@ -21,10 +21,11 @@ class Delegate extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $account
+     * @param  string  $location
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($account, $location)
     {
         //
     }
@@ -33,10 +34,11 @@ class Delegate extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $account
+     * @param  string  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $account, $location)
     {
         //
     }
@@ -44,10 +46,11 @@ class Delegate extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $account
+     * @param  string  $location
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($account, $location)
     {
         //
     }
