@@ -69,6 +69,8 @@ class Delegates extends Controller
         $model = Delegate::where('user_intranet', $user_intranet)
             ->where('delegate_intranet', $delegate_intranet);
         
+        dd($model);
+            
         $data = array(
             'record' => $model
         );
