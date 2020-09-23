@@ -67,7 +67,8 @@ class Delegates extends Controller
     public function edit($user_intranet, $delegate_intranet)
     {
         $model = Delegate::where('user_intranet', $user_intranet)
-            ->where('delegate_intranet', $delegate_intranet);
+            ->where('delegate_intranet', $delegate_intranet)
+            ->firstOrFail();
         
         dd($model);
             
