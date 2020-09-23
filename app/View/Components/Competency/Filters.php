@@ -3,7 +3,7 @@
 namespace App\View\Components\Competency;
 
 use Illuminate\View\Component;
-use App\Competency;
+use App\Models\Competency;
 
 class Filters extends Component
 {

@@ -4,7 +4,7 @@ namespace App\View\Components\Account;
 
 use Illuminate\View\Component;
 use Illuminate\Http\Request;
-use App\Account;
+use App\Models\Account;
 
 class Filters extends Component
 {

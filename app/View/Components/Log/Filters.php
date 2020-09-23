@@ -3,7 +3,7 @@
 namespace App\View\Components\Log;
 
 use Illuminate\View\Component;
-use App\Log;
+use App\Models\Log;
 
 class Filters extends Component
 {

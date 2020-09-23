@@ -3,7 +3,7 @@
 namespace App\View\Components\Request;
 
 use Illuminate\View\Component;
-use App\OvertimeRequest;
+use App\Models\OvertimeRequest;
 
 class Summary extends Component
 {
