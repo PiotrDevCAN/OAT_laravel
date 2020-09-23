@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Delegate;
 
 class Delegates extends Controller
 {
@@ -21,11 +22,10 @@ class Delegates extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $user_intranet
-     * @param  string  $delegate_intranet
+     * @param  Delegate $delegate
      * @return \Illuminate\Http\Response
      */
-    public function show($user_intranet, $delegate_intranet)
+    public function show(Delegate $delegate)
     {
         //
     }
@@ -34,11 +34,10 @@ class Delegates extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  string  $user_intranet
-     * @param  string  $delegate_intranet
+     * @param  Delegate $delegate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $user_intranet, $delegate_intranet)
+    public function update(Request $request, Delegate $delegate)
     {
         //
     }
@@ -46,11 +45,10 @@ class Delegates extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  string  $user_intranet
-     * @param  string  $delegate_intranet
+     * @param  Delegate $delegate
      * @return \Illuminate\Http\Response
      */
-    public function destroy($user_intranet, $delegate_intranet)
+    public function destroy(Delegate $delegate)
     {
         //
     }

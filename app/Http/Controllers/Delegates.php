@@ -60,18 +60,17 @@ class Delegates extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  string  $user_intranet
-     * @param  string  $delegate_intranet
+     * @param  Delegate $delegate
      * @return \Illuminate\Http\Response
      */
-    public function edit($user_intranet, $delegate_intranet)
+    public function edit(Delegate $delegate)
     {
-        $model = Delegate::where('user_intranet', $user_intranet)
-            ->where('delegate_intranet', $delegate_intranet)
-            ->firstOrFail();
+//         $model = Delegate::where('user_intranet', $user_intranet)
+//             ->where('delegate_intranet', $delegate_intranet)
+//             ->firstOrFail();
         
         $data = array(
-            'record' => $model
+            'record' => $delegate
         );
         
         return view('components.delegate.edit', $data);

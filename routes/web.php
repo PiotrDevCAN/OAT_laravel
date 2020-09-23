@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OvertimeRequests;
+use App\Models\OvertimeRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +31,13 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('create');
     
     // Show the form for editing the specified resource.
-    Route::get('edit/{ref}', 'OvertimeRequests@edit')
-        ->name('edit');
+    Route::get('edit/{ref}', function ($ref) {
+        
+        $model = OvertimeRequest::findOrFail($ref);
+        
+        return (new OvertimeRequests())->edit($model);
+    })
+    ->name('edit');
 });
 
 // Accounts

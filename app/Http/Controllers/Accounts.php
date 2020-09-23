@@ -64,18 +64,17 @@ class Accounts extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  string  $account
-     * @param  string  $location
+     * @param  Account $account
      * @return \Illuminate\Http\Response
      */
-    public function edit($account, $location)
+    public function edit(Account $account)
     {
-        $model = Account::where('account', $account)
-            ->where('location', $location)
-            ->firstOrFail();
+//         $model = Account::where('account', $account)
+//             ->where('location', $location)
+//             ->firstOrFail();
         
         $data = array(
-            'record' => $model
+            'record' => $account
         );
         
         return view('components.account.edit', $data);

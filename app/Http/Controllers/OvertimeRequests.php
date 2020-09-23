@@ -144,12 +144,12 @@ class OvertimeRequests extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $ref
+     * @param  OvertimeRequest $overtimeRequest
      * @return \Illuminate\Http\Response
      */
-    public function edit($ref)
+    public function edit(OvertimeRequest $overtimeRequest)
     {
-        $model = OvertimeRequest::findOrFail($ref);
+//         $model = OvertimeRequest::findOrFail($ref);
         
         $allAccounts = Account::accounts();
         $allVerified = Account::verified();
@@ -163,7 +163,7 @@ class OvertimeRequests extends Controller
         );
         
         $data = array(
-            'record' => $model,
+            'record' => $overtimeRequest,
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,

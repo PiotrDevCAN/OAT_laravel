@@ -37,16 +37,16 @@ class OvertimeRequests extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $ref
+     * @param  OvertimeRequest $OvertimeRequest
      * @return \Illuminate\Http\Response
      */
-    public function show($ref)
+    public function show(OvertimeRequest $overtimeRequest)
     {
         
         // Retrieve a model by its primary key...
 //         $flight = App\Flight::find(1);
         
-        $record = new OvertimeRequest();
+//         $record = new OvertimeRequest();
         
         $allAccounts = Account::accounts();
         $allVerified = Account::verified();
@@ -60,7 +60,7 @@ class OvertimeRequests extends Controller
         );
         
         $data = array(
-            'record' => $record,
+            'record' => $overtimeRequest,
             'allAccounts' => $allAccounts,
             'allVerified' => $allVerified,
             'allCompetencies' => $allCompetencies,
@@ -78,10 +78,10 @@ class OvertimeRequests extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $ref
+     * @param  OvertimeRequest $OvertimeRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $ref)
+    public function update(Request $request, OvertimeRequest $overtimeRequest)
     {
         return view('components.request.update');
     }
@@ -89,10 +89,10 @@ class OvertimeRequests extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $ref
+     * @param  OvertimeRequest $OvertimeRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy($ref)
+    public function destroy(OvertimeRequest $overtimeRequest)
     {
         
         // destroy action
