@@ -31,13 +31,19 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('create');
     
     // Show the form for editing the specified resource.
-    Route::get('edit/{ref}', function ($ref) {
+//     Route::get('edit/{ref}', function ($ref) {
         
-        $model = OvertimeRequest::findOrFail($ref);
+//         $model = OvertimeRequest::findOrFail($ref);
         
-        return (new OvertimeRequests())->edit($model);
+//         return (new OvertimeRequests())->edit($model);
+//     })
+//     ->name('edit');
+    
+    Route::get('edit/{ref}', function (App\Models\OvertimeRequest $overtimeRequest) {
+        return (new OvertimeRequests())->edit($overtimeRequest);
     })
     ->name('edit');
+    
 });
 
 // Accounts
