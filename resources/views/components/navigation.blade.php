@@ -4,11 +4,20 @@
             <li id="ibm-overview" role="presentation"><a href="/" role="treeitem">Home</a></li>
             @foreach ($menuList as $key => $value)
                 @if (is_array($value))
-    			<li role="presentation" aria-expanded="true" ><span class="ibm-subnav-heading">{{ $key }}</span>
+    			<li role="presentation" aria-expanded="true" ><span class="ibm-subnav-heading">{{ $key }}</span><li>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
-                        <li role="presentation"><a href="{{ route($subValue) }}" role="treeitem" @if (Route::currentRouteName() == $subValue)aria-selected="true"@endif>{{ $subKey }}</a> </li>
-                    	@endforeach
+        					@if (is_array($subValue))
+        						<li role="presentation" aria-expanded="true" ><span class="ibm-subnav-heading">{{ $key }}</span></li>
+        							<ul role="group">
+                						@foreach ($subValue as $subSubKey => $subSubValue)
+                							<li role="presentation"><a href="{{ route($subSubValue) }}" role="treeitem" @if (Route::currentRouteName() == $subSubValue)aria-selected="true"@endif>{{ $subSubKey }}</a> </li>
+                						@endforeach
+            						</ul>
+        					@else
+        						<li role="presentation"><a href="{{ route($subValue) }}" role="treeitem" @if (Route::currentRouteName() == $subValue)aria-selected="true"@endif>{{ $subKey }}</a> </li>
+                    		@endif
+                        @endforeach
                     </ul>
                 @else
                 <li role="presentation"><a href="{{ route($value) }}" role="treeitem" @if (Route::currentRouteName() == $value)aria-selected="true"@endif>{{ $key }}</a></li>
