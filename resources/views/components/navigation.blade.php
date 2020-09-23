@@ -5,7 +5,7 @@
             @foreach ($menuList as $key => $value)
                 @if (is_array($value))
     			<li role="presentation" aria-expanded="true" ><span class="ibm-subnav-heading">{{ $key }}</span>
-        			<ul role="group">
+        			<ul role="group"> 
         				@foreach ($value as $subKey => $subValue)
         					@if (is_array($subValue))
         						<li role="presentation"><span class="ibm-subnav-heading">{{ $subKey }}</span>
