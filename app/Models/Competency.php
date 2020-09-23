@@ -29,6 +29,13 @@ class Competency extends BaseModel
     public $timestamps = false;
     
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
