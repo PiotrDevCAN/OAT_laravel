@@ -103,8 +103,8 @@ class OvertimeRequest extends Model
     public function comment()
     {
         return $this->hasOneThrough(
-            'App\Comment',
-            'App\CommentLog',
+            'App\Models\Comment',
+            'App\Models\CommentLog',
             'request', // Foreign key on cars table...
             'reference', // Foreign key on owners table...
             'reference', // Local key on mechanics table...
@@ -118,8 +118,8 @@ class OvertimeRequest extends Model
     public function comments()
     {
         return $this->hasManyThrough(
-            'App\Comment',
-            'App\CommentLog',
+            'App\Models\Comment',
+            'App\Models\CommentLog',
             'request', // Foreign key on cars table...
             'reference', // Foreign key on owners table...
             'reference', // Local key on mechanics table...
