@@ -101,9 +101,10 @@ Route::prefix('access')->name('access.')->group(function () {
 Route::redirect('/index.html', '/');
 Route::get('/p_admin.php', 'Index@admin');
 
-// Route::get('/p_request.php', function () {
-//     return redirect()->route('request.create');
-// });
+/*
+Route::get('/p_request.php', function () {
+    return redirect()->route('request.create');
+});
 Route::get('/p_manage.php', function () {
     return redirect()->route('request.list');
 });
@@ -131,3 +132,4 @@ Route::get('/p_delegate.php', function () {
 Route::get('/p_myOatAccess.php', function () {
     return redirect()->route('access.my');
 });
+*/
