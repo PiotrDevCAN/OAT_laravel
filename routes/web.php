@@ -94,16 +94,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
 // Access
 Route::prefix('access')->name('access.')->group(function () {
     Route::get('my', 'Index@access')
-    ->name('my');
+        ->name('my');
 });
 
 // Legacy links
 Route::redirect('/index.html', '/');
 Route::get('/p_admin.php', 'Index@admin');
 
-Route::get('/p_request.php', function () {
-    return redirect()->route('request.create');
-});
+// Route::get('/p_request.php', function () {
+//     return redirect()->route('request.create');
+// });
 Route::get('/p_manage.php', function () {
     return redirect()->route('request.list');
 });
