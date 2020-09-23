@@ -1,8 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OvertimeRequests;
 use App\Models\OvertimeRequest;
+use App\Models\Account;
+use App\Models\Delegate;
+use App\Models\Competency;
+use App\Http\Controllers\OvertimeRequests;
+use App\Http\Controllers\Accounts;
+use App\Http\Controllers\Delegates;
+use App\Http\Controllers\Competencies;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +49,6 @@ Route::prefix('request')->name('request.')->group(function () {
         return (new OvertimeRequests())->edit($overtimeRequest);
     })
     ->name('edit');
-    
 });
 
 // Accounts
@@ -59,9 +64,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->name('create');
         
     // Show the form for editing the specified resource.
-    Route::get('edit/{account}/{location}', 'Accounts@edit')
-        ->name('edit');        
-    });
+//     Route::get('edit/{account}/{location}', 'Accounts@edit')
+//         ->name('edit');        
+//     });
+    
+    Route::get('edit/{account}/{location}', function (Account $account) {
+        return (new Accounts())->edit($account);
+    })
+    ->name('edit');
     
     // Delegates
     Route::prefix('delegate')->name('delegate.')->group(function () {
@@ -73,8 +83,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->name('create');
         
         // Show the form for editing the specified resource.
-        Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
-            ->name('edit');
+//         Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
+//             ->name('edit');
+        
+        Route::get('edit/{user_intranet}/{delegate_intranet}', function (Delegate $delegate) {
+            return (new Delegates())->edit($delegate);
+        })
+        ->name('edit');
         
         Route::get('my', 'Delegates@my')
             ->name('my');
@@ -90,9 +105,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->name('create');
         
         // Show the form for editing the specified resource.
-        Route::get('edit/{competency}/{approver}', 'Competencies@edit')
-            ->name('edit');
+//         Route::get('edit/{competency}/{approver}', 'Competencies@edit')
+//             ->name('edit');
         
+        Route::get('edit/{competency}/{approver}', function (Competency $competency) {
+            return (new Competencies)->edit($competency);
+        })
+        ->name('edit');
     });
     
     // Logs
