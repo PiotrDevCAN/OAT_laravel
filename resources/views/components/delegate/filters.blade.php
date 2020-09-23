@@ -1,7 +1,7 @@
 {{ Form::open(['route' => Route::currentRouteName(), 'id' => 'myForm', 'class'  => 'ibm-row-form' ]) }}
 <div class="ibm-card">
     <div class="ibm-card__content">
-        <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Delegates List Filters</h3>
+        <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">List Filters</h3>
 		<div class="ibm-fluid">
 			<div class="ibm-col-12-4">
             	<x-ibmv18form-select field-name="UserIntranet" label="User Intranet:" :array-of-selectable-values="$userIntranets" :selected-value="request()->input('UserIntranet')"/>

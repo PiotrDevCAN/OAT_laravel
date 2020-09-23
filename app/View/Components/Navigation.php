@@ -22,7 +22,7 @@ class Navigation extends Component
             'Admin' => array(
                 'Account' => 'admin.account.list',
                 'Sevice Lines' => 'admin.competency.list',
-                'Show delegates' => 'admin.delegate.list',
+                'Delegates' => 'admin.delegate.list',
                 'Log' => 'admin.log.list'
             ),
             'My Delegates' => 'admin.delegate.my',
