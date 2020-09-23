@@ -13,9 +13,9 @@
                 {{ Form::open(['route' => [Route::currentRouteName(), $record->competency, $record->approver], 'id' => 'record', 'class'  => 'ibm-column-form' ]) }}
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                            <x-ibmv18form-input field-name="ServiceLine" label="Service Line"/>
+                            <x-ibmv18form-input field-name="COMPETENCY" label="Service Line"/>
                     	    
-                    	    <x-ibmv18form-input field-name="Account_Approver" label="Account Approver"/>
+                    	    <x-ibmv18form-input field-name="APPROVER_NAME" label="Account Approver"/>
                         </div>
                     </div>
             		<div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>

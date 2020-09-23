@@ -13,7 +13,7 @@
                 {{ Form::open(['route' => [Route::currentRouteName(), $record->user_intranet, $record->delegate_intranet], 'id' => 'record', 'class'  => 'ibm-column-form' ]) }}
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                            <x-ibmv18form-input field-name="delegate" label="Delegate"/>
+                            <x-ibmv18form-input field-name="DELEGATE" label="Delegate"/>
                     	    
                     	    <x-ibmv18form-input field-name="DELEGATE_INTRANET" label="Email"/>
                     	    
