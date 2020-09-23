@@ -17,13 +17,22 @@ class Navigation extends Component
     {
         $this->menuList = array(
             'Request' => 'request.create',
-            'Status' => 'request.list',
-            'Read Only' => 'request.approved',
+            'List (ex Status)' => 'request.list',
+            'Approved (ex Read Only)' => 'request.approved',
             'Admin' => array(
-                'Account' => 'admin.account.list',
-                'Sevice Lines' => 'admin.competency.list',
-                'Delegates' => 'admin.delegate.list',
-                'Log' => 'admin.log.list'
+                'Accounts' => array(
+                    'Create' => 'admin.account.create',
+                    'List' => 'admin.account.list'                    
+                ),
+                'Sevice Lines' => array(
+                    'Create' => 'admin.competency.create',
+                    'List' => 'admin.competency.list'
+                ),
+                'Delegates'  => array(
+                    'Create' => 'admin.delegate.create',
+                    'List' => 'admin.delegate.list'
+                ),
+                'Logs' => 'admin.log.list'
             ),
             'My Delegates' => 'admin.delegate.my',
             'My Access' => 'access.my'
