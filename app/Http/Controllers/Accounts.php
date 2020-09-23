@@ -71,7 +71,8 @@ class Accounts extends Controller
     public function edit($account, $location)
     {
         $model = Account::where('account', $account)
-            ->where('location', $location);
+            ->where('location', $location)
+            ->firstOrFail();
         
         $data = array(
             'record' => $model

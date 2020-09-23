@@ -70,8 +70,6 @@ class Delegates extends Controller
             ->where('delegate_intranet', $delegate_intranet)
             ->firstOrFail();
         
-        dd($model);
-            
         $data = array(
             'record' => $model
         );

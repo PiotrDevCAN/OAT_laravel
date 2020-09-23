@@ -64,7 +64,8 @@ class Competencies extends Controller
     public function edit($competency, $approver)
     {
         $model = Competency::where('competency', $competency)
-            ->where('approver', $approver);
+            ->where('approver', $approver)
+            ->firstOrFail();
         
         $data = array(
             'record' => $model
