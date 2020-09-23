@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
-{    
+class TraceControl extends Model
+{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'Locations';
+    protected $table = 'Trace_Control';
     
     /**
      * Indicates if the model should be timestamped.
@@ -25,7 +25,7 @@ class Location extends Model
      *
      * @var array
      */
-    protected $fillable = ['location', 'shore'];
+    protected $fillable = ['trace_control_type', 'trace_control_value'];
     
     /**
      * The model's default values for attributes.

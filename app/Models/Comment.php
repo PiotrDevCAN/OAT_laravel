@@ -1,17 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Delegate extends Model
-{
+class Comment extends Model
+{    
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'Delegate';
+    protected $table = 'Comments';
+    
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'reference';
     
     /**
      * Indicates if the model should be timestamped.
@@ -25,7 +32,7 @@ class Delegate extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_intranet', 'delegate_intranet', 'delegate_notesid'];
+    protected $fillable = ['reference', 'text', 'creator', 'created'];
     
     /**
      * The model's default values for attributes.
@@ -35,4 +42,12 @@ class Delegate extends Model
     protected $attributes = [
 //         'delayed' => false,
     ];
+    
+    /**
+     * Get the user that owns the phone.
+     */
+    public function commentLog()
+    {
+        return $this->belongsTo('App\CommentLog', 'reference', 'comment');
+    }
 }

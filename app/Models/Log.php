@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cc extends Model
-{    
+class Log extends Model
+{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'Cc_Approvers';
+    protected $table = 'Log';
     
     /**
      * Indicates if the model should be timestamped.
@@ -25,7 +25,7 @@ class Cc extends Model
      *
      * @var array
      */
-    protected $fillable = ['approver', 'cc'];
+    protected $fillable = ['log_entry', 'last_updater', 'last_updated'];
     
     /**
      * The model's default values for attributes.

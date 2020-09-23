@@ -1,10 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Competency extends Model
+class Competency extends BaseModel
 {    
     /**
      * The table associated with the model.
@@ -12,6 +13,13 @@ class Competency extends Model
      * @var string
      */
     protected $table = 'Competency_Approvers';
+    
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = ['competency', 'approver'];
     
     /**
      * Indicates if the model should be timestamped.

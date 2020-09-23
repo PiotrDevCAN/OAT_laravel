@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Competency;
+use App\Models\Competency;
 
 class Competencies extends Controller
 {

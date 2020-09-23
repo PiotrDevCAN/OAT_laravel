@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Log;
+use App\Models\Log;
 
 class Logs extends Controller
 {

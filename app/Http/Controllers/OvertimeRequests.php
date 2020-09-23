@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\OvertimeRequest;
-use App\Account;
-use App\Competency;
+use App\Models\OvertimeRequest;
+use App\Models\Account;
+use App\Models\Competency;
 
 class OvertimeRequests extends Controller
 {

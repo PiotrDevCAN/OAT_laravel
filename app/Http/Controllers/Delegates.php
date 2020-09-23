@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Delegate;
+use App\Models\Delegate;
 
 class Delegates extends Controller
 {

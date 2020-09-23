@@ -1,24 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class EmailLog extends Model
 {    
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'Comments';
-    
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'reference';
+    protected $table = 'Email_Log';
     
     /**
      * Indicates if the model should be timestamped.
@@ -32,7 +25,7 @@ class Comment extends Model
      *
      * @var array
      */
-    protected $fillable = ['reference', 'text', 'creator', 'created'];
+    protected $fillable = ['record_id', 'to', 'cc', 'subject', 'message', 'replyto', 'result', 'enabled', 'creator', 'created'];
     
     /**
      * The model's default values for attributes.
@@ -40,14 +33,6 @@ class Comment extends Model
      * @var array
      */
     protected $attributes = [
-//         'delayed' => false,
+    //         'delayed' => false,
     ];
-    
-    /**
-     * Get the user that owns the phone.
-     */
-    public function commentLog()
-    {
-        return $this->belongsTo('App\CommentLog', 'reference', 'comment');
-    }
 }

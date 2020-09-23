@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EmailLog extends Model
+class Cc extends Model
 {    
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'Email_Log';
+    protected $table = 'Cc_Approvers';
     
     /**
      * Indicates if the model should be timestamped.
@@ -25,7 +25,7 @@ class EmailLog extends Model
      *
      * @var array
      */
-    protected $fillable = ['record_id', 'to', 'cc', 'subject', 'message', 'replyto', 'result', 'enabled', 'creator', 'created'];
+    protected $fillable = ['approver', 'cc'];
     
     /**
      * The model's default values for attributes.

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Account;
+use App\Models\Account;
 
 class Accounts extends Controller
 {

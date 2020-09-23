@@ -1,17 +1,26 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Account extends Model
+class Account extends BaseModel
 {    
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'Account_Approvers';
+//     protected $table = 'Account_Approvers';
+    protected $table = 'Account_Approvers_Test';
+    
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = ['account', 'location'];
     
     /**
      * Indicates if the model should be timestamped.

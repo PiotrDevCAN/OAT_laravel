@@ -1,17 +1,25 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Log extends Model
+class Delegate extends BaseModel
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'Log';
+    protected $table = 'Delegate';
+    
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = ['user_intranet', 'delegate_intranet'];
     
     /**
      * Indicates if the model should be timestamped.
@@ -25,7 +33,7 @@ class Log extends Model
      *
      * @var array
      */
-    protected $fillable = ['log_entry', 'last_updater', 'last_updated'];
+    protected $fillable = ['user_intranet', 'delegate_intranet', 'delegate_notesid'];
     
     /**
      * The model's default values for attributes.
@@ -33,6 +41,6 @@ class Log extends Model
      * @var array
      */
     protected $attributes = [
-    //         'delayed' => false,
+//         'delayed' => false,
     ];
 }
