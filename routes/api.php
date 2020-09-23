@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+*/
 
 // Overtime Requests
 Route::prefix('request')->name('request.')->group(function () {

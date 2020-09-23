@@ -4,6 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\OvertimeRequest;
+use App\Models\Competency;
+use App\Models\Account;
 
 class OvertimeRequests extends Controller
 {
@@ -34,16 +37,16 @@ class OvertimeRequests extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $ref
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ref)
     {
         
         // Retrieve a model by its primary key...
 //         $flight = App\Flight::find(1);
         
-        $record = new OvertimeRequest;
+        $record = new OvertimeRequest();
         
         $allAccounts = Account::accounts();
         $allVerified = Account::verified();
@@ -75,10 +78,10 @@ class OvertimeRequests extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $ref
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $ref)
     {
         return view('components.request.update');
     }
@@ -86,10 +89,10 @@ class OvertimeRequests extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $ref
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($ref)
     {
         
         // destroy action
