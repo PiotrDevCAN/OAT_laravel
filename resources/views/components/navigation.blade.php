@@ -8,7 +8,7 @@
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
         					@if (is_array($subValue))
-        						<li role="presentation" aria-expanded="true" ><span class="ibm-subnav-heading">{{ $subKey }}</span>
+        						<li role="presentation"><span class="ibm-subnav-heading">{{ $subKey }}</span>
         							<ul role="group">
                 						@foreach ($subValue as $subSubKey => $subSubValue)
                 							<li role="presentation"><a href="{{ route($subSubValue) }}" role="treeitem" @if (Route::currentRouteName() == $subSubValue)aria-selected="true"@endif>{{ $subSubKey }}</a> </li>
