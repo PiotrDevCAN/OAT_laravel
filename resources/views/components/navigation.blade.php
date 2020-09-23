@@ -9,7 +9,7 @@
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
         					@if (is_array($subValue))
-        						<li role="presentation" @if (in_array(Route::currentRouteName(), array_values($subValue)) aria-expanded="true" @endif >
+        						<li role="presentation">
         							<span class="ibm-subnav-heading" style="padding-left: 10px;">{{ $subKey }}</span>
         							<ul role="group">
                 						@foreach ($subValue as $subSubKey => $subSubValue)
