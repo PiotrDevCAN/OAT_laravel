@@ -45,9 +45,15 @@ Route::prefix('request')->name('request.')->group(function () {
 //     })
 //     ->name('edit');
     
-    Route::get('edit/{ref}', function (OvertimeRequest $overtimeRequest) {
-        return (new OvertimeRequests())->edit($overtimeRequest);
-    })->name('edit');
+//     Route::get('edit/{ref}', function (OvertimeRequest $overtimeRequest) {
+//         return (new OvertimeRequests())->edit($overtimeRequest);
+//     })->name('edit');
+    
+    
+    Route::get('edit/{ref}', 'OvertimeRequests@create')
+        ->name('edit');
+    
+    
 });
 
 // Accounts
@@ -64,7 +70,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         
     // Show the form for editing the specified resource.
 //     Route::get('edit/{account}/{location}', 'Accounts@edit')
-//         ->name('edit');        
+//         ->name('edit');
 //     });
     
     Route::get('edit/{account}/{location}', function (Account $account) {
