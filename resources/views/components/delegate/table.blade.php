@@ -15,7 +15,7 @@
                 @foreach ($records as $record)
                 <tr>
                 	<td><p class="ibm-ind-link ibm-icononly ibm-nospacing">
-                    @isset($record->account)
+                    @isset($record->user_intranet)
                     	{{ link_to_route('admin.delegate.edit', $title = '', $parameters = ['user_intranet' => Str::of($record->user_intranet)->trim(), 'delegate_intranet' => Str::of($record->delegate_intranet)->trim()], $attributes = ['class' => 'ibm-edit-link']) }}
                     @endisset
                     </p></td>
