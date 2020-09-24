@@ -34,10 +34,10 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::get('destroy/{ref}', 'OvertimeRequests@destroy')
         ->name('destroy');
 
-    Route::get('approve/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')
+    Route::get('approve/{overtimeRequest}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@approve')
         ->name('approve');
 
-    Route::get('reject/{ref}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@reject')
+    Route::get('reject/{overtimeRequest}/cat/{lvl?}/status/{status?}/via/{via?}', 'OvertimeRequests@reject')
         ->name('reject');
 });
 
