@@ -1,3 +1,3 @@
 @isset($record->reference)
-	<a href="{{ route('request.reject', ['ref' => $record->reference, 'lvl' => '1', 'status' => 'Approved', 'via' => 'online']) }}" target="_blank" title="Reject Request" class="ibm-bold ibm-inlinelink ibm-reset-link ibm-textcolor-green-50" style="color:#ff5050;">Reject</a>
+	{{ link_to_route('request.reject', $title = 'Reject Request', $parameters = ['overtimeRequest' => $record->reference, 'lvl' => '1', 'status' => 'Approved', 'via' => 'online'], $attributes = ['class' => 'ibm-bold ibm-inlinelink ibm-confirm-link ibm-textcolor-red-50', 'style' => 'color:#ff5050;']) }}
 @endisset
