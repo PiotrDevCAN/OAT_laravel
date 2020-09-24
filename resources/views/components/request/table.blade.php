@@ -31,9 +31,7 @@
                 <tr>
                     <td>
                     
-                    {{ dump(Form) }}
-                    
-                    {{ dump(Html) }}
+                    {{ Form::label('test', null, ['class' => 'control-label']) }}
                     
                     {{ link_to('foo/bar', $title = null, $attributes = [], $secure = null) }}
                     
