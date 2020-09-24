@@ -36,24 +36,8 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::get('create', 'OvertimeRequests@create')
         ->name('create');
     
-    // Show the form for editing the specified resource.
-//     Route::get('edit/{ref}', function ($ref) {
-        
-//         $model = OvertimeRequest::findOrFail($ref);
-        
-//         return (new OvertimeRequests())->edit($model);
-//     })
-//     ->name('edit');
-    
-//     Route::get('edit/{ref}', function (OvertimeRequest $overtimeRequest) {
-//         return (new OvertimeRequests())->edit($overtimeRequest);
-//     })->name('edit');
-    
-    
     Route::get('edit/{overtimeRequest}', 'OvertimeRequests@edit')
         ->name('edit');
-    
-    
 });
 
 // Accounts
@@ -67,12 +51,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Show the form for creating a new resource.
     Route::get('create', 'Accounts@create')
         ->name('create');
-        
-    // Show the form for editing the specified resource.
-//     Route::get('edit/{account}/{location}', 'Accounts@edit')
-//         ->name('edit');
-//     });
     
+    // Show the form for editing the specified resource.
     Route::get('edit/{account}/{location}', function (Account $account) {
         return (new Accounts())->edit($account);
     })
@@ -90,9 +70,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->name('create');
         
         // Show the form for editing the specified resource.
-//         Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
-//             ->name('edit');
-        
         Route::get('edit/{user_intranet}/{delegate_intranet}', function (Delegate $delegate) {
             return (new Delegates())->edit($delegate);
         })
@@ -112,9 +89,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->name('create');
         
         // Show the form for editing the specified resource.
-//         Route::get('edit/{competency}/{approver}', 'Competencies@edit')
-//             ->name('edit');
-        
         Route::get('edit/{competency}/{approver}', function (Competency $competency) {
             return (new Competencies)->edit($competency);
         })

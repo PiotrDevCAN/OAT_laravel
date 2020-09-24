@@ -66,6 +66,8 @@ class Competencies extends Controller
 //             ->where('approver', $approver)
 //             ->firstOrFail();
         
+        dump($competency);
+        
         $data = array(
             'record' => $competency
         );
