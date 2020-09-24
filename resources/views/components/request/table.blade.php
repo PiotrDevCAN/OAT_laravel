@@ -74,11 +74,11 @@
                     <td><x-mailto-link :email="$record->requestor"/></td>
                     <td>
                     @isset($record->supercedes)
-	                    <a href="{{ route('request.edit', ['ref' => $record->supercedes]) }}">{{ $record->supercedes }}</a>
+	                    <a href="{{ route('request.edit', ['overtimeRequest' => $record->supercedes]) }}">{{ $record->supercedes }}</a>
                     @endisset
                     <td>
                     @isset($record->supercededby)
-	                    <a href="{{ route('request.edit', ['ref' => $record->supercededby]) }}">{{ $record->supercededby }}</a>
+	                    <a href="{{ route('request.edit', ['overtimeRequest' => $record->supercededby]) }}">{{ $record->supercededby }}</a>
                     @endisset
                     </td>
                     <td>{{ $record->claim_acc_id }}</td>
