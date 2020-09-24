@@ -61,8 +61,15 @@ class Competency extends BaseModel
      * @param  string|null  $field
      * @return \Illuminate\Database\Eloquent\Model|null
      */
-    public function resolveRouteBinding($competency, $approver)
+    public function resolveRouteBinding($value, $field = null)
     {
-        return $this->where('competency', $value)->where('approver', $approver)->firstOrFail();
+        
+        dump($value);
+        
+        dump($field);
+        
+        dd('end');
+        
+        return $this->where($field ?? $this->getRouteKeyName(), $value)->first();
     }
 }
