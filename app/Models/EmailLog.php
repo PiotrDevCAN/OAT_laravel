@@ -14,6 +14,13 @@ class EmailLog extends Model
     protected $table = 'Email_Log';
     
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'record_id';
+    
+    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
@@ -33,6 +40,6 @@ class EmailLog extends Model
      * @var array
      */
     protected $attributes = [
-    //         'delayed' => false,
+//         'delayed' => false,
     ];
 }

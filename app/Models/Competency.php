@@ -53,4 +53,16 @@ class Competency extends BaseModel
                 return [$item->competency => $item->approver];
             });
     }
+    
+    /**
+     * Retrieve the model for a bound value.
+     *
+     * @param  mixed  $value
+     * @param  string|null  $field
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
+    public function resolveRouteBinding($competency, $approver)
+    {
+        return $this->where('competency', $value)->where('approver', $approver)->firstOrFail();
+    }
 }

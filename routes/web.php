@@ -88,10 +88,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('create', 'Competencies@create')
             ->name('create');
         
+//         // Show the form for editing the specified resource.
+//         Route::get('edit/{competency}/{approver}', function (Competency $competency) {
+//             return (new Competencies)->edit($competency);
+//         })
+//         ->name('edit');
+    
         // Show the form for editing the specified resource.
-        Route::get('edit/{competency}/{approver}', function (Competency $competency) {
-            return (new Competencies)->edit($competency);
-        })
+        Route::get('edit/{competency}/{approver}', 'Competencies@edit')
         ->name('edit');
     });
     
