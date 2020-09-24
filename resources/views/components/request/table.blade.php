@@ -30,8 +30,13 @@
                 @foreach ($records as $key => $record)
                 <tr>
                     <td>
+                    
+                    {{ Form::label('test', null, ['class' => 'control-label']) }}
+                    
+                    {{ link_to('foo/bar', $title = null, $attributes = [], $secure = null) }}
+                    
                     @isset($record->reference)
-                    	<a href="{{ route('request.edit', ['ref' => $record->reference]) }}">{{ $record->reference }}</a>
+                    	<a href="{{ route('request.edit', ['overtimeRequest' => $record->reference]) }}">{{ $record->reference }}</a>
                     @endisset
                     </td>
                     <td class="ibm-bold">
