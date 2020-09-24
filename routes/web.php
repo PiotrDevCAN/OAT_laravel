@@ -50,7 +50,7 @@ Route::prefix('request')->name('request.')->group(function () {
 //     })->name('edit');
     
     
-    Route::get('edit/{ref}', 'OvertimeRequests@create')
+    Route::get('edit/{ref}', 'OvertimeRequests@edit')
         ->name('edit');
     
     
