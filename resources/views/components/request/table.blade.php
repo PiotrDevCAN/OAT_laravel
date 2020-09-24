@@ -30,6 +30,13 @@
                 @foreach ($records as $key => $record)
                 <tr>
                     <td>
+                    
+                    {{ dump(Form) }}
+                    
+                    {{ dump(Html) }}
+                    
+                    {{ link_to('foo/bar', $title = null, $attributes = [], $secure = null) }}
+                    
                     @isset($record->reference)
                     	<a href="{{ route('request.edit', ['ref' => $record->reference]) }}">{{ $record->reference }}</a>
                     @endisset
