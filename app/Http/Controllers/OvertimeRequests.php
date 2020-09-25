@@ -176,14 +176,12 @@ class OvertimeRequests extends Controller
             'allWeekends' => $allWeekends
         );
         
-        
         // Edit request...
         
         Mail::to('piotr.tajanowicz@ibm.com')
 //             ->cc($moreUsers)
 //             ->bcc($evenMoreUsers)
             ->send(new OvertimeRequestSubmitted($overtimeRequest));
-        
         
         return view('components.request.edit', $data);
     }

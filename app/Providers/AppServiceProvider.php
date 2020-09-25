@@ -8,6 +8,15 @@ use App\View\Components\IbmV18Form\Select;
 use App\View\Components\IbmV18Form\Textarea;
 use Illuminate\Support\Facades\Blade;
 use App\View\Components\IbmV18Form\Button;
+use App\Observers\OvertimeRequestObserver;
+use App\Models\OvertimeRequest;
+use App\Models\Account;
+use App\Models\Competency;
+use App\Models\Delegate;
+use App\Models\Log;
+use App\Observers\CompetencyObserver;
+use App\Observers\DelegateObserver;
+use App\Observers\LogObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +37,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Account::observe(OvertimeRequestObserver::class);
+        Competency::observe(CompetencyObserver::class);
+        Delegate::observe(DelegateObserver::class);
+        Log::observe(LogObserver::class);
+        OvertimeRequest::observe(OvertimeRequestObserver::class);
+        
         Blade::component('ibmv18form-input', Input::class);
         Blade::component('ibmv18form-select', Select::class);
         Blade::component('ibmv18form-textarea', Textarea::class);
