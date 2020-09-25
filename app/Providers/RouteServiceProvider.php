@@ -33,6 +33,14 @@ class RouteServiceProvider extends ServiceProvider
         Route::pattern('ref', '[0-9]+');
 
         parent::boot();
+        
+        Route::bind('delegate', function ($value, $value2) {
+            
+            dump($value);
+            dump($value);
+            
+            return App\Models\Delegate::where('user_intranet', $value1)->where('delegate_intranet', $value2)->firstOrFail();
+        });
     }
 
     /**
