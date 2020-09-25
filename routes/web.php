@@ -9,6 +9,7 @@ use App\Models\Account;
 use App\Http\Controllers\Accounts;
 use App\Models\Competency;
 use App\Http\Controllers\Competencies;
+use App\Mail\OvertimeRequestSubmitted;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,7 +116,7 @@ Route::prefix('access')->name('access.')->group(function () {
 //     return new App\Mail\OvertimeRequestSubmitted($request);
 // });
 
-Route::get('mailable\request\{overtimeRequest}', 'App\Mail\OvertimeRequestSubmitted@build');
+Route::get('mailable\request\{overtimeRequest}', 'OvertimeRequestSubmitted@build');
 
 // Legacy links
 Route::redirect('/index.html', '/');
