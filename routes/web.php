@@ -70,10 +70,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->name('create');
         
         // Show the form for editing the specified resource.
-        Route::get('edit/{user_intranet}/{delegate_intranet}', function (Delegate $delegate) {
-            return (new Delegates())->edit($delegate);
-        })
-        ->name('edit');
+//         Route::get('edit/{user_intranet}/{delegate_intranet}', function (Delegate $delegate) {
+//             return (new Delegates())->edit($delegate);
+//         })
+//         ->name('edit');
+        
+        Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegate@edit')
+            ->name('edit');
         
         Route::get('my', 'Delegates@my')
             ->name('my');
