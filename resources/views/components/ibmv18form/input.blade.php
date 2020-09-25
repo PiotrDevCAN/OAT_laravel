@@ -1,6 +1,6 @@
 <p class="ibm-form-elem-grp">
-    {{ Form::label($name, $label) }}
+    {{ Form::label($fieldName, $label) }}
     <span>
-    	{{ Form::text($label, $selectedValue, $attributes = ['te' => 'tt']) }}
+    	{{ Form::text($fieldName, $selectedValue, $attributes = ['te' => 'tt']) }}
     </span>
 </p>
