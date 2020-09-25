@@ -116,7 +116,7 @@ Route::prefix('access')->name('access.')->group(function () {
 //     return new App\Mail\OvertimeRequestSubmitted($request);
 // });
 
-Route::get('mailable\request\{overtimeRequest}', 'OvertimeRequestSubmitted@build');
+Route::get('mailable/request/{overtimeRequest}', 'OvertimeRequestSubmitted@build');
 
 // Legacy links
 Route::redirect('/index.html', '/');
