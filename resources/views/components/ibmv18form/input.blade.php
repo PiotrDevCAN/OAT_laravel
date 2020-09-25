@@ -1,6 +1,6 @@
 <p class="ibm-form-elem-grp">
-	<label for="{{ $label }}">{{ $label }}</label>
-	<span>
-	    <input type="text" value="{{ $selectedValue }}" size="40" name="{{ $label }}" @isset($placeholder) placeholder="{{ $placeholder }}" @endisset @if($disabled == true) disabled @endif>
+    {{ Form::label($name, $label) }}
+    <span>
+    	{{ Form::text('$label, $selectedValue, $attributes = ['te' => 'tt']) }}
     </span>
 </p>
