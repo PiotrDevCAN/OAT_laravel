@@ -53,10 +53,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->name('create');
     
     // Show the form for editing the specified resource.
-    Route::get('edit/{account}/{location}', function (Account $account) {
-        return (new Accounts())->edit($account);
-    })
-    ->name('edit');
+    Route::get('edit/{account}', 'Accounts@edit')
+        ->name('edit');
 
     });
     
@@ -75,10 +73,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 //         })
 //         ->name('edit');
         
-//         Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
-        Route::get('edit/{delegate}/{delegate_intranet}', 'Delegates@edit')
+//         Route::get('edit/{delegate}', 'Delegates@edit')
+//             ->name('edit');
+        Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
             ->name('edit');
-        
+            
         Route::get('my', 'Delegates@my')
             ->name('my');
     });
@@ -92,14 +91,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('create', 'Competencies@create')
             ->name('create');
         
-//         // Show the form for editing the specified resource.
-//         Route::get('edit/{competency}/{approver}', function (Competency $competency) {
-//             return (new Competencies)->edit($competency);
-//         })
-//         ->name('edit');
-    
         // Show the form for editing the specified resource.
-        Route::get('edit/{competency}/{approver}', 'Competencies@edit')
+        Route::get('edit/{competency}', 'Competencies@edit')
             ->name('edit');
     });
     

@@ -63,14 +63,16 @@ class Delegates extends Controller
      * @param  Delegate $delegate
      * @return \Illuminate\Http\Response
      */
-    public function edit(Delegate $delegate)
+    public function edit(Delegate $delegate, $user_intranet, $delegate_intranet)
     {
+        $model = $delegate->whereUserIntranet($user_intranet)->whereDelegateIntranet($delegate_intranet)->first();
+        
 //         $model = Delegate::where('user_intranet', $user_intranet)
 //             ->where('delegate_intranet', $delegate_intranet)
 //             ->firstOrFail();
         
         $data = array(
-            'record' => $delegate
+            'record' => $model
         );
         
         return view('components.delegate.edit', $data);
