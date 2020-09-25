@@ -108,6 +108,15 @@ Route::prefix('access')->name('access.')->group(function () {
         ->name('my');
 });
 
+// Mailables preview
+// Route::get('mailable\request\{overtimeRequest}', function () {
+//     $request = App\Models\OvertimeRequest::find(1);
+    
+//     return new App\Mail\OvertimeRequestSubmitted($request);
+// });
+
+Route::get('mailable\request\{overtimeRequest}', 'App\Mail\OvertimeRequestSubmitted@build');
+
 // Legacy links
 Route::redirect('/index.html', '/');
 Route::get('/p_admin.php', 'Index@admin');

@@ -3,6 +3,10 @@
 namespace App\Observers;
 
 use App\Models\OvertimeRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OvertimeRequestCreated;
+use App\Mail\OvertimeRequestUpdated;
+use App\Mail\OvertimeRequestDeleted;
 
 class OvertimeRequestObserver
 {
@@ -14,7 +18,10 @@ class OvertimeRequestObserver
      */
     public function created(OvertimeRequest $OvertimeRequest)
     {
-        //
+        Mail::to('piotr.tajanowicz@ibm.com')
+        //             ->cc($moreUsers)
+        //             ->bcc($evenMoreUsers)
+        ->send(new OvertimeRequestCreated($overtimeRequest));
     }
 
     /**
@@ -25,7 +32,10 @@ class OvertimeRequestObserver
      */
     public function updated(OvertimeRequest $OvertimeRequest)
     {
-        //
+        Mail::to('piotr.tajanowicz@ibm.com')
+        //             ->cc($moreUsers)
+        //             ->bcc($evenMoreUsers)
+        ->send(new OvertimeRequestUpdated($overtimeRequest));
     }
 
     /**
@@ -36,7 +46,10 @@ class OvertimeRequestObserver
      */
     public function deleted(OvertimeRequest $OvertimeRequest)
     {
-        //
+        Mail::to('piotr.tajanowicz@ibm.com')
+        //             ->cc($moreUsers)
+        //             ->bcc($evenMoreUsers)
+        ->send(new OvertimeRequestDeleted($overtimeRequest));
     }
 
     /**

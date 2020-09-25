@@ -6,27 +6,19 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Models\OvertimeRequest;
 
-class OvertimeRequestSubmitted extends Mailable
+class OvertimeRequestDeleted extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * The request instance.
-     *
-     * @var OvertimeRequest
-     */
-    public $request;
-    
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(OvertimeRequest $overtimeRequest)
+    public function __construct()
     {
-        $this->request = $overtimeRequest;
+        //
     }
 
     /**
@@ -36,6 +28,6 @@ class OvertimeRequestSubmitted extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.request.submitted');
+        return $this->view('emails.request.deleted');
     }
 }
