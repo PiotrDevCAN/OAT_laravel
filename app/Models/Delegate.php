@@ -54,6 +54,7 @@ class Delegate extends BaseModel
     public function resolveRouteBinding($value, $field = null)
     {
         
+        
         dump($value);
         
         dump($field);
