@@ -19,7 +19,7 @@ class Textarea extends Component
      */
     public function __construct($fieldName, $value = null, $label = '')
     {
-        $this->fieldName = $field-name;
+        $this->fieldName = $fieldName;
         $this->value = $value;
         $this->options = array();
         $this->label = $label;
