@@ -13,13 +13,13 @@
                 {{ Form::open(['route' => [Route::currentRouteName(), $record->account, $record->location], 'id' => 'record', 'class'  => 'ibm-column-form' ]) }}
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                            <x-ibmv18form-input field-name="LOCATION" label="Location"/>
+                            <x-ibmv18form-input field-name="LOCATION" label="Location" :selectedValue="$record->location"/>
                     	    
-                    	    <x-ibmv18form-input field-name="ACCOUNT" label="Account Name"/>
+                    	    <x-ibmv18form-input field-name="ACCOUNT" label="Account Name" :selectedValue="$record->account"/>
                     	    
-                    	    <x-ibmv18form-input field-name="VARIFIED" label="Verified"/>
+                    	    <x-ibmv18form-input field-name="VARIFIED" label="Verified" :selectedValue="$record->verified"/>
                     	    
-                    	    <x-ibmv18form-input field-name="APPROVER_NAME" label="Account Approver"/>
+                    	    <x-ibmv18form-input field-name="APPROVER" label="Account Approver" :selectedValue="$record->approver"/>
                         </div>
                     </div>
             		<div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>

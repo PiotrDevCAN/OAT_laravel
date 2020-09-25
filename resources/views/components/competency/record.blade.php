@@ -16,10 +16,6 @@
                             <x-ibmv18form-input field-name="COMPETENCY" label="Service Line" :selectedValue="$record->competency"/>
                     	    
                     	    <x-ibmv18form-input field-name="APPROVER" label="Approver" :selectedValue="$record->approver"/>
-                    	    
-                    	    <x-ibmv18form-input field-name="Last_Updater" label="Last Updater" :selectedValue="$record->last_updater"/>
-                    	    
-                    	    <x-ibmv18form-input field-name="Last_Updated" label="Last Updated" :selectedValue="$record->last_updated"/>
                         </div>
                     </div>
             		<div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>

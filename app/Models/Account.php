@@ -12,8 +12,8 @@ class Account extends BaseModel
      *
      * @var string
      */
-//     protected $table = 'Account_Approvers';
-    protected $table = 'Account_Approvers_Test';
+    protected $table = 'Account_Approvers';
+//     protected $table = 'Account_Approvers_Test';
     
     /**
      * The primary key associated with the table.
