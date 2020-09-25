@@ -31,7 +31,7 @@
                 <tr>
                     <td>
                     @isset($record->reference)
-                    	{{ link_to_route('request.edit', $title = $record->reference, $parameters = ['overtimeRequest' => $record->reference], $attributes = []) }}
+                    	{{ link_to_route('request.edit', $title = $record->reference, ['overtimeRequest' => $record->reference], $attributes = []) }}
                     @endisset
                     </td>
                     <td class="ibm-bold">
@@ -69,11 +69,11 @@
                     <td><x-mailto-link :email="$record->requestor"/></td>
                     <td>
                     @isset($record->supercedes)
-                    	{{ link_to_route('request.edit', $title = $record->supercedes, $parameters = ['overtimeRequest' => $record->supercedes], $attributes = []) }}
+                    	{{ link_to_route('request.edit', $title = $record->supercedes, ['overtimeRequest' => $record->supercedes], $attributes = []) }}
                     @endisset
                     <td>
                     @isset($record->supercededby)
-                   		{{ link_to_route('request.edit', $title = $record->supercededby, $parameters = ['overtimeRequest' => $record->supercededby], $attributes = []) }}
+                   		{{ link_to_route('request.edit', $title = $record->supercededby, ['overtimeRequest' => $record->supercededby], $attributes = []) }}
                     @endisset
                     </td>
                     <td>{{ $record->claim_acc_id }}</td>

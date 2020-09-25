@@ -17,7 +17,7 @@
                 <tr>
                     <td><p class="ibm-ind-link ibm-icononly ibm-nospacing">
                     @isset($record->account)
-                    	{{ link_to_route('admin.account.edit', $title = '', $parameters = ['account' => Str::of($record->account)->trim(), 'location' => Str::of($record->location)->trim()], $attributes = ['class' => 'ibm-edit-link']) }}
+                    	{{ link_to_route('admin.account.edit', $title = '', ['account_name' => Str::of($record->account)->trim(), 'location' => Str::of($record->location)->trim()], $attributes = ['class' => 'ibm-edit-link']) }}
                     @endisset
                     </p></td>
                     <td>{{ $record->account }}</td>
