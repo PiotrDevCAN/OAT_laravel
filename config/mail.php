@@ -88,6 +88,11 @@ return [
         'name' => env('MAIL_FROM_NAME', 'OAT_Mailer'),
     ],
 
+    'reply_to' => [
+        'address' => 'example@example.com', 
+        'name' => 'App Name'
+    ],
+    
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
