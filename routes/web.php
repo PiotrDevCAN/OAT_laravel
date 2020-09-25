@@ -99,7 +99,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     
         // Show the form for editing the specified resource.
         Route::get('edit/{competency}/{approver}', 'Competencies@edit')
-        ->name('edit');
+            ->name('edit');
     });
     
     // Logs
