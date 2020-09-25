@@ -75,7 +75,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 //         })
 //         ->name('edit');
         
-        Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegate@edit')
+        Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
             ->name('edit');
         
         Route::get('my', 'Delegates@my')
