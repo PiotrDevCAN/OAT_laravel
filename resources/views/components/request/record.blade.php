@@ -51,16 +51,7 @@
                 	</div>
                 	<div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="DETAILS">Details of overtime activity <span class="ibm-required"></span></label>
-                                <span>
-                                    <textarea type="text" rows="10" cols="100" id="DETAILS" name="details">
-                                    @isset($record)
-                                		{{ $record->details }}
-                                    @endisset
-                                    </textarea>
-                                </span>
-                            </p>
+                            <x-ibmv18form-textarea field-name="title" :value="$record->details" label="Title"/>
                         </div>
                 	</div>
                 	<div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>

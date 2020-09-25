@@ -6,32 +6,26 @@ use Illuminate\View\Component;
 
 class Textarea extends Component
 {
-    
-    public $accounts;
-    public $reasons;
-    public $names;
-    public $types;
-    
-    public $serviceLines;
-    public $statuses;
-    public $requestors;
-    public $locations;
-    
-    public $weekenddates;
-    public $imports;
-    
-    public $firstApprovers;
-    public $secondApprovers;
-    public $thirdApprovers;
+    public $fieldName;
+    public $value;
+    public $options;
+    public $label;
+    public $labelOptions;
     
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($fieldName, $value = null, $label = '')
     {
-        //
+        $this->fieldName = $field-name;
+        $this->value = $value;
+        $this->options = array();
+        $this->label = $label;
+        $this->labelOptions = array(
+            'class' => 'ibm-column-field-label ibm-bold'
+        );
     }
 
     /**
