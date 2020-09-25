@@ -36,6 +36,6 @@ class OvertimeRequestSubmitted extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.request.submitted');
+        return $this->markdown('emails.request.submitted');
     }
 }
