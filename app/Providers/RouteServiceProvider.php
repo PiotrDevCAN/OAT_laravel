@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
             dump($value);
             dump($value);
             
-            return App\Models\Delegate::where('user_intranet', $value1)->where('delegate_intranet', $value2)->firstOrFail();
+            return \App\Models\Delegate::where('user_intranet', $value1)->where('delegate_intranet', $value2)->firstOrFail();
         });
     }
 
