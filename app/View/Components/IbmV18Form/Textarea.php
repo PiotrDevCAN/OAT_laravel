@@ -21,7 +21,14 @@ class Textarea extends Component
     {
         $this->fieldName = $fieldName;
         $this->value = $value;
-        $this->options = array();
+        $this->options = array(
+            'rows' => '50',
+            'cols' => '30',
+            'class' => 'form-control', 
+            'id' => $fieldName,
+            'maxLength' => '500',
+            'placeholder' => null
+        );
         $this->label = $label;
         $this->labelOptions = array(
             'class' => 'ibm-column-field-label ibm-bold'
