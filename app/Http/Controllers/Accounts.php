@@ -56,7 +56,9 @@ class Accounts extends Controller
     {
         $model = new Account();
         
-        $data = array();
+        $data = array(
+            'record' => $model
+        );
         
         return view('components.account.create', $data);
     }

@@ -52,7 +52,9 @@ class Delegates extends Controller
     {
         $model = new Delegate();
         
-        $data = array();
+        $data = array(
+            'record' => $model
+        );
         
         return view('components.delegate.create', $data);
     }

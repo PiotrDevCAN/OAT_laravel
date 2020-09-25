@@ -49,7 +49,9 @@ class Competencies extends Controller
     {
         $model = new Competency();
         
-        $data = array();
+        $data = array(
+            'record' => $model
+        );
         
         return view('components.competency.create', $data);
     }
