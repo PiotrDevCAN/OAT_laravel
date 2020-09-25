@@ -51,7 +51,7 @@
                 	</div>
                 	<div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                            <x-ibmv18form-textarea field-name="title" :value="$record->details" label="Title"/>
+                            <x-ibmv18form-textarea field-name="details" :value="$record->details" label="Details of overtime activity"/>
                         </div>
                 	</div>
                 	<div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
