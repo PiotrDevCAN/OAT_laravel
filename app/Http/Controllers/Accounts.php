@@ -67,14 +67,14 @@ class Accounts extends Controller
      * @param  Account $account
      * @return \Illuminate\Http\Response
      */
-    public function edit(Account $account)
+    public function edit(Account $account, $account_name, $location)
     {
-//         $model = Account::where('account', $account)
-//             ->where('location', $location)
-//             ->firstOrFail();
+        $model = $delegate->whereAccount($account_name)
+            ->whereLocation($location)
+            ->firstOrFail();
         
         $data = array(
-            'record' => $account
+            'record' => $model
         );
         
         return view('components.account.edit', $data);

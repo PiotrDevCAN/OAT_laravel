@@ -65,11 +65,9 @@ class Delegates extends Controller
      */
     public function edit(Delegate $delegate, $user_intranet, $delegate_intranet)
     {
-        $model = $delegate->whereUserIntranet($user_intranet)->whereDelegateIntranet($delegate_intranet)->first();
-        
-//         $model = Delegate::where('user_intranet', $user_intranet)
-//             ->where('delegate_intranet', $delegate_intranet)
-//             ->firstOrFail();
+        $model = $delegate->whereUserIntranet($user_intranet)
+            ->whereDelegateIntranet($delegate_intranet)
+            ->firstOrFail();
         
         $data = array(
             'record' => $model

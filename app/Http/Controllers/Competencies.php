@@ -60,16 +60,14 @@ class Competencies extends Controller
      * @param  Competency $competency
      * @return \Illuminate\Http\Response
      */
-    public function edit(Competency $competency)
+    public function edit(Competency $competency, $competency_name, $approver)
     {
-//         $model = Competency::where('competency', $competency)
-//             ->where('approver', $approver)
-//             ->firstOrFail();
-        
-        dump($competency);
+        $model = $competency->whereCompetency($competency_name)
+            ->whereApprover($approver)
+            ->firstOrFail();
         
         $data = array(
-            'record' => $competency
+            'record' => $model
         );
         
         return view('components.competency.edit', $data);
