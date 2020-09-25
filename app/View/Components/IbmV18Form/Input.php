@@ -11,7 +11,7 @@ class Input extends Component
     public $selectedValue;
     public $disabled;
     public $placeholder;
-    public $attributes;
+    public $options;
     
     /**
      * Create a new component instance.
@@ -26,7 +26,7 @@ class Input extends Component
         $this->selectedValue = $selectedValue;
         $this->disabled = $disabled;
         $this->placeholder = $placeholder;
-        $this->attributes = array(
+        $this->options = array(
             'size' => '40',
             'placeholder' => $placeholder,
             'disabled' => $disabled
