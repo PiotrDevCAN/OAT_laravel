@@ -1,10 +1,10 @@
 @component('mail::message')
-# Order Shipped
+# Overtime Request Submitted
 
-Your order has been shipped!
+Your request has been submitted!
 
 @component('mail::button', ['url' => $url])
-View Order
+View Request
 @endcomponent
 
 @component('mail::panel')
