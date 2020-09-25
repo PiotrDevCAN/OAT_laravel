@@ -36,6 +36,10 @@ class OvertimeRequestSubmitted extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.request.submitted');
+        $data = array(
+            'url' => 'link_some_page'
+        );
+        
+        return $this->markdown('emails.request.submitted', $data);
     }
 }
