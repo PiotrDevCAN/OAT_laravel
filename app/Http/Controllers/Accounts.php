@@ -71,7 +71,7 @@ class Accounts extends Controller
      */
     public function edit(Account $account, $account_name, $location)
     {
-        $model = $delegate->whereAccount($account_name)
+        $model = $account->whereAccount($account_name)
             ->whereLocation($location)
             ->firstOrFail();
         
