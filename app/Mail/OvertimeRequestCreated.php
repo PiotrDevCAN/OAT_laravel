@@ -15,4 +15,11 @@ class OvertimeRequestCreated extends OvertimeRequestBase
     {
         return $this->markdown('emails.request.created');
     }
+    
+    public function preRender(OvertimeRequest $overtimeRequest)
+    {
+        parent::preRender($overtimeRequest);
+        
+        $this->render();
+    }
 }
