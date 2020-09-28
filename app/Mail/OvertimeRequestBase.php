@@ -14,6 +14,12 @@ class OvertimeRequestBase extends Mailable
     
     public $requestEditUrl;
     
+    public function render(OvertimeRequest $overtimeRequest)
+    {
+        dump('call OvertimeRequestBase RENDER');
+        dump($overtimeRequest->reference);
+    }
+    
     /**
      * Build the message.
      *
@@ -21,7 +27,7 @@ class OvertimeRequestBase extends Mailable
      */
     public function build(OvertimeRequest $overtimeRequest)
     {
-        dump('call OvertimeRequestBase');
+        dump('call OvertimeRequestBase BUILD');
         dump($overtimeRequest->reference);
         
         $this->requestEditUrl = route('request.edit', ['overtimeRequest' => '153325']);
