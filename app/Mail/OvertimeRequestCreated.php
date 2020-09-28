@@ -18,7 +18,7 @@ class OvertimeRequestCreated extends OvertimeRequestBase
     
     public function preRender(OvertimeRequest $overtimeRequest)
     {
-        parent::preRender($overtimeRequest);
+        $this->preRender($overtimeRequest);
         
         $this->render();
     }
