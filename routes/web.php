@@ -41,47 +41,33 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('edit');
     
     // Mailables preview
-        
-//         Route::get('created/{overtimeRequest}/mailable', function ($overtimeRequest) {
-    Route::get('created/{overtimeRequest}/mailable', function (App\Models\OvertimeRequest $overtimeRequest) {
-//             $request = App\Models\OvertimeRequest::find($overtimeRequest);
-            
+    Route::get('created/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
             return new App\Mail\OvertimeRequestCreated($overtimeRequest);
         })
         ->name('createdMailable');
     
-    Route::get('deleted/{overtimeRequest}/mailable', function ($overtimeRequest) {
-            $request = App\Models\OvertimeRequest::find($overtimeRequest);
-            
-            return new App\Mail\OvertimeRequestDeleted($request);
+    Route::get('deleted/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+            return new App\Mail\OvertimeRequestDeleted($overtimeRequest);
         })
         ->name('deletedMailable');
     
-    Route::get('submitted/{overtimeRequest}/mailable', function ($overtimeRequest) {
-            $request = App\Models\OvertimeRequest::find($overtimeRequest);
-            
-            return new App\Mail\OvertimeRequestSubmitted($request);
+    Route::get('submitted/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+            return new App\Mail\OvertimeRequestSubmitted($overtimeRequest);
         })
         ->name('submittedMailable');
     
-    Route::get('updated/{overtimeRequest}/mailable', function ($overtimeRequest) {
-            $request = App\Models\OvertimeRequest::find($overtimeRequest);
-            
-            return new App\Mail\OvertimeRequestUpdated($request);
+    Route::get('updated/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+            return new App\Mail\OvertimeRequestUpdated($overtimeRequest);
         })
         ->name('updatedMailable');
     
-    Route::get('approved/{overtimeRequest}/mailable', function ($overtimeRequest) {
-            $request = App\Models\OvertimeRequest::find($overtimeRequest);
-            
-            return new App\Mail\OvertimeRequestApproved($request);
+    Route::get('approved/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+            return new App\Mail\OvertimeRequestApproved($overtimeRequest);
         })
         ->name('approvedMailable');
         
-    Route::get('rejected/{overtimeRequest}/mailable', function ($overtimeRequest) {
-            $request = App\Models\OvertimeRequest::find($overtimeRequest);
-            
-            return new App\Mail\OvertimeRequestRejected($request);
+        Route::get('rejected/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+            return new App\Mail\OvertimeRequestRejected($overtimeRequest);
         })
         ->name('rejectedMailable');
 });
