@@ -11,8 +11,10 @@ class OvertimeRequestUpdated extends OvertimeRequestBase
      *
      * @return $this
      */
-    public function build(OvertimeRequest $overtimeRequest)
+    public function build()
     {
+        parent::render();
+        
         return $this->markdown('emails.request.updated');
     }
 }

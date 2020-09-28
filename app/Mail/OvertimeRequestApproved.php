@@ -11,7 +11,7 @@ class OvertimeRequestApproved extends OvertimeRequestBase
      *
      * @return $this
      */
-    public function build(OvertimeRequest $overtimeRequest)
+    public function build()
     {
         return $this->markdown('emails.request.approved');
     }
