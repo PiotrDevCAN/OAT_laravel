@@ -14,10 +14,10 @@ class OvertimeRequestBase extends Mailable
     
     public $requestEditUrl;
     
-    public function render(OvertimeRequest $overtimeRequest)
+    public function render()
     {
         dump('call OvertimeRequestBase RENDER');
-        dump($overtimeRequest->reference);
+//         dump($overtimeRequest->reference);
     }
     
     /**
