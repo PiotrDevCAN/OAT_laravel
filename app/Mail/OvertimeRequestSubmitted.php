@@ -13,8 +13,6 @@ class OvertimeRequestSubmitted extends OvertimeRequestBase
      */
     public function build(OvertimeRequest $overtimeRequest)
     {
-        parent::build($overtimeRequest);
-        
         return $this->markdown('emails.request.submitted');
     }
 }
