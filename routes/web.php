@@ -41,22 +41,22 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('edit');
     
     // Mailables preview
-    Route::get('created/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestCreated@__construct')
+    Route::get('created/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestCreated@preRender')
         ->name('createdMailable');
     
-    Route::get('deleted/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestDeleted@__construct')
+    Route::get('deleted/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestDeleted@preRender')
         ->name('deletedMailable');
     
-    Route::get('submitted/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestSubmitted@__construct')
+    Route::get('submitted/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestSubmitted@preRender')
         ->name('submittedMailable');
     
-    Route::get('updated/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestUpdated@__construct')
+    Route::get('updated/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestUpdated@preRender')
         ->name('updatedMailable');
     
-    Route::get('approved/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestApproved@__construct')
+    Route::get('approved/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestApproved@preRender')
         ->name('approvedMailable');
         
-    Route::get('rejected/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestRejected@__construct')
+    Route::get('rejected/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestRejected@preRender')
         ->name('rejectedMailable');
 });
 

@@ -15,29 +15,11 @@ class OvertimeRequestBase extends Mailable
     public $requestEditUrl;
     
     /**
-     * The order instance.
-     *
-     * @var Request
-     */
-    public $request;
-    
-    /**
-     * Create a new message instance.
-     *
-     * @param  \App\Model\OvertimeRequest  $overtimeRequest
-     * @return void
-     */
-    public function __construct(OvertimeRequest $overtimeRequest)
-    {
-        $this->request = $overtimeRequest;
-    }
-    
-    /**
      * Build the message.
      *
      * @return $this
      */
-    public function build(OvertimeRequest $overtimeRequest)
+    public function preRender(OvertimeRequest $overtimeRequest)
     {
         $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $this->request->reference]);
     }
