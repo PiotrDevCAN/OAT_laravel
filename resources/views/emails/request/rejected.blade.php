@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('emails.layout')
 
 @section('message')
 	# Overtime Request Rejected
