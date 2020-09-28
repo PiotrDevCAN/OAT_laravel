@@ -22,5 +22,7 @@ class OvertimeRequestBase extends Mailable
     public function preRender(OvertimeRequest $overtimeRequest)
     {
         $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $overtimeRequest->reference]);
+        
+        $this->render();
     }
 }
