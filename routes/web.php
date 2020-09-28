@@ -10,11 +10,6 @@ use App\Http\Controllers\Accounts;
 use App\Models\Competency;
 use App\Http\Controllers\Competencies;
 
-use App\Mail\OvertimeRequestCreated;
-use App\Mail\OvertimeRequestDeleted;
-use App\Mail\OvertimeRequestSubmitted;
-use App\Mail\OvertimeRequestUpdated;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,13 +41,13 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('edit');
     
     // Mailables preview
-    Route::get('request/{overtimeRequest}/mailable/created', 'OvertimeRequestCreated@build');
+    Route::get('request/{overtimeRequest}/mailable/created', '\App\Mail\OvertimeRequestCreated@build');
     
-    Route::get('request/{overtimeRequest}/mailable/deleted', 'OvertimeRequestDeleted@build');
+    Route::get('request/{overtimeRequest}/mailable/deleted', '\App\Mail\OvertimeRequestDeleted@build');
     
-    Route::get('request/{overtimeRequest}/mailable/submitted', 'OvertimeRequestSubmitted@build');
+    Route::get('request/{overtimeRequest}/mailable/submitted', '\App\Mail\OvertimeRequestSubmitted@build');
     
-    Route::get('request/{overtimeRequest}/mailable/updated', 'OvertimeRequestUpdated@build');
+    Route::get('request/{overtimeRequest}/mailable/updated', '\App\Mail\OvertimeRequestUpdated@build');
 });
 
 // Accounts
