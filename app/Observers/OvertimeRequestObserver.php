@@ -9,7 +9,24 @@ use App\Mail\OvertimeRequestUpdated;
 use App\Mail\OvertimeRequestDeleted;
 
 class OvertimeRequestObserver
-{
+{    
+//     retrieved
+
+//     creating
+//     created
+
+//     updating
+//     updated
+
+//     saving
+//     saved
+
+//     deleting
+//     deleted
+
+//     restoring
+//     restored
+    
     /**
      * Handle the obvertime request "created" event.
      *
@@ -50,27 +67,5 @@ class OvertimeRequestObserver
         //             ->cc($moreUsers)
         //             ->bcc($evenMoreUsers)
         ->send(new OvertimeRequestDeleted($overtimeRequest));
-    }
-
-    /**
-     * Handle the obvertime request "restored" event.
-     *
-     * @param  \App\Models\OvertimeRequest  $OvertimeRequest
-     * @return void
-     */
-    public function restored(OvertimeRequest $OvertimeRequest)
-    {
-        //
-    }
-
-    /**
-     * Handle the obvertime request "force deleted" event.
-     *
-     * @param  \App\Models\OvertimeRequest  $OvertimeRequest
-     * @return void
-     */
-    public function forceDeleted(OvertimeRequest $OvertimeRequest)
-    {
-        //
     }
 }
