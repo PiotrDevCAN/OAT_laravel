@@ -41,7 +41,7 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('edit');
     
     // Mailables preview
-    Route::get('created/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestCreated')
+    Route::get('created/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestCreated@build')
         ->name('createdMailable');
     
     Route::get('deleted/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestDeleted@build')
