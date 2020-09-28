@@ -32,7 +32,39 @@ class OvertimeRequest extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'requestor',
+        'requested',
+        'competency',
+        'approvaltype',
+        'title',
+        'account',
+        'weekenddate',
+        'nature',
+        'details',
+        'worker',
+        'serial',
+        'hours',
+        'status',
+        'rejection',
+        'supercedes',
+        'supercededby',
+        'claim_acc_id',
+        'approver_first_level',
+        'approver_first_level_ts',
+        'approver_second_level',
+        'approver_second_level_ts',
+        'approver_third_level',
+        'approver_third_level_ts',
+        'location',
+        'recoverable',
+        'delete_flag',
+        'created_ts',
+        'import',
+        'approval_first_level_via',
+        'approval_second_level_via',
+        'approval_third_level_via'
+    ];
     
     /**
      * The connection name for the model.
