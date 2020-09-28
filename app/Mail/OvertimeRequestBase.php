@@ -30,6 +30,6 @@ class OvertimeRequestBase extends Mailable
     {
         $this->request = $overtimeRequest;
         
-        $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $this->request->reference]);
+        $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $overtimeRequest]);
     }
 }
