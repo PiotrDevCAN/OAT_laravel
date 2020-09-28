@@ -41,48 +41,42 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('edit');
     
     // Mailables preview
-//     Route::get('created/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestCreated@preRender')
-//         function () {
-//             $invoice = App\Invoice::find(1);
+    Route::get('created/{overtimeRequest}/mailable', function ($overtimeRequest) {
+            $request = App\Models\OvertimeRequest::find($overtimeRequest);
             
-//             return new App\Mail\InvoicePaid($invoice);
-//         })
-//         ->name('createdMailable');
+            return new App\Mail\OvertimeRequestCreated($request);
+        })
+        ->name('createdMailable');
     
-//     Route::get('deleted/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestDeleted@preRender')
-//         function () {
-//             $invoice = App\Invoice::find(1);
+    Route::get('deleted/{overtimeRequest}/mailable', function ($overtimeRequest) {
+            $request = App\Models\OvertimeRequest::find($overtimeRequest);
             
-//             return new App\Mail\InvoicePaid($invoice);
-//         })
-//         ->name('deletedMailable');
+            return new App\Mail\OvertimeRequestDeleted($request);
+        })
+        ->name('deletedMailable');
     
-//     Route::get('submitted/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestSubmitted@preRender')
-//         function () {
-//             $invoice = App\Invoice::find(1);
+    Route::get('submitted/{overtimeRequest}/mailable', function ($overtimeRequest) {
+            $request = App\Models\OvertimeRequest::find($overtimeRequest);
             
-//             return new App\Mail\InvoicePaid($invoice);
-//         })
-//         ->name('submittedMailable');
+            return new App\Mail\OvertimeRequestSubmitted($request);
+        })
+        ->name('submittedMailable');
     
-//     Route::get('updated/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestUpdated@preRender')
-//         function () {
-//             $invoice = App\Invoice::find(1);
+    Route::get('updated/{overtimeRequest}/mailable', function ($overtimeRequest) {
+            $request = App\Models\OvertimeRequest::find($overtimeRequest);
             
-//             return new App\Mail\InvoicePaid($invoice);
-//         })
-//         ->name('updatedMailable');
+            return new App\Mail\OvertimeRequestUpdated($request);
+        })
+        ->name('updatedMailable');
     
-//     Route::get('approved/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestApproved@preRender')
-//         function () {
-//             $invoice = App\Invoice::find(1);
+    Route::get('approved/{overtimeRequest}/mailable', function ($overtimeRequest) {
+            $request = App\Models\OvertimeRequest::find($overtimeRequest);
             
-//             return new App\Mail\InvoicePaid($invoice);
-//         })
-//         ->name('approvedMailable');
+            return new App\Mail\OvertimeRequestApproved($request);
+        })
+        ->name('approvedMailable');
         
-    Route::get('rejected/{overtimeRequest}/mailable',
-        function ($overtimeRequest) {
+    Route::get('rejected/{overtimeRequest}/mailable', function ($overtimeRequest) {
             $request = App\Models\OvertimeRequest::find($overtimeRequest);
             
             return new App\Mail\OvertimeRequestRejected($request);
