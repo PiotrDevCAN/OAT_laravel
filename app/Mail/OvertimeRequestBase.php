@@ -22,9 +22,5 @@ class OvertimeRequestBase extends Mailable
     public function build(OvertimeRequest $overtimeRequest)
     {
         $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $overtimeRequest->reference]);
-    
-        dump($this->requestEditUrl);
-        
-        dd('quit');
     }
 }
