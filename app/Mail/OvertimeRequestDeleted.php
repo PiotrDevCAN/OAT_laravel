@@ -2,8 +2,6 @@
 
 namespace App\Mail;
 
-use App\Models\OvertimeRequest;
-
 class OvertimeRequestDeleted extends OvertimeRequestBase
 {
     /**
@@ -13,6 +11,8 @@ class OvertimeRequestDeleted extends OvertimeRequestBase
      */
     public function build()
     {
+        $this->previewUrl = route('request.deletedMailable', ['overtimeRequest' => $this->$request->reference]);
+        
         return $this->markdown('emails.request.deleted');
     }
 }

@@ -16,6 +16,14 @@
 @endif
 @endcomponent
 
+
+@component('mail::button', ['url' => $previewUrl])
+@hasSection('buttonPreview')
+@yield('buttonPreview')
+@endif
+@endcomponent
+
+
 Thanks,<br>
 {{ config('app.name') }}
 @endcomponent

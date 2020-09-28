@@ -2,8 +2,6 @@
 
 namespace App\Mail;
 
-use App\Models\OvertimeRequest;
-
 class OvertimeRequestApproved extends OvertimeRequestBase
 {
     /**
@@ -13,6 +11,8 @@ class OvertimeRequestApproved extends OvertimeRequestBase
      */
     public function build()
     {
+        $this->previewUrl = route('request.approvedMailable', ['overtimeRequest' => $this->$request->reference]);
+        
         return $this->markdown('emails.request.approved');
     }
 }

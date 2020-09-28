@@ -2,8 +2,6 @@
 
 namespace App\Mail;
 
-use App\Models\OvertimeRequest;
-
 class OvertimeRequestUpdated extends OvertimeRequestBase
 {
     /**
@@ -13,7 +11,7 @@ class OvertimeRequestUpdated extends OvertimeRequestBase
      */
     public function build()
     {
-        parent::render();
+        $this->previewUrl = route('request.updatedMailable', ['overtimeRequest' => $this->$request->reference]);
         
         return $this->markdown('emails.request.updated');
     }
