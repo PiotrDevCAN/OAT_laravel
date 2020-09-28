@@ -20,8 +20,6 @@ class OvertimeRequestCreated extends OvertimeRequestBase
     {
         parent::preRender($overtimeRequest);
         
-        dd($overtimeRequest);
-        
-        $this->render();
+        parent::render();
     }
 }
