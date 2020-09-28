@@ -13,12 +13,6 @@ class OvertimeRequestCreated extends OvertimeRequestBase
      */
     public function build(OvertimeRequest $overtimeRequest)
     {
-        dump('call OvertimeRequestCreated START');
-        
-        parent::build($overtimeRequest);
-        
-        dump('call OvertimeRequestCreated END');
-        
         return $this->markdown('emails.request.created');
     }
 }
