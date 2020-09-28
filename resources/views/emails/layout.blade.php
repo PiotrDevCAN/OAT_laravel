@@ -18,9 +18,7 @@
 
 
 @component('mail::button', ['url' => $previewUrl])
-@hasSection('buttonPreview')
-@yield('buttonPreview')
-@endif
+View this email online
 @endcomponent
 
 
