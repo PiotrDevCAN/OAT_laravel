@@ -41,11 +41,12 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('edit');
     
     // Mailables preview
-    Route::get('created/{overtimeRequest}/mailable', function ($overtimeRequest) {
-            $request = App\Models\OvertimeRequest::find($overtimeRequest);
+    Route::get('created/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestCreated')
+//     Route::get('created/{overtimeRequest}/mailable', function ($overtimeRequest) {
+//             $request = App\Models\OvertimeRequest::find($overtimeRequest);
             
-            return new App\Mail\OvertimeRequestCreated($request);
-        })
+//             return new App\Mail\OvertimeRequestCreated($request);
+//         })
         ->name('createdMailable');
     
     Route::get('deleted/{overtimeRequest}/mailable', function ($overtimeRequest) {
