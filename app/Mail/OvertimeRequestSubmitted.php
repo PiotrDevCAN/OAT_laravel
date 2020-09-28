@@ -11,10 +11,8 @@ class OvertimeRequestSubmitted extends OvertimeRequestBase
      */
     public function build()
     {
-        $data = array(
-            'url' => 'link_some_page'
-        );
+        $this->url = '';
         
-        return $this->markdown('emails.request.submitted', $data);
+        return $this->markdown('emails.request.submitted');
     }
 }

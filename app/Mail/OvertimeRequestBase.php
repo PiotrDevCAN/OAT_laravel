@@ -19,6 +19,8 @@ class OvertimeRequestBase extends Mailable
      */
     public $request;
     
+    public $requestEditUrl;
+    
     /**
      * Create a new message instance.
      *
@@ -26,6 +28,8 @@ class OvertimeRequestBase extends Mailable
      */
     public function __construct(OvertimeRequest $overtimeRequest)
     {
+        $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $this->request->reference]);
+        
         $this->request = $overtimeRequest;
     }
 }

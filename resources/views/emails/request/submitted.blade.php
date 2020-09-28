@@ -1,16 +1,15 @@
-@component('mail::message')
-# Overtime Request Submitted
+@extends('layout')
 
-Your request has been submitted!
+@section('message')
+	# Overtime Request Submitted
+    
+    Your request has been submitted!
+@endsection
 
-@component('mail::button', ['url' => $url])
-View Request
-@endcomponent
+@section('button')
+	View Request
+@endsection
 
-@component('mail::panel')
-This is the panel content.
-@endcomponent
-
-Thanks,<br>
-{{ config('app.name') }}
-@endcomponent
+@section('panel')
+	This is the panel content.
+@endsection

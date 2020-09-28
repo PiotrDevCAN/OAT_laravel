@@ -1,16 +1,15 @@
-@component('mail::message')
-# Overtime Request Rejected
+@extends('layout')
 
-Your request has been submitted!
+@section('message')
+	# Overtime Request Rejected
+    
+    Your request has been rejected!
+@endsection
 
-@component('mail::button', ['url' => $url])
-View Request
-@endcomponent
+@section('button')
+	View Request
+@endsection
 
-@component('mail::panel')
-This is the panel content.
-@endcomponent
-
-Thanks,<br>
-{{ config('app.name') }}
-@endcomponent
+@section('panel')
+	This is the panel content.
+@endsection

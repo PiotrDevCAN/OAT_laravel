@@ -1,9 +1,9 @@
 @component('mail::message')
 # Overtime Request Approved
 
-Your request has been submitted!
+Your request has been approved!
 
-@component('mail::button', ['url' => $url])
+@component('mail::button', ['url' => $requestEditUrl])
 View Request
 @endcomponent
 

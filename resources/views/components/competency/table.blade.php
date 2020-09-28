@@ -15,7 +15,7 @@
                 <tr>
                 	<td><p class="ibm-ind-link ibm-icononly ibm-nospacing">
                     @isset($record->competency)
-                    	{{ link_to_route('admin.competency.edit', $title = '', ['competency_name' => Str::of($record->competency)->trim(), 'approver' => Str::of($record->approver)->trim()], $attributes = ['class' => 'ibm-edit-link']) }}
+                    	{{ link_to_route('admin.competency.edit', $title = '', ['competency_name' => Str::of($record->competency)->trim(), 'approver' => Str::of($record->approver)->trim()], ['class' => 'ibm-edit-link']) }}
                     @endisset
                     </p></td>
                 	<td>{{ $record->competency }}</td>
