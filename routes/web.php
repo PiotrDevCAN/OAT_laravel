@@ -9,7 +9,11 @@ use App\Models\Account;
 use App\Http\Controllers\Accounts;
 use App\Models\Competency;
 use App\Http\Controllers\Competencies;
+
+use App\Mail\OvertimeRequestCreated;
+use App\Mail\OvertimeRequestDeleted;
 use App\Mail\OvertimeRequestSubmitted;
+use App\Mail\OvertimeRequestUpdated;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,8 +41,18 @@ Route::prefix('request')->name('request.')->group(function () {
     Route::get('create', 'OvertimeRequests@create')
         ->name('create');
     
+    // Show the form for editing the specified resource.
     Route::get('edit/{overtimeRequest}', 'OvertimeRequests@edit')
         ->name('edit');
+    
+    // Mailables preview
+    Route::get('request/{overtimeRequest}/mailable/created', 'OvertimeRequestCreated@build');
+    
+    Route::get('request/{overtimeRequest}/mailable/deleted', 'OvertimeRequestDeleted@build');
+    
+    Route::get('request/{overtimeRequest}/mailable/submitted', 'OvertimeRequestSubmitted@build');
+    
+    Route::get('request/{overtimeRequest}/mailable/updated', 'OvertimeRequestUpdated@build');
 });
 
 // Accounts
@@ -108,15 +122,6 @@ Route::prefix('access')->name('access.')->group(function () {
     Route::get('my', 'Index@access')
         ->name('my');
 });
-
-// Mailables preview
-// Route::get('mailable\request\{overtimeRequest}', function () {
-//     $request = App\Models\OvertimeRequest::find(1);
-    
-//     return new App\Mail\OvertimeRequestSubmitted($request);
-// });
-
-Route::get('mailable/request/{overtimeRequest}', '\App\Mail\OvertimeRequestSubmitted@build');
 
 // Legacy links
 Route::redirect('/index.html', '/');
