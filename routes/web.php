@@ -82,7 +82,7 @@ Route::prefix('request')->name('request.')->group(function () {
 //         ->name('approvedMailable');
         
     Route::get('rejected/{overtimeRequest}/mailable',
-        function () {
+        function ($overtimeRequest) {
             $request = App\Models\OvertimeRequest::find($overtimeRequest);
             
             return new App\Mail\OvertimeRequestRejected($request);
