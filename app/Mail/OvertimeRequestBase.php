@@ -26,12 +26,12 @@ class OvertimeRequestBase extends Mailable
      *
      * @return void
      */
-    public function __construct(OvertimeRequest $overtimeRequest)
+    public function __construct()
     {
-        $this->request = $overtimeRequest;
+//         $this->request = $overtimeRequest;
         
 //         dd($overtimeRequest);
         
-        $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $this->request->reference]);
+//         $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $this->request->reference]);
     }
 }
