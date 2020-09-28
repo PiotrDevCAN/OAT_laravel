@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use App\Models\OvertimeRequest;
+
 class OvertimeRequestApproved extends OvertimeRequestBase
 {
     /**
@@ -9,8 +11,10 @@ class OvertimeRequestApproved extends OvertimeRequestBase
      *
      * @return $this
      */
-    public function build()
+    public function build(OvertimeRequest $overtimeRequest)
     {
+        parent::build($overtimeRequest);
+        
         return $this->markdown('emails.request.approved');
     }
 }

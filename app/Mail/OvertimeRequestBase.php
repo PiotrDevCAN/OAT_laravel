@@ -12,26 +12,15 @@ class OvertimeRequestBase extends Mailable
 {
     use Queueable, SerializesModels;
     
-    /**
-     * The request instance.
-     *
-     * @var OvertimeRequest
-     */
-    public $request;
-    
     public $requestEditUrl;
     
     /**
-     * Create a new message instance.
+     * Build the message.
      *
-     * @return void
+     * @return $this
      */
-    public function __construct()
+    public function build(OvertimeRequest $overtimeRequest)
     {
-//         $this->request = $overtimeRequest;
-        
-//         dd($overtimeRequest);
-        
-//         $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $this->request->reference]);
+        $this->requestEditUrl = route('request.edit', ['overtimeRequest' => $this->request->reference]);
     }
 }
