@@ -41,13 +41,13 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('edit');
     
     // Mailables preview
-    Route::get('request/{overtimeRequest}/mailable/created', '\App\Mail\OvertimeRequestCreated@build');
+    Route::get('created/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestCreated@build');
     
-    Route::get('request/{overtimeRequest}/mailable/deleted', '\App\Mail\OvertimeRequestDeleted@build');
+    Route::get('deleted/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestDeleted@build');
     
-    Route::get('request/{overtimeRequest}/mailable/submitted', '\App\Mail\OvertimeRequestSubmitted@build');
+    Route::get('submitted/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestSubmitted@build');
     
-    Route::get('request/{overtimeRequest}/mailable/updated', '\App\Mail\OvertimeRequestUpdated@build');
+    Route::get('updated/{overtimeRequest}/mailable', '\App\Mail\OvertimeRequestUpdated@build');
 });
 
 // Accounts
