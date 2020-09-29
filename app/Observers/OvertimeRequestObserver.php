@@ -31,10 +31,10 @@ class OvertimeRequestObserver
     /**
      * Handle the obvertime request "retrieved" event.
      *
-     * @param  \App\Models\OvertimeRequest  $OvertimeRequest
+     * @param  \App\Models\OvertimeRequest  $overtimeRequest
      * @return void
      */
-    public function retrieved(OvertimeRequest $OvertimeRequest)
+    public function retrieved(OvertimeRequest $overtimeRequest)
     {
         Mail::to('piotr.tajanowicz@ibm.com')
         //             ->cc($moreUsers)
@@ -45,10 +45,10 @@ class OvertimeRequestObserver
     /**
      * Handle the obvertime request "created" event.
      *
-     * @param  \App\Models\OvertimeRequest  $OvertimeRequest
+     * @param  \App\Models\OvertimeRequest  $overtimeRequest
      * @return void
      */
-    public function created(OvertimeRequest $OvertimeRequest)
+    public function created(OvertimeRequest $overtimeRequest)
     {
         Mail::to('piotr.tajanowicz@ibm.com')
         //             ->cc($moreUsers)
@@ -59,10 +59,10 @@ class OvertimeRequestObserver
     /**
      * Handle the obvertime request "updated" event.
      *
-     * @param  \App\Models\OvertimeRequest  $OvertimeRequest
+     * @param  \App\Models\OvertimeRequest  $overtimeRequest
      * @return void
      */
-    public function updated(OvertimeRequest $OvertimeRequest)
+    public function updated(OvertimeRequest $overtimeRequest)
     {
         Mail::to('piotr.tajanowicz@ibm.com')
         //             ->cc($moreUsers)
@@ -73,10 +73,10 @@ class OvertimeRequestObserver
     /**
      * Handle the obvertime request "deleted" event.
      *
-     * @param  \App\Models\OvertimeRequest  $OvertimeRequest
+     * @param  \App\Models\OvertimeRequest  $overtimeRequest
      * @return void
      */
-    public function deleted(OvertimeRequest $OvertimeRequest)
+    public function deleted(OvertimeRequest $overtimeRequest)
     {
         Mail::to('piotr.tajanowicz@ibm.com')
         //             ->cc($moreUsers)

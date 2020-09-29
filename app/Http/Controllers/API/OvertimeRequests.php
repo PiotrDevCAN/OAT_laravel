@@ -37,7 +37,7 @@ class OvertimeRequests extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  OvertimeRequest $OvertimeRequest
+     * @param  OvertimeRequest $overtimeRequest
      * @return \Illuminate\Http\Response
      */
     public function show(OvertimeRequest $overtimeRequest)
@@ -78,7 +78,7 @@ class OvertimeRequests extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  OvertimeRequest $OvertimeRequest
+     * @param  OvertimeRequest $overtimeRequest
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, OvertimeRequest $overtimeRequest)
@@ -89,7 +89,7 @@ class OvertimeRequests extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  OvertimeRequest $OvertimeRequest
+     * @param  OvertimeRequest $overtimeRequest
      * @return \Illuminate\Http\Response
      */
     public function destroy(OvertimeRequest $overtimeRequest)
