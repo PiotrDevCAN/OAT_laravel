@@ -177,11 +177,16 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        
         /*
          * laravel-collective Providers
          */
         Collective\Html\HtmlServiceProvider::class,
+
+        /*
+         * aacotroneo/laravel-saml2 Providers
+         */
+        Aacotroneo\Saml2\Saml2ServiceProvider::class,
+        
     ],
 
     /*
@@ -235,6 +240,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Saml2' => Aacotroneo\Saml2\Facades\Saml2Auth::class,
     ],
 
 ];
