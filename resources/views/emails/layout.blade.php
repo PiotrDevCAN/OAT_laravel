@@ -4,23 +4,23 @@
 @yield('message')
 @endif
 
-@component('mail::button', ['url' => $requestEditUrl])
 @hasSection('button')
+@component('mail::button', ['url' => $requestEditUrl])
 @yield('button')
-@endif
 @endcomponent
+@endif
 
-@component('mail::panel')
 @hasSection('panel')
+@component('mail::panel')
 @yield('panel')
-@endif
 @endcomponent
+@endif
 
-
+@isset($previewUrl)
 @component('mail::button', ['url' => $previewUrl])
 View this email online
 @endcomponent
-
+@endisset
 
 Thanks,<br>
 {{ config('app.name') }}
