@@ -7,6 +7,17 @@ use App\Models\Delegate;
 class DelegateObserver
 {
     /**
+     * Handle the obvertime request "retrieved" event.
+     *
+     * @param  \App\Models\Delegate  $delegate
+     * @return void
+     */
+    public function retrieved(Delegate $delegate)
+    {
+        //
+    }
+    
+    /**
      * Handle the delegate "created" event.
      *
      * @param  \App\Models\Delegate  $delegate
@@ -35,28 +46,6 @@ class DelegateObserver
      * @return void
      */
     public function deleted(Delegate $delegate)
-    {
-        //
-    }
-
-    /**
-     * Handle the delegate "restored" event.
-     *
-     * @param  \App\Models\Delegate  $delegate
-     * @return void
-     */
-    public function restored(Delegate $delegate)
-    {
-        //
-    }
-
-    /**
-     * Handle the delegate "force deleted" event.
-     *
-     * @param  \App\Models\Delegate  $delegate
-     * @return void
-     */
-    public function forceDeleted(Delegate $delegate)
     {
         //
     }

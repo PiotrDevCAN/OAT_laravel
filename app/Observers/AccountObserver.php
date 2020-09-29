@@ -7,6 +7,17 @@ use App\Models\Account;
 class AccountObserver
 {
     /**
+     * Handle the obvertime request "retrieved" event.
+     *
+     * @param  \App\Models\Account  $account
+     * @return void
+     */
+    public function retrieved(Account $account)
+    {
+        //
+    }
+    
+    /**
      * Handle the account "created" event.
      *
      * @param  \App\Models\Account  $account
@@ -35,28 +46,6 @@ class AccountObserver
      * @return void
      */
     public function deleted(Account $account)
-    {
-        //
-    }
-
-    /**
-     * Handle the account "restored" event.
-     *
-     * @param  \App\Models\Account  $account
-     * @return void
-     */
-    public function restored(Account $account)
-    {
-        //
-    }
-
-    /**
-     * Handle the account "force deleted" event.
-     *
-     * @param  \App\Models\Account  $account
-     * @return void
-     */
-    public function forceDeleted(Account $account)
     {
         //
     }

@@ -7,6 +7,17 @@ use App\Models\Competency;
 class CompetencyObserver
 {
     /**
+     * Handle the obvertime request "retrieved" event.
+     *
+     * @param  \App\Models\Competency  $competency
+     * @return void
+     */
+    public function retrieved(Competency $competency)
+    {
+        //
+    }
+    
+    /**
      * Handle the competency "created" event.
      *
      * @param  \App\Models\Competency  $competency
@@ -35,28 +46,6 @@ class CompetencyObserver
      * @return void
      */
     public function deleted(Competency $competency)
-    {
-        //
-    }
-
-    /**
-     * Handle the competency "restored" event.
-     *
-     * @param  \App\Models\Competency  $competency
-     * @return void
-     */
-    public function restored(Competency $competency)
-    {
-        //
-    }
-
-    /**
-     * Handle the competency "force deleted" event.
-     *
-     * @param  \App\Models\Competency  $competency
-     * @return void
-     */
-    public function forceDeleted(Competency $competency)
     {
         //
     }

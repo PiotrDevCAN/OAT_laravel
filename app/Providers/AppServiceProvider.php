@@ -18,6 +18,8 @@ use App\Observers\CompetencyObserver;
 use App\Observers\DelegateObserver;
 use App\Observers\LogObserver;
 use App\Observers\OvertimeRequestObserver;
+use App\Models\Comment;
+use App\Observers\CommentObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Account::observe(AccountObserver::class);
+        Comment::observe(CommentObserver::class);
         Competency::observe(CompetencyObserver::class);
         Delegate::observe(DelegateObserver::class);
         Log::observe(LogObserver::class);
