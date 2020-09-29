@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\OvertimeRequest;
 use App\Models\Account;
 use App\Models\Competency;
-use App\Mail\Request\OvertimeRequestSubmitted;
 use Illuminate\Support\Facades\Mail;
 
 class OvertimeRequests extends Controller
@@ -175,13 +174,6 @@ class OvertimeRequests extends Controller
             'allNatures' => $allNatures,
             'allWeekends' => $allWeekends
         );
-        
-        // Edit request...
-        
-        Mail::to('piotr.tajanowicz@ibm.com')
-//             ->cc($moreUsers)
-//             ->bcc($evenMoreUsers)
-            ->send(new OvertimeRequestSubmitted($overtimeRequest));
         
         return view('components.request.edit', $data);
     }

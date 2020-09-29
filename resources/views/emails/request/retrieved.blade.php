@@ -1,9 +1,9 @@
 @extends('emails.layout')
 
 @section('message')
-	# Overtime Request Submitted
+	# Overtime Request Retrieved
     
-    Your request has been submitted!
+    Your request has been retrieved!
 @endsection
 
 @section('button')

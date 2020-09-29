@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\Request\OvertimeRequestCreated;
 use App\Mail\Request\OvertimeRequestUpdated;
 use App\Mail\Request\OvertimeRequestDeleted;
+use App\Mail\Request\OvertimeRequestRetrieved;
 
 class OvertimeRequestObserver
 {    
@@ -26,6 +27,20 @@ class OvertimeRequestObserver
 
 //     restoring
 //     restored
+    
+    /**
+     * Handle the obvertime request "retrieved" event.
+     *
+     * @param  \App\Models\OvertimeRequest  $OvertimeRequest
+     * @return void
+     */
+    public function retrieved(OvertimeRequest $OvertimeRequest)
+    {
+        Mail::to('piotr.tajanowicz@ibm.com')
+        //             ->cc($moreUsers)
+        //             ->bcc($evenMoreUsers)
+        ->send(new OvertimeRequestRetrieved($overtimeRequest));
+    }
     
     /**
      * Handle the obvertime request "created" event.
