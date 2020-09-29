@@ -21,6 +21,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\IndexEntered' => [
             'App\Listeners\SentIndexEnteredNotification',
         ],
+        'App\Events\OvertimeRequestApproved' => [
+            'App\Listeners\SentOvertimeRequestApprovedNotification',
+        ],
+        'App\Events\OvertimeRequestRejected' => [
+            'App\Listeners\SentOvertimeRequestRejectedNotification',
+        ],
     ];
 
     /**
