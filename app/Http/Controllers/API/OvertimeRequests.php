@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\OvertimeRequest;
 use App\Models\Competency;
 use App\Models\Account;
+use App\Events\OvertimeRequestApproved;
+use App\Events\OvertimeRequestRejected;
 
 class OvertimeRequests extends Controller
 {
@@ -101,21 +103,31 @@ class OvertimeRequests extends Controller
         return view('components.request.destroy');
     }
     
-//     public function approve(Request $request, $ref, $lvl, $status, $via)
-//     {
+    public function approve(Request $request, $ref, $lvl, $status, $via)
+    {
 //         $user = User::withoutEvents(function () use () {
 //             User::findOrFail(1)->delete();
             
 //             return User::find(2);
 //         });
-//     }
 
-//     public function reject(Request $request, $ref, $lvl, $status, $via)
-//     {
+        // Request approval logic...
+        
+        event(new OvertimeRequestApproved($overtimeRequest));
+        
+    }
+
+    public function reject(Request $request, $ref, $lvl, $status, $via)
+    {
 //         $user = User::withoutEvents(function () use () {
 //             User::findOrFail(1)->delete();
             
 //             return User::find(2);
 //         });
-//     }
+        
+        // Request rejection logic...
+        
+        event(new OvertimeRequestRejected($overtimeRequest));
+        
+    }
 }

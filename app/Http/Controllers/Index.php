@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\IndexEntered;
 
 class Index extends Controller
 {
@@ -14,6 +15,10 @@ class Index extends Controller
      */
     public function __invoke(Request $request)
     {
+        // Page enter logic...
+        
+        event(new IndexEntered());
+        
         return view('main');
     }
     
