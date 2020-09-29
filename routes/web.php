@@ -41,34 +41,34 @@ Route::prefix('request')->name('request.')->group(function () {
         ->name('edit');
     
     // Mailables preview
+    Route::get('submitted/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+        return new App\Mail\Request\OvertimeRequestRetrieved($overtimeRequest);
+    })
+        ->name('retrievedMailable');
+    
     Route::get('created/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
             return new App\Mail\Request\OvertimeRequestCreated($overtimeRequest);
         })
         ->name('createdMailable');
+    
+    Route::get('updated/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+        return new App\Mail\Request\OvertimeRequestUpdated($overtimeRequest);
+    })
+        ->name('updatedMailable');
     
     Route::get('deleted/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
             return new App\Mail\Request\OvertimeRequestDeleted($overtimeRequest);
         })
         ->name('deletedMailable');
     
-    Route::get('submitted/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
-            return new App\Mail\Request\OvertimeRequestSubmitted($overtimeRequest);
-        })
-        ->name('submittedMailable');
-    
-    Route::get('updated/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
-            return new App\Mail\Request\OvertimeRequestUpdated($overtimeRequest);
-        })
-        ->name('updatedMailable');
-    
     Route::get('approved/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
             return new App\Mail\Request\OvertimeRequestApproved($overtimeRequest);
         })
         ->name('approvedMailable');
         
-        Route::get('rejected/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
-            return new App\Mail\Request\OvertimeRequestRejected($overtimeRequest);
-        })
+    Route::get('rejected/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+        return new App\Mail\Request\OvertimeRequestRejected($overtimeRequest);
+    })
         ->name('rejectedMailable');
 });
 
