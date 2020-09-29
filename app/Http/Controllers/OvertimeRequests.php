@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\OvertimeRequest;
 use App\Models\Account;
 use App\Models\Competency;
-use App\Mail\OvertimeRequestSubmitted;
+use App\Mail\Request\OvertimeRequestSubmitted;
 use Illuminate\Support\Facades\Mail;
 
 class OvertimeRequests extends Controller
