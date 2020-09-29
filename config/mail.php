@@ -84,7 +84,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'OAT_Laravel@uk.ibm.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'soiw@n001a016.cloud.icds.ibm.com'),
         'name' => env('MAIL_FROM_NAME', 'OAT_Mailer'),
     ],
 
