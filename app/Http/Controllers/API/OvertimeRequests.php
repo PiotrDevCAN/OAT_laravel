@@ -103,11 +103,19 @@ class OvertimeRequests extends Controller
     
 //     public function approve(Request $request, $ref, $lvl, $status, $via)
 //     {
-
+//         $user = User::withoutEvents(function () use () {
+//             User::findOrFail(1)->delete();
+            
+//             return User::find(2);
+//         });
 //     }
 
 //     public function reject(Request $request, $ref, $lvl, $status, $via)
 //     {
-
+//         $user = User::withoutEvents(function () use () {
+//             User::findOrFail(1)->delete();
+            
+//             return User::find(2);
+//         });
 //     }
 }

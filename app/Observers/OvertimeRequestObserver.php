@@ -10,24 +10,7 @@ use App\Mail\Request\OvertimeRequestUpdated;
 use App\Mail\Request\OvertimeRequestDeleted;
 
 class OvertimeRequestObserver
-{    
-//     retrieved
-
-//     creating
-//     created
-
-//     updating
-//     updated
-
-//     saving
-//     saved
-
-//     deleting
-//     deleted
-
-//     restoring
-//     restored
-    
+{
     /**
      * Handle the obvertime request "retrieved" event.
      *
