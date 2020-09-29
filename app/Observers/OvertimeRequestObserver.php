@@ -4,10 +4,10 @@ namespace App\Observers;
 
 use App\Models\OvertimeRequest;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\Request\OvertimeRequestRetrieved;
 use App\Mail\Request\OvertimeRequestCreated;
 use App\Mail\Request\OvertimeRequestUpdated;
 use App\Mail\Request\OvertimeRequestDeleted;
-use App\Mail\Request\OvertimeRequestRetrieved;
 
 class OvertimeRequestObserver
 {    
