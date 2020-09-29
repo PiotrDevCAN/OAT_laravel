@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\IndexEntered;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
