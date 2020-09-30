@@ -75,43 +75,53 @@
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                    
+                   <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Appropriate approval flow which will be applied to this Overtime request</h3>
+                   
                    <div class="ibm-fluid">
                    		<div class="ibm-col-12-6">
-                   			<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Current approval flow</h3>
-                   			
-                   			<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                           	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                           	<x-ibmv18form-input field-name="approver_third_level" label="3rd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                   			
-                   			<p>
-                                <label class="ibm-column-field-label ibm-bold" for="APPROVER_FIRST_CHECK">Predicted 1st Level Approver</label>
-                                <span id="APPROVER_FIRST_CHECK">
-                                Use Check Approvers option to discover who is suitable 1st Level Approver
-                            	</span>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="APPROVER_SECOND_CHECK">Predicted 2nd Level Approver</label>
-                                <span id="APPROVER_SECOND_CHECK">
-                                Use Check Approvers option to discover who is suitable 2nd Level Approver
-                            	</span>
-                            </p>
-                            <p>
-                                <label class="ibm-column-field-label ibm-bold" for="APPROVER_THIRD_CHECK">Predicted 3rd Level Approver</label>
-                                <span id="APPROVER_THIRD_CHECK">
-	                                Use Check Approvers option to discover who is suitable 3rd Level Approver
-                                </span>
-                            </p>
-                   		
-                   			<p class="ibm-btn-row ibm-button-link ibm-right">
-                               <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
-                           </p>
+                       		<div class="ibm-card">
+                                <div class="ibm-card__content">
+                                	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Existing</h3>
+                           			
+                           			<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                                   	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                                   	<x-ibmv18form-input field-name="approver_third_level" label="3rd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                           			
+                           			<p>
+                                        <label class="ibm-column-field-label ibm-bold" for="APPROVER_FIRST_CHECK">Predicted 1st Level Approver</label>
+                                        <span id="APPROVER_FIRST_CHECK">
+                                        Use Check Approvers option to discover who is suitable 1st Level Approver
+                                    	</span>
+                                    <p>
+                                        <label class="ibm-column-field-label ibm-bold" for="APPROVER_SECOND_CHECK">Predicted 2nd Level Approver</label>
+                                        <span id="APPROVER_SECOND_CHECK">
+                                        Use Check Approvers option to discover who is suitable 2nd Level Approver
+                                    	</span>
+                                    </p>
+                                    <p>
+                                        <label class="ibm-column-field-label ibm-bold" for="APPROVER_THIRD_CHECK">Predicted 3rd Level Approver</label>
+                                        <span id="APPROVER_THIRD_CHECK">
+        	                                Use Check Approvers option to discover who is suitable 3rd Level Approver
+                                        </span>
+                                    </p>
+                           		
+                           			<p class="ibm-btn-row ibm-button-link ibm-right">
+                                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
+                                   </p>
+                                </div>
+                            </div>
                    		</div>
 						<div class="ibm-col-12-6">
-							<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Squads approval flow</h3>
-							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="Auto-populated upon submission."/>
-							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
-							<p class="ibm-btn-row ibm-button-link ibm-right">
-                               <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
-                           </p>
+							<div class="ibm-card">
+                                <div class="ibm-card__content">
+                                    <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Tribes and Squads</h3>
+        							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="Auto-populated upon submission."/>
+        							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
+        							<p class="ibm-btn-row ibm-button-link ibm-right">
+                                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
+                                   </p>
+                                </div>
+                            </div>
 						</div>
                    </div>
                    
