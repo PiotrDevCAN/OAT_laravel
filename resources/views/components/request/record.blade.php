@@ -75,6 +75,8 @@
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                    
+                   <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Current approval flow</h3>
+                   
                    <div class="ibm-fluid">
                        <div class="ibm-col-12-6">
                        		<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
@@ -99,6 +101,18 @@
 	                                Use Check Approvers option to discover who is suitable 3rd Level Approver
                                 </span>
                             </p>
+                       </div>
+                   </div>
+                   
+                   <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
+                   
+                   <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Squads approval flow</h3>
+                   
+                   <div class="ibm-fluid">
+                       <div class="ibm-col-12-12">
+                       		<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                           	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                           	<x-ibmv18form-input field-name="approver_third_level" label="3rd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
                        </div>
                    </div>
                    

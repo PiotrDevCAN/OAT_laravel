@@ -22,8 +22,8 @@ class Textarea extends Component
         $this->fieldName = $fieldName;
         $this->value = $value;
         $this->options = array(
-            'rows' => '50',
-            'cols' => '30',
+            'rows' => '20',
+            'cols' => '100',
             'class' => 'form-control', 
             'id' => $fieldName,
             'maxLength' => '500',
