@@ -17,14 +17,14 @@ class Index extends Controller
     {
         
         $assinged = \App\Models\Tribe::where('squad_assignment_unique_squad_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
-            ->orderBy('squad_member_name', 'desc')
+            ->orderBy('squad_assignment_unique_squad_name', 'desc')
             ->take(10)
             ->get();
         
         dump($assinged);
         
-        $assinged2 = \App\Models\SquadAssignment::where('account', 'IRELAND PORTFOLIO')
-            ->orderBy('account', 'desc')
+        $assinged2 = \App\Models\SquadAssignment::where('unique_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
+            ->orderBy('unique_name', 'desc')
             ->take(10)
             ->get();
         
