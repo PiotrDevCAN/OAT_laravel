@@ -19,10 +19,10 @@ class OvertimeRequestObserver
      */
     public function retrieved(OvertimeRequest $overtimeRequest)
     {
-        Mail::to('piotr.tajanowicz@ibm.com')
+//         Mail::to('piotr.tajanowicz@ibm.com')
         //             ->cc($moreUsers)
         //             ->bcc($evenMoreUsers)
-        ->send(new OvertimeRequestRetrieved($overtimeRequest));
+//         ->send(new OvertimeRequestRetrieved($overtimeRequest));
     }
     
     /**
