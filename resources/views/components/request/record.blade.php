@@ -75,16 +75,15 @@
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                    
-                   <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Current approval flow</h3>
-                   
                    <div class="ibm-fluid">
-                       <div class="ibm-col-12-6">
-                       		<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                   		<div class="ibm-col-12-6">
+                   			<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Current approval flow</h3>
+                   			
+                   			<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
                            	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
                            	<x-ibmv18form-input field-name="approver_third_level" label="3rd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                       </div>
-                       <div class="ibm-col-12-6">
-                       		<p>
+                   			
+                   			<p>
                                 <label class="ibm-column-field-label ibm-bold" for="APPROVER_FIRST_CHECK">Predicted 1st Level Approver</label>
                                 <span id="APPROVER_FIRST_CHECK">
                                 Use Check Approvers option to discover who is suitable 1st Level Approver
@@ -101,30 +100,19 @@
 	                                Use Check Approvers option to discover who is suitable 3rd Level Approver
                                 </span>
                             </p>
-                       </div>
-                       <div class="ibm-col-12-12">
-                           <p class="ibm-btn-row ibm-button-link ibm-right">
+                   		
+                   			<p class="ibm-btn-row ibm-button-link ibm-right">
                                <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
                            </p>
-                       </div>
-                   </div>
-                   
-                   <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
-                   
-                   <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Squads approval flow</h3>
-                   
-                   <div class="ibm-fluid">
-                       <div class="ibm-col-12-6">
-                       		<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="Auto-populated upon submission."/>
-                       </div>
-                       <div class="ibm-col-12-6">
-                           	<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
-                       </div>
-                       <div class="ibm-col-12-12">
-                           <p class="ibm-btn-row ibm-button-link ibm-right">
+                   		</div>
+						<div class="ibm-col-12-6">
+							<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Squads approval flow</h3>
+							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="Auto-populated upon submission."/>
+							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
+							<p class="ibm-btn-row ibm-button-link ibm-right">
                                <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
                            </p>
-                       </div>
+						</div>
                    </div>
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
@@ -133,7 +121,6 @@
                    <p class="ibm-btn-row ibm-button-link">
                        <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Submit</button>
                        <button type="button" class="ibm-btn-sec ibm-btn-blue-50">Reset</button>
-                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
                    </p>
                    
                 </form>
