@@ -102,6 +102,9 @@
                                 </span>
                             </p>
                        </div>
+                       <p class="ibm-btn-row ibm-button-link">
+                           <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
+                       </p>
                    </div>
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
@@ -109,11 +112,15 @@
                    <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Squads approval flow</h3>
                    
                    <div class="ibm-fluid">
-                       <div class="ibm-col-12-12">
-                       		<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                           	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                           	<x-ibmv18form-input field-name="approver_third_level" label="3rd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                       <div class="ibm-col-12-6">
+                       		<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="Auto-populated upon submission."/>
                        </div>
+                       <div class="ibm-col-12-6">
+                           	<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
+                       </div>
+                       <p class="ibm-btn-row ibm-button-link">
+                           <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
+                       </p>
                    </div>
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
