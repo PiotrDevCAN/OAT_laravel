@@ -18,7 +18,7 @@ class SquadAssignment extends Model
      *
      * @var string
      */
-    protected $table = 'Squad_Assignment';
+    protected $table = 'Eu_Squad_Assignment';
     
     /**
      * Indicates if the model should be timestamped.
