@@ -77,7 +77,7 @@
                    
                    <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Appropriate approval flow which will be applied to this Overtime request</h3>
                    
-                   <div class="ibm-fluid">
+                   <div class="ibm-fluid" data-widget="setsameheight" data-items=".ibm-card">
                    		<div class="ibm-col-12-6">
                        		<div class="ibm-card">
                                 <div class="ibm-card__content">
