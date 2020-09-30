@@ -102,9 +102,11 @@
                                 </span>
                             </p>
                        </div>
-                       <p class="ibm-btn-row ibm-button-link">
-                           <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
-                       </p>
+                       <div class="ibm-col-12-12">
+                           <p class="ibm-btn-row ibm-button-link ibm-right">
+                               <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
+                           </p>
+                       </div>
                    </div>
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
@@ -118,9 +120,11 @@
                        <div class="ibm-col-12-6">
                            	<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
                        </div>
-                       <p class="ibm-btn-row ibm-button-link">
-                           <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
-                       </p>
+                       <div class="ibm-col-12-12">
+                           <p class="ibm-btn-row ibm-button-link ibm-right">
+                               <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
+                           </p>
+                       </div>
                    </div>
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
