@@ -6,10 +6,10 @@ use Illuminate\View\Component;
 
 class Select extends Component
 {
-    public static $selectDisplayValueReturnValue = 'displayValueReturnValue';
-    public static $selectDisplayValueReturnKey   = 'displayValueReturnKey';
-    public static $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
-    public static $selectDisplayKeyReturnKey     = 'displayKeyReturnKey';
+    public $selectDisplayValueReturnValue = 'displayValueReturnValue';
+    public $selectDisplayValueReturnKey   = 'displayValueReturnKey';
+    public $selectDisplayKeyReturnValue   = 'displayKeyReturnValue';
+    public $selectDisplayKeyReturnKey     = 'displayKeyReturnKey';
     public $selectAcceptMultipleValues    = true;
     
     public $wayToHandleArray;
@@ -37,7 +37,7 @@ class Select extends Component
     public function __construct($wayToHandleArray = null, $arrayOfSelectableValues = array(), $label = null, $fieldName = null, $readonly = false, $classCSS = null, $onChange = null,   $placeHolder = 'Select...', $arrayOfDisabledValues = array())
     {
         $allowMultipleSelections = false;
-//         $wayToHandleArray = empty($wayToHandleArray) ? self::$selectDisplayValueReturnValue : $wayToHandleArray;
+        $wayToHandleArray = empty($wayToHandleArray) ? $this->selectDisplayValueReturnValue : $wayToHandleArray;
 //         $selectedValues = $allowMultipleSelections ? $model->$fieldName : array($model->$fieldName => $model->$fieldName);
         $selectedValues = null;
         $disabled = ($readonly) ? ' disabledSelect ' : null;
@@ -81,19 +81,19 @@ class Select extends Component
     public function prepareOption($key, $value)
     {
         switch ($this->wayToHandleArray) {
-            case self::$selectDisplayValueReturnKey:
+            case $this->selectDisplayValueReturnKey:
                 $this->displayValue = trim($value);
                 $this->returnValue  = trim($key);
                 break;
-            case self::$selectDisplayKeyReturnValue:
+            case $this->selectDisplayKeyReturnValue:
                 $this->displayValue = trim($key);
                 $this->returnValue  = trim($value);
                 break;
-            case self::$selectDisplayKeyReturnKey:
+            case $this->selectDisplayKeyReturnKey:
                 $this->displayValue = trim($key);
                 $this->returnValue  = trim($key);
                 break;
-            case self::$selectDisplayValueReturnValue:
+            case $this->selectDisplayValueReturnValue:
             default:
                 $this->displayValue = trim($value);
                 $this->returnValue  = trim($value);
