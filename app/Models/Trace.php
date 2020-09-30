@@ -33,6 +33,6 @@ class Trace extends Model
      * @var array
      */
     protected $attributes = [
-    //         'delayed' => false,
+//         'delayed' => false,
     ];
 }

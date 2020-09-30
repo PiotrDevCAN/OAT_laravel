@@ -169,7 +169,7 @@ return [
             + (defined('PDO::I5_ATTR_DBC_CURLIB') ? [PDO::I5_ATTR_DBC_CURLIB => ''] : [])
         ],
         
-        'ibmi_agile' => [
+        'ibmi-agile' => [
             'driver' => 'db2_ibmi_ibm',
             // 'driver' => 'db2_ibmi_odbc',
             // or 'db2_ibmi_ibm' / 'db2_zos_odbc' / 'db2_expressc_odbc

@@ -15,6 +15,21 @@ class Index extends Controller
      */
     public function __invoke(Request $request)
     {
+        
+        $assinged = \App\Models\Tribe::where('squad_assignment_unique_squad_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
+            ->orderBy('squad_member_name', 'desc')
+            ->take(10)
+            ->get();
+        
+        dump($assinged);
+        
+        $assinged2 = \App\Models\SquadAssignment::where('account', 'IRELAND PORTFOLIO')
+            ->orderBy('account', 'desc')
+            ->take(10)
+            ->get();
+        
+        dump($assinged2);
+        
         // Page enter logic...
         
         event(new IndexEntered());
