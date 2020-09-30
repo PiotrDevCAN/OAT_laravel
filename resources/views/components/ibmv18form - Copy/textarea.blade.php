@@ -1,1 +1,0 @@
-TEXTAREA component
