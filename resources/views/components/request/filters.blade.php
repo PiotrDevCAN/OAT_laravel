@@ -4,7 +4,7 @@
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">List Filters</h3>
 		<div class="ibm-fluid">
             <div class="ibm-col-12-4">
-	            <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$accounts" label="Account:" field-name="Account" :selected-value="request()->input('Account')"/>
+	            <x-ibmv18form-select way-to-handle-array="aa" :array-of-selectable-values="$accounts" label="Account:" field-name="Account" :selected-value="request()->input('Account')"/>
             {{--
             	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$accounts" label="Account:" field-name="Account" :selected-value="request()->input('Account')"/>
             	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$reasons" label="Reason:" field-name="Reason" :selected-value="request()->input('Reason')"/>
