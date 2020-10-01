@@ -39,6 +39,12 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Cache\Events\KeyWritten' => [
             'App\Listeners\LogKeyWritten',
         ],
+        'Aacotroneo\Saml2\Events\Saml2LoginEvent' => [
+            'App\Listeners\Saml2LoginListener',
+        ],
+        'Aacotroneo\Saml2\Events\Saml2LogoutEvent' => [
+            'App\Listeners\Saml2LogoutListener',
+        ],
     ];
 
     /**
