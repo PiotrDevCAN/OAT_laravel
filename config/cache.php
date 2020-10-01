@@ -54,7 +54,7 @@ return [
         ],
 
         'memcached' => [
-            'driver' => 'memcache',
+            'driver' => 'memcached',
             'persistent_id' => env('MEMCACHED_PERSISTENT_ID'),
             'sasl' => [
                 env('MEMCACHED_USERNAME'),
