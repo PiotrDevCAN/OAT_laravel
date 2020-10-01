@@ -32,6 +32,10 @@ class Index extends Controller
         
         dump($assinged2);
         
+        Cache::forever('key', $assinged);
+        
+        Cache::forever('key2', $assinged2);
+        
         // Page enter logic...
         
         event(new IndexEntered());
