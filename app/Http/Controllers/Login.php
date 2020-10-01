@@ -29,10 +29,14 @@ class Login extends Controller
 //             // Authentication passed...
 //             return redirect()->intended('dashboard');
 //         }
+
+        return view('login');
     }
     
     public function logout(Request $request)
     {
         Auth::logout();
+        
+        return view('logout');
     }
 }
