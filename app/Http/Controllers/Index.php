@@ -21,18 +21,14 @@ class Index extends Controller
             ->take(10)
             ->get();
         
-//         dump($assinged);
-        
         $assinged2 = \App\Models\SquadAssignment::where('unique_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
             ->orderBy('unique_name', 'desc')
             ->take(10)
             ->get();
         
-//         dump($assinged2);
+        Cache::put('key', $assinged);
         
-        CacheAA::put('key', $assinged);
-        
-        CacheAA::put('key2', $assinged2);
+        Cache::put('key2', $assinged2);
         
         // Page enter logic...
         
