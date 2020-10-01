@@ -16,29 +16,23 @@ class Index extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
-    {
-        
-        echo storage_path('framework/cache/data');
-        
-        echo App::environment();
-        
-        $assinged = \App\Models\Tribe::where('squad_assignment_unique_squad_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
+    {$assinged = \App\Models\Tribe::where('squad_assignment_unique_squad_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
             ->orderBy('squad_assignment_unique_squad_name', 'desc')
             ->take(10)
             ->get();
         
-        dump($assinged);
+//         dump($assinged);
         
         $assinged2 = \App\Models\SquadAssignment::where('unique_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
             ->orderBy('unique_name', 'desc')
             ->take(10)
             ->get();
         
-        dump($assinged2);
+//         dump($assinged2);
         
-        Cache::put('key', $assinged);
+        CacheAA::put('key', $assinged);
         
-        Cache::put('key2', $assinged2);
+        CacheAA::put('key2', $assinged2);
         
         // Page enter logic...
         
