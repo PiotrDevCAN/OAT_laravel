@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Events\IndexEntered;
+use Illuminate\Support\Facades\Cache;
 
 class Index extends Controller
 {
@@ -32,9 +33,9 @@ class Index extends Controller
         
         dump($assinged2);
         
-        Cache::forever('key', $assinged);
+        Cache::put('key', $assinged);
         
-        Cache::forever('key2', $assinged2);
+        Cache::put('key2', $assinged2);
         
         // Page enter logic...
         
