@@ -27,6 +27,18 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\OvertimeRequestRejected' => [
             'App\Listeners\SentOvertimeRequestRejectedNotification',
         ],
+        'Illuminate\Cache\Events\CacheHit' => [
+            'App\Listeners\LogCacheHit',
+        ],
+        'Illuminate\Cache\Events\CacheMissed' => [
+            'App\Listeners\LogCacheMissed',
+        ],
+        'Illuminate\Cache\Events\KeyForgotten' => [
+            'App\Listeners\LogKeyForgotten',
+        ],
+        'Illuminate\Cache\Events\KeyWritten' => [
+            'App\Listeners\LogKeyWritten',
+        ],
     ];
 
     /**

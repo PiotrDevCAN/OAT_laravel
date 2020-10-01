@@ -16,6 +16,8 @@ class Index extends Controller
     public function __invoke(Request $request)
     {
         
+        echo storage_path('framework/cache/data');
+        
         $assinged = \App\Models\Tribe::where('squad_assignment_unique_squad_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
             ->orderBy('squad_assignment_unique_squad_name', 'desc')
             ->take(10)
