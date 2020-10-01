@@ -18,15 +18,18 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        
         'App\Events\IndexEntered' => [
             'App\Listeners\SentIndexEnteredNotification',
         ],
+        
         'App\Events\OvertimeRequestApproved' => [
             'App\Listeners\SentOvertimeRequestApprovedNotification',
         ],
         'App\Events\OvertimeRequestRejected' => [
             'App\Listeners\SentOvertimeRequestRejectedNotification',
         ],
+        
         'Illuminate\Cache\Events\CacheHit' => [
             'App\Listeners\LogCacheHit',
         ],
@@ -39,12 +42,50 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Cache\Events\KeyWritten' => [
             'App\Listeners\LogKeyWritten',
         ],
+        
         'Aacotroneo\Saml2\Events\Saml2LoginEvent' => [
             'App\Listeners\Saml2LoginListener',
         ],
         'Aacotroneo\Saml2\Events\Saml2LogoutEvent' => [
             'App\Listeners\Saml2LogoutListener',
         ],
+        
+//         'Illuminate\Auth\Events\Registered' => [
+//             'App\Listeners\LogRegisteredUser',
+//         ],
+        'Illuminate\Auth\Events\Attempting' => [
+            'App\Listeners\LogAuthenticationAttempt',
+        ],
+        'Illuminate\Auth\Events\Authenticated' => [
+            'App\Listeners\LogAuthenticated',
+        ],        
+        'Illuminate\Auth\Events\Login' => [
+            'App\Listeners\LogSuccessfulLogin',
+        ],
+        'Illuminate\Auth\Events\Failed' => [
+            'App\Listeners\LogFailedLogin',
+        ],
+//         'Illuminate\Auth\Events\Validated' => [
+//             'App\Listeners\LogValidated',
+//         ],
+//         'Illuminate\Auth\Events\Verified' => [
+//             'App\Listeners\LogVerified',
+//         ],
+        'Illuminate\Auth\Events\Logout' => [
+            'App\Listeners\LogSuccessfulLogout',
+        ],
+//         'Illuminate\Auth\Events\CurrentDeviceLogout' => [
+//             'App\Listeners\LogCurrentDeviceLogout',
+//         ],
+//         'Illuminate\Auth\Events\OtherDeviceLogout' => [
+//             'App\Listeners\LogOtherDeviceLogout',
+//         ],
+//         'Illuminate\Auth\Events\Lockout' => [
+//             'App\Listeners\LogLockout',
+//         ],
+//         'Illuminate\Auth\Events\PasswordReset' => [
+//             'App\Listeners\LogPasswordReset',
+//         ],
     ];
 
     /**

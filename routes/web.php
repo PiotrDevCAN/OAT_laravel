@@ -24,6 +24,9 @@ use App\Http\Controllers\Competencies;
 // Home
 Route::get('/', 'Index');
 
+Route::get('/login', 'Login@authenticate');
+Route::get('/logout', 'Login@logout');
+
 // Overtime Requests
 Route::prefix('request')->name('request.')->group(function () {
     Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
