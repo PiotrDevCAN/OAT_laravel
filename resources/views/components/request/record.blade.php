@@ -81,7 +81,7 @@
                    		<div class="ibm-col-12-6">
                        		<div class="ibm-card">
                                 <div class="ibm-card__content">
-                                	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Existing</h3>
+                                	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Existing flow</h3>
                            			
                            			<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
                                    	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
@@ -114,7 +114,7 @@
 						<div class="ibm-col-12-6">
 							<div class="ibm-card">
                                 <div class="ibm-card__content">
-                                    <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Tribes and Squads</h3>
+                                    <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Tribes and Squads flow</h3>
         							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="Auto-populated upon submission."/>
         							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
         							<p class="ibm-btn-row ibm-button-link ibm-right">
