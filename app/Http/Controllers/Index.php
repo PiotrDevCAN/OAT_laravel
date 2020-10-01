@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Events\IndexEntered;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\App;
 
 class Index extends Controller
 {
@@ -18,6 +19,8 @@ class Index extends Controller
     {
         
         echo storage_path('framework/cache/data');
+        
+        echo App::environment();
         
         $assinged = \App\Models\Tribe::where('squad_assignment_unique_squad_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
             ->orderBy('squad_assignment_unique_squad_name', 'desc')
