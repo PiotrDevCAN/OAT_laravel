@@ -17,6 +17,11 @@
 
 <title>{{ config('app.name') }}</title>
 
+<!--  <script src="//www.ibm.com/common/stats/ida_stats.js"></script> -->
+<link href="https://1.www.s81c.com/common/v18/css/www.css" rel="stylesheet" />
+<link href="https://1.www.s81c.com/common/v18/css/forms.css" rel="stylesheet">
+<link href="https://1.www.s81c.com/common/v18/css/grid-fluid.css" rel="stylesheet">
+
 <style type="text/css">
 html, body {
 	background: url({{ secure_asset('public/img/logon/think_travel_hero.png') }}) no-repeat
