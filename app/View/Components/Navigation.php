@@ -35,7 +35,8 @@ class Navigation extends Component
                 'Logs' => 'admin.log.list'
             ),
             'My Delegates' => 'admin.delegate.my',
-            'My Access' => 'access.my'
+            'My Access' => 'access.my',
+            'Log off' => 'logout',
         );
     }
 
