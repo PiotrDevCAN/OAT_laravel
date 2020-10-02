@@ -23,7 +23,7 @@ use App\Http\Controllers\Competencies;
 
 // Home
 Route::get('/', 'Index')
-    ->middleware('auth')
+//     ->middleware('auth')
     ->name('home');
 
 Route::get('/login', 'Login@login')
@@ -40,7 +40,7 @@ Route::get('/logout', 'Login@logout')
 
 // Overtime Requests
 Route::prefix('request')
-    ->middleware('auth')
+//     ->middleware('auth')
     ->name('request.')
     ->group(function () {
         Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
@@ -91,7 +91,7 @@ Route::prefix('request')
 
 // Accounts
 Route::prefix('admin')
-    ->middleware('auth')
+//     ->middleware('auth')
     ->name('admin.')
     ->group(function () {
         
@@ -156,7 +156,7 @@ Route::prefix('admin')
 
 // Access
 Route::prefix('access')
-    ->middleware('auth')
+//     ->middleware('auth')
     ->name('access.')
     ->group(function () {
         Route::get('my', 'Index@access')
