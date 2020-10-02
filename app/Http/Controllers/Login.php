@@ -36,7 +36,7 @@ class Login extends Controller
             
             // create our user data for the authentication
             $userdata = array(
-                'email' $request->input('email'),
+                'email' => $request->input('email'),
                 'password' => $request->input('password')
             );
             
