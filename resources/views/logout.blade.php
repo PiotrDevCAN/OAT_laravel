@@ -19,14 +19,9 @@
 
 <script src="../config/digitalData.js"></script>
 
-<!--  <script src="//www.ibm.com/common/stats/ida_stats.js"></script> -->
 <link href="https://1.www.s81c.com/common/v18/css/www.css" rel="stylesheet" />
 <link href="https://1.www.s81c.com/common/v18/css/forms.css" rel="stylesheet">
 <link href="https://1.www.s81c.com/common/v18/css/grid-fluid.css" rel="stylesheet">
-<link href="../css/cetaTheme.css" rel="stylesheet">
-
-<script src="../w3Source/common/v18/js/www.js"></script>
-<script src="../w3Source/common/v18/js/forms.js"></script>
 
 <style type="text/css">
 html, body {
