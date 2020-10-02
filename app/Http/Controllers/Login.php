@@ -16,6 +16,9 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
+        dump(Auth::guest());
+        
+        dump(Auth::guard('admin'));
         
         dump(Auth::user());
         

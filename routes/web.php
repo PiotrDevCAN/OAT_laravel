@@ -22,7 +22,9 @@ use App\Http\Controllers\Competencies;
 */
 
 // Home
-Route::get('/', 'Index')->name('home');
+Route::get('/', 'Index')
+    ->middleware('auth.basic')
+    ->name('home');
 
 Route::get('/login', 'Login@authenticate')
     ->name('login');
