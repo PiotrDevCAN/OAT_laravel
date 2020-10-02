@@ -50,8 +50,28 @@ html, body {
 			<div class="ibm-card__content">
 
 				<p class="ibm-h3 ibm-light ibm-textcolor-red-60">Sign In</p>
-				<form id="signinForm" action="{{ url()->current() }}" method="POST" class="ibm-column-form">
-		
+				{{ Form::open(['route' => Route::currentRouteName(), 'id' => 'signinForm', 'class'  => 'ibm-column-form' ]) }}
+				
+				<!-- if there are login errors, show them here -->
+                <p>
+                    {{ $errors->first('email') }}
+                    {{ $errors->first('password') }}
+                </p>
+				
+				<p>
+					{{ Form::label('email', 'Email Address') }}
+			 		{{ Form::text('email', Input::old('email'), array('placeholder' => 'awesome@awesome.com')) }}
+				</p>
+				
+				<p>
+                    {{ Form::label('password', 'Password') }}
+                    {{ Form::password('password') }}
+                </p>
+				
+				<p>
+					{{ Form::submit('Submit!') }}
+				</p>
+				
 				<?php
 				 
 				if (!isset($_GET["e"])){
@@ -237,7 +257,7 @@ html, body {
 				<p>You will be redirected to: {{ $targetPageTitle ?? '' }} page</p>
 				<input id="cameFrom" name="cameFrom" type="hidden" value="{{ $cameFrom ?? '' }}">
 			
-				</form>
+				{{ Form::close() }}
 
 			</div>
 		</div>

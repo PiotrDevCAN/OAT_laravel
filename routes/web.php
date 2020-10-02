@@ -26,8 +26,11 @@ Route::get('/', 'Index')
     ->middleware('auth')
     ->name('home');
 
-Route::get('/login', 'Login@authenticate')
+Route::get('/login', 'Login@login')
     ->name('login');
+    
+Route::post('/authenticate', 'Login@authenticate')
+    ->name('authenticate');
 
 Route::get('/logout', 'Login@logout')
     ->name('logout');
