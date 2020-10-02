@@ -135,18 +135,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
     
     // Logs
-    Route::prefix('log')->group(function () {
+    Route::prefix('log')->name('logAA.')->group(function () {
         Route::match(['get', 'post'], 'list', 'Logs@index')
             ->name('list');
-    })->name('log.');
+    });
     
 });
 
 // Access
-Route::prefix('access')->group(function () {
+Route::prefix('access')->name('accessAA.')->group(function () {
     Route::get('my', 'Index@access')
         ->name('my');
-})->name('access.');
+});
 
 // Legacy links
 Route::redirect('/index.html', '/');
