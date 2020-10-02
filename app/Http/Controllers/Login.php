@@ -16,6 +16,13 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
+        
+        if (Auth::check()) {
+            dump('user is logged now');
+        } else {
+            dump('user is NOT logged now');
+        }
+        
         $credentials = $request->only('email', 'password');
         
         $user = new \App\Models\User();
@@ -24,6 +31,12 @@ class Login extends Controller
         $user->password = 'ABC';
         
         Auth::login($user);
+        
+        if (Auth::check()) {
+            dump('user is logged now');
+        } else {
+            dump('user is NOT logged now');
+        }
         
 //         if (Auth::attempt($credentials)) {
 //             // Authentication passed...
