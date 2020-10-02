@@ -22,7 +22,7 @@ use App\Http\Controllers\Competencies;
 */
 
 // Home
-Route::get('/', 'Index');
+Route::get('/', 'Index')->name('home');
 
 Route::get('/login', 'Login@authenticate');
 Route::get('/logout', 'Login@logout');
