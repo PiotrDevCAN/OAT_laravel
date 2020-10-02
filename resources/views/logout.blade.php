@@ -28,11 +28,9 @@
 <script src="../w3Source/common/v18/js/www.js"></script>
 <script src="../w3Source/common/v18/js/forms.js"></script>
 
-{{ secure_asset('img/photo.jpg') }} 
-
 <style type="text/css">
 html, body {
-	background: url(../public/img/logon/think_travel_hero.png) no-repeat
+	background: {{ secure_asset('public/img/logon/think_travel_hero.png') }} no-repeat
 		center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
