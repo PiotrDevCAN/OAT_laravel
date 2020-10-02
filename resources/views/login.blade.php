@@ -59,12 +59,12 @@ html, body {
                 </p>
 				
 				<p>
-					{{ Form::label('email', 'User Name', ['class' => 'ibm-required']) }}
+					{{ Form::label('email', 'User Name*', ['class' => 'ibm-required']) }}
 			 		{{ Form::text('email', old('email'), ['placeholder' => 'Email']) }}
 				</p>
 				
 				<p>
-                    {{ Form::label('password', 'Password', ['class' => 'ibm-required']) }}
+                    {{ Form::label('password', 'Password*', ['class' => 'ibm-required']) }}
                     {{ Form::password('password', ['placeholder' => 'Password']) }}
                 </p>
 				

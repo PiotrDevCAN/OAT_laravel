@@ -18,6 +18,40 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
+        
+//         if ($request->session()->has('user')) {
+//             // retrieve user from session
+//             $user = $request->session()->get('user');
+//         } else {
+//             $credentials = $request->only('email', 'password');
+            
+//             $user = new \App\Models\User();
+//             $user->name = 'Piotr Tajanowicz';
+//             $user->email = 'Piotr.Tajanowicz@ibm.com';
+//             $user->password = 'ABC';
+            
+//             // store user in session
+//             $request->session()->put('user', $user);
+//         }
+        
+        
+//         $user = $request->session()->get('user');
+        
+//         $request->session()->put('user', $user);
+        
+//         dump(Auth::user());
+        
+//         Auth::login($user);
+        
+//         dump(Auth::user());
+        
+//         if (Auth::check()) {
+//             dump('user is logged now');
+//         } else {
+//             dump('user is NOT logged now');
+//         }
+        
+        
         // validate the info, create rules for the inputs
         $rules = array(
             'email'    => 'required|email', // make sure the email is an actual email
@@ -60,42 +94,6 @@ class Login extends Controller
     
     public function login(Request $request)
     {
-        if (Auth::check()) {
-            dump('user is logged now');
-        } else {
-            dump('user is NOT logged now');
-        }
-        
-        $credentials = $request->only('email', 'password');
-        
-        $user = new \App\Models\User();
-        $user->name = 'Piotr Tajanowicz';
-        $user->email = 'Piotr.Tajanowicz@ibm.com';
-        $user->password = 'ABC';
-        
-        $request->session()->put('user', $user);
-        
-        dump(Auth::user());
-        
-        Auth::login($user);
-        
-        dump(Auth::user());
-        
-        if (Auth::check()) {
-            dump('user is logged now');
-        } else {
-            dump('user is NOT logged now');
-        }
-        
-        //         dump(Auth::user());
-        
-        //         if (Auth::attempt($credentials)) {
-        //             // Authentication passed...
-        //             return redirect()->intended('dashboard');
-        //         }
-        
-        //         return view('login');
-        
         return view('login');
     }
     
