@@ -48,37 +48,13 @@ html, body {
 	<div class="ibm-col-12-6">
 		<div class="ibm-card">
 			<div class="ibm-card__content">
-
-				<p class="ibm-h3 ibm-light ibm-textcolor-red-60">Sign In</p>
-				{{ Form::open(['route' => Route::currentRouteName(), 'id' => 'signinForm', 'class'  => 'ibm-column-form' ]) }}
 				
-				<!-- if there are login errors, show them here -->
-                <p>
-                    {{ $errors->first('email') }}
-                    {{ $errors->first('password') }}
-                </p>
-				
-				<p>
-					{{ Form::label('email', 'User Name', ['class' => 'ibm-required']) }}
-			 		{{ Form::text('email', old('email'), ['placeholder' => 'Email']) }}
-				</p>
-				
-				<p>
-                    {{ Form::label('password', 'Password', ['class' => 'ibm-required']) }}
-                    {{ Form::password('password'), ['placeholder' => 'Password'] }}
-                </p>
-				
-				<p>
-					{{ Form::submit('OK', ['class' => 'ibm-btn-pri ibm-btn-small ibm-btn-green-50', 'name' => 'submitForm']) }}
-					{{ Form::button('Cancel', ['class' => 'ibm-btn-sec ibm-btn-small ibm-btn-green-50', 'name' => 'cancel', 'onclick' => "alert()"]) }}
-				</p>
-				
-				<p>You will be redirected to: {{ $targetPageTitle ?? '' }} page</p>
-				<input id="cameFrom" name="cameFrom" type="hidden" value="{{ $cameFrom ?? '' }}">
-				
-				{{ Form::close() }}
-
+				<p class="ibm-h3 ibm-light ibm-textcolor-red-60">Logged off</p>
+				<h3 class="ibm-h3">You are now signed off.</h3>
+				<p>To sign in again, click the link below</p>
+				<p class="ibm-ind-link"><a class="ibm-forward-link" href="{{ route('home') }}">Sign in</a></p>
+			
 			</div>
 		</div>
-	</div>
+	</div>	
 </div>
