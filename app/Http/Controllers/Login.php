@@ -16,12 +16,6 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
-//         dump(Auth::guest());
-        
-//         dump(Auth::guard('admin'));
-        
-//         dump(Auth::user());
-        
         if (Auth::check()) {
             dump('user is logged now');
         } else {
@@ -35,7 +29,13 @@ class Login extends Controller
         $user->email = 'Piotr.Tajanowicz@ibm.com';
         $user->password = 'ABC';
         
+        $request->session()->put('user', $user);
+        
+        dump(Auth::user());
+        
         Auth::login($user);
+        
+        dump(Auth::user());
         
         if (Auth::check()) {
             dump('user is logged now');
