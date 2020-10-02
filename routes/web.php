@@ -29,7 +29,7 @@ Route::get('/', 'Index')
 Route::get('/login', 'Login@login')
     ->name('login');
     
-Route::post('/authenticate', 'Login@authenticate')
+Route::post('/login', 'Login@authenticate')
     ->name('authenticate');
 
 Route::get('/loginCancel', 'Login@cancel')
