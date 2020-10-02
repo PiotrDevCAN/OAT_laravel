@@ -43,7 +43,7 @@ class Login extends Controller
             dump('user is NOT logged now');
         }
         
-        dump(Auth::user());
+//         dump(Auth::user());
         
 //         if (Auth::attempt($credentials)) {
 //             // Authentication passed...
