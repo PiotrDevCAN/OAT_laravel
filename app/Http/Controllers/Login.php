@@ -99,6 +99,11 @@ class Login extends Controller
         return view('login');
     }
     
+    public function cancel(Request $request)
+    {
+        return view('loginCancel');
+    }
+    
     public function logout(Request $request)
     {
         Auth::logout();

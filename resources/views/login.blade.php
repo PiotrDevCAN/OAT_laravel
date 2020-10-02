@@ -59,17 +59,18 @@ html, body {
                 </p>
 				
 				<p>
-					{{ Form::label('email', 'Email Address') }}
-			 		{{ Form::text('email', old('email'), array('placeholder' => 'awesome@awesome.com')) }}
+					{{ Form::label('email', 'User Name', ['class' => 'ibm-required']) }}
+			 		{{ Form::text('email', old('email'), ['placeholder' => 'Email']) }}
 				</p>
 				
 				<p>
-                    {{ Form::label('password', 'Password') }}
-                    {{ Form::password('password') }}
+                    {{ Form::label('password', 'Password', ['class' => 'ibm-required']) }}
+                    {{ Form::password('password'), ['placeholder' => 'Password'] }}
                 </p>
 				
 				<p>
-					{{ Form::submit('Submit!') }}
+					{{ Form::button('OK'), ['class' => 'ibm-btn-pri ibm-btn-small ibm-btn-green-50', 'name' => 'submitForm'] }}
+					{{ Form::button('Cancel', ['class' => 'ibm-btn-sec ibm-btn-small ibm-btn-green-50', 'name' => 'cancel', 'onclick' => "alert()"]) }}
 				</p>
 				
 				<?php
@@ -256,7 +257,7 @@ html, body {
 				?>
 				<p>You will be redirected to: {{ $targetPageTitle ?? '' }} page</p>
 				<input id="cameFrom" name="cameFrom" type="hidden" value="{{ $cameFrom ?? '' }}">
-			
+				
 				{{ Form::close() }}
 
 			</div>

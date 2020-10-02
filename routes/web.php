@@ -32,6 +32,9 @@ Route::get('/login', 'Login@login')
 Route::post('/authenticate', 'Login@authenticate')
     ->name('authenticate');
 
+Route::get('/loginCancel', 'Login@cancel')
+    ->name('loginCancel');
+    
 Route::get('/logout', 'Login@logout')
     ->name('logout');
 
