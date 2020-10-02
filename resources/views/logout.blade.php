@@ -17,8 +17,6 @@
 
 <title>{{ config('app.name') }}</title>
 
-<script src="../config/digitalData.js"></script>
-
 <link href="https://1.www.s81c.com/common/v18/css/www.css" rel="stylesheet" />
 <link href="https://1.www.s81c.com/common/v18/css/forms.css" rel="stylesheet">
 <link href="https://1.www.s81c.com/common/v18/css/grid-fluid.css" rel="stylesheet">
