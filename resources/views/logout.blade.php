@@ -30,7 +30,7 @@
 
 <style type="text/css">
 html, body {
-	background: {{ secure_asset('public/img/logon/think_travel_hero.png') }} no-repeat
+	background: url({{ secure_asset('public/img/logon/think_travel_hero.png') }}) no-repeat
 		center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
