@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="shortcut icon" href="//www.ibm.com/favicon.ico" />
+<link rel="canonical" href="https://soiwapi-new.icds.ibm.com/ttcookbook/" />
+
+<meta name="geo.country" value="GB" />
+<meta name="dcterms.rights" value="� Copyright IBM Corp. 2016" />
+<meta name="dcterms.date" value="2015-12-04" />
+<meta name="description" value="The easy management of RCA" />
+<meta name="keywords" value="ttcookbook" />
+<meta name="robots" value="index, follow" />
+
+<title>The T&amp;T Compliance Cookbook Application for UKI Market</title>
+
+<script src="../config/digitalData.js"></script>
+
+<!--  <script src="//www.ibm.com/common/stats/ida_stats.js"></script> -->
+<link href="https://1.www.s81c.com/common/v18/css/www.css" rel="stylesheet" />
+<link href="https://1.www.s81c.com/common/v18/css/forms.css" rel="stylesheet">
+<link href="https://1.www.s81c.com/common/v18/css/grid-fluid.css" rel="stylesheet">
+<link href="../css/cetaTheme.css" rel="stylesheet">
+
+<script src="../w3Source/common/v18/js/www.js"></script>
+<script src="../w3Source/common/v18/js/forms.js"></script>
+
+{{ secure_asset('img/photo.jpg') }} 
+
 <style type="text/css">
 html, body {
 	background: url(../public/img/logon/think_travel_hero.png) no-repeat
