@@ -17,6 +17,8 @@ class Login extends Controller
     public function authenticate(Request $request)
     {
         
+        dump(Auth::user());
+        
         if (Auth::check()) {
             dump('user is logged now');
         } else {
@@ -37,6 +39,8 @@ class Login extends Controller
         } else {
             dump('user is NOT logged now');
         }
+        
+        dump(Auth::user());
         
 //         if (Auth::attempt($credentials)) {
 //             // Authentication passed...

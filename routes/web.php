@@ -24,8 +24,11 @@ use App\Http\Controllers\Competencies;
 // Home
 Route::get('/', 'Index')->name('home');
 
-Route::get('/login', 'Login@authenticate');
-Route::get('/logout', 'Login@logout');
+Route::get('/login', 'Login@authenticate')
+    ->name('login');
+
+Route::get('/logout', 'Login@logout')
+    ->name('logout');
 
 // Overtime Requests
 Route::prefix('request')->name('request.')->group(function () {
