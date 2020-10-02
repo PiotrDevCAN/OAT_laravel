@@ -70,7 +70,7 @@ html, body {
 				
 				<p>
 					{{ Form::submit('OK', ['class' => 'ibm-btn-pri ibm-btn-small ibm-btn-green-50', 'name' => 'submitForm']) }}
-					{{ Form::button('Cancel', ['class' => 'ibm-btn-sec ibm-btn-small ibm-btn-green-50', 'name' => 'cancel', 'onclick' => "alert()"]) }}
+					{{ Form::button('Cancel', ['class' => 'ibm-btn-sec ibm-btn-small ibm-btn-green-50', 'name' => 'cancel', 'onclick' => "window.open(\'{{ route('loginCancel' }}\',\'_self\');"]) }}
 				</p>
 				
 				<p>You will be redirected to: {{ $targetPageTitle ?? '' }} page</p>
