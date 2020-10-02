@@ -65,7 +65,7 @@ html, body {
 				
 				<p>
                     {{ Form::label('password', 'Password', ['class' => 'ibm-required']) }}
-                    {{ Form::password('password'), ['placeholder' => 'Password'] }}
+                    {{ Form::password('password', ['placeholder' => 'Password']) }}
                 </p>
 				
 				<p>
