@@ -23,7 +23,7 @@ use App\Http\Controllers\Competencies;
 
 // Home
 Route::get('/', 'Index')
-//     ->middleware('auth')
+    ->middleware('auth')
     ->name('home');
 
 Route::get('/login', 'Login@authenticate')
@@ -33,120 +33,129 @@ Route::get('/logout', 'Login@logout')
     ->name('logout');
 
 // Overtime Requests
-Route::prefix('request')->name('request.')->group(function () {
-    Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
-        ->name('list');
-    
-    Route::match(['get', 'post'], 'approved', 'OvertimeRequests@approved')
-        ->name('approved');
-    
-    // Show the form for creating a new resource.
-    Route::get('create', 'OvertimeRequests@create')
-        ->name('create');
-    
-    // Show the form for editing the specified resource.
-    Route::get('edit/{overtimeRequest}', 'OvertimeRequests@edit')
-        ->name('edit');
-    
-    // Mailables preview
-    Route::get('retrieved/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
-        return new App\Mail\Request\OvertimeRequestRetrieved($overtimeRequest);
-    })
-        ->name('retrievedMailable');
-    
-    Route::get('created/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
-            return new App\Mail\Request\OvertimeRequestCreated($overtimeRequest);
-        })
-        ->name('createdMailable');
-    
-    Route::get('updated/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
-        return new App\Mail\Request\OvertimeRequestUpdated($overtimeRequest);
-    })
-        ->name('updatedMailable');
-    
-    Route::get('deleted/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
-            return new App\Mail\Request\OvertimeRequestDeleted($overtimeRequest);
-        })
-        ->name('deletedMailable');
-    
-    Route::get('approved/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
-            return new App\Mail\Request\OvertimeRequestApproved($overtimeRequest);
-        })
-        ->name('approvedMailable');
+Route::prefix('request')
+    ->middleware('auth')
+    ->name('request.')
+    ->group(function () {
+        Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
+            ->name('list');
         
-    Route::get('rejected/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
-        return new App\Mail\Request\OvertimeRequestRejected($overtimeRequest);
-    })
-        ->name('rejectedMailable');
-});
+        Route::match(['get', 'post'], 'approved', 'OvertimeRequests@approved')
+            ->name('approved');
+        
+        // Show the form for creating a new resource.
+        Route::get('create', 'OvertimeRequests@create')
+            ->name('create');
+        
+        // Show the form for editing the specified resource.
+        Route::get('edit/{overtimeRequest}', 'OvertimeRequests@edit')
+            ->name('edit');
+        
+        // Mailables preview
+        Route::get('retrieved/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+            return new App\Mail\Request\OvertimeRequestRetrieved($overtimeRequest);
+        })
+            ->name('retrievedMailable');
+        
+        Route::get('created/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+                return new App\Mail\Request\OvertimeRequestCreated($overtimeRequest);
+            })
+            ->name('createdMailable');
+        
+        Route::get('updated/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+            return new App\Mail\Request\OvertimeRequestUpdated($overtimeRequest);
+        })
+            ->name('updatedMailable');
+        
+        Route::get('deleted/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+                return new App\Mail\Request\OvertimeRequestDeleted($overtimeRequest);
+            })
+            ->name('deletedMailable');
+        
+        Route::get('approved/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+                return new App\Mail\Request\OvertimeRequestApproved($overtimeRequest);
+            })
+            ->name('approvedMailable');
+            
+        Route::get('rejected/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+            return new App\Mail\Request\OvertimeRequestRejected($overtimeRequest);
+        })
+            ->name('rejectedMailable');
+    });
 
 // Accounts
-Route::prefix('admin')->name('admin.')->group(function () {
-    
-    // Accounts
-    Route::prefix('account')->name('account.')->group(function () {
-        Route::match(['get', 'post'], 'list', 'Accounts@index')
-            ->name('list');
+Route::prefix('admin')
+    ->middleware('auth')
+    ->name('admin.')
+    ->group(function () {
         
-    // Show the form for creating a new resource.
-    Route::get('create', 'Accounts@create')
-        ->name('create');
-    
-    // Show the form for editing the specified resource.
-    Route::get('edit/{account_name}/{location}', 'Accounts@edit')
-        ->name('edit');
-
-    });
-    
-    // Delegates
-    Route::prefix('delegate')->name('delegate.')->group(function () {
-        Route::match(['get', 'post'], 'list', 'Delegates@index')
-            ->name('list');
-        
-        // Show the form for creating a new resource.
-        Route::get('create', 'Delegates@create')
-            ->name('create');
-        
-        // Show the form for editing the specified resource.
-//         Route::get('edit/{user_intranet}/{delegate_intranet}', function (Delegate $delegate) {
-//             return (new Delegates())->edit($delegate);
-//         })
-//         ->name('edit');
-        
-        Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
-            ->name('edit');
+        // Accounts
+        Route::prefix('account')->name('account.')->group(function () {
+            Route::match(['get', 'post'], 'list', 'Accounts@index')
+                ->name('list');
             
-        Route::get('my', 'Delegates@my')
-            ->name('my');
-    });
-    
-    // Competencies
-    Route::prefix('competency')->name('competency.')->group(function () {
-        Route::match(['get', 'post'], 'list', 'Competencies@index')
-            ->name('list');
-        
         // Show the form for creating a new resource.
-        Route::get('create', 'Competencies@create')
+        Route::get('create', 'Accounts@create')
             ->name('create');
         
         // Show the form for editing the specified resource.
-        Route::get('edit/{competency_name}/{approver}', 'Competencies@edit')
+        Route::get('edit/{account_name}/{location}', 'Accounts@edit')
             ->name('edit');
-    });
     
-    // Logs
-    Route::prefix('log')->name('log')->group(function () {
-        Route::match(['get', 'post'], 'list', 'Logs@index')
-            ->name('list');
+        });
+        
+        // Delegates
+        Route::prefix('delegate')->name('delegate.')->group(function () {
+            Route::match(['get', 'post'], 'list', 'Delegates@index')
+                ->name('list');
+            
+            // Show the form for creating a new resource.
+            Route::get('create', 'Delegates@create')
+                ->name('create');
+            
+            // Show the form for editing the specified resource.
+    //         Route::get('edit/{user_intranet}/{delegate_intranet}', function (Delegate $delegate) {
+    //             return (new Delegates())->edit($delegate);
+    //         })
+    //         ->name('edit');
+            
+            Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
+                ->name('edit');
+                
+            Route::get('my', 'Delegates@my')
+                ->name('my');
+        });
+        
+        // Competencies
+        Route::prefix('competency')->name('competency.')->group(function () {
+            Route::match(['get', 'post'], 'list', 'Competencies@index')
+                ->name('list');
+            
+            // Show the form for creating a new resource.
+            Route::get('create', 'Competencies@create')
+                ->name('create');
+            
+            // Show the form for editing the specified resource.
+            Route::get('edit/{competency_name}/{approver}', 'Competencies@edit')
+                ->name('edit');
+        });
+        
+        // Logs
+        Route::prefix('log')->name('log.')->group(function () {
+            Route::match(['get', 'post'], 'list', 'Logs@index')
+                ->name('list');
+        });
+        
     });
-    
-});
 
 // Access
-Route::prefix('access')->name('access')->group(function () {
-    Route::get('my', 'Index@access')
-        ->name('my');
-});
+Route::prefix('access')
+    ->middleware('auth')
+    ->name('access.')
+    ->group(function () {
+        Route::get('my', 'Index@access')
+            ->name('my');
+    });
 
 // Legacy links
 Route::redirect('/index.html', '/');
