@@ -69,7 +69,7 @@ html, body {
                 </p>
 				
 				<p>
-					{{ Form::button('OK'), ['class' => 'ibm-btn-pri ibm-btn-small ibm-btn-green-50', 'name' => 'submitForm'] }}
+					{{ Form::button('OK'), ['class' => 'ibm-btn-pri ibm-btn-small ibm-btn-green-50', 'name' => 'submitForm']) }}
 					{{ Form::button('Cancel', ['class' => 'ibm-btn-sec ibm-btn-small ibm-btn-green-50', 'name' => 'cancel', 'onclick' => "alert()"]) }}
 				</p>
 				
