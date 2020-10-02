@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
-use Symfony\Component\Console\Input\Input;
 
 class Login extends Controller
 {
@@ -26,19 +25,19 @@ class Login extends Controller
         );
         
         // run the validation rules on the inputs from the form
-        $validator = Validator::make(Input::all(), $rules);
+        $validator = Validator::make($request->all(), $rules);
         
         // if the validator fails, redirect back to the form
         if ($validator->fails()) {
             return Redirect::to('login')
                 ->withErrors($validator) // send back all errors to the login form
-                ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+                ->withInput($request->except('password')); // send back the input (not the password) so that we can repopulate the form
         } else {
             
             // create our user data for the authentication
             $userdata = array(
-                'email' => Input::get('email'),
-                'password' => Input::get('password')
+                'email' $request->input('email'),
+                'password' => $request->input('password')
             );
             
             // attempt to do the login
