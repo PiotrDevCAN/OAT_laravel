@@ -33,6 +33,7 @@ html, body {
 </style>
 </head>
 <body>
+
 <div class="ibm-fluid ibm-padding-top-90 ibm-padding-bottom-90" data-always="true" data-items=".ibm-card">
 	<div class="ibm-col-12-6">
 		<div class="ibm-card">

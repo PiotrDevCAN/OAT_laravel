@@ -1,6 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="shortcut icon" href="//www.ibm.com/favicon.ico" />
+<link rel="canonical" href="{{ route('home') }}" />
+
+<meta name="geo.country" value="GB" />
+<meta name="dcterms.rights" value="" />
+<meta name="dcterms.date" value="2015-12-04" />
+<meta name="description" value="" />
+<meta name="keywords" value="OAT_laraver" />
+<meta name="robots" value="index, follow" />
+
+<title>{{ config('app.name') }}</title>
+
+<link href="https://1.www.s81c.com/common/v18/css/www.css" rel="stylesheet" />
+<link href="https://1.www.s81c.com/common/v18/css/forms.css" rel="stylesheet">
+<link href="https://1.www.s81c.com/common/v18/css/grid-fluid.css" rel="stylesheet">
+
 <style type="text/css">
 html, body {
-	background: url(../public/img/logon/think_travel_hero.png) no-repeat
+	background: url({{ secure_asset('public/img/logon/think_travel_hero.png') }}) no-repeat
 		center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -15,7 +38,7 @@ html, body {
 	<div class="ibm-col-12-6">
 		<div class="ibm-card">
 			<div class="ibm-card__content">
-				<p class="ibm-h3 ibm-light ibm-textcolor-blue-60 ibm-padding-bottom-0"><?php echo $site['site_title'];?></p>
+				<p class="ibm-h3 ibm-light ibm-textcolor-blue-60 ibm-padding-bottom-0">{{ config('app.name') }}</p>
 			</div>
 		</div>
 	</div>
@@ -27,7 +50,7 @@ html, body {
 			<div class="ibm-card__content">
 
 				<p class="ibm-h3 ibm-light ibm-textcolor-red-60">Sign In</p>
-				<form id="signinForm" action="check_auth.php" method="POST" class="ibm-column-form">
+				<form id="signinForm" action="{{ url()->current() }}" method="POST" class="ibm-column-form">
 		
 				<?php
 				 
@@ -210,92 +233,9 @@ html, body {
 					</p>
 				<?php
 				}
-				if(isset($_COOKIE['cameFrom']) && !empty($_COOKIE['cameFrom'])){
-					$cameFrom = $_COOKIE['cameFrom'];
-				} else {
-					$country = $_SERVER['environment'];
-					switch ($country) {
-    					case 'SOIW':
-							$cameFrom = '/TTCOOKBOOK/';
-							break;
-						case 'SOIW_NORDIC':
-							$cameFrom = '/TTCOOKBOOK_NORDIC/';
-							break;
-						case 'SOIW_EUROPE':
-							$cameFrom = '/TTCOOKBOOK/';
-							break;
-					}
-				}
-
-$targetPageTitle = 'The Main';
-$navBar_data = array(
-
-    array("View",'dropDown'),
-    array("Master Cookbook",'p_masterCookbook.php'), //open access
-    array("My Approvals",'p_myApprovals.php'), //open access
-    array("My Active Account Cookbooks",'p_myAccountCookbooks.php'), //open only
-    array("My Archieved Account Cookbooks",'p_myAccountCookbooksArchieved.php'), //open only
-    array("My Account Delegates",'p_myDelegates.php'), //open only
-    array("Help",'p_help.php'), //open access
-    array("Log off",'login/p_logoffConfirmed.php'), //open access
-    array("",'endOfDropDown'),
-
-    array("Administration",'dropDown'),
-    array("Create Master Cookbook Entry","p_masterCookbookEntry.php"),  //admins only
-    array("Manage Master Cookbook","p_masterCookbook.php"),  //admins only
-	array("Active Account Cookbooks",'p_accountCookbooks.php'),  //admins only
-    array("Archieved Account Cookbooks",'p_accountCookbooksArchieved.php'),  //admins only
-    array("Manage Accounts","p_accounts.php"), //admins only
-	array("Manage Account BC Inputs","p_accountBCInputs.php"), //admins only
-    array("Manage Accounts Delegates",'p_delegates.php'), //admins only
-    array("BC Team Lead User","p_leadUser.php"), //admins only
-	array("Manage Users","p_users.php"), //admins only
-    array("Review Users Roles","p_usersRoles.php"), //admins only
-    array("Manage Competencies","p_competencies.php"), //admins only
-    array("Manage Categories","p_categories.php"), //admins only
-    array("Manage Admin Messages","p_adminMessages.php"), //admins only
-    array("Work Instruction Documents","p_instructions.php"), //admins only
-    array("Internal Settings of Tool","p_toolSettings.php"), //admins only
-    array("",'endOfDropDown'),
-
-	array("Diary",'dropDown'),
-	array("Master Cookbook", "p_masterCookbookDiary.php"),  //admins only
-	array("Account Cookbooks", "p_accountCookbookDiary.php"),  //admins only
-	array("Account Cookbooks Rejections", "p_accountCookbookRejectionsDiary.php"),  //admins only
-    array("Account Cookbooks Comments", "p_accountCookbookCommentsDiary.php"),  //admins only
-    array("Account Cookbooks Extension", "p_accountCookbookExtensionDiary.php"),  //admins only
-    array("Account Cookbooks Extension Rejections", "p_accountCookbookExtensionRejectionsDiary.php"),  //admins only
-    array("Accounts", "p_accountDiary.php"),  //admins only
-	array("BC Team Lead User","p_leadUserDiary.php"), //admins only
-	array("Users", "p_userDiary.php"),  //admins only
-	array("",'endOfDropDown'),
-	
-	array("Report",'dropDown'),
-    array("Processes Scorecard", "p_scorecardProcesses.php"),  //admins only
-    array("Scorecard", "p_scorecard.php"),  //admins only
-    array("Scorecard Graph", "p_scorecardGraph.php"),  //admins only
-    array("Scorecard Snapshot Review", "p_scorecardSnapshotReview.php"),  //admins only
-    array("Scorecard Snapshot Account Graph", "p_scorecardSnapshotGraph.php"),  //admins only
-    array("Scorecard Snapshot Monthly Graph", "p_scorecardSnapshotMonthlyGraph.php"),  //admins only
-	array("Processes", "p_processesReport.php"),  //admins only
-    array("Account Cookbooks", "p_cmcReport.php"),  //admins only
-    array("Tracker", "p_tracker.php"),  //admins only
-    array("Account Factsheets","p_accountFactsheets.php"), //admins only
-	array("Users by Account", "p_usersReport.php"),  //admins only
-    array("",'endOfDropDown'),
-	
-    array('Planned Outages','p_plannedOutages.php'),
-
-);
-
-foreach ($navBar_data as $key => $value) {
-	if (!empty($value[0]) && strpos($cameFrom, $value[1]) !== false) {
-		$targetPageTitle = $value[0];
-	}
-}
 				?>
-				<p>You will be redirected to: <?=$targetPageTitle;?> page</p>
-				<input id="cameFrom" name="cameFrom" type="hidden" value="<?=$cameFrom;?>">
+				<p>You will be redirected to: {{ $targetPageTitle ?? '' }} page</p>
+				<input id="cameFrom" name="cameFrom" type="hidden" value="{{ $cameFrom ?? '' }}">
 			
 				</form>
 
