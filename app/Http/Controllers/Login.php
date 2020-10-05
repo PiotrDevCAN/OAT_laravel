@@ -87,8 +87,12 @@ class Login extends Controller
                 
             } else {
                 
+                dump($userdata);
+                
+                dump(Auth::attempt($userdata));
+                
                 // validation not successful, send back to form
-                return Redirect::to('login');
+//                 return Redirect::to('login');
                 
             }            
         }
