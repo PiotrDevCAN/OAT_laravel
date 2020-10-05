@@ -80,14 +80,14 @@ return [
 //             'table' => 'users',
 //         ],
 
-//         'users' => [
-//             'driver' => 'IBM',
-//         ],
-
         'users' => [
-            'driver' => 'session',
-            'model' => App\Models\User::class,
+            'driver' => 'IBM',
         ],
+
+//         'users' => [
+//             'driver' => 'session',
+//             'model' => App\Models\User::class,
+//         ],
     ],
 
     /*
