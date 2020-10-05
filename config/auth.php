@@ -82,6 +82,7 @@ return [
 
         'users' => [
             'driver' => 'IBM',
+            'model' => App\Models\User::class,
         ],
 
 //         'users' => [
