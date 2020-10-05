@@ -31,7 +31,7 @@ class AuthServiceProvider extends ServiceProvider
         Auth::provider('IBM', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
-            return new IBMUserProvider();
+            return new IBMUserProvider($app['hash'], $config['model']);
         });
 
 //         Auth::extend('ibm', function ($app, $name, array $config) {
