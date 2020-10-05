@@ -6,7 +6,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Auth\IBMGuard;
-use App\Exceptions\IBMUserProvider;
+use App\Extensions\IBMUserProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
