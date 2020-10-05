@@ -27,5 +27,6 @@ class LogFailedLogin
     public function handle(Failed $event)
     {
         //
+        dump('Warning login failed ');
     }
 }
