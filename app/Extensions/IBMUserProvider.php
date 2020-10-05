@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace App\Extensions;
 
 use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 use Illuminate\Contracts\Auth\UserProvider;
