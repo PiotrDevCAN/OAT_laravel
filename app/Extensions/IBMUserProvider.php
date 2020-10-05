@@ -147,7 +147,7 @@ class IBMUserProvider implements UserProvider
                 $model->email = 'Piotr.Tajanowicz@ibm.com';
                 $model->password = 'ABC';
                 
-                return collect($model);
+                return $model;
     }
 
     /**
