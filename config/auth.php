@@ -82,7 +82,7 @@ return [
 
         'users' => [
             'driver' => 'IBM',
-            'model' => App\Extensions\IBMUser::class,
+//             'model' => App\Extensions\IBMUser::class,
         ],
 
 //         'users' => [

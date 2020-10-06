@@ -2,34 +2,13 @@
 
 namespace App\Extensions;
 
-use Illuminate\Contracts\Auth\Authenticatable as UserContract;
+use Illuminate\Auth\GenericUser;
 
-class IBMUser implements UserContract
+class IBMUser extends GenericUser
 {
-    /**
-     * All of the user's attributes.
-     *
-     * @var array
-     */
-    protected $attributes;
-
-    /**
-     * Create a new generic IBMUser object.
-     *
-     * @param  array  $attributes
-     * @return void
-     */
-    public function __construct(array $attributes)
-    {
-        dump(this);
-        
-        $this->attributes = $attributes;
-    }
-    
     public function getAuthIdentifierName()
     {
         dump('createModel');
-        
         
         return '';
     }

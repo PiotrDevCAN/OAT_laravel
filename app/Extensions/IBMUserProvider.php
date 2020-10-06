@@ -47,17 +47,13 @@ class IBMUserProvider implements UserProvider
     {
         dump('retrieveById');
         
-        $model = $this->createModel();
-        
-//         return $this->newModelQuery($model)
-//                     ->where($model->getAuthIdentifierName(), $identifier)
-//                     ->first();
-        
-        $model->name = 'Piotr Tajanowicz';
-        $model->email = 'Piotr.Tajanowicz@ibm.com';
-        $model->password = 'ABC';
-        
-        return $model;
+        $user = array(
+            'name' => 'Piotr Tajanowicz',
+            'email' => 'Piotr.Tajanowicz@ibm.com',
+            'password' => 'ABC'
+        );
+
+        return $this->getGenericUser($user);
     }
 
     /**
@@ -71,25 +67,16 @@ class IBMUserProvider implements UserProvider
     {
         dump('retrieveByToken');
         
-        $model = $this->createModel();
+        $user = $this->getGenericUser(
+            array(
+                'name' => 'Piotr Tajanowicz',
+                'email' => 'Piotr.Tajanowicz@ibm.com',
+                'password' => 'ABC'
+            )
+        );
         
-//         $retrievedModel = $this->newModelQuery($model)->where(
-//                 $model->getAuthIdentifierName(), $identifier
-//             )->first();
-        
-        $model->name = 'Piotr Tajanowicz';
-        $model->email = 'Piotr.Tajanowicz@ibm.com';
-        $model->password = 'ABC';
-        
-        $retrievedModel = $model;
-            if (! $retrievedModel) {
-                return;
-            }
-            
-            $rememberToken = $retrievedModel->getRememberToken();
-            
-            return $rememberToken && hash_equals($rememberToken, $token)
-                            ? $retrievedModel : null;
+        return $user && $user->getRememberToken() && hash_equals($user->getRememberToken(), $token)
+                    ? $user : null;
     }
 
     /**
@@ -102,16 +89,10 @@ class IBMUserProvider implements UserProvider
     public function updateRememberToken(UserContract $user, $token)
     {
         dump('updateRememberToken');
-        
-        $user->setRememberToken($token);
-        
-        $timestamps = $user->timestamps;
-        
-        $user->timestamps = false;
-        
-//         $user->save();
-        
-        $user->timestamps = $timestamps;
+    
+        $this->conn->table($this->table)
+                ->where($user->getAuthIdentifierName(), $user->getAuthIdentifier())
+                ->update([$user->getRememberTokenName() => $token]);
     }
 
     /**
@@ -123,39 +104,53 @@ class IBMUserProvider implements UserProvider
     public function retrieveByCredentials(array $credentials)
     {
         dump('retrieveByCredentials');
-        
+    
         if (empty($credentials) ||
             (count($credentials) === 1 &&
-                Str::contains($this->firstCredentialKey($credentials), 'password'))) {
+                array_key_exists('password', $credentials))) {
                     return;
                 }
                 
                 // First we will add each credential element to the query as a where clause.
                 // Then we can execute the query and, if we found a user, return it in a
-                // Eloquent User "model" that will be utilized by the Guard instances.
-//                 $query = $this->newModelQuery();
+                // generic "user" object that will be utilized by the Guard instances.
+//                 $query = $this->conn->table($this->table);
                 
-                foreach ($credentials as $key => $value) {
-                    if (Str::contains($key, 'password')) {
-                        continue;
-                    }
+//                 foreach ($credentials as $key => $value) {
+//                     if (Str::contains($key, 'password')) {
+//                         continue;
+//                     }
                     
-                    if (is_array($value) || $value instanceof Arrayable) {
+//                     if (is_array($value) || $value instanceof Arrayable) {
 //                         $query->whereIn($key, $value);
-                    } else {
+//                     } else {
 //                         $query->where($key, $value);
-                    }
-                }
+//                     }
+//                 }
                 
-//                 return $query->first();
+                // Now we are ready to execute the query to see if we have an user matching
+                // the given credentials. If not, we will just return nulls and indicate
+                // that there are no matching users for these given credential arrays.
+                $user = array(
+                    'name' => 'Piotr Tajanowicz',
+                    'email' => 'Piotr.Tajanowicz@ibm.com',
+                    'password' => 'ABC'
+                );
                 
-                $model = $this->createModel();
-                
-                $model->name = 'Piotr Tajanowicz';
-                $model->email = 'Piotr.Tajanowicz@ibm.com';
-                $model->password = 'ABC';
-                
-                return $model;
+                return $this->getGenericUser($user);
+    }
+    
+    /**
+     * Get the generic user.
+     *
+     * @param  mixed  $user
+     * @return \Illuminate\Auth\GenericUser|null
+     */
+    protected function getGenericUser($user)
+    {
+        if (! is_null($user)) {
+            return new IBMUser((array) $user);
+        }
     }
 
     /**
@@ -169,36 +164,8 @@ class IBMUserProvider implements UserProvider
     {
         dump('validateCredentials');
         
-        $plain = $credentials['password'];
-        
-        return $this->hasher->check($plain, $user->getAuthPassword());
+        return $this->hasher->check(
+            $credentials['password'], $user->getAuthPassword()
+        );
     }
-
-    /**
-     * Get a new query builder for the model instance.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model|null  $model
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-//     protected function newModelQuery($model = null)
-//     {
-//         return is_null($model)
-//                 ? $this->createModel()->newQuery()
-//                 : $model->newQuery();
-//     }
-
-    /**
-     * Create a new instance of the model.
-     *
-     * @return \Illuminate\Database\Eloquent\Model
-     */
-    public function createModel()
-    {
-        dump('createModel');
-        
-        $class = '\\'.ltrim($this->model, '\\');
-        
-        return new $class;
-    }
-    
 }
