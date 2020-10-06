@@ -60,11 +60,12 @@ class Login extends Controller
                 // validation successful!
                 // redirect them to the secure section or whatever
 //                 return Redirect::route('home');
+                return Redirect::intended('home');
                 
                 // for now we'll just echo success (even though echoing in a controller is bad)
-                echo 'SUCCESS!';
+//                 echo 'SUCCESS!';
                 
-                dump(storage_path('framework/sessions'));
+//                 dump(storage_path('framework/sessions'));
                 
             } else {
                 
