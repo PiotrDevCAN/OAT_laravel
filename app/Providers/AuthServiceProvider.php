@@ -39,9 +39,5 @@ class AuthServiceProvider extends ServiceProvider
 
 //             return new IBMGuard(Auth::createUserProvider($config['provider']));
 //         });
-
-//         Auth::extend('pin', function (Container $app) {
-//             return new PinGuard($app['request']);
-//         });
     }
 }

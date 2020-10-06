@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'IBM',
         'passwords' => 'users',
     ],
 
@@ -47,6 +47,11 @@ return [
             'hash' => false,
         ],
 
+        'IBM' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        
 //         'web' => [
 //             'driver' => 'IBM',
 //         ],
@@ -82,13 +87,7 @@ return [
 
         'users' => [
             'driver' => 'IBM',
-//             'model' => App\Extensions\IBMUser::class,
         ],
-
-//         'users' => [
-//             'driver' => 'session',
-//             'model' => App\Models\User::class,
-//         ],
     ],
 
     /*
