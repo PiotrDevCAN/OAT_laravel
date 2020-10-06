@@ -19,37 +19,17 @@ class Login extends Controller
     public function authenticate(Request $request)
     {
         
-//         if ($request->session()->has('user')) {
-//             // retrieve user from session
-//             $user = $request->session()->get('user');
-//         } else {
-//             $credentials = $request->only('email', 'password');
-            
-//             $user = new \App\Models\User();
-//             $user->name = 'Piotr Tajanowicz';
-//             $user->email = 'Piotr.Tajanowicz@ibm.com';
-//             $user->password = 'ABC';
-            
-//             // store user in session
-//             $request->session()->put('user', $user);
-//         }
         
+        $value = $request->session()->pull('my', 'test');
         
-//         $user = $request->session()->get('user');
+        dump($value);
         
-//         $request->session()->put('user', $user);
+        $request->session()->put('my', 'test');
         
-//         dump(Auth::user());
+        $value = $request->session()->pull('my', 'test');
         
-//         Auth::login($user);
+        dump($value);
         
-//         dump(Auth::user());
-        
-//         if (Auth::check()) {
-//             dump('user is logged now');
-//         } else {
-//             dump('user is NOT logged now');
-//         }
         
         
         // validate the info, create rules for the inputs
