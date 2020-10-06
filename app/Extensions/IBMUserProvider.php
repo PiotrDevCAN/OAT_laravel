@@ -18,22 +18,13 @@ class IBMUserProvider implements UserProvider
     protected $hasher;
     
     /**
-     * The Eloquent user model.
-     *
-     * @var string
-     */
-    protected $model;
-    
-    /**
      * Create a new ibm user provider.
      *
      * @param  \Illuminate\Contracts\Hashing\Hasher  $hasher
-     * @param  string  $model
      * @return void
      */
-    public function __construct(HasherContract $hasher, $model)
+    public function __construct(HasherContract $hasher)
     {
-        $this->model = $model;
         $this->hasher = $hasher;
     }
 
