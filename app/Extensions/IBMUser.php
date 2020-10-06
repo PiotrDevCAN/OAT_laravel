@@ -17,34 +17,34 @@ class IBMUser extends GenericUser
     {
         dump('createModel');
         
-        return 'ABC';
+        return 'IBM';
     }
     
-    public function getAuthPassword()
-    {
-        dump('createModel');
+//     public function getAuthPassword()
+//     {
+//         dump('createModel');
         
-        return 'ABC';
-    }
+//         return 'ABC';
+//     }
     
-    public function getRememberToken()
-    {
-        dump('createModel');
+//     public function getRememberToken()
+//     {
+//         dump('createModel');
         
-        return 'ABC';
-    }
+//         return 'ABC';
+//     }
     
-    public function setRememberToken($value)
-    {
-        dump('createModel');
+//     public function setRememberToken($value)
+//     {
+//         dump('createModel');
         
-        return 'ABC';
-    }
+//         return 'ABC';
+//     }
     
-    public function getRememberTokenName()
-    {
-        dump('createModel');
+//     public function getRememberTokenName()
+//     {
+//         dump('createModel');
         
-        return 'ABC';
-    }
+//         return 'ABC';
+//     }
 }
