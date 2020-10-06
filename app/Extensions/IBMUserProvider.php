@@ -45,6 +45,8 @@ class IBMUserProvider implements UserProvider
      */
     public function retrieveById($identifier)
     {
+        dump('retrieveById');
+        
         $model = $this->createModel();
         
 //         return $this->newModelQuery($model)
@@ -67,6 +69,8 @@ class IBMUserProvider implements UserProvider
      */
     public function retrieveByToken($identifier, $token)
     {
+        dump('retrieveByToken');
+        
         $model = $this->createModel();
         
 //         $retrievedModel = $this->newModelQuery($model)->where(
@@ -97,6 +101,8 @@ class IBMUserProvider implements UserProvider
      */
     public function updateRememberToken(UserContract $user, $token)
     {
+        dump('updateRememberToken');
+        
         $user->setRememberToken($token);
         
         $timestamps = $user->timestamps;
@@ -116,6 +122,8 @@ class IBMUserProvider implements UserProvider
      */
     public function retrieveByCredentials(array $credentials)
     {
+        dump('retrieveByCredentials');
+        
         if (empty($credentials) ||
             (count($credentials) === 1 &&
                 Str::contains($this->firstCredentialKey($credentials), 'password'))) {
@@ -159,6 +167,8 @@ class IBMUserProvider implements UserProvider
      */
     public function validateCredentials(UserContract $user, array $credentials)
     {
+        dump('validateCredentials');
+        
         $plain = $credentials['password'];
         
         return $this->hasher->check($plain, $user->getAuthPassword());
@@ -170,12 +180,12 @@ class IBMUserProvider implements UserProvider
      * @param  \Illuminate\Database\Eloquent\Model|null  $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    protected function newModelQuery($model = null)
-    {
-        return is_null($model)
-                ? $this->createModel()->newQuery()
-                : $model->newQuery();
-    }
+//     protected function newModelQuery($model = null)
+//     {
+//         return is_null($model)
+//                 ? $this->createModel()->newQuery()
+//                 : $model->newQuery();
+//     }
 
     /**
      * Create a new instance of the model.
@@ -184,6 +194,8 @@ class IBMUserProvider implements UserProvider
      */
     public function createModel()
     {
+        dump('createModel');
+        
         $class = '\\'.ltrim($this->model, '\\');
         
         return new $class;
