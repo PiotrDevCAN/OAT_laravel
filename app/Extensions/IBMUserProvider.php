@@ -40,6 +40,7 @@ class IBMUserProvider implements UserProvider
         dump('retrieveById');
         
         $user = array(
+            'cnum' => 'ZZ011O820',
             'name' => 'Piotr Tajanowicz',
             'email' => 'Piotr.Tajanowicz@ibm.com',
             'password' => Hash::make('ABC')
@@ -61,6 +62,7 @@ class IBMUserProvider implements UserProvider
         
         $user = $this->getGenericUser(
             array(
+                'cnum' => 'ZZ011O820',
                 'name' => 'Piotr Tajanowicz',
                 'email' => 'Piotr.Tajanowicz@ibm.com',
                 'password' => Hash::make('ABC')
@@ -124,6 +126,7 @@ class IBMUserProvider implements UserProvider
                 // the given credentials. If not, we will just return nulls and indicate
                 // that there are no matching users for these given credential arrays.
                 $user = array(
+                    'cnum' => 'ZZ011O820',
                     'name' => 'Piotr Tajanowicz',
                     'email' => 'Piotr.Tajanowicz@ibm.com',
                     'password' => Hash::make('ABC')

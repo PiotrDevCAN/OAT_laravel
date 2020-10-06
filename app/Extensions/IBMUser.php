@@ -10,7 +10,7 @@ class IBMUser extends GenericUser
     {
         dump('createModel');
         
-        return 'IBM';
+        return 'cnum';
     }
     
 //     public function getAuthIdentifier()
