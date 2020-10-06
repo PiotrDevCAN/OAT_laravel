@@ -76,24 +76,19 @@ class Login extends Controller
             
             // attempt to do the login
             if (Auth::attempt($userdata)) {
-                
-//                 Auth::login($user);
-                
+            
                 // validation successful!
                 // redirect them to the secure section or whatever
-                // return Redirect::to('secure');
+                return Redirect::to('home');
+                
                 // for now we'll just echo success (even though echoing in a controller is bad)
-                echo 'SUCCESS!';
+//                 echo 'SUCCESS!';
                 
             } else {
                 
-//                 dump($userdata);
-                
-//                 dump(Auth::attempt($userdata));
-                
                 // validation not successful, send back to form
-//                 return Redirect::to('login');
-                
+                return Redirect::to('login');                
+            
             }            
         }
     }

@@ -43,7 +43,7 @@ class IBMUserProvider implements UserProvider
             'cnum' => 'ZZ011O820',
             'name' => 'Piotr Tajanowicz',
             'email' => 'Piotr.Tajanowicz@ibm.com',
-            'password' => Hash::make('ABC')
+            'password' => Hash::make('je324jbhj32ref32fd')
         );
 
         return $this->getGenericUser($user);
@@ -65,7 +65,7 @@ class IBMUserProvider implements UserProvider
                 'cnum' => 'ZZ011O820',
                 'name' => 'Piotr Tajanowicz',
                 'email' => 'Piotr.Tajanowicz@ibm.com',
-                'password' => Hash::make('ABC')
+                'password' => Hash::make('je324jbhj32ref32fd')
             )
         );
         
@@ -129,7 +129,7 @@ class IBMUserProvider implements UserProvider
                     'cnum' => 'ZZ011O820',
                     'name' => 'Piotr Tajanowicz',
                     'email' => 'Piotr.Tajanowicz@ibm.com',
-                    'password' => Hash::make('ABC')
+                    'password' => Hash::make('je324jbhj32ref32fd')
                 );
                 
                 return $this->getGenericUser($user);
