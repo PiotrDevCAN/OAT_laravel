@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class IBMUserProvider implements UserProvider
 {
@@ -41,7 +42,7 @@ class IBMUserProvider implements UserProvider
         $user = array(
             'name' => 'Piotr Tajanowicz',
             'email' => 'Piotr.Tajanowicz@ibm.com',
-            'password' => 'ABC'
+            'password' => Hash::make('ABC')
         );
 
         return $this->getGenericUser($user);
@@ -62,7 +63,7 @@ class IBMUserProvider implements UserProvider
             array(
                 'name' => 'Piotr Tajanowicz',
                 'email' => 'Piotr.Tajanowicz@ibm.com',
-                'password' => 'ABC'
+                'password' => Hash::make('ABC')
             )
         );
         
@@ -125,7 +126,7 @@ class IBMUserProvider implements UserProvider
                 $user = array(
                     'name' => 'Piotr Tajanowicz',
                     'email' => 'Piotr.Tajanowicz@ibm.com',
-                    'password' => 'ABC'
+                    'password' => Hash::make('ABC')
                 );
                 
                 return $this->getGenericUser($user);
