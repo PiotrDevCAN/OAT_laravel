@@ -155,6 +155,9 @@ class IBMUserProvider implements UserProvider
     {
         dump('validateCredentials');
         
+        dump($credentials['password']);
+        dump($user->getAuthPassword());
+        
         return $this->hasher->check(
             $credentials['password'], $user->getAuthPassword()
         );
