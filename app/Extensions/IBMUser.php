@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Extensions;
- 
+
 use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 
 class IBMUser implements UserContract
