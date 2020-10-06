@@ -10,15 +10,15 @@ class IBMUser extends GenericUser
     {
         dump('createModel');
         
-        return '';
-    }
-    
-    public function getAuthIdentifier()
-    {
-        dump('createModel');
-        
         return 'IBM';
     }
+    
+//     public function getAuthIdentifier()
+//     {
+//         dump('createModel');
+        
+//         return 'IBM';
+//     }
     
 //     public function getAuthPassword()
 //     {
