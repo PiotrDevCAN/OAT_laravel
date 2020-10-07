@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 use App\Events\IndexEntered;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class Index extends Controller
 {
+    protected function guard()
+    {
+        return Auth::guard('auth');
+    }
+    
     /**
      * Handle the incoming request.
      *
