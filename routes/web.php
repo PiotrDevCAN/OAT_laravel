@@ -23,18 +23,18 @@ use App\Http\Controllers\Competencies;
 
 // Home
 Route::get('/', 'Index')
-    ->middleware('auth')
+    ->middleware('authA')
     ->name('home');
 
 Route::get('/login', 'Login@login')
     ->name('login');
-    
+
 Route::post('/login', 'Login@authenticate')
     ->name('authenticate');
 
 Route::get('/loginCancel', 'Login@cancel')
     ->name('loginCancel');
-    
+
 Route::get('/logout', 'Login@logout')
     ->name('logout');
 
