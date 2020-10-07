@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'IBM',
+        'guard' => 'web',
         'passwords' => 'users',
     ],
 
