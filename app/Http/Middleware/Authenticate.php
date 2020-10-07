@@ -8,11 +8,12 @@ class Authenticate extends Middleware
 {
     protected function authenticate($request, array $guards)
     {
+        
+        dump($guards);
+        
         if (empty($guards)) {
             $guards = [null];
         }
-        
-        dump($guards);
         
         foreach ($guards as $guard) {
             if ($this->auth->guard($guard)->check()) {
