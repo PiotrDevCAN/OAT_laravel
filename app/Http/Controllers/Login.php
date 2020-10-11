@@ -35,13 +35,16 @@ class Login extends Controller
         } else {
             
             // create our user data for the authentication
-            $userdata = array(
+            $credentials = array(
                 'email' => $request->input('email'),
                 'password' => $request->input('password')
             );
             
+            dump(Auth);
+            
             // attempt to do the login
-            if (Auth::attempt($userdata)) {
+            if (Auth::guard('custom')->attempt($credentials)) {             
+//             if (Auth::attempt($credentials)) {
             
                 // validation successful!
                 // redirect them to the secure section or whatever
