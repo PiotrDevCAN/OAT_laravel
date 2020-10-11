@@ -47,7 +47,7 @@ class IBMUserProvider implements UserProvider
             'password' => Hash::make('je324jbhj32ref32fd')
         );
 
-        return $this->getGenericUser($user);
+        return $this->getUser($user);
     }
 
     /**
@@ -61,7 +61,7 @@ class IBMUserProvider implements UserProvider
     {
         dump('retrieveByToken');
         
-        $user = $this->getGenericUser(
+        $user = $this->getUser(
             array(
                 'cnum' => 'ZZ011O820',
                 'name' => 'Piotr Tajanowicz',
@@ -133,16 +133,16 @@ class IBMUserProvider implements UserProvider
                     'password' => Hash::make('je324jbhj32ref32fd')
                 );
                 
-                return $this->getGenericUser($user);
+                return $this->getUser($user);
     }
     
     /**
-     * Get the generic user.
+     * Get the IBM user.
      *
      * @param  mixed  $user
-     * @return \Illuminate\Auth\GenericUser|null
+     * @return \App\Models\IBMUser|null
      */
-    protected function getGenericUser($user)
+    protected function getUser($user)
     {
         if (! is_null($user)) {
             return new IBMUser((array) $user);
