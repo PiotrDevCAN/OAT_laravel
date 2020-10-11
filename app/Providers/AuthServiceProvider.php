@@ -44,15 +44,15 @@ class AuthServiceProvider extends ServiceProvider
 //             ]);
 //         });
         
-        Auth::extend('IBMUser', function ($app, $name, array $config) {
-            return $app->make(\App\Auth\IBMUserGuard::class, [
-                'name' => $name,
-                'config' => $config,
-                'provider' => $app['auth']->createUserProvider(
-                    $config['provider'] ?? null
-                )
-            ]);
-        });
+//         Auth::extend('IBMUser', function ($app, $name, array $config) {
+//             return $app->make(\App\Auth\IBMUserGuard::class, [
+//                 'name' => $name,
+//                 'config' => $config,
+//                 'provider' => $app['auth']->createUserProvider(
+//                     $config['provider'] ?? null
+//                 )
+//             ]);
+//         });
         
 //         Auth::provider('external-api', function ($app, $config) {
 //             return $app->make(\App\Auth\ApiUserProvider::class, [

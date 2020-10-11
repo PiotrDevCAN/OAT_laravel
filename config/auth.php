@@ -42,7 +42,7 @@ return [
         ],
         
         'custom' => [
-            'driver' => 'IBMUser',
+            'driver' => 'session',
             'provider' => 'external-provider',
         ],
         
