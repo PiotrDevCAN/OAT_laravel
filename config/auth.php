@@ -41,7 +41,7 @@ return [
             'provider' => 'users',
         ],
         
-        'remote' => [
+        'custom' => [
             'driver' => 'IBMUser',
             'provider' => 'external-provider',
         ],
