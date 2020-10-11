@@ -4,7 +4,7 @@ namespace App\Auth;
 
 use Illuminate\Auth\GenericUser;
 
-class IBMUser extends GenericUser
+class IBMUserGuard extends GenericUser
 {
     public function getAuthIdentifierName()
     {
