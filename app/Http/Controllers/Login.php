@@ -45,13 +45,13 @@ class Login extends Controller
             
                 // validation successful!
                 // redirect them to the secure section or whatever
-                
-                // for now we'll just echo success (even though echoing in a controller is bad)
-                echo 'SUCCESS!';                
+                return Redirect::route('home');
+            
             } else {
                 
                 // validation not successful, send back to form
-                return Redirect::route('login');                            
+                return Redirect::route('login');                
+            
             }            
         }
     }
