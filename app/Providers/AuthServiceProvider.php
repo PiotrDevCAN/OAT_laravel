@@ -34,20 +34,37 @@ class AuthServiceProvider extends ServiceProvider
 //             return new IBMGuard(Auth::createUserProvider($config['provider']));
 //         });
         
-        Auth::extend('header', function ($app, $name, array $config) {
+//         Auth::extend('header', function ($app, $name, array $config) {
+//             return $app->make(\App\Auth\HeaderGuard::class, [
+//                 'name' => $name,
+//                 'config' => $config,
+//                 'provider' => $app['auth']->createUserProvider(
+//                     $config['provider'] ?? null
+//                     )
+//             ]);
+//         });
+        
+        Auth::extend('IBMUser', function ($app, $name, array $config) {
             return $app->make(\App\Auth\IBMUserGuard::class, [
                 'name' => $name,
                 'config' => $config,
                 'provider' => $app['auth']->createUserProvider(
                     $config['provider'] ?? null
-                    )
+                )
             ]);
         });
         
-        Auth::provider('IBMUser', function ($app, array $config) {
+//         Auth::provider('external-api', function ($app, $config) {
+//             return $app->make(\App\Auth\ApiUserProvider::class, [
+//                 'config' => $config,
+//             ]);
+//         });
+        
+        Auth::provider('external-api', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
-            return new \App\Auth\IBMUserProvider($app['hash']);
+            return $app->make(\App\Auth\IBMUserProvider::class, $app['hash']);
+//             return new \App\Auth\IBMUserProvider($app['hash']);
         });
     }
 }

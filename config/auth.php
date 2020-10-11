@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
         
+        'remote' => [
+            'driver' => 'IBMUser',
+            'provider' => 'external-provider',
+        ],
+        
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -69,6 +74,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        
+        'external-provider' => [
+            'driver' => 'external-api',
         ],
         
         // 'users' => [
