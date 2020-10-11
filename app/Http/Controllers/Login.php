@@ -18,20 +18,6 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
-        
-        
-        $value = $request->session()->pull('my', 'test');
-        
-        dump($value);
-        
-        $request->session()->put('my', 'test');
-        
-        $value = $request->session()->pull('my', 'test');
-        
-        dump($value);
-        
-        
-        
         // validate the info, create rules for the inputs
         $rules = array(
             'email'    => 'required|email', // make sure the email is an actual email
@@ -59,19 +45,13 @@ class Login extends Controller
             
                 // validation successful!
                 // redirect them to the secure section or whatever
-//                 return Redirect::route('home');
-                return Redirect::intended('request.list');
                 
                 // for now we'll just echo success (even though echoing in a controller is bad)
-//                 echo 'SUCCESS!';
-                
-//                 dump(storage_path('framework/sessions'));
-                
+                echo 'SUCCESS!';                
             } else {
                 
                 // validation not successful, send back to form
-                return Redirect::route('login');                
-            
+                return Redirect::route('login');                            
             }            
         }
     }
