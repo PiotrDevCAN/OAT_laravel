@@ -8,6 +8,7 @@ use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use App\Models\IBMUser;
 
 class IBMUserProvider implements UserProvider
 {
