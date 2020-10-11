@@ -7,36 +7,6 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware
 {
-    public function handle($request, Closure $next, ...$guards)
-    {
-        dump('call from handle');
-        dump($guards);
-        
-        $this->authenticate($request, $guards);
-        
-        return $next($request);
-    }
-    
-    protected function authenticate($request, array $guards)
-    {
-        dump('call from authenticate');
-        dump(config('auth.defaults.guard'));
-        
-        dump($guards);
-        
-        if (empty($guards)) {
-            $guards = [null];
-        }
-        
-        foreach ($guards as $guard) {
-            if ($this->auth->guard($guard)->check()) {
-                return $this->auth->shouldUse($guard);
-            }
-        }
-        
-//         $this->unauthenticated($request, $guards);
-    }
-    
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      *
