@@ -27,17 +27,27 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        Auth::provider('IBM', function ($app, array $config) {
-            // Return an instance of Illuminate\Contracts\Auth\UserProvider...
-            
-            return new IBMUserProvider($app['hash']);
-        });
-
+        
 //         Auth::extend('ibm', function ($app, $name, array $config) {
 //             // Return an instance of Illuminate\Contracts\Auth\Guard...
 
 //             return new IBMGuard(Auth::createUserProvider($config['provider']));
 //         });
+        
+        Auth::extend('header', function ($app, $name, array $config) {
+            return $app->make(\App\Auth\IBMUser::class, [
+                'name' => $name,
+                'config' => $config,
+                'provider' => $app['auth']->createUserProvider(
+                    $config['provider'] ?? null
+                    )
+            ]);
+        });
+        
+        Auth::provider('IBM', function ($app, array $config) {
+            // Return an instance of Illuminate\Contracts\Auth\UserProvider...
+            
+            return new \App\Auth\IBMUserProvider($app['hash']);
+        });
     }
 }

@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class Index extends Controller
 {
-    protected function guard()
-    {
-        return Auth::guard('auth');
-    }
-    
     /**
      * Handle the incoming request.
      *
