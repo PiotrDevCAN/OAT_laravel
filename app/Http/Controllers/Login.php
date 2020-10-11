@@ -46,7 +46,7 @@ class Login extends Controller
             
                 // validation successful!
                 // redirect them to the secure section or whatever
-                return Redirect::route('home');
+//                 return Redirect::route('home');
             
             } else {
                 
