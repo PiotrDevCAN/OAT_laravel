@@ -19,6 +19,8 @@ class Authenticate extends Middleware
     protected function authenticate($request, array $guards)
     {
         
+        dump(config('auth.defaults.guard'));
+        
         dump($guards);
         
         if (empty($guards)) {
