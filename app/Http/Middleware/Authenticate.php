@@ -9,6 +9,7 @@ class Authenticate extends Middleware
 {
     public function handle($request, Closure $next, ...$guards)
     {
+        dump('call from handle');
         dump($guards);
         
         $this->authenticate($request, $guards);
@@ -18,7 +19,7 @@ class Authenticate extends Middleware
     
     protected function authenticate($request, array $guards)
     {
-        
+        dump('call from authenticate');
         dump(config('auth.defaults.guard'));
         
         dump($guards);
