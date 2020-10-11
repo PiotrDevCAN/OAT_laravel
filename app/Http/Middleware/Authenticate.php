@@ -6,6 +6,15 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware
 {
+    public function handle($request, Closure $next, ...$guards)
+    {
+        dump($guards);
+        
+        $this->authenticate($request, $guards);
+        
+        return $next($request);
+    }
+    
     protected function authenticate($request, array $guards)
     {
         
