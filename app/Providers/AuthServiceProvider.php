@@ -6,7 +6,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Auth\IBMGuard;
-use App\Extensions\IBMUserProvider;
+use App\Auth\IBMUserProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -35,7 +35,7 @@ class AuthServiceProvider extends ServiceProvider
 //         });
         
         Auth::extend('header', function ($app, $name, array $config) {
-            return $app->make(\App\Auth\IBMUser::class, [
+            return $app->make(\App\Auth\IBMUserGuard::class, [
                 'name' => $name,
                 'config' => $config,
                 'provider' => $app['auth']->createUserProvider(
@@ -44,7 +44,7 @@ class AuthServiceProvider extends ServiceProvider
             ]);
         });
         
-        Auth::provider('IBM', function ($app, array $config) {
+        Auth::provider('IBMUser', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
             return new \App\Auth\IBMUserProvider($app['hash']);
