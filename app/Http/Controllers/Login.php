@@ -40,6 +40,12 @@ class Login extends Controller
                 'password' => $request->input('password')
             );
             
+            dump('try default');
+            dump(Auth::attempt($credentials));
+            
+            dump('try custom');
+            dump(Auth::guard('custom')->attempt($credentials));
+            
             // attempt to do the login
             if (Auth::guard('custom')->attempt($credentials)) {             
 //             if (Auth::attempt($credentials)) {
@@ -51,7 +57,7 @@ class Login extends Controller
             } else {
                 
                 // validation not successful, send back to form
-                return Redirect::route('login');                
+//                 return Redirect::route('login');                
             
             }            
         }
