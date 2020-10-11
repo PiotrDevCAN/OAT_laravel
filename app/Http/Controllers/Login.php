@@ -40,8 +40,6 @@ class Login extends Controller
                 'password' => $request->input('password')
             );
             
-            dump(Auth);
-            
             // attempt to do the login
             if (Auth::guard('custom')->attempt($credentials)) {             
 //             if (Auth::attempt($credentials)) {
