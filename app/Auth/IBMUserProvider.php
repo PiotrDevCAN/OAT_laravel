@@ -28,6 +28,10 @@ class IBMUserProvider implements UserProvider
     public function __construct(HasherContract $hasher)
     {
         $this->hasher = $hasher;
+        
+        dump('test of hasher');
+        dump(Hash::make('je324jbhj32ref32fd'));
+        
     }
 
     /**
