@@ -148,6 +148,9 @@ class IBMUserProvider implements UserProvider
      */
     protected function getUser($user)
     {
+        dump('getUser');
+        dump($user);
+        
         if (! is_null($user)) {
             return new IBMUser((array) $user);
         }
