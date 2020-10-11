@@ -40,34 +40,19 @@ class Login extends Controller
                 'password' => $request->input('password')
             );
             
-            dump('try default');
-            if (Auth::attempt($credentials)) {
-                dump('LOGGED DEFAULT');
-            } else {
-                dump('NOT-LOGGED DEFAULT');
-            }
-            
-            dump('try custom');
-            if (Auth::guard('custom')->attempt($credentials)) {
-                dump('LOGGED CUSTOM');
-            } else {
-                dump('NOT-LOGGED CUSTOM');
-            }
-            
             // attempt to do the login
-//             if (Auth::guard('custom')->attempt($credentials)) {             
-//             if (Auth::attempt($credentials)) {
+            if (Auth::attempt($credentials)) {
             
                 // validation successful!
                 // redirect them to the secure section or whatever
 //                 return Redirect::route('home');
             
-//             } else {
-                
-                // validation not successful, send back to form
-//                 return Redirect::route('login');                
+            } else {
             
-//             }            
+                // validation not successful, send back to form
+                return Redirect::route('login');                
+            
+            }            
         }
     }
     

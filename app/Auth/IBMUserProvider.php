@@ -28,10 +28,6 @@ class IBMUserProvider implements UserProvider
     public function __construct(HasherContract $hasher)
     {
         $this->hasher = $hasher;
-        
-        dump('test of hasher');
-        dump(Hash::make('je324jbhj32ref32fd'));
-        
     }
 
     /**
@@ -42,8 +38,6 @@ class IBMUserProvider implements UserProvider
      */
     public function retrieveById($identifier)
     {
-        dump('retrieveById');
-        
         $user = array(
             'cnum' => 'ZZ011O820',
             'name' => 'Piotr Tajanowicz',
@@ -63,8 +57,6 @@ class IBMUserProvider implements UserProvider
      */
     public function retrieveByToken($identifier, $token)
     {
-        dump('retrieveByToken');
-        
         $user = $this->getUser(
             array(
                 'cnum' => 'ZZ011O820',
@@ -87,8 +79,6 @@ class IBMUserProvider implements UserProvider
      */
     public function updateRememberToken(UserContract $user, $token)
     {
-        dump('updateRememberToken');
-    
         $this->conn->table($this->table)
                 ->where($user->getAuthIdentifierName(), $user->getAuthIdentifier())
                 ->update([$user->getRememberTokenName() => $token]);
@@ -102,8 +92,6 @@ class IBMUserProvider implements UserProvider
      */
     public function retrieveByCredentials(array $credentials)
     {
-        dump('retrieveByCredentials');
-    
         if (empty($credentials) ||
             (count($credentials) === 1 &&
                 array_key_exists('password', $credentials))) {
@@ -148,9 +136,6 @@ class IBMUserProvider implements UserProvider
      */
     protected function getUser($user)
     {
-        dump('getUser');
-        dump($user);
-        
         if (! is_null($user)) {
             return new IBMUser((array) $user);
         }
@@ -165,13 +150,6 @@ class IBMUserProvider implements UserProvider
      */
     public function validateCredentials(UserContract $user, array $credentials)
     {
-        dump('validateCredentials');
-        
-        dump($user);
-        
-        dump($credentials['password']);
-        dump($user->getAuthPassword());
-        
         return $this->hasher->check(
             $credentials['password'], $user->getAuthPassword()
         );
