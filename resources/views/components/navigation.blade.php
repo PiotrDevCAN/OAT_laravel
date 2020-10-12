@@ -23,7 +23,7 @@
                     </ul>
                 <li>
                 @else
-                <li @if ($key == 1) id="ibm-overview" @endif role="presentation"><a href="{{ route($value) }}" role="treeitem" @if (Route::currentRouteName() == $value)aria-selected="true"@endif>{{ $key }}</a></li>
+                <li @if ($loop->first) id="ibm-overview" @endif role="presentation"><a href="{{ route($value) }}" role="treeitem" @if (Route::currentRouteName() == $value)aria-selected="true"@endif>{{ $key }}</a></li>
                 @endif
             @endforeach
 		</ul>
