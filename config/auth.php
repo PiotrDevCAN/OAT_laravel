@@ -41,9 +41,9 @@ return [
             'provider' => 'external-provider',
         ],
         
-        'custom' => [
-            'driver' => 'sessionTest',
-            'provider' => 'external-provider',
+        'web-default' => [
+            'driver' => 'session',
+            'provider' => 'users',
         ],
         
         'api' => [
