@@ -3,7 +3,7 @@
          <ul aria-labelledby="ibm-pagetitle-h1" role="tree" id="ibm-primary-links">
             @foreach ($menuList as $key => $value)
                 @if (is_array($value))
-    			<li @if ($key == 1) id="ibm-overview" @endif role="presentation" aria-expanded="true" >
+    			<li role="presentation" aria-expanded="true" >
     				<span class="ibm-subnav-heading">{{ $key }}</span>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)
@@ -23,7 +23,7 @@
                     </ul>
                 <li>
                 @else
-                <li role="presentation"><a href="{{ route($value) }}" role="treeitem" @if (Route::currentRouteName() == $value)aria-selected="true"@endif>{{ $key }}</a></li>
+                <li @if ($key == 1) id="ibm-overview" @endif role="presentation"><a href="{{ route($value) }}" role="treeitem" @if (Route::currentRouteName() == $value)aria-selected="true"@endif>{{ $key }}</a></li>
                 @endif
             @endforeach
 		</ul>
