@@ -38,7 +38,17 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'external-provider',
+            'provider' => 'bluepage-provider',
+        ],
+        
+        'guest' => [
+            'driver' => 'session',
+            'provider' => 'bluegroup-guest-provider',
+        ],
+        
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'bluegroup-admin-provider',
         ],
         
         'web-default' => [
@@ -76,14 +86,22 @@ return [
             'model' => App\Models\User::class,
         ],
         
-        'external-provider' => [
-            'driver' => 'external-api',
-        ],
-        
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        
+        'bluepage-provider' => [
+            'driver' => 'bluepage-provider',
+        ],
+        
+        'bluegroup-guest-provider' => [
+            'driver' => 'bluegroup-guest-provider',
+        ],
+        
+        'bluegroup-admin-provider' => [
+            'driver' => 'bluegroup-admin-provider',
+        ],
     ],
 
     /*
