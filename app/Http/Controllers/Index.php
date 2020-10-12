@@ -18,28 +18,6 @@ class Index extends Controller
      */
     public function __invoke(Request $request)
     {
-        
-        foreach(array_keys(config('auth.guards')) as $guard){
-            
-            if(auth()->guard($guard)->check()) dump($guard);
-            
-        }
-        
-        
-        $assinged = \App\Models\Tribe::where('squad_assignment_unique_squad_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
-            ->orderBy('squad_assignment_unique_squad_name', 'desc')
-            ->take(10)
-            ->get();
-        
-        $assinged2 = \App\Models\SquadAssignment::where('unique_name', 'UKI-ACCOUNT-AB ACQUISITIONS HOLDINGS LIMITED-CLIENT-1')
-            ->orderBy('unique_name', 'desc')
-            ->take(10)
-            ->get();
-        
-        Cache::put('key', $assinged);
-        
-        Cache::put('key2', $assinged2);
-        
         // Page enter logic...
         
         event(new IndexEntered());

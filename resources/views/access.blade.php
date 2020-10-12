@@ -10,7 +10,7 @@
 	        	<p>Name : {{ $user->name }}</p>
 	        	<p>Userid : {{ $user->email }}</p>
 	        	<p>CNUM : {{ $user->cnum }}</p>
-	        	<p>Has access to these OAT Bluegroups : , 'OAT_Admin'</p>  TO DO 
+	        	<p>Has access to these OAT Bluegroups : 'OAT_User', 'OAT_Admin'</p>
 	        </div>
         </div>
 	</div>
