@@ -66,8 +66,8 @@ class AuthServiceProvider extends ServiceProvider
                 'provider' => $app['auth']->createUserProvider(
                     $config['provider'] ?? null
                 ),
-                'session' => $app['session'],
-                'request' => $app['request']
+                'session' => session(),
+                'request' => request()
             ]);
         });
         
