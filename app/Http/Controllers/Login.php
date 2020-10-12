@@ -61,13 +61,12 @@ class Login extends Controller
             
                 // Authentication passed...
 //                 return Redirect::intended('home');
-                return redirect()->intended(route('home'));
+//                 return redirect()->intended(route('home'));
             
             } else {
             
                 // validation not successful, send back to form
-                dump('SHOULD BE REDIRECTED TO LOGIN AGAIN');
-//                 return Redirect::route('login');
+                return Redirect::route('login');
             
             }            
         }
