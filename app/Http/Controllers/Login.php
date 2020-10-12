@@ -42,26 +42,11 @@ class Login extends Controller
                 'password' => $request->input('password')
             );
             
-//             if (Auth::guard('custom')->attempt($credentials)) {
-//                 dump('LOGGED CUSTOM');
-//             } else {
-//                 dump('NOT LOGGED CUSTOM');
-//             }
-            
-//             if (Auth::attempt($credentials)) {
-//                 dump('LOGGED DEFAULT');
-//             } else {
-//                 dump('NOT LOGGED DEFAULT');
-//             }
-            
-//             dump($request->session()->pull('url.intended'));
-            
             // attempt to do the login
             if (Auth::attempt($credentials)) {
             
                 // Authentication passed...
-//                 return Redirect::intended('home');
-//                 return redirect()->intended(route('home'));
+                return Redirect::intended(route('home'));
             
             } else {
             
