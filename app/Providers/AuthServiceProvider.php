@@ -54,13 +54,7 @@ class AuthServiceProvider extends ServiceProvider
         });
         
         Auth::extend('bluegroup-guest-guard', function ($app, $name, array $config) {
-            return $app->make(BluegroupGuestUserGuard::class, [
-                'name' => $name,
-                'provider' => $app['auth']->createUserProvider(
-                    $config['provider'] ?? null
-                    ),
-                'session' => $app['session.store']
-            ]);
+            return $app->make(BluegroupGuestUserGuard::class);
         });
         
         Auth::provider('bluegroup-guest-provider', function ($app, array $config) {
@@ -72,13 +66,7 @@ class AuthServiceProvider extends ServiceProvider
         });
     
         Auth::extend('bluegroup-admin-guard', function ($app, $name, array $config) {
-            return $app->make(BluegroupAdminUserGuard::class, [
-                'name' => $name,
-                'provider' => $app['auth']->createUserProvider(
-                    $config['provider'] ?? null
-                    ),
-                'session' => $app['session.store']
-            ]);
+            return $app->make(BluegroupAdminUserGuard::class);
         });
         
         Auth::provider('bluegroup-admin-provider', function ($app, array $config) {
