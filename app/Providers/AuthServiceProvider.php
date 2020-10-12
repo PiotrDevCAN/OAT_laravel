@@ -57,7 +57,7 @@ class AuthServiceProvider extends ServiceProvider
                     'session' => $app['session.store']
                 ]);
             });
-                
+            
             Auth::provider('bluepage-provider', function ($app, array $config) {
                 // Return an instance of Illuminate\Contracts\Auth\UserProvider...
                 
