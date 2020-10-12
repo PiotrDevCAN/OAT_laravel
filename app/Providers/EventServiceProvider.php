@@ -50,9 +50,6 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Saml2LogoutListener',
         ],
         
-//         'Illuminate\Auth\Events\Registered' => [
-//             'App\Listeners\LogRegisteredUser',
-//         ],
         'Illuminate\Auth\Events\Attempting' => [
             'App\Listeners\LogAuthenticationAttempt',
         ],
@@ -65,27 +62,9 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Auth\Events\Failed' => [
             'App\Listeners\LogFailedLogin',
         ],
-//         'Illuminate\Auth\Events\Validated' => [
-//             'App\Listeners\LogValidated',
-//         ],
-//         'Illuminate\Auth\Events\Verified' => [
-//             'App\Listeners\LogVerified',
-//         ],
         'Illuminate\Auth\Events\Logout' => [
             'App\Listeners\LogSuccessfulLogout',
         ],
-//         'Illuminate\Auth\Events\CurrentDeviceLogout' => [
-//             'App\Listeners\LogCurrentDeviceLogout',
-//         ],
-//         'Illuminate\Auth\Events\OtherDeviceLogout' => [
-//             'App\Listeners\LogOtherDeviceLogout',
-//         ],
-//         'Illuminate\Auth\Events\Lockout' => [
-//             'App\Listeners\LogLockout',
-//         ],
-//         'Illuminate\Auth\Events\PasswordReset' => [
-//             'App\Listeners\LogPasswordReset',
-//         ],
     ];
 
     /**

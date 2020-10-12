@@ -27,5 +27,6 @@ class LogAuthenticationAttempt
     public function handle(Attempting $event)
     {
         //
+        dump('Info authentication attempt ');
     }
 }

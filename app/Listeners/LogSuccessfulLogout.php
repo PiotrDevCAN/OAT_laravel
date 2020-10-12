@@ -27,5 +27,6 @@ class LogSuccessfulLogout
     public function handle(Logout $event)
     {
         //
+        dump('Info logout succeed ');
     }
 }
