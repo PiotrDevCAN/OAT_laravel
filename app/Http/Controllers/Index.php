@@ -56,7 +56,6 @@ class Index extends Controller
     {
         // Get the currently authenticated user...
         $user = Auth::user();
-        dump($user);
         
         $data = array(
             'user' => $user
