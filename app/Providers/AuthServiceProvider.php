@@ -65,10 +65,10 @@ class AuthServiceProvider extends ServiceProvider
             
             dump($app['hash']);
             
-            return $app->make(\App\Auth\IBMUserProvider::class);
-//             return $app->make(\App\Auth\IBMUserProvider::class, [
-//                 'hasher' => $app['hash'],
-//             ]);
+//             return $app->make(\App\Auth\IBMUserProvider::class);
+            return $app->make(\App\Auth\IBMUserProvider::class, [
+                'hasher' => $app['hash'],
+            ]);
 //             return new \App\Auth\IBMUserProvider($app['hash']);
         });
     }
