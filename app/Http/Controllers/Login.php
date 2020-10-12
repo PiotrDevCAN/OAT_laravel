@@ -54,12 +54,10 @@ class Login extends Controller
                 dump('NOT LOGGED DEFAULT');
             }
             
+            dump($request->session()->pull('url.intended'));
+            
             // attempt to do the login
             if (Auth::attempt($credentials)) {
-            
-                // validation successful!
-                // redirect them to the secure section or whatever
-//                 return Redirect::route('home');
             
                 // Authentication passed...
 //                 return Redirect::intended('home');
@@ -68,6 +66,7 @@ class Login extends Controller
             } else {
             
                 // validation not successful, send back to form
+                dump('SHOULD BE REDIRECTED TO LOGIN AGAIN');
 //                 return Redirect::route('login');
             
             }            

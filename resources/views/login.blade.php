@@ -74,7 +74,6 @@ html, body {
 				</p>
 				
 				<p>You will be redirected to: {{ $targetPageTitle ?? '' }} page</p>
-				<input id="cameFrom" name="cameFrom" type="hidden" value="{{ $cameFrom ?? '' }}">
 				
 				{{ Form::close() }}
 
