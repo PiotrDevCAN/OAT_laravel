@@ -60,6 +60,17 @@ class AuthServiceProvider extends ServiceProvider
 //             ]);
 //         });
         
+        Auth::extend('sessionTest', function ($app, $name, array $config, $session, $request) {
+            return $app->make(\App\Auth\SessionTestGuard::class, [
+                'name' => $name,
+                'provider' => $app['auth']->createUserProvider(
+                    $config['provider'] ?? null
+                ),
+                'session' => $session,
+                'request' => $request
+            ]);
+        });
+        
         Auth::provider('external-api', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
