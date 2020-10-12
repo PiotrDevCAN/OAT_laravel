@@ -40,6 +40,18 @@ class Login extends Controller
                 'password' => $request->input('password')
             );
             
+            if (Auth::guard('custom')->attempt($credentials)) {
+                dump('LOGGED CUSTOM');
+            } else {
+                dump('NOT LOGGED CUSTOM');
+            }
+            
+            if (Auth::attempt($credentials)) {
+                dump('LOGGED DEFAULT');
+            } else {
+                dump('NOT LOGGED DEFAULT');
+            }
+            
             // attempt to do the login
             if (Auth::attempt($credentials)) {
             
@@ -48,12 +60,12 @@ class Login extends Controller
 //                 return Redirect::route('home');
             
                 // Authentication passed...
-                return Redirect::intended('home');
+//                 return Redirect::intended('home');
             
             } else {
             
                 // validation not successful, send back to form
-                return Redirect::route('login');                
+//                 return Redirect::route('login');
             
             }            
         }
