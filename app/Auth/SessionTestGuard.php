@@ -96,7 +96,7 @@ class SessionTestGuard extends SessionGuard
         dump('SessionTestGuard check');
         dump('Saved user');
         dump($this->user());
-        dump(is_null($this->user());
+        dump(is_null($this->user()));
         
         return ! is_null($this->user());
     }
