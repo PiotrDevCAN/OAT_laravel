@@ -41,15 +41,7 @@ class Authenticate extends Middleware
         }
         
         foreach ($guards as $guard) {
-            
-            dump('checking ... ');
-            dump($this->auth->guard($guard)->check());
-            
             if ($this->auth->guard($guard)->check()) {
-                
-                dump('Will use '.$guard); 
-                dump($guard);
-                
                 return $this->auth->shouldUse($guard);
             }
         }
