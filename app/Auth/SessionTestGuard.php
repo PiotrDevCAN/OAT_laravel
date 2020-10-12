@@ -13,7 +13,7 @@ class SessionTestGuard extends SessionGuard
      * @param  bool  $remember
      * @return bool
      */
-    public function SessionTestGuard(array $credentials = [], $remember = false)
+    public function attempt(array $credentials = [], $remember = false)
     {
         $this->fireAttemptEvent($credentials, $remember);
         
