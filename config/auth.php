@@ -42,7 +42,7 @@ return [
         ],
         
         'custom' => [
-            'driver' => 'session',
+            'driver' => 'sessionTest',
             'provider' => 'external-provider',
         ],
         
