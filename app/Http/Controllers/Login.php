@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class Login extends Controller
 {
+    public $targetPageTitle;
+    
     /**
      * Handle an authentication attempt.
      *
@@ -74,6 +76,8 @@ class Login extends Controller
     
     public function login(Request $request)
     {
+        $this->targetPageTitle = $request->session()->pull('url.intended');
+        
         return view('login');
     }
     
