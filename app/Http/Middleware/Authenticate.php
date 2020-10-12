@@ -46,7 +46,7 @@ class Authenticate extends Middleware
             }
         }
         
-//         $this->unauthenticated($request, $guards);
+        $this->unauthenticated($request, $guards);
     }
     /**
      * Get the path the user should be redirected to when they are not authenticated.
