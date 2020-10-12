@@ -20,7 +20,6 @@ class SessionTestGuard extends SessionGuard
         dump('SessionGuard attempt');
         dump($credentials);
         dump($this->provider);
-        dd('SessionTestGuard attempt ended');
         
         $this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
         
@@ -30,6 +29,7 @@ class SessionTestGuard extends SessionGuard
         if ($this->hasValidCredentials($user, $credentials)) {
             $this->login($user, $remember);
             
+            dd('SessionTestGuard attempt ended with TRUE');
             return true;
         }
         
@@ -38,6 +38,7 @@ class SessionTestGuard extends SessionGuard
         // an unrecognized user. A developer may listen to this event as needed.
         $this->fireFailedEvent($user, $credentials);
         
+        dd('SessionTestGuard attempt ended with FALSE');
         return false;
     }
 }
