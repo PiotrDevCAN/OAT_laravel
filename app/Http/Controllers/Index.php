@@ -54,6 +54,14 @@ class Index extends Controller
     
     public function access()
     {
-        return view('access');
+        // Get the currently authenticated user...
+        $user = Auth::user();
+        dump($user);
+        
+        $data = array(
+            'user' => $user
+        );
+        
+        return view('access', $data);
     }
 }
