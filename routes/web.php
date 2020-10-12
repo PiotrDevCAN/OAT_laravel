@@ -88,15 +88,15 @@ Route::prefix('request')
             ->name('rejectedMailable');
     });
 
-// Accounts
+// Info page
+Route::get('admin', 'Index@admin')
+    ->name('info');
+    
+// Admin
 Route::prefix('admin')
     ->middleware('auth')
     ->name('admin.')
     ->group(function () {
-        
-        // Info page
-        Route::get('admin', 'Index@admin')
-            ->name('info');
         
         // Accounts
         Route::prefix('account')->name('account.')->group(function () {
