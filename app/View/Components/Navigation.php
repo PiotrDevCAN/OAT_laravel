@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Navigation extends Component
 {
@@ -36,8 +37,12 @@ class Navigation extends Component
             ),
             'My Delegates' => 'admin.delegate.my',
             'My Access' => 'access.my',
-            'Log off' => 'logout',
         );
+        
+        if (Auth::check()) {
+            // The user is logged in...
+            $this->menuList['Log off'] = 'logout';
+        }
     }
 
     /**
