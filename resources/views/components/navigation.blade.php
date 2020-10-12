@@ -1,10 +1,9 @@
 <nav aria-labelledby="ibm-pagetitle-h1" role="navigation">
     <div class="ibm-parent" id="ibm-navigation">
          <ul aria-labelledby="ibm-pagetitle-h1" role="tree" id="ibm-primary-links">
-            <li id="ibm-overview" role="presentation"><a href="/" role="treeitem">Home</a></li>
             @foreach ($menuList as $key => $value)
                 @if (is_array($value))
-    			<li role="presentation" aria-expanded="true" >
+    			<li @if ($key == 1) id="ibm-overview" @endif role="presentation" aria-expanded="true" >
     				<span class="ibm-subnav-heading">{{ $key }}</span>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)

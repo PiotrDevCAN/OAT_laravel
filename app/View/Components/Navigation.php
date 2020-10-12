@@ -17,6 +17,7 @@ class Navigation extends Component
     public function __construct()
     {
         $this->menuList = array(
+            'Home' => 'home',
             'Request' => 'request.create',
             'List (ex Status)' => 'request.list',
             'Approved (ex Read Only)' => 'request.approved',
