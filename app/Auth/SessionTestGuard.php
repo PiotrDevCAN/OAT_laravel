@@ -17,10 +17,6 @@ class SessionTestGuard extends SessionGuard
     {
         $this->fireAttemptEvent($credentials, $remember);
         
-//         dump('SessionGuard attempt');
-//         dump($credentials);
-//         dump($this->provider);
-        
         $this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
         
         // If an implementation of UserInterface was returned, we'll ask the provider
@@ -90,12 +86,6 @@ class SessionTestGuard extends SessionGuard
      */
     public function check()
     {
-        
-//         dump('SessionTestGuard check');
-//         dump('Saved user');
-//         dump($this->user());
-//         dump(is_null($this->user()));
-        
         return ! is_null($this->user());
     }
 }
