@@ -94,19 +94,23 @@ Route::prefix('admin')
     ->name('admin.')
     ->group(function () {
         
+        // Info page
+        Route::get('admin', 'Index@admin')
+            ->name('info');
+        
         // Accounts
         Route::prefix('account')->name('account.')->group(function () {
             Route::match(['get', 'post'], 'list', 'Accounts@index')
                 ->name('list');
+                
+            // Show the form for creating a new resource.
+            Route::get('create', 'Accounts@create')
+                ->name('create');
             
-        // Show the form for creating a new resource.
-        Route::get('create', 'Accounts@create')
-            ->name('create');
+            // Show the form for editing the specified resource.
+            Route::get('edit/{account_name}/{location}', 'Accounts@edit')
+                ->name('edit');
         
-        // Show the form for editing the specified resource.
-        Route::get('edit/{account_name}/{location}', 'Accounts@edit')
-            ->name('edit');
-    
         });
         
         // Delegates
