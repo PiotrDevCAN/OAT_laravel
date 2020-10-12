@@ -27,8 +27,6 @@ class IBMUserProvider implements UserProvider
      */
     public function __construct(HasherContract $hasher)
     {
-        dump($hasher);
-        
         $this->hasher = $hasher;
     }
 
