@@ -61,6 +61,7 @@ class Login extends Controller
             
                 // Authentication passed...
 //                 return Redirect::intended('home');
+                return redirect()->intended('home');
             
             } else {
             
