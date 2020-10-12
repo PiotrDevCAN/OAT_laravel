@@ -63,10 +63,13 @@ class AuthServiceProvider extends ServiceProvider
         Auth::provider('external-api', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
+            dump($app['hash']);
+            
+            return $app->make(\App\Auth\IBMUserProvider::class);
 //             return $app->make(\App\Auth\IBMUserProvider::class, [
-//                 'hash' => $app['hash'],
+//                 'hasher' => $app['hash'],
 //             ]);
-            return new \App\Auth\IBMUserProvider($app['hash']);
+//             return new \App\Auth\IBMUserProvider($app['hash']);
         });
     }
 }
