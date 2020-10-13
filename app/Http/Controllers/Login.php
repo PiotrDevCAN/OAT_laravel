@@ -27,6 +27,13 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
+        
+        if (Auth::check()) {
+            dd('loggged');
+        } else {
+            dump('not loggged');
+        }
+        
         // validate the info, create rules for the inputs
         $rules = array(
             'email'    => 'required|email', // make sure the email is an actual email
