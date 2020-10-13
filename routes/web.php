@@ -167,13 +167,15 @@ Route::prefix('access')
     });
 
 // Legacy links
-Route::get('/index.html', function () {
-    return redirect()->route('home');
-});
+Route::get('/index.html', route('home'));
+// Route::get('/index.html', function () {
+//     return redirect()->route('home');
+// });
 
-Route::get('/p_admin.php', function () {
-    return redirect()->route('admin.info');
-});
+Route::get('/p_admin.php', route('admin.info'));
+// Route::get('/p_admin.php', function () {
+//     return redirect()->route('admin.info');
+// });
 
 /*
 Route::get('/p_request.php', function () {
