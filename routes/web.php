@@ -23,6 +23,7 @@ use App\Http\Controllers\Competencies;
 
 // Home
 Route::get('/', 'Index')
+    ->middleware('auth')
     ->name('home');
 
 Route::get('/login', 'Login@login')
