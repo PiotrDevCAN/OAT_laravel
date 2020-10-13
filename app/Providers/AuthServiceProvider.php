@@ -11,8 +11,7 @@ use App\Auth\BluegroupsAdminUserGuard;
 use App\Auth\BluegroupsAdminUserProvider;
 use App\Auth\BluegroupsGuestUserGuard;
 use App\Auth\BluegroupsGuestUserProvider;
-use Illuminate\Auth\SessionGuard;
-
+use app\Auth\SessionTestGuard;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -33,9 +32,21 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        // Since the Auth Manager doesn't have to be called in every Request, we will just
+        // set a callback before the application resolves it and passes it where it was
+        // called.
         
         Auth::extend('session-guard', function ($app, $name, array $config) {
-            return $app->make(SessionGuard::class, [
+            return $app->make(SessionTestGuard::class, [
                 'name' => $name,
                 'provider' => $app['auth']->createUserProvider(
                     $config['provider'] ?? null
@@ -43,7 +54,7 @@ class AuthServiceProvider extends ServiceProvider
                 'session' => $app['session.store']
             ]);
         });
-        
+            
         Auth::extend('bluepages-user', function ($app, $name, array $config) {
             return $app->make(BluepagesUserGuard::class, [
                 'name' => $name,
@@ -53,7 +64,7 @@ class AuthServiceProvider extends ServiceProvider
                 'session' => $app['session.store']
             ]);
         });
-            
+        
         Auth::provider('bluepages-provider', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
@@ -85,63 +96,5 @@ class AuthServiceProvider extends ServiceProvider
                 'hasher' => $app['hash'],
             ]);
         });
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        // Since the Auth Manager doesn't have to be called in every Request, we will just
-        // set a callback before the application resolves it and passes it where it was
-        // called.
-        /*
-        $this->app->resolving('auth', function ($auth) {
-            
-            Auth::extend('bluepage-guard', function ($app, $name, array $config) {
-                return $app->make(BluepageUserGuard::class, [
-                    'name' => $name,
-                    'provider' => $app['auth']->createUserProvider(
-                        $config['provider'] ?? null
-                        ),
-                    'session' => $app['session.store']
-                ]);
-            });
-            
-            Auth::provider('bluepage-provider', function ($app, array $config) {
-                // Return an instance of Illuminate\Contracts\Auth\UserProvider...
-                
-                return $app->make(BluepageUserProvider::class, [
-                    'hasher' => $app['hash'],
-                ]);
-            });
-            
-            Auth::extend('bluegroup-guest-guard', function ($app, $name, array $config) {
-                return $app->make(BluegroupGuestUserGuard::class);
-            });
-            
-            Auth::provider('bluegroup-guest-provider', function ($app, array $config) {
-                // Return an instance of Illuminate\Contracts\Auth\UserProvider...
-                
-                return $app->make(BluegroupGuestUserProvider::class, [
-                    'hasher' => $app['hash'],
-                ]);
-            });
-            
-            Auth::extend('bluegroup-admin-guard', function ($app, $name, array $config) {
-                return $app->make(BluegroupAdminUserGuard::class);
-            });
-            
-            Auth::provider('bluegroup-admin-provider', function ($app, array $config) {
-                // Return an instance of Illuminate\Contracts\Auth\UserProvider...
-                
-                return $app->make(BluegroupAdminUserProvider::class, [
-                    'hasher' => $app['hash'],
-                ]);
-            });
-        });
-        */
     }
 }
