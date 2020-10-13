@@ -22,13 +22,21 @@ class Authenticate extends Middleware
             $guards = [null];
         }
         
+        foreach(array_keys(config('auth.guards')) as $guard){
+            if(auth()->guard($guard)->check()) {
+                dump('Logged to '.$guard);
+            } else {
+                dump('Not logged to '.$guard);
+            }
+        }
+        
         foreach ($guards as $guard) {
             if ($this->auth->guard($guard)->check()) {
                 return $this->auth->shouldUse($guard);
             }
         }
         
-        $this->unauthenticated($request, $guards);
+//         $this->unauthenticated($request, $guards);
     }
     
     /**
