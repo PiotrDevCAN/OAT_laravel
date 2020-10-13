@@ -26,19 +26,23 @@ Route::get('/', 'Index')
     ->middleware('auth')
     ->name('home');
 
-Route::get('/login', 'Auth@showLoginForm')
-    ->middleware('guest')
-    ->name('login');
-
-Route::post('/login', 'Auth@login')
-    ->name('authenticate');
-
-Route::get('/loginCancel', 'Auth@cancel')
-    ->middleware('guest')
-    ->name('loginCancel');
-
-Route::get('/logout', 'Auth@logout')
-    ->name('logout');
+Route::middleware('auth')
+    ->name('auth.')
+    ->group(function () {
+        Route::get('/login', 'Auth@showLoginForm')
+            ->middleware('guest')
+            ->name('login');
+        
+        Route::post('/login', 'Auth@login')
+            ->name('authenticate');
+        
+        Route::get('/loginCancel', 'Auth@cancel')
+            ->middleware('guest')
+            ->name('loginCancel');
+        
+        Route::get('/logout', 'Auth@logout')
+            ->name('logout');
+    });
 
 // Overtime Requests
 Route::prefix('request')
