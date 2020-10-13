@@ -23,6 +23,9 @@ class Authenticate extends Middleware
             $guards = [null];
         }
         
+        dump('addigned guards');
+        dump($guards);
+        
         foreach(array_keys(config('auth.guards')) as $guard){
             if($this->auth->guard($guard)->check()) {
                 dump('Logged to '.$guard);
