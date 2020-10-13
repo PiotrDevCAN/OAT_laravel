@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 
-class Login extends Controller
+class Auth extends Controller
 {
     public $targetPageTitle;
     
@@ -18,7 +18,7 @@ class Login extends Controller
      *
      * @return Response
      */
-    public function authenticate(Request $request)
+    public function login(Request $request)
     {
         // validate the info, create rules for the inputs
         $rules = array(
@@ -76,7 +76,7 @@ class Login extends Controller
         }
     }
     
-    public function login(Request $request)
+    public function showLoginForm(Request $request)
     {
         $this->targetPageTitle = $request->session()->pull('url.intended');
         
