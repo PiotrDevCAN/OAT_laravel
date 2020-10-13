@@ -42,6 +42,8 @@ class Login extends Controller
                 'password' => $request->input('password')
             );
             
+            dd(Auth);
+            
             // attempt to do the login
             if (Auth::attempt($credentials)) {
             
