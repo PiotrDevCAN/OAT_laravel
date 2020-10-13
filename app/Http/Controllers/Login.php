@@ -45,8 +45,16 @@ class Login extends Controller
             // attempt to do the login
             if (Auth::attempt($credentials)) {
                 
+                foreach(array_keys(config('auth.guards')) as $guard){
+                    if(auth()->guard($guard)->check()) {
+                        dump('Logged to '.$guard);
+                    } else {
+                        dump('Not logged to '.$guard);
+                    }
+                }
+                
                 // Authentication passed...
-                return redirect()->intended(route('home'));
+//                 return redirect()->intended(route('home'));
             
             } else {
             
