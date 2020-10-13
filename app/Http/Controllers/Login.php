@@ -42,7 +42,11 @@ class Login extends Controller
                 'password' => $request->input('password')
             );
             
-            dd(Auth);
+            dump(Auth::getDefaultDriver());
+            
+            dump(Auth::getConfig('web'));
+            
+            dd('lock');
             
             // attempt to do the login
             if (Auth::attempt($credentials)) {
