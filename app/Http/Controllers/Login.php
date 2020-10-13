@@ -31,7 +31,7 @@ class Login extends Controller
         
         // if the validator fails, redirect back to the form
         if ($validator->fails()) {
-            return Redirect::to('login')
+            return Redirect::route('login')
                 ->withErrors($validator) // send back all errors to the login form
                 ->withInput($request->except('password')); // send back the input (not the password) so that we can repopulate the form
         } else {
@@ -46,13 +46,13 @@ class Login extends Controller
             if (Auth::attempt($credentials)) {
                 
                 // Authentication passed...
-                return Redirect::route('home');
+                return redirect()->intended('home');
 //                 return Redirect::intended(route('home'));
             
             } else {
             
                 // validation not successful, send back to form
-                return Redirect::route('login');
+                return redirect()->route('login');
             
             }            
         }
