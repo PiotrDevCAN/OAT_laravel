@@ -11,6 +11,7 @@ use App\Auth\BluegroupsAdminUserGuard;
 use App\Auth\BluegroupsAdminUserProvider;
 use App\Auth\BluegroupsGuestUserGuard;
 use App\Auth\BluegroupsGuestUserProvider;
+use Illuminate\Auth\SessionGuard;
 
 
 class AuthServiceProvider extends ServiceProvider
@@ -32,7 +33,17 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-    
+        
+        Auth::extend('session-guard', function ($app, $name, array $config) {
+            return $app->make(SessionGuard::class, [
+                'name' => $name,
+                'provider' => $app['auth']->createUserProvider(
+                    $config['provider'] ?? null
+                    ),
+                'session' => $app['session.store']
+            ]);
+        });
+        
         Auth::extend('bluepages-user', function ($app, $name, array $config) {
             return $app->make(BluepagesUserGuard::class, [
                 'name' => $name,
