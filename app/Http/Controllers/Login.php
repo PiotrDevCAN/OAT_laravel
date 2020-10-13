@@ -45,6 +45,7 @@ class Login extends Controller
             // attempt to do the login
             if (Auth::attempt($credentials)) {
                 
+                dump('first check');
                 foreach(array_keys(config('auth.guards')) as $guard){
                     if(auth()->guard($guard)->check()) {
                         dump('Logged to '.$guard);
@@ -52,6 +53,16 @@ class Login extends Controller
                         dump('Not logged to '.$guard);
                     }
                 }
+                
+                dump('second check');
+                foreach(array_keys(config('auth.guards')) as $guard){
+                    if(auth()->guard($guard)->check()) {
+                        dump('Logged to '.$guard);
+                    } else {
+                        dump('Not logged to '.$guard);
+                    }
+                }
+                
                 
                 // Authentication passed...
 //                 return redirect()->intended(route('home'));
