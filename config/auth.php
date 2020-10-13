@@ -37,17 +37,17 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session-guard',
+            'driver' => 'session',
             'provider' => 'bluepages-user',
         ],
         
         'guest' => [
-            'driver' => 'session',
+            'driver' => 'session-guard',
             'provider' => 'bluegroups-guest',
         ],
         
         'admin' => [
-            'driver' => 'session',
+            'driver' => 'session-guard',
             'provider' => 'bluegroups-admin',
         ],
         

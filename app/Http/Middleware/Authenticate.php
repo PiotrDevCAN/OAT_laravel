@@ -24,6 +24,8 @@ class Authenticate extends Middleware
             $guards = [null];
         }
         
+        dump($this->auth->getDefaultDriver());
+        
         foreach ($guards as $guard) {
             if ($this->auth->guard($guard)->check()) {
                 return $this->auth->shouldUse($guard);
