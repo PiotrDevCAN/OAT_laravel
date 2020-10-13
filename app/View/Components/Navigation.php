@@ -42,7 +42,7 @@ class Navigation extends Component
         
         if (Auth::check()) {
             // The user is logged in...
-            $this->menuList['Log off'] = 'logout';
+            $this->menuList['Log off'] = 'auth.logout';
         }
     }
 
