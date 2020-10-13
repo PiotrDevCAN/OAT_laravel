@@ -33,7 +33,7 @@ Route::middleware('auth')
             ->middleware('guest')
             ->name('login');
         
-        Route::post('/login', 'Login@login')
+        Route::post('/login', 'Login@authenticate')
             ->name('authenticate');
         
         Route::get('/loginCancel', 'Login@cancel')
