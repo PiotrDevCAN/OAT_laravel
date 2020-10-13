@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Auth;
+namespace App\Auth;
 
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Auth\Events\Authenticated;

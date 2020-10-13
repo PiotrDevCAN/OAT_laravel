@@ -47,7 +47,7 @@ class AuthServiceProvider extends ServiceProvider
         // called.
         
         Auth::extend('session-guard', function ($app, $name, array $config) {
-            return $app->make(SessionGuard::class, [
+            return $app->make(SessionTestGuard::class, [
                 'name' => $name,
                 'provider' => $app['auth']->createUserProvider(
                     $config['provider'] ?? null
