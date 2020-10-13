@@ -52,7 +52,7 @@ html, body {
 				<p class="ibm-h3 ibm-light ibm-textcolor-red-60">Logged off</p>
 				<h3 class="ibm-h3">You are now signed off.</h3>
 				<p>To sign in again, click the link below</p>
-				<p class="ibm-ind-link"><a class="ibm-forward-link" href="{{ route('home') }}">Sign in</a></p>
+				<p class="ibm-ind-link"><a class="ibm-forward-link" href="{{ route('auth.login') }}">Sign in</a></p>
 			
 			</div>
 		</div>

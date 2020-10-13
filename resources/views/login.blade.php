@@ -50,7 +50,7 @@ html, body {
 			<div class="ibm-card__content">
 
 				<p class="ibm-h3 ibm-light ibm-textcolor-red-60">Sign In</p>
-				{{ Form::open(['route' => 'login', 'id' => 'signinForm', 'class'  => 'ibm-column-form' ]) }}
+				{{ Form::open(['route' => 'auth.login', 'id' => 'signinForm', 'class'  => 'ibm-column-form' ]) }}
 				
 				<!-- if there are login errors, show them here -->
                 <p>
