@@ -167,8 +167,13 @@ Route::prefix('access')
     });
 
 // Legacy links
-Route::redirect('/index.html', '/');
-Route::get('/p_admin.php', 'Index@admin');
+Route::get('/index.html', function () {
+    return redirect()->route('home');
+});
+
+Route::get('/p_admin.php', function () {
+    return redirect()->route('admin.info');
+});
 
 /*
 Route::get('/p_request.php', function () {
