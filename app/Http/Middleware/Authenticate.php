@@ -56,10 +56,6 @@ class Authenticate extends Middleware
         $user = Auth::user();
         dump($user);
         
-//         $this->unauthenticated($request, $guards);
-        throw new AuthenticationException(
-            'Unauthenticated.', $guards
-        );
     }
     
     /**
@@ -70,8 +66,8 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
-            return route('auth.login');
-        }
+//         if (! $request->expectsJson()) {
+//             return route('auth.login');
+//         }
     }
 }
