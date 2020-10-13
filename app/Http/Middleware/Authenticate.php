@@ -19,6 +19,7 @@ class Authenticate extends Middleware
      */
     protected function authenticate($request, array $guards)
     {
+        dump(session()->all());
         dump(session()->get('test-value'));
         
         if (empty($guards)) {
