@@ -87,16 +87,16 @@ Route::prefix('request')
         })
             ->name('rejectedMailable');
     });
-
-// Info page
-Route::get('admin', 'Index@admin')
-    ->name('info');
     
 // Admin
 Route::prefix('admin')
     ->middleware('auth')
     ->name('admin.')
     ->group(function () {
+
+        // Info page
+        Route::get('info', 'Index@admin')
+            ->name('info');
         
         // Accounts
         Route::prefix('account')->name('account.')->group(function () {
@@ -123,10 +123,10 @@ Route::prefix('admin')
                 ->name('create');
             
             // Show the form for editing the specified resource.
-    //         Route::get('edit/{user_intranet}/{delegate_intranet}', function (Delegate $delegate) {
-    //             return (new Delegates())->edit($delegate);
-    //         })
-    //         ->name('edit');
+//             Route::get('edit/{user_intranet}/{delegate_intranet}', function (Delegate $delegate) {
+//                 return (new Delegates())->edit($delegate);
+//             })
+//             ->name('edit');
             
             Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
                 ->name('edit');
