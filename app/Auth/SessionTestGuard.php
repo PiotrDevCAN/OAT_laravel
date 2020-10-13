@@ -352,8 +352,6 @@ class SessionTestGuard extends SessionGuard
      */
     public function attempt(array $credentials = [], $remember = false)
     {
-        dd('SessionTestGuard attempt');
-        
         $this->fireAttemptEvent($credentials, $remember);
         
         $this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
