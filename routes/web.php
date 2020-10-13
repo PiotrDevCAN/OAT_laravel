@@ -29,18 +29,18 @@ Route::get('/', 'Index')
 Route::middleware('auth')
     ->name('auth.')
     ->group(function () {
-        Route::get('/login', 'Auth@showLoginForm')
+        Route::get('/login', 'Login@showLoginForm')
             ->middleware('guest')
             ->name('login');
         
-        Route::post('/login', 'Auth@login')
+        Route::post('/login', 'Login@login')
             ->name('authenticate');
         
-        Route::get('/loginCancel', 'Auth@cancel')
+        Route::get('/loginCancel', 'Login@cancel')
             ->middleware('guest')
             ->name('loginCancel');
         
-        Route::get('/logout', 'Auth@logout')
+        Route::get('/logout', 'Login@logout')
             ->name('logout');
     });
 
