@@ -12,6 +12,7 @@ use App\Auth\BluegroupsAdminUserProvider;
 use App\Auth\BluegroupsGuestUserGuard;
 use App\Auth\BluegroupsGuestUserProvider;
 use app\Auth\SessionTestGuard;
+use Illuminate\Auth\SessionGuard;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -46,7 +47,7 @@ class AuthServiceProvider extends ServiceProvider
         // called.
         
         Auth::extend('session-guard', function ($app, $name, array $config) {
-            return $app->make(SessionTestGuard::class, [
+            return $app->make(SessionGuard::class, [
                 'name' => $name,
                 'provider' => $app['auth']->createUserProvider(
                     $config['provider'] ?? null
