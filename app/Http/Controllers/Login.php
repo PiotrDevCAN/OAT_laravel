@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 
-class Auth extends Controller
+class Login extends Controller
 {
     public $targetPageTitle;
     
@@ -18,7 +18,7 @@ class Auth extends Controller
      *
      * @return Response
      */
-    public function login(Request $request)
+    public function authenticate(Request $request)
     {
         // validate the info, create rules for the inputs
         $rules = array(
@@ -31,7 +31,7 @@ class Auth extends Controller
         
         // if the validator fails, redirect back to the form
         if ($validator->fails()) {
-            return Redirect::route('auth.login')
+            return Redirect::route('login')
                 ->withErrors($validator) // send back all errors to the login form
                 ->withInput($request->except('password')); // send back the input (not the password) so that we can repopulate the form
         } else {
@@ -70,13 +70,13 @@ class Auth extends Controller
             } else {
             
                 // validation not successful, send back to form
-                return redirect()->route('auth.login');
+                return redirect()->route('login');
             
             }            
         }
     }
     
-    public function showLoginForm(Request $request)
+    public function login(Request $request)
     {
         $this->targetPageTitle = $request->session()->pull('url.intended');
         
