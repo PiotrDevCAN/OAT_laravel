@@ -27,16 +27,6 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
-        dump($request->session()->all());
-        $request->session()->put('test-value', 'test value');
-        dump($request->session()->all());
-        
-        if (Auth::check()) {
-            dd('loggged');
-        } else {
-            dump('not loggged');
-        }
-        
         // validate the info, create rules for the inputs
         $rules = array(
             'email'    => 'required|email', // make sure the email is an actual email
@@ -62,29 +52,8 @@ class Login extends Controller
             // attempt to do the login
             if (Auth::attempt($credentials)) {
                 
-                dump('first check');
-                foreach(array_keys(config('auth.guards')) as $guard){
-                    if(auth()->guard($guard)->check()) {
-                        dump('Logged to '.$guard);
-                    } else {
-                        dump('Not logged to '.$guard);
-                    }
-                }
-                
-                dump('second check');
-                foreach(array_keys(config('auth.guards')) as $guard){
-                    if(auth()->guard($guard)->check()) {
-                        dump('Logged to '.$guard);
-                    } else {
-                        dump('Not logged to '.$guard);
-                    }
-                }
-                
-                $user = Auth::user();
-                dump($user);
-                
                 // Authentication passed...
-//                 return redirect()->intended(route('home'));
+                return redirect()->intended(route('home'));
             
             } else {
             
