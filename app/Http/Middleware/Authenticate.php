@@ -37,6 +37,12 @@ class Authenticate extends Middleware
             }
         }
         
+        if (Auth::check()) {
+            dump('loggged');
+        } else {
+            dump('not loggged');
+        }
+        
         $user = Auth::user();
         dump($user);
         
