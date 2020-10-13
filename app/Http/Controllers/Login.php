@@ -27,7 +27,9 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
+        dump(session()->all());
         session()->put('test-value', 'test value');
+        dump(session()->all());
         
         if (Auth::check()) {
             dd('loggged');
