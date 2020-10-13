@@ -45,13 +45,8 @@ class AuthServiceProvider extends ServiceProvider
         // Since the Auth Manager doesn't have to be called in every Request, we will just
         // set a callback before the application resolves it and passes it where it was
         // called.
-        
+        /*
         Auth::extend('session-guard', function ($app, $name, array $config) {
-            
-            dump('start');
-            dump($name);
-            dump('end');
-            
             return $app->make(SessionTestGuard::class, [
                 'name' => $name,
                 'provider' => $app['auth']->createUserProvider(
@@ -60,6 +55,7 @@ class AuthServiceProvider extends ServiceProvider
                 'session' => $app['session.store']
             ]);
         });
+        */
         
         Auth::extend('bluepages-user', function ($app, $name, array $config) {
             return $app->make(BluepagesUserGuard::class, [
