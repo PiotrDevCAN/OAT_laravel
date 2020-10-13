@@ -23,7 +23,7 @@ use App\Http\Controllers\Competencies;
 
 // Home
 Route::get('/', 'Index')
-    ->middleware('auth')
+    ->middleware('auth:web')
     ->name('home');
 
 Route::name('auth.')
@@ -45,7 +45,7 @@ Route::name('auth.')
 
 // Overtime Requests
 Route::prefix('request')
-    ->middleware('auth')
+    ->middleware('auth:web')
     ->name('request.')
     ->group(function () {
         Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
@@ -96,7 +96,7 @@ Route::prefix('request')
     
 // Admin
 Route::prefix('admin')
-    ->middleware('auth')
+    ->middleware('auth:web')
     ->name('admin.')
     ->group(function () {
 
@@ -165,7 +165,7 @@ Route::prefix('admin')
 
 // Access
 Route::prefix('access')
-    ->middleware('auth')
+    ->middleware('auth:web')
     ->name('access.')
     ->group(function () {
         Route::get('my', 'Index@access')
