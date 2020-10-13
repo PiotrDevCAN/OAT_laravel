@@ -44,8 +44,6 @@ class Login extends Controller
             
             dump(Auth::getDefaultDriver());
             
-            dump(Auth::getConfig('web'));
-            
             dd('lock');
             
             // attempt to do the login
