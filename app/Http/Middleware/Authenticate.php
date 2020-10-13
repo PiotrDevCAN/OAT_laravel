@@ -20,42 +20,11 @@ class Authenticate extends Middleware
      */
     protected function authenticate($request, array $guards)
     {
-        dump($request->session()->all());
-        dump($request->session()->get('test-value'));
-        
         if (empty($guards)) {
             $guards = [null];
         }
         
-        dump('addigned guards');
-        dump($guards);
-        
-        foreach(array_keys(config('auth.guards')) as $guard){
-            if($this->auth->guard($guard)->check()) {
-                dump('Logged to '.$guard);
-            } else {
-                dump('Not logged to '.$guard);
-            }
-        }
-        
-        foreach ($guards as $guard) {
-            if ($this->auth->guard($guard)->check()) {
-                
-                dump('=> LOGGED IN TO '.$guard);
-                
-                return $this->auth->shouldUse($guard);
-            }
-        }
-        
-        if (Auth::check()) {
-            dump('loggged');
-        } else {
-            dump('not loggged');
-        }
-        
-        $user = Auth::user();
-        dump($user);
-        
+        $this->unauthenticated($request, $guards);
     }
     
     /**
