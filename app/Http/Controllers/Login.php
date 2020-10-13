@@ -11,6 +11,13 @@ class Login extends Controller
 {
     public $targetPageTitle;
     
+    public function showLoginForm(Request $request)
+    {
+        $this->targetPageTitle = $request->session()->pull('url.intended');
+        
+        return view('login');
+    }
+    
     /**
      * Handle an authentication attempt.
      *
@@ -74,13 +81,6 @@ class Login extends Controller
             
             }            
         }
-    }
-    
-    public function login(Request $request)
-    {
-        $this->targetPageTitle = $request->session()->pull('url.intended');
-        
-        return view('login');
     }
     
     public function cancel(Request $request)
