@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use App\Models\IBMUser;
 
-class BluegroupAdminUserProvider implements UserProvider
+class BluegroupsAdminUserProvider implements UserProvider
 {
     /**
      * The hasher implementation.

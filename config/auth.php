@@ -38,17 +38,17 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'bluepage-provider',
+            'provider' => 'bluepages-user',
         ],
         
         'guest' => [
             'driver' => 'session',
-            'provider' => 'bluegroup-guest-provider',
+            'provider' => 'bluegroups-guest',
         ],
         
         'admin' => [
             'driver' => 'session',
-            'provider' => 'bluegroup-admin-provider',
+            'provider' => 'bluegroups-admin',
         ],
         
         'web-default' => [
@@ -91,16 +91,16 @@ return [
         //     'table' => 'users',
         // ],
         
-        'bluepage-provider' => [
-            'driver' => 'bluepage-provider',
+        'bluepages-user' => [
+            'driver' => 'bluepages-provider',
         ],
         
-        'bluegroup-guest-provider' => [
-            'driver' => 'bluegroup-guest-provider',
+        'bluegroups-guest' => [
+            'driver' => 'bluegroups-guest-provider',
         ],
         
-        'bluegroup-admin-provider' => [
-            'driver' => 'bluegroup-admin-provider',
+        'bluegroups-admin' => [
+            'driver' => 'bluegroups-admin-provider',
         ],
     ],
 

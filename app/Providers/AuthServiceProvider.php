@@ -5,14 +5,12 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
-use App\Auth\BluepageUserGuard;
-use App\Auth\BluepageUserProvider;
-
-use App\Auth\BluegroupGuestUserProvider;
-
-use App\Auth\BluegroupAdminUserProvider;
-use App\Auth\BluegroupGuestUserGuard;
-use App\Auth\BluegroupAdminUserGuard;
+use App\Auth\BluepagesUserGuard;
+use App\Auth\BluepagesUserProvider;
+use App\Auth\BluegroupsAdminUserGuard;
+use App\Auth\BluegroupsAdminUserProvider;
+use App\Auth\BluegroupsGuestUserGuard;
+use App\Auth\BluegroupsGuestUserProvider;
 
 
 class AuthServiceProvider extends ServiceProvider
@@ -35,8 +33,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
     
-        Auth::extend('bluepage-guard', function ($app, $name, array $config) {
-            return $app->make(BluepageUserGuard::class, [
+        Auth::extend('bluepages-user', function ($app, $name, array $config) {
+            return $app->make(BluepagesUserGuard::class, [
                 'name' => $name,
                 'provider' => $app['auth']->createUserProvider(
                     $config['provider'] ?? null
@@ -45,34 +43,34 @@ class AuthServiceProvider extends ServiceProvider
             ]);
         });
             
-        Auth::provider('bluepage-provider', function ($app, array $config) {
+        Auth::provider('bluepages-provider', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
-            return $app->make(BluepageUserProvider::class, [
+            return $app->make(BluepagesUserProvider::class, [
                 'hasher' => $app['hash'],
             ]);
         });
         
-        Auth::extend('bluegroup-guest-guard', function ($app, $name, array $config) {
-            return $app->make(BluegroupGuestUserGuard::class);
+        Auth::extend('bluegroups-guest', function ($app, $name, array $config) {
+            return $app->make(BluegroupsGuestUserGuard::class);
         });
         
-        Auth::provider('bluegroup-guest-provider', function ($app, array $config) {
+        Auth::provider('bluegroups-guest-provider', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
-            return $app->make(BluegroupGuestUserProvider::class, [
+            return $app->make(BluegroupsGuestUserProvider::class, [
                 'hasher' => $app['hash'],
             ]);
         });
         
-        Auth::extend('bluegroup-admin-guard', function ($app, $name, array $config) {
-            return $app->make(BluegroupAdminUserGuard::class);
+        Auth::extend('bluegroups-admin', function ($app, $name, array $config) {
+            return $app->make(BluegroupsAdminUserGuard::class);
         });
         
-        Auth::provider('bluegroup-admin-provider', function ($app, array $config) {
+        Auth::provider('bluegroups-admin-provider', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
-            return $app->make(BluegroupAdminUserProvider::class, [
+            return $app->make(BluegroupsAdminUserProvider::class, [
                 'hasher' => $app['hash'],
             ]);
         });

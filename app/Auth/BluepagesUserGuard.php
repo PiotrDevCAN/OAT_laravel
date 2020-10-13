@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
 use Illuminate\Auth\GuardHelpers;
 
-class BluegroupAdminUserGuard implements StatefulGuard
+class BluepagesUserGuard implements StatefulGuard
 {
     use GuardHelpers;
 
