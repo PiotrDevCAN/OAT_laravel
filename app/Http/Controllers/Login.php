@@ -70,6 +70,8 @@ class Login extends Controller
                     }
                 }
                 
+                $user = Auth::user();
+                dump($user);
                 
                 // Authentication passed...
 //                 return redirect()->intended(route('home'));
