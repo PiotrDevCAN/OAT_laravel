@@ -24,7 +24,8 @@ class Authenticate extends Middleware
             $guards = [null];
         }
         
-        dump($this->auth->getDefaultDriver());
+        dump('config settings');
+        dump(config('auth.guards.web'));
         
         foreach ($guards as $guard) {
             if ($this->auth->guard($guard)->check()) {
