@@ -26,12 +26,14 @@ Route::get('/', 'Index')
     ->name('home');
 
 Route::get('/login', 'Login@login')
+    ->middleware('guest')
     ->name('login');
 
 Route::post('/login', 'Login@authenticate')
     ->name('authenticate');
 
 Route::get('/loginCancel', 'Login@cancel')
+    ->middleware('guest')
     ->name('loginCancel');
 
 Route::get('/logout', 'Login@logout')
