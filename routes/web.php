@@ -26,8 +26,7 @@ Route::get('/', 'Index')
     ->middleware('auth')
     ->name('home');
 
-Route::middleware('auth')
-    ->name('auth.')
+Route::name('auth.')
     ->group(function () {
         Route::get('/login', 'Login@showLoginForm')
             ->middleware('guest')
