@@ -27,6 +27,6 @@ class LogKeyForgotten
     public function handle(KeyForgotten $event)
     {
         //
-        dump('Info Cache Key Forgotten ');
+        dump('Info Cache Key Forgotten');
     }
 }
