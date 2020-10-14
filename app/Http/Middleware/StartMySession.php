@@ -95,8 +95,6 @@ class StartMySession extends StartSession
         dump('UPDATED SESSION');
         dump($session);
         
-        dump(app(['session.store']));
-        
         dump($session->isStarted());
         
         return $response;
