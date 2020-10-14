@@ -110,4 +110,19 @@ class StartMySession extends StartSession
         
         return $response;
     }
+    
+    /**
+     * Save the session data to storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function saveSession($request)
+    {
+        
+        dump($this->manager);
+        dump($this->manager->driver());
+        
+        $this->manager->driver()->save();
+    }
 }
