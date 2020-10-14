@@ -185,7 +185,7 @@ return [
         /*
          * aacotroneo/laravel-saml2 Providers
          */
-        Aacotroneo\Saml2\Saml2ServiceProvider::class,
+        // Aacotroneo\Saml2\Saml2ServiceProvider::class,
         
     ],
 
