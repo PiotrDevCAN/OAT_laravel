@@ -20,11 +20,16 @@ class Authenticate extends Middleware
     public function handle($request, Closure $next, ...$guards)
     {
         
+        dump('CHECK 1');
         dump(session()->all());
         
         $this->authenticate($request, $guards);
         
+        dump('CHECK 2');
         dump(session()->all());
+        
+        dump('CHECK 3');
+        dump(session());
         
         return $next($request);
     }

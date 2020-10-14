@@ -26,9 +26,6 @@ class StartMySession extends StartSession
         dump('StartMySession handle');
         
         if (! $this->sessionConfigured()) {
-            
-            dump('StartMySession sessionConfigured NOT');
-            
             return $next($request);
         }
         
