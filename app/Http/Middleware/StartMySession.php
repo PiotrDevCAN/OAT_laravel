@@ -79,13 +79,24 @@ class StartMySession extends StartSession
             $this->startSession($request, $session)
             );
         
+        dump('is started before COLLECT GARBAGE');
+        dump($session->isStarted());
         $this->collectGarbage($session);
         
+        dump('is started before NEXT REQUEST');
+        dump($session->isStarted());
         $response = $next($request);
         
+        dump('is started before STORE CURRENT URL');
+        dump($session->isStarted());
         $this->storeCurrentUrl($request, $session);
         
+        dump('is started before ADD COOKIE TO RESPONSE');
+        dump($session->isStarted());
         $this->addCookieToResponse($response, $session);
+        
+        dump('is started before SAVE SESSION');
+        dump($session->isStarted());
         
         // Again, if the session has been configured we will need to close out the session
         // so that the attributes may be persisted to some storage medium. We will also
