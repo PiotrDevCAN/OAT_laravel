@@ -58,13 +58,6 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Auth\Events\Logout' => [
             'App\Listeners\LogSuccessfulLogout',
         ],
-        
-        'Aacotroneo\Saml2\Events\Saml2LoginEvent' => [
-            'App\Listeners\Saml2LoginListener',
-        ],
-        'Aacotroneo\Saml2\Events\Saml2LogoutEvent' => [
-            'App\Listeners\Saml2LogoutListener',
-        ],
     ];
 
     /**
