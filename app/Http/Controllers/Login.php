@@ -49,8 +49,13 @@ class Login extends Controller
                 'password' => $request->input('password')
             );
             
+            dump('authenticate CHECK 1');
+            dump($request->session()->all());
+            
             // attempt to do the login
             if (Auth::attempt($credentials)) {
+                
+                dump('authenticate CHECK 2');
                 
                 $request->session()->put('test_key', 'test value');
                 dump($request->session()->all());
