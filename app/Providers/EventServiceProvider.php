@@ -43,13 +43,6 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\LogKeyWritten',
         ],
         
-        'Aacotroneo\Saml2\Events\Saml2LoginEvent' => [
-            'App\Listeners\Saml2LoginListener',
-        ],
-        'Aacotroneo\Saml2\Events\Saml2LogoutEvent' => [
-            'App\Listeners\Saml2LogoutListener',
-        ],
-        
         'Illuminate\Auth\Events\Attempting' => [
             'App\Listeners\LogAuthenticationAttempt',
         ],
@@ -64,6 +57,13 @@ class EventServiceProvider extends ServiceProvider
         ],
         'Illuminate\Auth\Events\Logout' => [
             'App\Listeners\LogSuccessfulLogout',
+        ],
+        
+        'Aacotroneo\Saml2\Events\Saml2LoginEvent' => [
+            'App\Listeners\Saml2LoginListener',
+        ],
+        'Aacotroneo\Saml2\Events\Saml2LogoutEvent' => [
+            'App\Listeners\Saml2LogoutListener',
         ],
     ];
 
