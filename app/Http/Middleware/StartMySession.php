@@ -45,6 +45,27 @@ class StartMySession extends StartSession
     }
     
     /**
+     * Start the session for the given request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Contracts\Session\Session  $session
+     * @return \Illuminate\Contracts\Session\Session
+     */
+    protected function startSession(Request $request, $session)
+    {
+        return tap($session, function ($session) use ($request) {
+            $session->setRequestOnHandler($request);
+            
+            dump('START SESSION');
+            
+            $session->start();
+            
+            dump('CHECK IF SESSION STARTED');
+            dump($session);
+        });
+    }
+    
+    /**
      * Handle the given request within session state.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -76,6 +97,8 @@ class StartMySession extends StartSession
         
         dump('UPDATED SESSION');
         dump($session);
+        
+        dump($session->isStarted());
         
         return $response;
     }
