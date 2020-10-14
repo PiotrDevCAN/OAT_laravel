@@ -44,7 +44,7 @@ Route::name('auth.')
 
 // Overtime Requests
 Route::prefix('request')
-    ->middleware('auth:web')
+    ->middleware('auth')
     ->name('request.')
     ->group(function () {
         Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
@@ -95,7 +95,7 @@ Route::prefix('request')
     
 // Admin
 Route::prefix('admin')
-    ->middleware('auth:web')
+    ->middleware('auth')
     ->name('admin.')
     ->group(function () {
 
@@ -164,7 +164,7 @@ Route::prefix('admin')
 
 // Access
 Route::prefix('access')
-    ->middleware('auth:web')
+    ->middleware('auth')
     ->name('access.')
     ->group(function () {
         Route::get('my', 'Index@access')
