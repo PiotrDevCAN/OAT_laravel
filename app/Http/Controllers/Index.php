@@ -18,6 +18,8 @@ class Index extends Controller
      */
     public function __invoke(Request $request)
     {
+        dump(config('session.driver'));
+        
         // Page enter logic...
         
         event(new IndexEntered());
