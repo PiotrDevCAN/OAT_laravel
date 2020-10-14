@@ -50,7 +50,7 @@ class Login extends Controller
             );
             
             dump('authenticate CHECK 1');
-            dump($request->session()->all());
+            dump($request->session());
             
             // attempt to do the login
             if (Auth::attempt($credentials)) {
@@ -58,7 +58,7 @@ class Login extends Controller
                 dump('authenticate CHECK 2');
                 
                 $request->session()->put('test_key', 'test value');
-                dump($request->session()->all());
+                dump($request->session());
                 
                 $request->session()->save();
                 
