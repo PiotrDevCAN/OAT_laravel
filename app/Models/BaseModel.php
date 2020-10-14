@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 
 class BaseModel extends Model
 {
@@ -14,7 +13,7 @@ class BaseModel extends Model
      */
     public $incrementing = false;
     
-    protected function setKeysForSaveQuery(Builder $query)
+    protected function setKeysForSaveQuery($query)
     {
         if( ! is_array($this->getKeyName()))
         {
