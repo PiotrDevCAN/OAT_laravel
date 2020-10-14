@@ -60,6 +60,8 @@ class Login extends Controller
                 $request->session()->put('test_key', 'test value');
                 dump($request->session()->all());
                 
+                $request->session()->save();
+                
                 // Authentication passed...
 //                 return redirect()->route('request.create');
 //                 return redirect()->route('home');
