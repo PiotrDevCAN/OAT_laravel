@@ -21,15 +21,15 @@ class Authenticate extends Middleware
     {
         
         dump('CHECK 1');
-        dump(session()->all());
+        dump($request->session()->all());
         
         $this->authenticate($request, $guards);
         
         dump('CHECK 2');
-        dump(session()->all());
+        dump($request->session()->all());
         
         dump('CHECK 3');
-        dump(session());
+        dump($request->session());
         
         return $next($request);
     }
