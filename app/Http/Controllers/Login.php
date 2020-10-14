@@ -52,8 +52,11 @@ class Login extends Controller
             // attempt to do the login
             if (Auth::attempt($credentials)) {
                 
+                session()->put('test_key', 'test value');
+                dump(session()->all());
+                
                 // Authentication passed...
-                return redirect()->route('request.create');
+//                 return redirect()->route('request.create');
 //                 return redirect()->route('home');
 //                 return redirect()->intended(route('home'));
             
