@@ -19,17 +19,7 @@ class Authenticate extends Middleware
      */
     public function handle($request, Closure $next, ...$guards)
     {
-        
-//         dump('CHECK 1');
-//         dump($request->session()->all());
-        
         $this->authenticate($request, $guards);
-        
-//         dump('CHECK 2');
-//         dump($request->session()->all());
-        
-//         dump('CHECK 3');
-//         dump($request->session());
         
         return $next($request);
     }
@@ -51,19 +41,19 @@ class Authenticate extends Middleware
         
         foreach ($guards as $guard) {
             
-//             dump('set guard '.$guard);
-//             dump('auth obj');
-//             dump($this->auth);
-//             dump($this->auth->guard($guard));
-//             dump($this->auth->guard($guard)->check());
+            dump('set guard '.$guard);
+            dump('auth obj');
+            dump($this->auth);
+            dump($this->auth->guard($guard));
+            dump($this->auth->guard($guard)->check());
             
             if ($this->auth->guard($guard)->check()) {
-//                 dump('will stop and shouldUse '.$guard);
+                dump('will stop and shouldUse '.$guard);
                 return $this->auth->shouldUse($guard);
             }
         }
         
-        $this->unauthenticated($request, $guards);
+//        $this->unauthenticated($request, $guards);
     }
 
     /**
