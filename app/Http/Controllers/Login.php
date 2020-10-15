@@ -77,7 +77,13 @@ class Login extends Controller
         }
         */
         
-        $credentials = $request->only('email', 'password');
+        //$credentials = $request->only('email', 'password');
+        
+        // create our user data for the authentication
+        $credentials = array(
+            'email' => $request->input('email'),
+            'password' => $request->input('password')
+        );
         
         if (Auth::attempt($credentials)) {
             // Authentication passed...
