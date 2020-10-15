@@ -37,7 +37,7 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver' => 'session-test',
             'provider' => 'bluepages-user',
         ],
         
@@ -47,7 +47,7 @@ return [
         ],
         
         'admin' => [
-            'driver' => 'session-',
+            'driver' => 'session',
             'provider' => 'bluegroups-admin',
         ],
         

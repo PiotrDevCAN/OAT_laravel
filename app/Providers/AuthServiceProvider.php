@@ -41,6 +41,20 @@ class AuthServiceProvider extends ServiceProvider
                 'hasher' => $app['hash'],
             ]);
         });
+        
+        Auth::extend('session-guard', function ($app, $name, array $config) {
+            
+            dump('parameters');
+            dump($name);
+            
+            return $app->make(SessionTestGuard::class, [
+                'name' => $name,
+                'provider' => $app['auth']->createUserProvider(
+                    $config['provider'] ?? null
+                    ),
+                'session' => $app['session.store']
+            ]);
+        });
     }
 
     /**
