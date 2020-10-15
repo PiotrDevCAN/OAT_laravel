@@ -81,7 +81,8 @@ class Login extends Controller
         
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended(route('home'));
+            dump('stopped here');
+//             return redirect()->intended(route('home'));
         }
     }
     

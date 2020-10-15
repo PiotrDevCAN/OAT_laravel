@@ -113,6 +113,12 @@ class SessionTestGuard extends SessionGuard
         $this->provider = $provider;
     }
     
+    public function check()
+    {
+        dump($this->user());
+        return ! is_null($this->user());
+    }
+    
     /**
      * Get the currently authenticated user.
      *
@@ -352,9 +358,13 @@ class SessionTestGuard extends SessionGuard
      */
     public function attempt(array $credentials = [], $remember = false)
     {
-        $this->fireAttemptEvent($credentials, $remember);
+//         $this->fireAttemptEvent($credentials, $remember);
+        
+        dump($this->provider);
         
         $this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
+        
+        dump($user);
         
         // If an implementation of UserInterface was returned, we'll ask the provider
         // to validate the user against the given credentials, and if they are in
@@ -387,7 +397,8 @@ class SessionTestGuard extends SessionGuard
         if ($validated) {
             $this->fireValidatedEvent($user);
         }
-        
+        dump('$validated');
+        dump($validated);
         return $validated;
     }
     
