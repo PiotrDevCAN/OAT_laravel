@@ -33,6 +33,14 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        
+        Auth::provider('bluepages-provider', function ($app, array $config) {
+            // Return an instance of Illuminate\Contracts\Auth\UserProvider...
+            
+            return $app->make(BluepagesUserProvider::class, [
+                'hasher' => $app['hash'],
+            ]);
+        });
     }
 
     /**
@@ -57,6 +65,7 @@ class AuthServiceProvider extends ServiceProvider
         });
         */
         
+        /*
         Auth::extend('bluepages-user', function ($app, $name, array $config) {
             return $app->make(BluepagesUserGuard::class, [
                 'name' => $name,
@@ -98,5 +107,6 @@ class AuthServiceProvider extends ServiceProvider
                 'hasher' => $app['hash'],
             ]);
         });
+        */
     }
 }

@@ -28,14 +28,14 @@ Route::get('/', 'Index')
 Route::name('auth.')
     ->group(function () {
         Route::get('/login', 'Login@showLoginForm')
-            ->middleware('guest')
+//             ->middleware('guest')
             ->name('login');
         
         Route::post('/login', 'Login@authenticate')
             ->name('authenticate');
         
         Route::get('/loginCancel', 'Login@cancel')
-            ->middleware('guest')
+//             ->middleware('guest')
             ->name('loginCancel');
         
         Route::get('/logout', 'Login@logout')
