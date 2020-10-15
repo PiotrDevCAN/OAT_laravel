@@ -42,7 +42,7 @@ class AuthServiceProvider extends ServiceProvider
             ]);
         });
         
-        Auth::extend('session-guard', function ($app, $name, array $config) {
+        Auth::extend('session-test', function ($app, $name, array $config) {
             
             dump('parameters');
             dump($name);
