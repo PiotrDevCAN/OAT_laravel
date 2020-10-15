@@ -113,12 +113,6 @@ class SessionTestGuard extends SessionGuard
         $this->provider = $provider;
     }
     
-    public function check()
-    {
-        dump($this->user());
-        return ! is_null($this->user());
-    }
-    
     /**
      * Get the currently authenticated user.
      *
@@ -349,6 +343,13 @@ class SessionTestGuard extends SessionGuard
         throw new UnauthorizedHttpException('Basic', 'Invalid credentials.');
     }
     
+    public function check()
+    {
+        dump('this is guard object used to user check ');
+        dump($this);
+        return ! is_null($this->user());
+    }
+    
     /**
      * Attempt to authenticate a user using the given credentials.
      *
@@ -358,20 +359,20 @@ class SessionTestGuard extends SessionGuard
      */
     public function attempt(array $credentials = [], $remember = false)
     {
-//         $this->fireAttemptEvent($credentials, $remember);
+        dump('this is guard object used to user login attempt BEGIN ');
+        dump($this);
         
-        dump($this->provider);
+        $this->fireAttemptEvent($credentials, $remember);
         
         $this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
-        
-        dump($user);
         
         // If an implementation of UserInterface was returned, we'll ask the provider
         // to validate the user against the given credentials, and if they are in
         // fact valid we'll log the users into the application and return true.
         if ($this->hasValidCredentials($user, $credentials)) {
             $this->login($user, $remember);
-            
+            dump('this is guard object used to user login attempt BEGIN ');
+            dump($this);
             return true;
         }
         
@@ -397,8 +398,7 @@ class SessionTestGuard extends SessionGuard
         if ($validated) {
             $this->fireValidatedEvent($user);
         }
-        dump('$validated');
-        dump($validated);
+        
         return $validated;
     }
     
