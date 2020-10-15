@@ -45,10 +45,10 @@ class AuthServiceProvider extends ServiceProvider
         Auth::extend('session-test', function ($app, $name, array $config) {
             
             dump('parameters');
-            dump($name);
+            dump($app['session.store']);
             
             return $app->make(SessionTestGuard::class, [
-                'name' => $name,
+                'name' => 'session-test',
                 'provider' => $app['auth']->createUserProvider(
                     $config['provider'] ?? null
                     ),
