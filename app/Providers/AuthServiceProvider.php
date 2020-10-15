@@ -47,13 +47,13 @@ class AuthServiceProvider extends ServiceProvider
             dump('parameters');
             dump($app['session.store']);
             
-            return new SessionTestGuard([
-                'name' => 'session-test',
-                'provider' => Auth::createUserProvider(
-                        $config['provider'] ?? null
-                        ),
-                'session' => $app['session.store']
-            ]);
+            $name = 'session-test';
+            $provider = Auth::createUserProvider(
+                $config['provider'] ?? null
+            );
+            $session = $app['session.store'];
+            
+            return new SessionTestGuard($name, $provider, $session);
             
 //             return $app->make(SessionTestGuard::class, [
 //                 'name' => 'session-test',
