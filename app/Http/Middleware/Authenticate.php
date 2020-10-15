@@ -51,11 +51,12 @@ class Authenticate extends Middleware
         
         foreach ($guards as $guard) {
             if ($this->auth->guard($guard)->check()) {
+                dump('will stop and shouldUse '.$guard);
                 return $this->auth->shouldUse($guard);
             }
         }
         
-//         $this->unauthenticated($request, $guards);
+        $this->unauthenticated($request, $guards);
     }
 
     /**
@@ -67,6 +68,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
+            dump('will do redirect');
 //             return route('auth.login');
         }
     }
