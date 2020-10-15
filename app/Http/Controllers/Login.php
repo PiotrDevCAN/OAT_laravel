@@ -27,6 +27,7 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
+        /*
         // validate the info, create rules for the inputs
         $rules = array(
             'email'    => 'required|email', // make sure the email is an actual email
@@ -73,6 +74,14 @@ class Login extends Controller
                 return redirect()->route('auth.login');
             
             }            
+        }
+        */
+        
+        $credentials = $request->only('email', 'password');
+        
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->intended(route('home'));
         }
     }
     
