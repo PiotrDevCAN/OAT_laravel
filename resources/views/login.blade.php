@@ -52,8 +52,6 @@ html, body {
 				<p class="ibm-h3 ibm-light ibm-textcolor-red-60">Sign In</p>
 				{{ Form::open(['route' => 'auth.authenticate', 'id' => 'signinForm', 'class'  => 'ibm-column-form' ]) }}
 				
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				
 				<!-- if there are login errors, show them here -->
                 <p>
                     {{ $errors->first('email') }}
