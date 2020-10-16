@@ -25,7 +25,8 @@ class Index extends Controller
         // Page enter logic...
         
         dump('BluePages facade test');
-        dump(BluePages::getDetailsFromNotesId('abc'));
+        dump(BluePages::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
+        dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
         
 //         BlueGroups::getDetailsFromNotesId('abc');
         
