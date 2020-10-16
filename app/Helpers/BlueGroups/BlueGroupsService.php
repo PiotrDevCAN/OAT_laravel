@@ -2,18 +2,238 @@
 
 namespace App\Helpers\BlueGroups;
 
+use Adldap\AdldapInterface;
+
 class BlueGroupsService {
 
-    public function getTest($email){
+    /**
+     * @var Adldap
+     */
+    protected $ldap;
+    
+    function __construct(AdldapInterface $ldap)
+    {
+        $this->ldap = $ldap;
         
-        return $email;
+        //clear any error values
+//         define('IIP_AUTH_ERRNO', 0);
+//         define('IIP_LDAP_ERRNO', 0);
     }
     
-    function __construct()
+    // #
+    // # error handling functions for IIP and Bluegroups
+    // #
+    
+    /*
+     * Interesting LDAP errno:
+     * 48 - Inappropriate authentication (password struck out)
+     * 49 - Invalid credentials (bad password)
+     * 81 - Can't contact LDAP server (bind / connection failure)
+     */
+    
+    // returns the error for an iip errno. note that iip
+    // errno is not standard across different platforms
+    /*
+    function iip_auth_err2str()
     {
-        //clear any error values
-        define('IIP_AUTH_ERRNO', 0);
-        define('IIP_LDAP_ERRNO', 0);
+        if (! defined('IIP_AUTH_ERRNO'))
+            return FALSE;
+            $error = array(
+                0 => "Success",
+                1 => "Connect to host failed",
+                2 => "Not registered",
+                3 => "LDAP error",
+                4 => "No record found",
+                5 => "Multiple records found",
+                6 => "Invalid credentials",
+                7 => "Group does not exist",
+                8 => "User not in group"
+            );
+            return $error[IIP_AUTH_ERRNO];
+    }
+    */
+    
+    /*
+    // returns the error for an ldap errno
+    function iip_ldap_err2str()
+    {
+        if (! defined('IIP_LDAP_ERRNO'))
+            return FALSE;
+            return ldap_err2str(IIP_LDAP_ERRNO);
+    }
+    */
+    
+    /*
+    // handles ldap error display page
+    function do_ldap_error()
+    {
+        $error_doc = $GLOBALS['w3php']['error_doc'];
+        if (defined('IIP_LDAP_ERRNO')) {
+            $msg = "LDAP error \"" . $this->iip_ldap_err2str() . "\"";
+            if (isset($_SERVER['PHP_AUTH_USER']) && trim($_SERVER['PHP_AUTH_USER']) != "") {
+                $msg .= " for user id \"" . trim($_SERVER['PHP_AUTH_USER']) . "\"";
+            }
+            _log_auth($msg);
+        }
+        include_once ($error_doc . 'ldap.html');
+        //include ('templates/footer.html'); // Include the footer.
+        exit();
+    }
+    */
+    
+    /*
+    // handles authentication error display page
+    function do_auth_error()
+    {
+        $error_doc = $GLOBALS['w3php']['error_doc'];
+        
+        $user = isset($_SERVER['PHP_AUTH_USER']) ? trim($_SERVER['PHP_AUTH_USER']) : "";
+        $pass = isset($_SERVER['PHP_AUTH_PW']) ? trim($_SERVER['PHP_AUTH_PW']) : "";
+        $group = defined('IIP_AUTH_GROUP') ? IIP_AUTH_GROUP : "unknown";
+        
+        if (IIP_AUTH_ERRNO == 7 || IIP_AUTH_ERRNO == 8) {
+            _log_auth("Failed authorization for \"$user\" for group \"$group\"");
+            include_once ($error_doc . '403.html');
+        } else {
+            // log details of failed authentication
+            if ($user != $pass && $user != "") {
+                $msg = "Failed authentication for \"$user\"";
+                if ($pass == "") {
+                    _log_auth("$msg (empty password)");
+                } elseif (defined('IIP_AUTH_ERRNO')) {
+                    _log_auth("$msg (" . $this->iip_auth_err2str() . ")");
+                } else {
+                    _log_auth($msg);
+                }
+            }
+            include_once ($error_doc . '401.html');
+        }
+        //include ('templates/footer.html'); // Include the footer.
+        exit();
+    }
+    */
+    
+    /*
+    // make an OR filter from an array of values
+    function _make_filter($value, $attr)
+    {
+        $filter = "";
+        foreach ($value as $v) {
+            $filter .= "($attr=$v)";
+        }
+        if (sizeof($value) > 1) {
+            $filter = "(|$filter)";
+        }
+        return $filter;
+    }
+    */
+    
+    /*
+    // returns an array of all uniquegroup attriubtes for all
+    // groups in the $group array or returns false
+    function _get_subgroups($group)
+    {
+        // make a filter
+        if (! is_array($group))
+            $group = array(
+                $group
+            );
+            $filter = $this->_make_filter($group, 'cn');
+            $filter = "(&(objectclass=groupofuniquenames)(uniquegroup=*)$filter)";
+            
+            // setup ldap resource
+            if (! $ds = $this->_ldaps_connect()) {
+                return FALSE;
+            }
+            $basedn = "ou=memberlist,ou=ibmgroups,o=ibm.com";
+            
+            // do the search
+            if (! $sr = @ldap_search($ds, $basedn, $filter, array(
+                'uniquegroup'
+            ))) {
+                return FALSE;
+            }
+            
+            // check if sub group are present
+            if (@ldap_count_entries($ds, $sr) == 0) {
+                return FALSE;
+            }
+            
+            // build a new filter from the sub-groups found
+            $subgroup = array();
+            for ($entry = ldap_first_entry($ds, $sr); $entry != FALSE; $entry = ldap_next_entry($ds, $entry)) {
+                
+                $val = ldap_get_values($ds, $entry, 'uniquegroup');
+                for ($i = 0; $i < $val['count']; $i ++) {
+                    list ($cn, ) = ldap_explode_dn($val[$i], 1);
+                    $subgroup[] = stripslashes($cn);
+                }
+            }
+            return array_unique($subgroup);
+    }
+    */
+    
+    /*
+    // setups ldap connection resource and keeps it active
+    // until the script ends. the same connection is used
+    // for both user_auth() and group_auth()
+    function _ldaps_connect()
+    {
+        global $w3php;
+        // use a previously opened connection
+        if (isset($GLOBALS['ibm_ldaps_ds']) && is_resource($GLOBALS['ibm_ldaps_ds'])) {
+            return $GLOBALS['ibm_ldaps_ds'];
+        }
+        
+        // setup the ldap resource
+        if (! $ds = @ldap_connect($w3php['ldaps_host'])) {
+            define("IIP_LDAP_ERRNO", 0);
+            define("IIP_AUTH_ERRNO", 1);
+            return FALSE;
+        }
+        
+        // use ldap protocol v3
+        if (! @ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3)) {
+            define("IIP_LDAP_ERRNO", ldap_errno($ds));
+            define("IIP_AUTH_ERRNO", 3);
+            return FALSE;
+        }
+        
+        $GLOBALS['ibm_ldaps_ds'] = $ds;
+        return $ds;
+    }
+    */
+    
+    /*
+    // internal funciton used to connect to ED server
+    function _ldap_connect($host = "ldap://bluepages.ibm.com/")
+    {
+        // use a previously opened connection
+        if (isset($GLOBALS['ibm_ldap_ds']) && is_resource($GLOBALS['ibm_ldap_ds'])) {
+            return $GLOBALS['ibm_ldap_ds'];
+        }
+        
+        // setup the ldap resource
+        if (! $ds = @ldap_connect($host)) {
+            $GLOBALS['ibm_ldap_errno'] = ldap_errno($ds);
+            return FALSE;
+        }
+        
+        // use ldap protocol v3
+        if (! @ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3)) {
+            $GLOBALS['ibm_ldap_errno'] = ldap_errno($ds);
+            return FALSE;
+        }
+        $GLOBALS['ibm_ldap_ds'] = $ds;
+        return $ds;
+    }
+    */
+    
+    public function getTest($email){
+        
+        dump($this->ldap);
+        
+        return $email;
     }
     
     // do bluegroups check, if needed
@@ -21,22 +241,22 @@ class BlueGroupsService {
         if ($group) {
             define('IIP_AUTH_GROUP', trim($group));
             //  check for group cached response
-            if (! in_array($group, $GLOBALS['ltcuser']['groups'])) {
-                //  search bluegroups
-                $result = group_auth($GLOBALS['ltcuser']['dn'], $group);
-                if (defined('IIP_AUTH_ERRNO') && IIP_AUTH_ERRNO == 3) {
-                    do_ldap_error();
-                }
-                
-                // check for an auth failure and bail
-                if (! $result) {
-                    $this->do_auth_error();
-                }
-                
-                // cache the results in session
-                $GLOBALS['ltcuser']['groups'][] = $group;
-                $_SESSION['ltcuser'] = $GLOBALS['ltcuser'];
+            //             if (! in_array($group, $GLOBALS['ltcuser']['groups'])) {
+            //  search bluegroups
+            $result = $this->group_auth($GLOBALS['ltcuser']['dn'], $group);
+            if (defined('IIP_AUTH_ERRNO') && IIP_AUTH_ERRNO == 3) {
+                $this->do_ldap_error();
             }
+            
+            // check for an auth failure and bail
+            if (! $result) {
+                $this->do_auth_error();
+            }
+            
+            // cache the results in session
+            $GLOBALS['ltcuser']['groups'][] = $group;
+            $_SESSION['ltcuser'] = $GLOBALS['ltcuser'];
+            //             }
         }
     }
     
@@ -53,14 +273,14 @@ class BlueGroupsService {
             );
         }
         $basedn = "ou=memberlist,ou=ibmgroups,o=ibm.com";
-        if (! $ds = _ldaps_connect())
+        if (! $ds = $this->_ldaps_connect())
             return FALSE;
             
             // check this $group and all subgroups for $dn
             $result = FALSE;
             while ($depth >= 0) {
                 // filter to look for $dn in $group list
-                $filter = _make_filter($group, 'cn');
+                $filter = $this->_make_filter($group, 'cn');
                 $filter = "(&(objectclass=groupofuniquenames)(uniquemember=$user_dn)$filter)";
                 
                 // connect, bind and search for $dn in $group
@@ -77,7 +297,7 @@ class BlueGroupsService {
                     break;
                 }
                 // bail out if there are no sub-groups
-                if (! $group = _get_subgroups($group)) {
+                if (! $group = $this->_get_subgroups($group)) {
                     break;
                 }
                 $depth --;
@@ -120,7 +340,7 @@ class BlueGroupsService {
         }
         
         // setup ldaps resource
-        if (! $ds = _ldaps_connect())
+        if (! $ds = $this->_ldaps_connect())
             return FALSE;
             
             // connect, bind, and search for $user
@@ -155,177 +375,7 @@ class BlueGroupsService {
             }
             
             // close and return
-            return $user;            
-    }
-    
-    // #
-    // # error handling functions for IIP and Bluegroups
-    // #
-    
-    /*
-     * Interesting LDAP errno:
-     * 48 - Inappropriate authentication (password struck out)
-     * 49 - Invalid credentials (bad password)
-     * 81 - Can't contact LDAP server (bind / connection failure)
-     */
-    
-    // returns the error for an iip errno. note that iip
-    // errno is not standard across different platforms
-    function iip_auth_err2str()
-    {
-        if (! defined('IIP_AUTH_ERRNO'))
-            return FALSE;
-            $error = array(
-                0 => "Success",
-                1 => "Connect to host failed",
-                2 => "Not registered",
-                3 => "LDAP error",
-                4 => "No record found",
-                5 => "Multiple records found",
-                6 => "Invalid credentials",
-                7 => "Group does not exist",
-                8 => "User not in group"
-            );
-            return $error[IIP_AUTH_ERRNO];
-    }
-    
-    // returns the error for an ldap errno
-    function iip_ldap_err2str()
-    {
-        if (! defined('IIP_LDAP_ERRNO'))
-            return FALSE;
-            return ldap_err2str(IIP_LDAP_ERRNO);
-    }
-    
-    // handles ldap error display page
-    function do_ldap_error()
-    {
-        $error_doc = $GLOBALS['w3php']['error_doc'];
-        if (defined('IIP_LDAP_ERRNO')) {
-            $msg = "LDAP error \"" . iip_ldap_err2str() . "\"";
-            if (isset($_SERVER['PHP_AUTH_USER']) && trim($_SERVER['PHP_AUTH_USER']) != "") {
-                $msg .= " for user id \"" . trim($_SERVER['PHP_AUTH_USER']) . "\"";
-            }
-            _log_auth($msg);
-        }
-        include_once ($error_doc . 'ldap.html');
-        //include ('templates/footer.html'); // Include the footer.
-        exit();
-    }
-    
-    // handles authentication error display page
-    function do_auth_error()
-    {
-        $error_doc = $GLOBALS['w3php']['error_doc'];
-        
-        $user = isset($_SERVER['PHP_AUTH_USER']) ? trim($_SERVER['PHP_AUTH_USER']) : "";
-        $pass = isset($_SERVER['PHP_AUTH_PW']) ? trim($_SERVER['PHP_AUTH_PW']) : "";
-        $group = defined('IIP_AUTH_GROUP') ? IIP_AUTH_GROUP : "unknown";
-        
-        if (IIP_AUTH_ERRNO == 7 || IIP_AUTH_ERRNO == 8) {
-            _log_auth("Failed authorization for \"$user\" for group \"$group\"");
-            include_once ($error_doc . '403.html');
-        } else {
-            // log details of failed authentication
-            if ($user != $pass && $user != "") {
-                $msg = "Failed authentication for \"$user\"";
-                if ($pass == "") {
-                    _log_auth("$msg (empty password)");
-                } elseif (defined('IIP_AUTH_ERRNO')) {
-                    _log_auth("$msg (" . iip_auth_err2str() . ")");
-                } else {
-                    _log_auth($msg);
-                }
-            }
-            include_once ($error_doc . '401.html');
-        }
-        //include ('templates/footer.html'); // Include the footer.
-        exit();
-    }
-    
-    // make an OR filter from an array of values
-    function _make_filter($value, $attr)
-    {
-        $filter = "";
-        foreach ($value as $v) {
-            $filter .= "($attr=$v)";
-        }
-        if (sizeof($value) > 1) {
-            $filter = "(|$filter)";
-        }
-        return $filter;
-    }
-    
-    // returns an array of all uniquegroup attriubtes for all
-    // groups in the $group array or returns false
-    function _get_subgroups($group)
-    {
-        // make a filter
-        if (! is_array($group))
-            $group = array(
-                $group
-            );
-            $filter = _make_filter($group, 'cn');
-            $filter = "(&(objectclass=groupofuniquenames)(uniquegroup=*)$filter)";
-            
-            // setup ldap resource
-            if (! $ds = _ldaps_connect()) {
-                return FALSE;
-            }
-            $basedn = "ou=memberlist,ou=ibmgroups,o=ibm.com";
-            
-            // do the search
-            if (! $sr = @ldap_search($ds, $basedn, $filter, array(
-                'uniquegroup'
-            ))) {
-                return FALSE;
-            }
-            
-            // check if sub group are present
-            if (@ldap_count_entries($ds, $sr) == 0) {
-                return FALSE;
-            }
-            
-            // build a new filter from the sub-groups found
-            $subgroup = array();
-            for ($entry = ldap_first_entry($ds, $sr); $entry != FALSE; $entry = ldap_next_entry($ds, $entry)) {
-                
-                $val = ldap_get_values($ds, $entry, 'uniquegroup');
-                for ($i = 0; $i < $val['count']; $i ++) {
-                    list ($cn, ) = ldap_explode_dn($val[$i], 1);
-                    $subgroup[] = stripslashes($cn);
-                }
-            }
-            return array_unique($subgroup);
-    }
-    
-    // setups ldap connection resource and keeps it active
-    // until the script ends. the same connection is used
-    // for both user_auth() and group_auth()
-    function _ldaps_connect()
-    {
-        global $w3php;
-        // use a previously opened connection
-        if (isset($GLOBALS['ibm_ldaps_ds']) && is_resource($GLOBALS['ibm_ldaps_ds'])) {
-            return $GLOBALS['ibm_ldaps_ds'];
-        }
-        
-        // setup the ldap resource
-        if (! $ds = @ldap_connect($w3php['ldaps_host'])) {
-            define("IIP_LDAP_ERRNO", 0);
-            define("IIP_AUTH_ERRNO", 1);
-            return FALSE;
-        }
-        
-        // use ldap protocol v3
-        if (! @ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3)) {
-            define("IIP_LDAP_ERRNO", ldap_errno($ds));
-            define("IIP_AUTH_ERRNO", 3);
-            return FALSE;
-        }
-        
-        $GLOBALS['ibm_ldaps_ds'] = $ds;
-        return $ds;
+            return $user;
     }
     
     # return an array of groups $employee is in.  $employee can be a DN or
@@ -334,7 +384,7 @@ class BlueGroupsService {
     function employee_bluegroups ($employee) {
         if (strpos($employee, "@") == TRUE) {
             # lookup the DN from an email address
-            if (! $record = bluepages_search("(mail=$employee)") ) { return FALSE; }
+            if (! $record = $this->bluepages_search("(mail=$employee)") ) { return FALSE; }
             $user_dn = key($record);
         } elseif (strpos($employee, "=") == TRUE) {
             # use the DN given
@@ -426,28 +476,5 @@ class BlueGroupsService {
             }
         }
         return $result;
-    }
-    
-    // internal funciton used to connect to ED server
-    function _ldap_connect($host = "ldap://bluepages.ibm.com/")
-    {
-        // use a previously opened connection
-        if (isset($GLOBALS['ibm_ldap_ds']) && is_resource($GLOBALS['ibm_ldap_ds'])) {
-            return $GLOBALS['ibm_ldap_ds'];
-        }
-        
-        // setup the ldap resource
-        if (! $ds = @ldap_connect($host)) {
-            $GLOBALS['ibm_ldap_errno'] = ldap_errno($ds);
-            return FALSE;
-        }
-        
-        // use ldap protocol v3
-        if (! @ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3)) {
-            $GLOBALS['ibm_ldap_errno'] = ldap_errno($ds);
-            return FALSE;
-        }
-        $GLOBALS['ibm_ldap_ds'] = $ds;
-        return $ds;
     }
 }
