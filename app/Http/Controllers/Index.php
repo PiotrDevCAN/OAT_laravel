@@ -25,15 +25,16 @@ class Index extends Controller
         
         // Page enter logic...
         
-        dump('BluePages facade test');
-        dump(BluePages::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
-        dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
+//         dump('BluePages facade test');
+//         dump(BluePages::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
+//         dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
         
         dump('BlueGroups facade test');
         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
+        BlueGroups::checkBluegroup('OAT_Admin');
         
-        dump('BlueGroupsManage facade test');
-        BlueGroupsManage::getUID('Piotr.Tajanowicz@ibm.com');
+//         dump('BlueGroupsManage facade test');
+//         BlueGroupsManage::getUID('Piotr.Tajanowicz@ibm.com');
         
         event(new IndexEntered());
         
