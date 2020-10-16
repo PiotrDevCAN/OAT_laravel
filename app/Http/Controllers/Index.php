@@ -7,8 +7,9 @@ use App\Events\IndexEntered;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use App\Helpers\BlueGroupsCurl\Facades\BlueGroupsCurl;
-use App\Helpers\BluePagesCurl\Facades\BluePagesCurl;
+use App\Helpers\BluePages\Facades\BluePages;
+use App\Helpers\BlueGroups\Facades\BlueGroups;
+use App\Helpers\BlueGroupsManage\Facades\BlueGroupsManage;
 
 class Index extends Controller
 {
@@ -24,12 +25,15 @@ class Index extends Controller
         
         // Page enter logic...
         
-        dump('BluePagesCurl facade test');
-        dump(BluePagesCurl::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
-        dump(BluePagesCurl::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
+        dump('BluePages facade test');
+        dump(BluePages::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
+        dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
         
-        dump('BlueGroupsCurl facade test');
-//         BlueGroupsCurl::getDetailsFromNotesId('abc');
+        dump('BlueGroups facade test');
+        BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
+        
+        dump('BlueGroupsManage facade test');
+        BlueGroupsManage::getUID('Piotr.Tajanowicz@ibm.com');
         
         event(new IndexEntered());
         
