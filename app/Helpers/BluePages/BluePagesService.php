@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Helpers\BluePagesCurl;
+namespace App\Helpers\BluePages;
 
 class BluePagesService {
 
@@ -17,7 +17,6 @@ class BluePagesService {
         }
         set_time_limit(120);
         $url = "http://bluepages.ibm.com/BpHttpApisv3/wsapi?byInternetAddr=INTRANET_ID_HERE";
-        // echo "<BR/>" . str_replace('INTRANET_ID_HERE',urlencode($intranetId),$url);
         $ch = curl_init ( str_replace('INTRANET_ID_HERE',urlencode($intranetId),$url) );
         return self::processDetails($ch);        
     }
@@ -49,10 +48,8 @@ class BluePagesService {
         }
         set_time_limit(120);
         $url = "http://bluepages.ibm.com/BpHttpApisv3/wsapi?byInternetAddr=INTRANET_ID_HERE";
-		// echo "<BR/>" . str_replace('INTRANET_ID_HERE',urlencode($intranetId),$url);
         $ch = curl_init ( str_replace('INTRANET_ID_HERE',urlencode($intranetId),$url) );
         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
-        
         $m = curl_exec ( $ch );
         
         $pattern = "/# rc/";
@@ -119,10 +116,8 @@ class BluePagesService {
             $amendIbm2 = str_replace("xxxxx","/O=IBM",$amendCC);
             $amendIbm2 = "CN%3D" . urlencode($amendIbm2);
         }
-        // echo "<BR/>URL:" . str_replace('NOTES_ID_HERE',$amendIbm2,$url);
         $ch = curl_init ( str_replace('NOTES_ID_HERE',$amendIbm2,$url) );
         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
-        
         $m = curl_exec ( $ch );
         
         $pattern = "/# rc/";
@@ -183,7 +178,6 @@ class BluePagesService {
             $amendIbm2 = str_replace("xxxxx","/O=IBM",$amendCC);
             $amendIbm2 = "CN%3D" . urlencode($amendIbm2);
         }
-        // echo "<BR/>URL:" . str_replace('NOTES_ID_HERE',$amendIbm2,$url);
         $ch = curl_init ( str_replace('NOTES_ID_HERE',$amendIbm2,$url) );
         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
         $m = curl_exec ( $ch );
@@ -217,8 +211,6 @@ class BluePagesService {
                     case 'NOTESID':
                         break;
                     case 'INTERNET' :
-//						echo "<BR/>" . __METHOD__ . __LINE__ . $cellOffset;
-//						print_r($matches);
                         $internetId = trim ( $matches [$cellOffset+1]);
                     default :
                         ;
@@ -242,10 +234,8 @@ class BluePagesService {
         }
         set_time_limit(120);
         $url = "http://bluepages.ibm.com/BpHttpApisv3/wsapi?byInternetAddr=INTRANET_ID_HERE";
-        //echo "<BR/>" . str_replace('INTRANET_ID_HERE',urlencode($intranetId),$url);
         $ch = curl_init ( str_replace('INTRANET_ID_HERE',urlencode($intranetId),$url) );
         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
-        
         $m = curl_exec ( $ch );
         
         $pattern = "/# rc/";
@@ -294,9 +284,9 @@ class BluePagesService {
         
         $pattern = "/# rc/";
         $results = preg_split ( $pattern, $m );
-        $pattern = "/[=,]/";
-        $resultValues = preg_split ( $pattern, $results [1] );
         
+        $pattern = "/[=,]/";
+        $resultValues = preg_split ( $pattern, $results [1] );        
         $size = $resultValues [3];
         $found = false;
         if ($resultValues [3] > 0) {

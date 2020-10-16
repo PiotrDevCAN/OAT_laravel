@@ -1,5 +1,5 @@
 <?php
-namespace App\Helpers\BlueGroupsCurl;
+namespace App\Helpers\BlueGroups;
 
 use stdClass;
 

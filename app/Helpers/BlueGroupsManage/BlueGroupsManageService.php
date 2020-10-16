@@ -1,8 +1,8 @@
 <?php 
 
-namespace App\Helpers\BlueGroupsCurl;
+namespace App\Helpers\BlueGroupsManage;
 
-class BlueGroupsService {
+class BlueGroupsManageService {
 
     public function defineGroup($groupName,$description, $life=1){
         $nextyear = time() + ((350*24*60*60) * $life);
@@ -73,7 +73,6 @@ class BlueGroupsService {
     private function processURL($url){
         $ch = self::createCurl();
         foreach($url as $function => $BGurl){
-            // echo "<BR>Processing $function.";
             $ret = curl_setopt($ch, CURLOPT_URL, $BGurl);
             $ret = curl_exec($ch);
             if (empty($ret)) {

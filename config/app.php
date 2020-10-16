@@ -176,8 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\BluePagesCurlServiceProvider::class,
-        App\Providers\BlueGroupsCurlServiceProvider::class,
+        App\Providers\BluePagesServiceProvider::class,
+        App\Providers\BlueGroupsServiceProvider::class,
+        App\Providers\BlueGroupsManageServiceProvider::class,
         
         /*
          * laravel-collective Providers
@@ -249,8 +250,9 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 //         'Saml2' => Aacotroneo\Saml2\Facades\Saml2Auth::class,
         'Curl' => Ixudra\Curl\Facades\Curl::class,
-        'BluePagesCurl' => App\Helpers\BluePagesCurl\Facades\BluePages::class,
-        'BlueGroupsCurl' => App\Helpers\BlueGroupsCurl\Facades\BlueGroups::class,
+        'BluePages' => App\Helpers\BluePages\Facades\BluePages::class,
+        'BlueGroups' => App\Helpers\BlueGroups\Facades\BlueGroups::class,
+        'BlueGroupsManage' => App\Helpers\BlueGroupsManage\Facades\BlueGroupsManage::class,
         
     ],
 

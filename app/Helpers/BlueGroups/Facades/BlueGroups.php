@@ -1,20 +1,20 @@
 <?php 
 
-namespace App\Helpers\BlueGroupsCurl\Facades;
+namespace App\Helpers\BlueGroups\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static \App\BlueGroups\Builder to(string $url)
  */
-class BlueGroupsCurl extends Facade {
+class BlueGroups extends Facade {
 
     /**
      * @return string
      */
     protected static function getFacadeAccessor()
     {
-        return 'BlueGroupsCurl';
+        return 'BlueGroups';
     }
 
 }
