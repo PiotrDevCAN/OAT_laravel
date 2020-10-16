@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Helpers\BlueGroups\BlueGroupsService;
+use Adldap\AdldapInterface;
 
 class BlueGroupsServiceProvider extends ServiceProvider
 {
@@ -19,8 +20,8 @@ class BlueGroupsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('BlueGroups', function () {
-            return new BlueGroupsService();
+        $this->app->singleton('BlueGroups', function (AdldapInterface $ldap) {
+            return new BlueGroupsService($ldap);
         });
     }
 

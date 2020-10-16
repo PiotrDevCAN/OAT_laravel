@@ -181,6 +181,11 @@ return [
         App\Providers\BlueGroupsManageServiceProvider::class,
         
         /*
+         * Adldap2-Laravel Provider
+         */
+        Adldap\Laravel\AdldapServiceProvider::class,
+        
+        /*
          * laravel-collective Providers
          */
         Collective\Html\HtmlServiceProvider::class,
@@ -189,12 +194,6 @@ return [
          * ixudra/curl Providers
          */
         Ixudra\Curl\CurlServiceProvider::class,
-        
-        /*
-         * aacotroneo/laravel-saml2 Providers
-         */
-        // Aacotroneo\Saml2\Saml2ServiceProvider::class,
-        
     ],
 
     /*
@@ -250,6 +249,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 //         'Saml2' => Aacotroneo\Saml2\Facades\Saml2Auth::class,
         'Curl' => Ixudra\Curl\Facades\Curl::class,
+        'Adldap' => Adldap\Laravel\Facades\Adldap::class,
         'BluePages' => App\Helpers\BluePages\Facades\BluePages::class,
         'BlueGroups' => App\Helpers\BlueGroups\Facades\BlueGroups::class,
         'BlueGroupsManage' => App\Helpers\BlueGroupsManage\Facades\BlueGroupsManage::class,
