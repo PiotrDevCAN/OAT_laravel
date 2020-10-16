@@ -7,8 +7,6 @@ use App\Events\IndexEntered;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use App\Helpers\BluePagesCurl\Facades\BluePages;
-use App\Helpers\BlueGroupsCurl\Facades\BlueGroups;
 use App\Helpers\BlueGroupsCurl\Facades\BlueGroupsCurl;
 use App\Helpers\BluePagesCurl\Facades\BluePagesCurl;
 
