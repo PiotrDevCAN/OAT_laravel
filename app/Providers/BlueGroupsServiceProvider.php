@@ -20,7 +20,13 @@ class BlueGroupsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('BlueGroups', function ($app, AdldapInterface $ldap) {
+        $this->app->singleton('BlueGroups', function ($app, $ldap, $ldap2, $ldap3) {
+            
+            dump($ldap);
+            dump($ldap2);
+            dump($ldap3);
+            
+            dd();
             return new BlueGroupsService($ldap);
         });
     }
