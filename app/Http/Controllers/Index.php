@@ -7,6 +7,8 @@ use App\Events\IndexEntered;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use App\Helpers\BluePages\Facades\BluePages;
+use App\Helpers\BlueGroups\Facades\BlueGroups;
 
 class Index extends Controller
 {
@@ -21,6 +23,11 @@ class Index extends Controller
 //         dump(config('session.driver'));
         
         // Page enter logic...
+        
+        dump('BluePages facade test');
+        dump(BluePages::getDetailsFromNotesId('abc'));
+        
+//         BlueGroups::getDetailsFromNotesId('abc');
         
         event(new IndexEntered());
         

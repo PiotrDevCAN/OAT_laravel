@@ -249,6 +249,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 //         'Saml2' => Aacotroneo\Saml2\Facades\Saml2Auth::class,
         'Curl' => Ixudra\Curl\Facades\Curl::class,
+        'BluePages' => App\Helpers\BluePages\Facades\BluePages::class,
+        'BlueGroups' => App\Helpers\BlueGroups\Facades\BlueGroups::class,
         
     ],
 
