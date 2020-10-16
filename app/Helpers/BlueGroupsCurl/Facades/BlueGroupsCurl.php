@@ -1,13 +1,13 @@
 <?php 
 
-namespace App\Helpers\BlueGroups\Facades;
+namespace App\Helpers\BlueGroupsCurl\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static \App\BlueGroups\Builder to(string $url)
  */
-class BlueGroups extends Facade {
+class BlueGroupsCurl extends Facade {
 
     /**
      * @return string

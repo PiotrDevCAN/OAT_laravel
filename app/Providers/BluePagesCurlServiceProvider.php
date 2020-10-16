@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Helpers\BluePages\BluePagesService;
+use App\Helpers\BluePagesCurl\BluePagesService;
 
-class BluePagesServiceProvider extends ServiceProvider
+class BluePagesCurlServiceProvider extends ServiceProvider
 {
     /**
      * @var bool
@@ -19,7 +19,7 @@ class BluePagesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('BluePages', function () {
+        $this->app->singleton('BluePagesCurl', function () {
             return new BluePagesService();
         });
     }
@@ -29,7 +29,7 @@ class BluePagesServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('BluePages');
+        return array('BluePagesCurl');
     }
     
 }

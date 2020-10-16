@@ -1,13 +1,13 @@
 <?php 
 
-namespace App\Helpers\BluePages\Facades;
+namespace App\Helpers\BluePagesCurl\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static \App\BluePages\Builder to(string $url)
  */
-class BluePages extends Facade {
+class BluePagesCurl extends Facade {
 
     /**
      * @return string

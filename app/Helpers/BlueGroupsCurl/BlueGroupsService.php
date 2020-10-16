@@ -1,20 +1,9 @@
 <?php 
 
-namespace App\Helpers\BlueGroups;
+namespace App\Helpers\BlueGroupsCurl;
 
 class BlueGroupsService {
 
-    /**
-     * @param $url string   The URL to which the request is to be sent
-     * @return \Ixudra\Curl\Builder
-     */
-//     public function to($url)
-//     {
-//         $builder = new Builder();
-
-//         return $builder->to($url);
-//     }
-    
     public function defineGroup($groupName,$description, $life=1){
         $nextyear = time() + ((350*24*60*60) * $life);
         $yyyy = date("Y",$nextyear);
@@ -73,7 +62,6 @@ class BlueGroupsService {
         $ret = curl_setopt($ch, CURLOPT_TIMEOUT,        240);
         $ret = curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 240);
         $ret = curl_setopt($ch, CURLOPT_USERAGENT,      $agent);
-        //		$ret = curl_setopt($ch, CURLOPT_CAINFO,        '/usr/local/Zend/Core/share/curl/cacert.pem');
         $ret = curl_setopt($ch, CURLOPT_CAINFO,        '/usr/local/zendsvr6/share/curl/cacert.pem');
         $ret = curl_setopt($ch, CURLOPT_HTTPAUTH,        CURLAUTH_BASIC);
         $ret = curl_setopt($ch, CURLOPT_HEADER,        FALSE);
@@ -85,7 +73,7 @@ class BlueGroupsService {
     private function processURL($url){
         $ch = self::createCurl();
         foreach($url as $function => $BGurl){
-            echo "<BR>Processing $function.";
+            // echo "<BR>Processing $function.";
             $ret = curl_setopt($ch, CURLOPT_URL, $BGurl);
             $ret = curl_exec($ch);
             if (empty($ret)) {
@@ -101,16 +89,16 @@ class BlueGroupsService {
                     $bgapiRC  = substr($ret,0,1);
                     if($bgapiRC!=0){
                         // Bluegroups has NOT returned a ZERO - so there was a problem
-                        echo "<H3>Error processing Bluegroup URL </H3>";
-                        echo "<H2>Please take a screen print of this page and send to the ITDQ Team ASAP.</H2>";
-                        echo "<BR>URL<BR>";
-                        print_r($url);
-                        echo "<BR>Info<BR>";
-                        print_r($info);
-                        echo "<BR>";
+                        // echo "<H3>Error processing Bluegroup URL </H3>";
+                        // echo "<H2>Please take a screen print of this page and send to the ITDQ Team ASAP.</H2>";
+                        // echo "<BR>URL<BR>";
+                        // print_r($url);
+                        // echo "<BR>Info<BR>";
+                        // print_r($info);
+                        // echo "<BR>";
                         exit ("<B>Unsuccessful RC: $ret</B>");
                     } else {
-                        echo " Successful RC: $ret";
+                        // echo " Successful RC: $ret";
                         sleep(1); // Give BG a chance to process the request.
                     }
                 }

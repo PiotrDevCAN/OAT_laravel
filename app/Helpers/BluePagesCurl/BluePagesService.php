@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Helpers\BluePages;
+namespace App\Helpers\BluePagesCurl;
 
 class BluePagesService {
 

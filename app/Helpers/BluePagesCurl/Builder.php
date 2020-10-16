@@ -1,5 +1,5 @@
 <?php
-namespace App\Helpers\BluePages;
+namespace App\Helpers\BluePagesCurl;
 
 use stdClass;
 
