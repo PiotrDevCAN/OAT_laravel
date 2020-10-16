@@ -29,7 +29,7 @@ class Index extends Controller
         dump(BluePagesCurl::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
         
         dump('BlueGroupsCurl facade test');
-        BlueGroupsCurl::getDetailsFromNotesId('abc');
+//         BlueGroupsCurl::getDetailsFromNotesId('abc');
         
         event(new IndexEntered());
         
