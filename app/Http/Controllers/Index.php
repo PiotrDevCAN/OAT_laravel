@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Helpers\BluePages\Facades\BluePages;
 use App\Helpers\BlueGroups\Facades\BlueGroups;
 use App\Helpers\BlueGroupsManage\Facades\BlueGroupsManage;
+use Adldap\AdldapInterface;
 
 class Index extends Controller
 {
@@ -28,6 +29,8 @@ class Index extends Controller
 //         dump('BluePages facade test');
 //         dump(BluePages::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
 //         dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
+        
+        dump(AdldapInterface::class);
         
         dump('BlueGroups facade test');
         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
