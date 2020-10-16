@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Helpers\BlueGroups\BlueGroupsService;
 use Adldap\AdldapInterface;
+use Adldap\Laravel\Facades\Adldap;
 
 class BlueGroupsServiceProvider extends ServiceProvider
 {
@@ -20,11 +21,10 @@ class BlueGroupsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('BlueGroups', function ($app, $ldap, $ldap2, $ldap3) {
+        $ldap = Adldap;
+        $this->app->singleton('BlueGroups', function ($app, $ldap) {
             
             dump($ldap);
-            dump($ldap2);
-            dump($ldap3);
             
             dd();
             return new BlueGroupsService($ldap);
