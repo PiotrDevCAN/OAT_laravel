@@ -14,7 +14,7 @@ class BlueGroupsCurl extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return 'BlueGroups';
+        return 'BlueGroupsCurl';
     }
 
 }

@@ -14,7 +14,7 @@ class BluePagesCurl extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return 'BluePages';
+        return 'BluePagesCurl';
     }
 
 }
