@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://soiwapi-new.icds.ibm.com/OAT_laravel'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -176,12 +176,19 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\BluePagesServiceProvider::class,
+        App\Providers\BlueGroupsServiceProvider::class,
+        
         /*
          * laravel-collective Providers
          */
         Collective\Html\HtmlServiceProvider::class,
-
+        
+        /*
+         * ixudra/curl Providers
+         */
+        Ixudra\Curl\CurlServiceProvider::class,
+        
         /*
          * aacotroneo/laravel-saml2 Providers
          */
@@ -240,7 +247,12 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Saml2' => Aacotroneo\Saml2\Facades\Saml2Auth::class,
+//         'Saml2' => Aacotroneo\Saml2\Facades\Saml2Auth::class,
+        'Curl' => Ixudra\Curl\Facades\Curl::class,
+        
     ],
 
+    'user_bg' => env('USER_BG', 'OAT_User'),
+    'admin_bg' => env('USER_BG', 'OAT_Admin'),
+    
 ];
