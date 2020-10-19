@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // Overtime Requests
 Route::prefix('request')->name('request.')->group(function () {
-    Route::get('store', 'OvertimeRequests@store')
+    Route::get('store', 'API\OvertimeRequests@store')
         ->name('store');
 
     Route::get('show/{ref}', 'OvertimeRequests@show')
