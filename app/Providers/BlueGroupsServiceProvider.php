@@ -21,6 +21,7 @@ class BlueGroupsServiceProvider extends ServiceProvider
     public function register()
     {
         dump('REGISTER method');
+        dump(BlueGroupsService::class);
         
         $this->app->singleton(BlueGroupsService::class, function ($app) {
             

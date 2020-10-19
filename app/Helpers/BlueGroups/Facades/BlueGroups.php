@@ -14,7 +14,7 @@ class BlueGroups extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return 'BlueGroups';
+        return App\Providers\BlueGroupsServiceProvider::class;
     }
 
 }

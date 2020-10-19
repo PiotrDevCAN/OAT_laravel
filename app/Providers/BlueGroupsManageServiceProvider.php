@@ -22,7 +22,7 @@ class BlueGroupsManageServiceProvider extends ServiceProvider
     {
         dump('REGISTER method');
         
-        $this->app->singleton(BlueGroupsManage::class, function () {
+        $this->app->singleton(BlueGroupsManageService::class, function () {
             return new BlueGroupsManageService();
         });
     }
