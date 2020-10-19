@@ -247,7 +247,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-//         'Saml2' => Aacotroneo\Saml2\Facades\Saml2Auth::class,
         'Curl' => Ixudra\Curl\Facades\Curl::class,
         'Adldap' => Adldap\Laravel\Facades\Adldap::class,
         'BluePages' => App\Helpers\BluePages\Facades\BluePages::class,

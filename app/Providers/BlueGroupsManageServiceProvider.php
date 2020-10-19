@@ -19,9 +19,21 @@ class BlueGroupsManageServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        dump('REGISTER method');
+        
         $this->app->singleton('BlueGroupsManage', function () {
             return new BlueGroupsManageService();
         });
+    }
+    
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        dump('BOOT method');
     }
     
     /**

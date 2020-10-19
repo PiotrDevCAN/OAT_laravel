@@ -19,11 +19,23 @@ class BluePagesServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        dump('REGISTER method');
+        
         $this->app->singleton('BluePages', function () {
             return new BluePagesService();
         });
     }
-
+    
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        dump('BOOT method');
+    }
+    
     /**
      * @return array
      */
