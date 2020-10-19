@@ -4,29 +4,34 @@ namespace App\Helpers\BluePages;
 
 class BluePagesService {
 
-    public function cleanupNotesid($notesid){
-        $stepOne =  str_ireplace('CN=','',str_replace('OU=','',str_replace('O=','',$notesid)));
+    private static $bluepagesUrl = 'http://bluepages.ibm.com/BpHttpApisv3/wsapi';
+    
+    public function cleanupNotesid($notesId = ''): ?string
+    {
+        $stepOne =  str_ireplace('CN=','',str_replace('OU=','',str_replace('O=','',$notesId)));
         $location = strpos($stepOne,'@IBM');
         $cleanId = substr($stepOne,0,$location);
         return $cleanId;
     }
     
-    public function getDetailsFromIntranetId($intranetId){
+    public function getDetailsFromIntranetId($intranetId = '') 
+    {
         if(empty($intranetId)){
             return FALSE;
         }
         set_time_limit(120);
-        $url = "http://bluepages.ibm.com/BpHttpApisv3/wsapi?byInternetAddr=INTRANET_ID_HERE";
+        $url = self::$bluepagesUrl."?byInternetAddr=INTRANET_ID_HERE";
         $ch = curl_init ( str_replace('INTRANET_ID_HERE',urlencode($intranetId),$url) );
         return self::processDetails($ch);        
     }
     
-    public function getDetailsFromNotesId($notesId) {
+    public function getDetailsFromNotesId($notesId = '') 
+    {
         if(empty($notesId)){
             return FALSE;
         }
         set_time_limit(120);
-        $url = "http://bluepages.ibm.com/BpHttpApisv3/wsapi?allByNotesIDLite=NOTES_ID_HERE%25";
+        $url = self::$bluepagesUrl."?allByNotesIDLite=NOTES_ID_HERE%25";
         
         $sp = strpos($notesId,'/O=IBM');
         
@@ -42,14 +47,16 @@ class BluePagesService {
         return self::processDetails($ch);
     }
     
-    public function getNotesidFromIntranetId($intranetId){
+    public function getNotesidFromIntranetId($intranetId = '')
+    {
         if(empty($intranetId)){
             return FALSE;
         }
         set_time_limit(120);
-        $url = "http://bluepages.ibm.com/BpHttpApisv3/wsapi?byInternetAddr=INTRANET_ID_HERE";
+        $url = self::$bluepagesUrl."?byInternetAddr=INTRANET_ID_HERE";
         $ch = curl_init ( str_replace('INTRANET_ID_HERE',urlencode($intranetId),$url) );
         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        
         $m = curl_exec ( $ch );
         
         $pattern = "/# rc/";
@@ -99,12 +106,13 @@ class BluePagesService {
         }
     }
     
-    public function validateNotesId($notesId) {
+    public function validateNotesId($notesId = ''): bool 
+    {
         if(empty($notesId)){
             return FALSE;
         }
         set_time_limit(120);
-        $url = "http://bluepages.ibm.com/BpHttpApisv3/wsapi?allByNotesIDLite=NOTES_ID_HERE%25";
+        $url = self::$bluepagesUrl."?allByNotesIDLite=NOTES_ID_HERE%25";
         
         $sp = strpos($notesId,'/O=IBM');
         
@@ -118,6 +126,7 @@ class BluePagesService {
         }
         $ch = curl_init ( str_replace('NOTES_ID_HERE',$amendIbm2,$url) );
         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        
         $m = curl_exec ( $ch );
         
         $pattern = "/# rc/";
@@ -160,13 +169,14 @@ class BluePagesService {
         return $found;
     }
     
-    public function getIntranetIdFromNotesId($notesId) {
+    public function getIntranetIdFromNotesId($notesId = '') 
+    {
         $notesId = strtoupper(trim($notesId));
         if(empty($notesId)){
             return FALSE;
         }
         set_time_limit(120);
-        $url = "http://bluepages.ibm.com/BpHttpApisv3/wsapi?allByNotesIDLite=NOTES_ID_HERE%25";
+        $url = self::$bluepagesUrl."?allByNotesIDLite=NOTES_ID_HERE%25";
         
         $sp = strpos($notesId,'/O=IBM');
         
@@ -180,6 +190,7 @@ class BluePagesService {
         }
         $ch = curl_init ( str_replace('NOTES_ID_HERE',$amendIbm2,$url) );
         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        
         $m = curl_exec ( $ch );
         
         $pattern = "/# rc/";
@@ -228,14 +239,16 @@ class BluePagesService {
         }
     }
     
-    public function validateIntranetId($intranetId) {
+    public function validateIntranetId($intranetId = ''): bool 
+    {
         if(empty($intranetId)){
             return FALSE;
         }
         set_time_limit(120);
-        $url = "http://bluepages.ibm.com/BpHttpApisv3/wsapi?byInternetAddr=INTRANET_ID_HERE";
+        $url = self::$bluepagesUrl."?byInternetAddr=INTRANET_ID_HERE";
         $ch = curl_init ( str_replace('INTRANET_ID_HERE',urlencode($intranetId),$url) );
         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        
         $m = curl_exec ( $ch );
         
         $pattern = "/# rc/";
@@ -278,15 +291,17 @@ class BluePagesService {
         return $found;
     }
     
-    public function processDetails($ch){
+    public function processDetails($ch)
+    {
         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        
         $m = curl_exec ( $ch );
         
         $pattern = "/# rc/";
         $results = preg_split ( $pattern, $m );
-        
         $pattern = "/[=,]/";
-        $resultValues = preg_split ( $pattern, $results [1] );        
+        $resultValues = preg_split ( $pattern, $results [1] );
+        
         $size = $resultValues [3];
         $found = false;
         if ($resultValues [3] > 0) {
