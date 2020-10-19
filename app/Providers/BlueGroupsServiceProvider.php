@@ -11,7 +11,7 @@ class BlueGroupsServiceProvider extends ServiceProvider
     /**
      * @var bool
      */
-    protected $defer = false;
+//     protected $defer = false;
     
     /**
      * Register services.
@@ -22,12 +22,16 @@ class BlueGroupsServiceProvider extends ServiceProvider
     {
         dump('REGISTER method');
         
-        $this->app->singleton('BlueGroups', function () {
+        $this->app->singleton(BlueGroupsService::class, function ($app) {
             
             $adldap = Adldap::getFacadeRoot();
             
             return new BlueGroupsService($adldap);
         });
+        
+//         $this->app->singleton('SmsService', function($app){
+//             return new SmsService;
+//         });
     }
     
     /**
@@ -43,9 +47,9 @@ class BlueGroupsServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    public function provides()
-    {
-        return array('BlueGroups');
-    }
+//     public function provides()
+//     {
+//         return array(BlueGroupsService::class);
+//     }
     
 }

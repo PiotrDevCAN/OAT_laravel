@@ -10,7 +10,7 @@ class BluePagesServiceProvider extends ServiceProvider
     /**
      * @var bool
      */
-    protected $defer = false;
+//     protected $defer = false;
     
     /**
      * Register services.
@@ -21,7 +21,7 @@ class BluePagesServiceProvider extends ServiceProvider
     {
         dump('REGISTER method');
         
-        $this->app->singleton('BluePages', function () {
+        $this->app->singleton(BluePagesService::class, function () {
             return new BluePagesService();
         });
     }
@@ -39,9 +39,9 @@ class BluePagesServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    public function provides()
-    {
-        return array('BluePages');
-    }
+//     public function provides()
+//     {
+//         return array(BluePagesService::class);
+//     }
     
 }

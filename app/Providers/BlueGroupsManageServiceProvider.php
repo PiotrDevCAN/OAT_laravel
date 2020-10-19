@@ -4,13 +4,14 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Helpers\BlueGroupsManage\BlueGroupsManageService;
+use App\Helpers\BlueGroupsManage\Facades\BlueGroupsManage;
 
 class BlueGroupsManageServiceProvider extends ServiceProvider
 {
     /**
      * @var bool
      */
-    protected $defer = false;
+//     protected $defer = false;
     
     /**
      * Register services.
@@ -21,7 +22,7 @@ class BlueGroupsManageServiceProvider extends ServiceProvider
     {
         dump('REGISTER method');
         
-        $this->app->singleton('BlueGroupsManage', function () {
+        $this->app->singleton(BlueGroupsManage::class, function () {
             return new BlueGroupsManageService();
         });
     }
@@ -39,10 +40,10 @@ class BlueGroupsManageServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    public function provides()
-    {
-        return array('BlueGroupsManage');
-    }
+//     public function provides()
+//     {
+//         return array(BlueGroupsManage::class);
+//     }
     
 }
 
