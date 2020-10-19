@@ -3,6 +3,7 @@
 namespace App\Helpers\BlueGroupsManage\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use App\Helpers\BlueGroupsManage\BlueGroupsManageService;
 
 /**
  * @method static \App\BlueGroups\Builder to(string $url)
@@ -14,7 +15,7 @@ class BlueGroupsManage extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return 'BlueGroupsManage';
+        return BlueGroupsManageService::class;
     }
 
 }
