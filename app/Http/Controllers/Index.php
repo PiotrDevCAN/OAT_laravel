@@ -41,6 +41,8 @@ class Index extends Controller
         
         event(new IndexEntered());
         
+        dump(app());
+        
         return view('main');
     }
     

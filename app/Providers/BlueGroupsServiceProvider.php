@@ -20,19 +20,12 @@ class BlueGroupsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        dump('REGISTER method');
-        dump(BlueGroupsService::class);
-        
         $this->app->singleton(BlueGroupsService::class, function ($app) {
             
             $adldap = Adldap::getFacadeRoot();
             
             return new BlueGroupsService($adldap);
         });
-        
-//         $this->app->singleton('SmsService', function($app){
-//             return new SmsService;
-//         });
     }
     
     /**
@@ -42,7 +35,7 @@ class BlueGroupsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        dump('BOOT method');
+        
     }
     
     /**

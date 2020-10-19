@@ -19,8 +19,6 @@ class BluePagesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        dump('REGISTER method');
-        
         $this->app->singleton(BluePagesService::class, function () {
             return new BluePagesService();
         });
@@ -33,7 +31,7 @@ class BluePagesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        dump('BOOT method');
+        
     }
     
     /**
