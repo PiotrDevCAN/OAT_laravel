@@ -143,7 +143,7 @@ return [
                 |
                 */
 
-                'hosts' => explode(' ', env('LDAP_HOSTS', 'ldap://bluepages.ibm.com/')),
+                'hosts' => explode(' ', env('LDAP_HOSTS', 'ldap://bluepages.ibm.com')),
 
                 /*
                 |--------------------------------------------------------------------------
