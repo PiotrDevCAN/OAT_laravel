@@ -53,6 +53,7 @@ class Index extends Controller
         
         dump(config('ldap.connections.default.settings.hosts'));
         
+        
 //         BlueGroups::user_auth('Piotr.Tajanowicz@ibm.com', 'je324jbhj32ref32fd');
         
 //         dump('BlueGroupsManage facade test');
