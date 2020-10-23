@@ -385,7 +385,7 @@ class BlueGroupsService {
     # return an array of groups $employee is in.  $employee can be a DN or
     # an email address.
     
-    function employee_bluegroups ($employee) {
+    function employee_bluegroups($employee) {
         if (strpos($employee, "@") == TRUE) {
             # lookup the DN from an email address
             if (! $record = $this->bluepages_search("(mail=$employee)") ) { return FALSE; }
@@ -429,7 +429,7 @@ class BlueGroupsService {
     # returns FALSE or an array of results keyed by DN
     # WARNING: only the first value of an attribute is returned
     
-    function bluepages_search ($filter, $attr = null, $key_attr = 'dn') {
+    function bluepages_search($filter, $attr = null, $key_attr = 'dn') {
         # setup filter array, attr list, and base dn
         if ( ! is_array($filter) ) $filter = array($filter);
         $basedn = "ou=bluepages,o=ibm.com";

@@ -11,6 +11,7 @@ use App\Helpers\BluePages\Facades\BluePages;
 use App\Helpers\BlueGroups\Facades\BlueGroups;
 use App\Helpers\BlueGroupsManage\Facades\BlueGroupsManage;
 use Adldap\AdldapInterface;
+use Adldap\Laravel\Facades\Adldap;
 
 class Index extends Controller
 {
@@ -31,6 +32,14 @@ class Index extends Controller
 //         dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
         
 //         dump(AdldapInterface::class);
+        
+        // Finding a user:
+        $user = Adldap::search()->users()->find('john doe');
+        dump($user);
+        
+        // Searching for a user:
+        $search = Adldap::search()->where('cn', '=', 'John Doe')->get();
+        dump($search);
         
         dump('BlueGroups facade test');
         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
