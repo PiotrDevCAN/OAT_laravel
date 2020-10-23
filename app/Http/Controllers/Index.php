@@ -31,25 +31,16 @@ class Index extends Controller
 //         dump(BluePages::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
 //         dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
         
-//         dump(AdldapInterface::class);
-        
-        // Finding a user:
-//         $user = Adldap::search()->users()->find('john doe');
-//         dump($user);
-        
-        // Searching for a user:
-//         $search = Adldap::search()->where('cn', '=', 'John Doe')->get();
-//         dump($search);
-        
-        // LDAP variables
-//         $ldapuri = "ldap://bluepages.ibm.com:389";  // your ldap-uri
-        
-        // Connecting to LDAP
-//         $ldapconn = ldap_connect($ldapuri)
-//         or die("That LDAP-URI was not parseable");
-        
         dump('BlueGroups facade test');
         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
+        
+        // Finding a user:
+        $user = Adldap::search()->users()->find('john doe');
+        dump($user);
+        
+        // Searching for a user:
+        $search = Adldap::search()->where('cn', '=', 'Piotr Tajanowicz')->get();
+        dump($search);
         
         dump(config('ldap.connections.default.settings.hosts'));
         

@@ -44,9 +44,6 @@ class AuthServiceProvider extends ServiceProvider
         
         Auth::extend('session-test', function ($app, $name, array $config) {
             
-            dump('parameters');
-            dump($app['session.store']);
-            
             $name = 'session-test';
             $provider = Auth::createUserProvider(
                 $config['provider'] ?? null
