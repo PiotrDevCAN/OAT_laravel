@@ -30,18 +30,18 @@ class Index extends Controller
 //         dump(BluePages::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
 //         dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
         
-        dump(AdldapInterface::class);
+//         dump(AdldapInterface::class);
         
         dump('BlueGroups facade test');
         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
-//         BlueGroups::user_auth('Piotr.Tajanowicz@ibm.com', 'je324jbhj32ref32fd');
+        BlueGroups::user_auth('Piotr.Tajanowicz@ibm.com', 'je324jbhj32ref32fd');
         
 //         dump('BlueGroupsManage facade test');
 //         BlueGroupsManage::getUID('Piotr.Tajanowicz@ibm.com');
         
-        event(new IndexEntered());
+//         event(new IndexEntered());
         
-        dump(app());
+//         dump(app());
         
         return view('main');
     }

@@ -3,33 +3,35 @@
 namespace App\Helpers\BlueGroupsManage;
 
 class BlueGroupsManageService {
-
-    public function defineGroup($groupName,$description, $life=1){
+    
+    private static $bluegroupsUrl = 'https://bluepages.ibm.com/tools/groups/protect/groups.wss';
+    
+    public function defineGroup($groupName, $description, $life=1){
         $nextyear = time() + ((350*24*60*60) * $life);
         $yyyy = date("Y",$nextyear);
         $mm   = date("m",$nextyear);
         $dd   = date("d",$nextyear);
         $url = array();
-        $url['Define_Group'] = "https://bluepages.ibm.com/tools/groups/protect/groups.wss?task=GoNew&selectOn=" . urlencode($groupName) . "&gDesc=" . urlencode($description) . "&mode=members&vAcc=Owner/Admins&Y=$yyyy&M=$mm&D=$dd&API=1";
+        $url['Define_Group'] = self::$bluegroupsUrl."?task=GoNew&selectOn=" . urlencode($groupName) . "&gDesc=" . urlencode($description) . "&mode=members&vAcc=Owner/Admins&Y=$yyyy&M=$mm&D=$dd&API=1";
         self::processURL($url);
     }
     
-    public function deleteMember($groupName,$memberEmail){
+    public function deleteMember($groupName, $memberEmail){
         $memberUID = self::getUID($memberEmail);
-        $url['Delete_Member'] = "https://bluepages.ibm.com/tools/groups/protect/groups.wss?Delete=Delete+Checked&gName=" . urlencode($groupName) . "&task=DelMem&mebox=" . urlencode($memberUID) . "&API=1";
+        $url['Delete_Member'] = self::$bluegroupsUrl."?Delete=Delete+Checked&gName=" . urlencode($groupName) . "&task=DelMem&mebox=" . urlencode($memberUID) . "&API=1";
         self::processURL($url);
     }
     
-    public function addMember($groupName,$memberEmail){
+    public function addMember($groupName, $memberEmail){
         $memberUID = self::getUID($memberEmail);
         
-        $url['Add_Member'] = "https://bluepages.ibm.com/tools/groups/protect/groups.wss?gName=" . urlencode($groupName) . "&task=Members&mebox=" . urlencode($memberUID) . "&Select=Add+Members&API=1";
+        $url['Add_Member'] = self::$bluegroupsUrl."?gName=" . urlencode($groupName) . "&task=Members&mebox=" . urlencode($memberUID) . "&Select=Add+Members&API=1";
         self::processURL($url);
     }
     
-    public function addAdministrator($groupName,$memberEmail){
+    public function addAdministrator($groupName, $memberEmail){
         $memberUID = self::getUID($memberEmail);
-        $url['Add_Administrator'] = "https://bluepages.ibm.com/tools/groups/protect/groups.wss?gName=" . urlencode($groupName) . "&task=Administrators&mebox=" . urlencode($memberUID) . "&Submit=Add+Administrators&API=1 ";
+        $url['Add_Administrator'] = self::$bluegroupsUrl."?gName=" . urlencode($groupName) . "&task=Administrators&mebox=" . urlencode($memberUID) . "&Submit=Add+Administrators&API=1 ";
         self::processURL($url);
     }
     
@@ -45,7 +47,6 @@ class BlueGroupsManageService {
             $user_dn = current($record);
             $OwnerUID=$user_dn['uid'];
             if(!isset($OwnerUID)){
-                print_r($user_dn);
                 exit("<BR>Email address provided has no UID in Bluepages.");
             }
         }
@@ -53,7 +54,7 @@ class BlueGroupsManageService {
         return $OwnerUID;
     }
     
-    private function createCurl($agent='ITDQ'){
+    private function createCurl($agent='SOIWAPI'){
         // create a new cURL resource
         $ch = curl_init();
         $ret = curl_setopt($ch, CURLOPT_HEADER,         1);
