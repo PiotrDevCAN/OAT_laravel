@@ -101,7 +101,7 @@ return [
                 |
                 */
 
-                'schema' => Adldap\Schemas\ActiveDirectory::class,
+                'schema' => Adldap\Schemas\OpenLDAP::class,
 
                 /*
                 |--------------------------------------------------------------------------
@@ -198,8 +198,8 @@ return [
                 |
                 */
 
-                'username' => env('LDAP_USERNAME', 'username'),
-                'password' => env('LDAP_PASSWORD', 'secret'),
+                'username' => env('LDAP_USERNAME', ''),
+                'password' => env('LDAP_PASSWORD', ''),
 
                 /*
                 |--------------------------------------------------------------------------
