@@ -34,7 +34,7 @@ class Index extends Controller
         
         dump('BlueGroups facade test');
         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
-        BlueGroups::user_auth('Piotr.Tajanowicz@ibm.com', 'je324jbhj32ref32fd');
+//         BlueGroups::user_auth('Piotr.Tajanowicz@ibm.com', 'je324jbhj32ref32fd');
         
 //         dump('BlueGroupsManage facade test');
 //         BlueGroupsManage::getUID('Piotr.Tajanowicz@ibm.com');
