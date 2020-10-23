@@ -22,7 +22,14 @@ class BlueGroupsServiceProvider extends ServiceProvider
     {
         $this->app->singleton(BlueGroupsService::class, function ($app) {
             
+            dump(config('ldap.connections.default.settings.hosts'));
+            
             $adldap = Adldap::getFacadeRoot();
+            dump($adldap);
+            
+//             $provider = config('ldap_auth.connection');
+            
+//             return Adldap::getProvider($provider);
             
             return new BlueGroupsService($adldap);
         });

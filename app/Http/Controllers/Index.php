@@ -42,11 +42,11 @@ class Index extends Controller
 //         dump($search);
         
         // LDAP variables
-        $ldapuri = "ldap://bluepages.ibm.com:389";  // your ldap-uri
+//         $ldapuri = "ldap://bluepages.ibm.com:389";  // your ldap-uri
         
         // Connecting to LDAP
-        $ldapconn = ldap_connect($ldapuri)
-        or die("That LDAP-URI was not parseable");
+//         $ldapconn = ldap_connect($ldapuri)
+//         or die("That LDAP-URI was not parseable");
         
         dump('BlueGroups facade test');
 //         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
