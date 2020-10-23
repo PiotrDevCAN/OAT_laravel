@@ -50,7 +50,6 @@ class Index extends Controller
         
         dump('BlueGroups facade test');
         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
-        dump(BlueGroups);
         
         dump(config('ldap.connections.default.settings.hosts'));
         
