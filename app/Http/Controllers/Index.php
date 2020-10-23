@@ -49,7 +49,11 @@ class Index extends Controller
 //         or die("That LDAP-URI was not parseable");
         
         dump('BlueGroups facade test');
-//         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
+        BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
+        dump(BlueGroups);
+        
+        dump(config('ldap.connections.default.settings.hosts'));
+        
 //         BlueGroups::user_auth('Piotr.Tajanowicz@ibm.com', 'je324jbhj32ref32fd');
         
 //         dump('BlueGroupsManage facade test');
