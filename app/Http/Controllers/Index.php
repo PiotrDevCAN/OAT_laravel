@@ -41,49 +41,12 @@ class Index extends Controller
 //         $search = Adldap::search()->where('cn', '=', 'John Doe')->get();
 //         dump($search);
         
+        // LDAP variables
+        $ldapuri = "ldap://bluepages.ibm.com:389";  // your ldap-uri
         
-        
-// Create the configuration array.
-        $config = [
-            // Mandatory Configuration Options
-            'hosts'            => ['ldap://bluepages.ibm.com'],
-            'base_dn'          => 'ou=bluepages,o=ibm.com',
-            'username'         => '',
-            'password'         => '',
-            
-            // Optional Configuration Options
-//             'schema'           => Adldap\Schemas\ActiveDirectory::class,
-//             'account_prefix'   => 'ACME-',
-//             'account_suffix'   => '@acme.org',
-            'port'             => 389,
-            'follow_referrals' => false,
-            'use_ssl'          => false,
-            'use_tls'          => false,
-            'version'          => 3,
-            'timeout'          => 5,
-            
-            // Custom LDAP Options
-            'custom_options'   => [
-                // See: http://php.net/ldap_set_option
-                LDAP_OPT_X_TLS_REQUIRE_CERT => LDAP_OPT_X_TLS_HARD
-            ]
-        ];
-        
-        
-        
-        $ad = new Adldap\Adldap();
-        
-        $connectionName = 'my-connection';
-        
-        $ad->addProvider($config, $connectionName);
-        
-        try {
-            $provider = $ad->connect($connectionName);
-            
-            // Great, we're connected!
-        } catch (Adldap\Auth\BindException $e) {
-            // Failed to connect.
-        }
+        // Connecting to LDAP
+        $ldapconn = ldap_connect($ldapuri)
+        or die("That LDAP-URI was not parseable");
         
         dump('BlueGroups facade test');
         BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
