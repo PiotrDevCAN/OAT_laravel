@@ -27,6 +27,6 @@ class LogCacheHit
     public function handle(CacheHit $event)
     {
         //
-        dump('Info Cache Hit');
+//         echo('Info Cache Hit <br>');
     }
 }

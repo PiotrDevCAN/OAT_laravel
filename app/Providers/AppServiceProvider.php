@@ -13,12 +13,12 @@ use App\Models\Account;
 use App\Models\Competency;
 use App\Models\Delegate;
 use App\Models\Log;
+use App\Models\Comment;
 use App\Observers\AccountObserver;
 use App\Observers\CompetencyObserver;
 use App\Observers\DelegateObserver;
 use App\Observers\LogObserver;
 use App\Observers\OvertimeRequestObserver;
-use App\Models\Comment;
 use App\Observers\CommentObserver;
 
 class AppServiceProvider extends ServiceProvider
@@ -50,6 +50,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('ibmv18form-input', Input::class);
         Blade::component('ibmv18form-select', Select::class);
         Blade::component('ibmv18form-textarea', Textarea::class);
-        Blade::component('ibmv18form-button', Button::class);
+        Blade::component('ibmv18form-button', Button::class);        
     }
 }

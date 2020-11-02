@@ -4,14 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Events\IndexEntered;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use App\Helpers\BluePages\Facades\BluePages;
 use App\Helpers\BlueGroups\Facades\BlueGroups;
-use App\Helpers\BlueGroupsManage\Facades\BlueGroupsManage;
-use Adldap\AdldapInterface;
-use Adldap\Laravel\Facades\Adldap;
 
 class Index extends Controller
 {
@@ -23,41 +17,23 @@ class Index extends Controller
      */
     public function __invoke(Request $request)
     {
-//         dump(config('session.driver'));
-        
         // Page enter logic...
         
 //         dump('BluePages facade test');
 //         dump(BluePages::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
 //         dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
         
-        dump('BlueGroups facade test');
-        BlueGroups::getTest('Piotr.Tajanowicz@ibm.com');
-        
-        // Finding a user:
-        $user = Adldap::search()->users()->find('john doe');
-        dump($user);
-        
-        // Searching for a user:
-        $search = Adldap::search()->where('cn', '=', 'Piotr Tajanowicz')->get();
-        dump($search);
-        
-        dump(config('ldap.connections.default.settings.hosts'));
-        
-        
+//         dump('BlueGroups facade test');        
+//         BlueGroups::group_auth($user_dn, $group, $depth = 2);
+//         BlueGroups::checkBluegroup('OAT_admin');
 //         BlueGroups::user_auth('Piotr.Tajanowicz@ibm.com', 'je324jbhj32ref32fd');
-        
-//         dump('BlueGroupsManage facade test');
-//         BlueGroupsManage::getUID('Piotr.Tajanowicz@ibm.com');
-        
-//         event(new IndexEntered());
-        
-//         dump(app());
+//         BlueGroups::employee_bluegroups($employee);
+//         BlueGroups::bluepages_search($filter, $attr = null, $key_attr = 'dn');
         
         return view('main');
     }
     
-    public function admin()
+    public function admin(Request $request)
     {
         return view('admin');
     }

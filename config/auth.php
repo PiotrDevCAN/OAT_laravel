@@ -37,8 +37,8 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session-test',
-            'provider' => 'bluepages-user',
+            'driver' => 'session',
+            'provider' => 'users-ldap',
         ],
         
         'guest' => [
@@ -51,10 +51,10 @@ return [
             'provider' => 'bluegroups-admin',
         ],
         
-        'web-default' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+//         'web-default' => [
+//             'driver' => 'session',
+//             'provider' => 'users',
+//         ],
         
         'api' => [
             'driver' => 'token',
@@ -82,14 +82,19 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+           'driver' => 'eloquent',
+           'model' => App\Models\User::class,
         ],
         
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        
+        'users-ldap' => [
+            'driver' => 'ldap', // Changed from 'eloquent'
+            'model' => App\Models\User::class,
+        ],
         
         'bluepages-user' => [
             'driver' => 'bluepages-provider',

@@ -9,13 +9,15 @@ use Illuminate\Support\Facades\Redirect;
 
 class Login extends Controller
 {
-    public $targetPageTitle;
-    
     public function showLoginForm(Request $request)
     {
-        $this->targetPageTitle = $request->session()->pull('url.intended');
+        $targetPageTitle = $request->session()->pull('url.intended');
         
-        return view('login');
+        $data = array(
+            'targetPageTitle' => $targetPageTitle
+        );
+        
+        return view('login', $data);
     }
     
     /**
@@ -27,7 +29,6 @@ class Login extends Controller
      */
     public function authenticate(Request $request)
     {
-        /*
         // validate the info, create rules for the inputs
         $rules = array(
             'email'    => 'required|email', // make sure the email is an actual email
@@ -46,48 +47,25 @@ class Login extends Controller
             
             // create our user data for the authentication
             $credentials = array(
-                'email' => $request->input('email'),
+                'mail' => $request->input('email'),
                 'password' => $request->input('password')
             );
             
-            dump('authenticate CHECK 1');
-            dump($request->session());
-            
             // attempt to do the login
-            if (Auth::attempt($credentials)) {
-                
-                dump('authenticate CHECK 2');
-                
-                $request->session()->put('test_key', 'test value');
-                dump($request->session());
-                
-                $request->session()->save();
+//             if (Auth::guard('web')->attempt($credentials, true)) {
+            if (Auth::attempt($credentials, true)) {
                 
                 // Authentication passed...
 //                 return redirect()->route('request.create');
 //                 return redirect()->route('home');
-//                 return redirect()->intended(route('home'));
-            
+                return redirect()->intended(route('home'));
+                
             } else {
-            
+                
                 // validation not successful, send back to form
                 return redirect()->route('auth.login');
-            
+                
             }            
-        }
-        */
-        
-        //$credentials = $request->only('email', 'password');
-        
-        // create our user data for the authentication
-        $credentials = array(
-            'email' => $request->input('email'),
-            'password' => $request->input('password')
-        );
-        
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->intended(route('home'));
         }
     }
     

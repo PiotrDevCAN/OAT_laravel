@@ -101,7 +101,8 @@ return [
                 |
                 */
 
-                'schema' => Adldap\Schemas\OpenLDAP::class,
+//                 'schema' => Adldap\Schemas\OpenLDAP::class,
+                'schema' => App\Helpers\BluePages\Schemas\OpenIBMLDAP::class,
 
                 /*
                 |--------------------------------------------------------------------------
@@ -114,6 +115,7 @@ return [
                 |
                 */
 
+//                 'account_prefix' => env('LDAP_ACCOUNT_PREFIX', 'uid='),
                 'account_prefix' => env('LDAP_ACCOUNT_PREFIX', ''),
 
                 /*
@@ -127,6 +129,7 @@ return [
                 |
                 */
 
+//                 'account_suffix' => env('LDAP_ACCOUNT_SUFFIX', ',c=pl,ou=bluepages,o=ibm.com'),
                 'account_suffix' => env('LDAP_ACCOUNT_SUFFIX', ''),
 
                 /*
@@ -198,8 +201,11 @@ return [
                 |
                 */
 
-                'username' => env('LDAP_USERNAME', ''),
-                'password' => env('LDAP_PASSWORD', ''),
+                'username' => env('LDAP_USERNAME', null),
+                'password' => env('LDAP_PASSWORD', null),
+
+//                 'username' => env('LDAP_USERNAME', 'uid=ZZ011O820,c=pl,ou=bluepages,o=ibm.com'),
+//                 'password' => env('LDAP_PASSWORD', 'je324jbhj32ref32fd'),
 
                 /*
                 |--------------------------------------------------------------------------

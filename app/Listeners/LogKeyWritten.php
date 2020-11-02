@@ -27,6 +27,6 @@ class LogKeyWritten
     public function handle(KeyWritten $event)
     {
         //
-        dump('Info Cache Key Written');
+//         echo('Info Cache Key Written <br>');
     }
 }

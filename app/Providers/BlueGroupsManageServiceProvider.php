@@ -38,10 +38,10 @@ class BlueGroupsManageServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-//     public function provides()
-//     {
-//         return array(BlueGroupsManage::class);
-//     }
+    public function provides()
+    {
+        return array(BlueGroupsManage::class);
+    }
     
 }
 

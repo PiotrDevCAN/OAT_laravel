@@ -9,6 +9,7 @@ use App\Models\Account;
 use App\Http\Controllers\Accounts;
 use App\Models\Competency;
 use App\Http\Controllers\Competencies;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,21 +26,28 @@ use App\Http\Controllers\Competencies;
 Route::get('/', 'Index')
     ->name('home');
 
+// Route::post('/authenticate', 'Login@authenticate')
+//     ->middleware('guest')
+//     ->name('auth.authenticate');
+
+Route::get('/logout', 'Login@logout')
+    ->middleware('auth')
+    ->name('auth.logout');
+    
 Route::name('auth.')
+    ->middleware('guest')
     ->group(function () {
         Route::get('/login', 'Login@showLoginForm')
-//             ->middleware('guest')
             ->name('login');
         
-        Route::post('/login', 'Login@authenticate')
-            ->name('authenticate');
-        
         Route::get('/loginCancel', 'Login@cancel')
-//             ->middleware('guest')
             ->name('loginCancel');
         
-        Route::get('/logout', 'Login@logout')
-            ->name('logout');
+        Route::post('/authenticate', 'Login@authenticate')
+            ->name('authenticate');
+        
+//         Route::get('/logout', 'Login@logout')
+//             ->name('logout');
     });
 
 // Overtime Requests

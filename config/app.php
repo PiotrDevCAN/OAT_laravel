@@ -1,7 +1,5 @@
 <?php
 
-use Collective\Html\HtmlServiceProvider;
-
 return [
 
     /*
@@ -184,6 +182,7 @@ return [
          * Adldap2-Laravel Provider
          */
         Adldap\Laravel\AdldapServiceProvider::class,
+        Adldap\Laravel\AdldapAuthServiceProvider::class,
         
         /*
          * laravel-collective Providers

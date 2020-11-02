@@ -37,9 +37,9 @@ class BluePagesServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-//     public function provides()
-//     {
-//         return array(BluePagesService::class);
-//     }
+    public function provides()
+    {
+        return array(BluePagesService::class);
+    }
     
 }

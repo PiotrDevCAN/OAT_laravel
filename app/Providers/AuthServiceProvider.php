@@ -11,8 +11,6 @@ use App\Auth\BluegroupsAdminUserGuard;
 use App\Auth\BluegroupsAdminUserProvider;
 use App\Auth\BluegroupsGuestUserGuard;
 use App\Auth\BluegroupsGuestUserProvider;
-use App\Auth\SessionTestGuard;
-use Illuminate\Auth\SessionGuard;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -34,40 +32,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         
-        Auth::provider('bluepages-provider', function ($app, array $config) {
-            // Return an instance of Illuminate\Contracts\Auth\UserProvider...
+//         Auth::provider('bluepages-provider', function ($app, array $config) {
+//             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
             
-            return $app->make(BluepagesUserProvider::class, [
-                'hasher' => $app['hash'],
-            ]);
-        });
-        
-        Auth::extend('session-test', function ($app, $name, array $config) {
-            
-            $name = 'session-test';
-            $provider = Auth::createUserProvider(
-                $config['provider'] ?? null
-            );
-            $session = $app['session.store'];
-            
-            return new SessionTestGuard($name, $provider, $session);
-            
-//             return $app->make(SessionTestGuard::class, [
-//                 'name' => 'session-test',
-//                 'provider' => Auth::createUserProvider(
-//                     $config['provider'] ?? null
-//                     ),
-//                 'session' => $app['session.store']
+//             return $app->make(BluepagesUserProvider::class, [
+//                 'hasher' => $app['hash'],
 //             ]);
-            
-//             return $app->make(SessionTestGuard::class, [
-//                 'name' => 'session-test',
-//                 'provider' => $app['auth']->createUserProvider(
-//                     $config['provider'] ?? null
-//                     ),
-//                 'session' => $app['session.store']
-//             ]);
-        });
+//         });        
     }
 
     /**
@@ -80,19 +51,7 @@ class AuthServiceProvider extends ServiceProvider
         // Since the Auth Manager doesn't have to be called in every Request, we will just
         // set a callback before the application resolves it and passes it where it was
         // called.
-        /*
-        Auth::extend('session-guard', function ($app, $name, array $config) {
-            return $app->make(SessionTestGuard::class, [
-                'name' => $name,
-                'provider' => $app['auth']->createUserProvider(
-                    $config['provider'] ?? null
-                    ),
-                'session' => $app['session.store']
-            ]);
-        });
-        */
         
-        /*
         Auth::extend('bluepages-user', function ($app, $name, array $config) {
             return $app->make(BluepagesUserGuard::class, [
                 'name' => $name,
@@ -134,6 +93,5 @@ class AuthServiceProvider extends ServiceProvider
                 'hasher' => $app['hash'],
             ]);
         });
-        */
     }
 }

@@ -27,6 +27,6 @@ class LogCacheMissed
     public function handle(CacheMissed $event)
     {
         //
-        dump('Info Cache Missed');
+//         echo('Info Cache Missed <br>');
     }
 }

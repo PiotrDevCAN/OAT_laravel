@@ -73,7 +73,9 @@ html, body {
 					{{ Form::button('Cancel', ['class' => 'ibm-btn-sec ibm-btn-small ibm-btn-green-50', 'name' => 'cancel', 'onclick' => ""]) }}
 				</p>
 				
-				<p>You will be redirected to: {{ $targetPageTitle ?? '' }} page</p>
+				@if($targetPageTitle)
+					<p>You will be redirected to: <a href="{{ $targetPageTitle }}">page</a></p>
+				@endif
 				
 				{{ Form::close() }}
 

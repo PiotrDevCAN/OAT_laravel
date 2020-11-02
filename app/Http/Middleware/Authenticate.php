@@ -17,12 +17,12 @@ class Authenticate extends Middleware
      *
      * @throws \Illuminate\Auth\AuthenticationException
      */
-    public function handle($request, Closure $next, ...$guards)
-    {
-        $this->authenticate($request, $guards);
+//     public function handle($request, Closure $next, ...$guards)
+//     {
+//         $this->authenticate($request, $guards);
         
-        return $next($request);
-    }
+//         return $next($request);
+//     }
 
     /**
      * Determine if the user is logged in to any of the given guards.
@@ -33,20 +33,20 @@ class Authenticate extends Middleware
      *
      * @throws \Illuminate\Auth\AuthenticationException
      */
-    protected function authenticate($request, array $guards)
-    {
-        if (empty($guards)) {
-            $guards = [null];
-        }
+//     protected function authenticate($request, array $guards)
+//     {
+//         if (empty($guards)) {
+//             $guards = [null];
+//         }
         
-        foreach ($guards as $guard) {
-            if ($this->auth->guard($guard)->check()) {
-                return $this->auth->shouldUse($guard);
-            }
-        }
+//         foreach ($guards as $guard) {
+//             if ($this->auth->guard($guard)->check()) {
+//                 return $this->auth->shouldUse($guard);
+//             }
+//         }
         
-//        $this->unauthenticated($request, $guards);
-    }
+// //        $this->unauthenticated($request, $guards);
+//     }
 
     /**
      * Get the path the user should be redirected to when they are not authenticated.
