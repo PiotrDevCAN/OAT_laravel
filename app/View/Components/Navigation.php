@@ -18,9 +18,11 @@ class Navigation extends Component
     {
         $this->menuList = array(
             'Home' => 'home',
-            'Request' => 'request.create',
-            'List (ex Status)' => 'request.list',
-            'Approved (ex Read Only)' => 'request.approved',
+            'Request' => array(
+                'Create' => 'request.create',
+                'List' => 'request.list',
+                'Approved' => 'request.approved'                
+            ),
             'Admin' => array(
                 'Accounts' => array(
                     'Create' => 'admin.account.create',

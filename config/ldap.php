@@ -204,9 +204,6 @@ return [
                 'username' => env('LDAP_USERNAME', null),
                 'password' => env('LDAP_PASSWORD', null),
 
-//                 'username' => env('LDAP_USERNAME', 'uid=ZZ011O820,c=pl,ou=bluepages,o=ibm.com'),
-//                 'password' => env('LDAP_PASSWORD', 'je324jbhj32ref32fd'),
-
                 /*
                 |--------------------------------------------------------------------------
                 | Follow Referrals

@@ -42,7 +42,7 @@ class BluegroupsGuestUserProvider implements UserProvider
             'cnum' => 'ZZ011O820',
             'name' => 'Piotr Tajanowicz',
             'email' => 'Piotr.Tajanowicz@ibm.com',
-            'password' => Hash::make('je324jbhj32ref32fd')
+            'password' => Hash::make('kr324jbhj32ref64fd')
         );
 
         return $this->getUser($user);
@@ -62,7 +62,7 @@ class BluegroupsGuestUserProvider implements UserProvider
                 'cnum' => 'ZZ011O820',
                 'name' => 'Piotr Tajanowicz',
                 'email' => 'Piotr.Tajanowicz@ibm.com',
-                'password' => Hash::make('je324jbhj32ref32fd')
+                'password' => Hash::make('kr324jbhj32ref64fd')
             )
         );
         
@@ -122,7 +122,7 @@ class BluegroupsGuestUserProvider implements UserProvider
                     'cnum' => 'ZZ011O820',
                     'name' => 'Piotr Tajanowicz',
                     'email' => 'Piotr.Tajanowicz@ibm.com',
-                    'password' => Hash::make('je324jbhj32ref32fd')
+                    'password' => Hash::make('kr324jbhj32ref64fd')
                 );
                 
                 return $this->getUser($user);

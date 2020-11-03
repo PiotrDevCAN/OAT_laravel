@@ -46,6 +46,11 @@ Route::name('auth.')
         Route::post('/authenticate', 'Login@authenticate')
             ->name('authenticate');
         
+        Route::get('/authenticate', function () {
+            return redirect()->route('auth.login');
+        })
+            ->name('authenticate');
+        
 //         Route::get('/logout', 'Login@logout')
 //             ->name('logout');
     });

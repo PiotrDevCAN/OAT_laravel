@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
+use Adldap\Adldap;
 
 class Login extends Controller
 {
@@ -51,19 +52,37 @@ class Login extends Controller
                 'password' => $request->input('password')
             );
             
+            // remember me
+            $remember = $request->input('remember', false);
+            
+            
+            
+            $dispatcher = Adldap::getEventDispatcher();
+            
+            $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
+//                 $connection = $event->connection;
+                
+//                 $host = $connection->getHost();
+                
+//                 echo $host; // Displays 'ldap://192.168.1.1:386'
+            
+                   dd($event);
+            
+            });
+            
+            
             // attempt to do the login
-//             if (Auth::guard('web')->attempt($credentials, true)) {
-            if (Auth::attempt($credentials, true)) {
+            if (Auth::attempt($credentials, $remember)) {
                 
                 // Authentication passed...
-//                 return redirect()->route('request.create');
-//                 return redirect()->route('home');
-                return redirect()->intended(route('home'));
+                return Redirect::intended(route('home'));
                 
             } else {
                 
                 // validation not successful, send back to form
-                return redirect()->route('auth.login');
+                return Redirect::route('auth.login')
+                    ->withErrors($validator) // send back all errors to the login form
+                    ->withInput($request->except('password')); // send back the input (not the password) so that we can repopulate the form
                 
             }            
         }

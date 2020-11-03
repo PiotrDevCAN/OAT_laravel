@@ -23,10 +23,10 @@ class Index extends Controller
 //         dump(BluePages::getDetailsFromIntranetId('Piotr.Tajanowicz@ibm.com'));
 //         dump(BluePages::getDetailsFromNotesId('Piotr Tajanowicz/Poland/IBM'));
         
-//         dump('BlueGroups facade test');        
+//         dump('BlueGroups facade test');
 //         BlueGroups::group_auth($user_dn, $group, $depth = 2);
 //         BlueGroups::checkBluegroup('OAT_admin');
-//         BlueGroups::user_auth('Piotr.Tajanowicz@ibm.com', 'je324jbhj32ref32fd');
+//         BlueGroups::user_auth('Piotr.Tajanowicz@ibm.com', 'kr324jbhj32ref64fd');
 //         BlueGroups::employee_bluegroups($employee);
 //         BlueGroups::bluepages_search($filter, $attr = null, $key_attr = 'dn');
         
