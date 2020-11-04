@@ -50,6 +50,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('ibmv18form-input', Input::class);
         Blade::component('ibmv18form-select', Select::class);
         Blade::component('ibmv18form-textarea', Textarea::class);
-        Blade::component('ibmv18form-button', Button::class);        
+        Blade::component('ibmv18form-button', Button::class);
     }
 }

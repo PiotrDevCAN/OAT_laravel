@@ -3,7 +3,7 @@
          <ul aria-labelledby="ibm-pagetitle-h1" role="tree" id="ibm-primary-links">
             @foreach ($menuList as $key => $value)
                 @if (is_array($value))
-    			<li role="presentation" aria-expanded="true" >
+    			<li role="presentation">
     				<span class="ibm-subnav-heading">{{ $key }}</span>
         			<ul role="group">
         				@foreach ($value as $subKey => $subValue)

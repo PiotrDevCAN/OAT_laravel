@@ -21,7 +21,7 @@ use App\Http\Controllers\Competencies;
 */
 
 // Home
-Route::get('/', [Index::class])
+Route::get('/', [Index::class, 'index'])
     ->name('home');
 
 Route::get('/logout', [Login::class, 'logout'])

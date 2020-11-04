@@ -33,6 +33,11 @@ class Index extends Controller
         return view('main');
     }
     
+    public function index(Request $request)
+    {
+        return view('main');
+    }
+    
     public function admin(Request $request)
     {
         return view('admin');
