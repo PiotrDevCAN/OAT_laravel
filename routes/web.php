@@ -140,7 +140,7 @@ Route::prefix('admin')
             Route::get('edit/{user_intranet}/{delegate_intranet}', [Delegates::class, 'edit'])
                 ->name('edit');
                 
-            Route::get('my', [Delegates::class, ' my'])
+            Route::get('my', [Delegates::class, 'my'])
                 ->name('my');
         });
         
