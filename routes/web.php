@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\OvertimeRequest;
+use App\Http\Controllers\Index;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\OvertimeRequests;
 use App\Http\Controllers\Accounts;
