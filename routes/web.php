@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Index;
 use App\Models\OvertimeRequest;
 use App\Http\Controllers\OvertimeRequests;
 use App\Models\Delegate;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Accounts;
 use App\Models\Competency;
 use App\Http\Controllers\Competencies;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,36 +25,29 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // Home
-Route::get('/', 'Index')
+Route::get('/', Index::class)
     ->name('home');
 
-// Route::post('/authenticate', 'Login@authenticate')
-//     ->middleware('guest')
-//     ->name('auth.authenticate');
-
-Route::get('/logout', 'Login@logout')
+Route::get('/logout', [Login::class, 'logout'])
     ->middleware('auth')
     ->name('auth.logout');
     
 Route::name('auth.')
     ->middleware('guest')
     ->group(function () {
-        Route::get('/login', 'Login@showLoginForm')
+        Route::get('/login', [Login::class, 'showLoginForm'])
             ->name('login');
         
-        Route::get('/loginCancel', 'Login@cancel')
+        Route::get('/loginCancel', [Login::class, 'cancel'])
             ->name('loginCancel');
         
-        Route::post('/authenticate', 'Login@authenticate')
+        Route::post('/authenticate', [Login::class, 'authenticate'])
             ->name('authenticate');
         
         Route::get('/authenticate', function () {
             return redirect()->route('auth.login');
         })
             ->name('authenticate');
-        
-//         Route::get('/logout', 'Login@logout')
-//             ->name('logout');
     });
 
 // Overtime Requests
@@ -60,18 +55,18 @@ Route::prefix('request')
     ->middleware('auth')
     ->name('request.')
     ->group(function () {
-        Route::match(['get', 'post'], 'list', 'OvertimeRequests@index')
+        Route::match(['get', 'post'], 'list', [OvertimeRequests::class, 'index'])
             ->name('list');
         
-        Route::match(['get', 'post'], 'approved', 'OvertimeRequests@approved')
+        Route::match(['get', 'post'], 'approved', [OvertimeRequests::class, 'approved'])
             ->name('approved');
         
         // Show the form for creating a new resource.
-        Route::get('create', 'OvertimeRequests@create')
+        Route::get('create', [OvertimeRequests::class, 'create'])
             ->name('create');
         
         // Show the form for editing the specified resource.
-        Route::get('edit/{overtimeRequest}', 'OvertimeRequests@edit')
+        Route::get('edit/{overtimeRequest}', [OvertimeRequests::class, 'edit'])
             ->name('edit');
         
         // Mailables preview
@@ -113,31 +108,31 @@ Route::prefix('admin')
     ->group(function () {
 
         // Info page
-        Route::get('info', 'Index@admin')
+        Route::get('info', [Index::class, 'admin'])
             ->name('info');
         
         // Accounts
         Route::prefix('account')->name('account.')->group(function () {
-            Route::match(['get', 'post'], 'list', 'Accounts@index')
+            Route::match(['get', 'post'], 'list', [Accounts::class, 'index'])
                 ->name('list');
                 
             // Show the form for creating a new resource.
-            Route::get('create', 'Accounts@create')
+            Route::get('create', [Accounts::class, 'create'])
                 ->name('create');
             
             // Show the form for editing the specified resource.
-            Route::get('edit/{account_name}/{location}', 'Accounts@edit')
+            Route::get('edit/{account_name}/{location}', [Accounts::class, 'edit'])
                 ->name('edit');
         
         });
         
         // Delegates
         Route::prefix('delegate')->name('delegate.')->group(function () {
-            Route::match(['get', 'post'], 'list', 'Delegates@index')
+            Route::match(['get', 'post'], 'list', [Delegates::class, 'index'])
                 ->name('list');
             
             // Show the form for creating a new resource.
-            Route::get('create', 'Delegates@create')
+            Route::get('create', [Delegates::class, 'create'])
                 ->name('create');
             
             // Show the form for editing the specified resource.
@@ -146,24 +141,24 @@ Route::prefix('admin')
 //             })
 //             ->name('edit');
             
-            Route::get('edit/{user_intranet}/{delegate_intranet}', 'Delegates@edit')
+            Route::get('edit/{user_intranet}/{delegate_intranet}', [Delegates::class, 'edit'])
                 ->name('edit');
                 
-            Route::get('my', 'Delegates@my')
+            Route::get('my', [Delegates::class, ' my'])
                 ->name('my');
         });
         
         // Competencies
         Route::prefix('competency')->name('competency.')->group(function () {
-            Route::match(['get', 'post'], 'list', 'Competencies@index')
+            Route::match(['get', 'post'], 'list', [Competencies::class, 'index'])
                 ->name('list');
             
             // Show the form for creating a new resource.
-            Route::get('create', 'Competencies@create')
+            Route::get('create', [Competencies::class, 'create'])
                 ->name('create');
             
             // Show the form for editing the specified resource.
-            Route::get('edit/{competency_name}/{approver}', 'Competencies@edit')
+            Route::get('edit/{competency_name}/{approver}', [Competencies::class, 'edit'])
                 ->name('edit');
         });
         
@@ -180,7 +175,7 @@ Route::prefix('access')
     ->middleware('auth')
     ->name('access.')
     ->group(function () {
-        Route::get('my', 'Index@access')
+        Route::get('my', [Index::class, 'access'])
             ->name('my');
     });
 
