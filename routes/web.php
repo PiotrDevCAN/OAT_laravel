@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\OvertimeRequest;
+use App\Http\Controllers\Login;
+use App\Http\Controllers\OvertimeRequests;
+use App\Http\Controllers\Accounts;
+use App\Http\Controllers\Delegates;
+use App\Http\Controllers\Competencies;
 
 /*
 |--------------------------------------------------------------------------
