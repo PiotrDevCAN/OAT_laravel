@@ -57,18 +57,18 @@ class Login extends Controller
             
             
             
-            $dispatcher = Adldap::getEventDispatcher();
+//             $dispatcher = Adldap::getEventDispatcher();
             
-            $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
+//             $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
 //                 $connection = $event->connection;
                 
 //                 $host = $connection->getHost();
                 
 //                 echo $host; // Displays 'ldap://192.168.1.1:386'
             
-                   dd($event);
+//                    dd($event);
             
-            });
+//             });
             
             
             // attempt to do the login
