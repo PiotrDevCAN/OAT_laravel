@@ -67,6 +67,8 @@ class Login extends Controller
                     
                     $dispatcher = Adldap::getEventDispatcher();
                     
+                    dump($dispatcher);
+                    
                     $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
                         $connection = $event->connection;
                         
