@@ -65,37 +65,7 @@ class Login extends Controller
                 
                 if ($request->input('email') == 'test@test.com') {
                     
-                    $dispatcher = Adldap::getEventDispatcher();
-                    
-                    $dispatcher->listen(\Adldap\Auth\Events\Attempting::class, function ($event) {
-                        dump('Attempting');
-                    });
-                    
-                    $dispatcher->listen(\Adldap\Auth\Events\Passed::class, function ($event) {
-                        dump('Passed');
-                    });
-                    
-                    $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
-                        $connection = $event->connection;
-                        
-                        $host = $connection->getHost();
-                        
-                        echo $host; // Displays 'ldap://192.168.1.1:386'
-                        
-                        dd($event);
-                        
-                    });
-                    
-                    $dispatcher->listen(\Adldap\Auth\Events\Bound::class, function ($event) {
-                        dump('Bound');
-                    });
-                    
-                    
-                        
-                    dump($dispatcher);
-                        
-                
-                dd('stopped');
+                    dd('stopped');
                 
                 }
                 
