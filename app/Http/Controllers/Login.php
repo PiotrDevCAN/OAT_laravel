@@ -69,6 +69,14 @@ class Login extends Controller
                     
                     dump($dispatcher);
                     
+                    $dispatcher->listen(\Adldap\Auth\Events\Attempting::class, function ($event) {
+                        dump('Attempting');
+                    });
+                    
+                    $dispatcher->listen(\Adldap\Auth\Events\Passed::class, function ($event) {
+                        dump('Passed');
+                    });
+                    
                     $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
                         $connection = $event->connection;
                         
@@ -78,6 +86,10 @@ class Login extends Controller
                         
                         dd($event);
                         
+                    });
+                    
+                    $dispatcher->listen(\Adldap\Auth\Events\Bound::class, function ($event) {
+                        dump('Bound');
                     });
                 
                 dd('stopped');
