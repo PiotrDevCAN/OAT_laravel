@@ -25,7 +25,7 @@ Route::get('/', [Index::class, 'index'])
     ->name('home');
 
 Route::get('/logout', [Login::class, 'logout'])
-    //->middleware('auth')
+    ->middleware('auth')
     ->name('auth.logout');
     
 Route::name('auth.')
@@ -48,7 +48,7 @@ Route::name('auth.')
 
 // Overtime Requests
 Route::prefix('request')
-    //->middleware('auth')
+    ->middleware('auth')
     ->name('request.')
     ->group(function () {
         Route::match(['get', 'post'], 'list', [OvertimeRequests::class, 'index'])
@@ -99,7 +99,7 @@ Route::prefix('request')
     
 // Admin
 Route::prefix('admin')
-    //->middleware('auth')
+    ->middleware('auth')
     ->name('admin.')
     ->group(function () {
 
@@ -168,7 +168,7 @@ Route::prefix('admin')
 
 // Access
 Route::prefix('access')
-    //->middleware('auth')
+    ->middleware('auth')
     ->name('access.')
     ->group(function () {
         Route::get('my', [Index::class, 'access'])
