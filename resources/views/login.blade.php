@@ -70,7 +70,7 @@ html, body {
 				
 				<p>
 					{{ Form::label('remember', 'Remember me') }}
-					{{ Form::checkbox('remember', true) }}
+					{{ Form::checkbox('remember', true, old('remember')) }}
 				</p>
 				
 				<p>
