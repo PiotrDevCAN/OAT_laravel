@@ -73,9 +73,9 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
         
-        $dispatcher = Adldap::getEventDispatcher();
+//         $dispatcher = Adldap::getEventDispatcher();
 
-        $dispatcher->listen(Binding::class, BlueGroupsListener::class);
+//         $dispatcher->listen(Binding::class, BlueGroupsListener::class);
 
 //         $dispatcher->listen(Failed::class, function (Failed $event) {
 //             $conn = $event->connection;
