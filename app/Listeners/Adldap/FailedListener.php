@@ -19,10 +19,10 @@ class FailedListener
     /**
      * Handle the event.
      *
-     * @param  Binding  $event
+     * @param  Failed  $event
      * @return void
      */
-    public static function handle(Failed $event)
+    public function handle(Failed $event)
     {
         //
         echo('Adldap Failed <br>');

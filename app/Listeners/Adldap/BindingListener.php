@@ -22,7 +22,7 @@ class BindingListener
      * @param  Binding  $event
      * @return void
      */
-    public static function handle(Binding $event)
+    public function handle(Binding $event)
     {
         //
         echo('Adldap Binding <br>');

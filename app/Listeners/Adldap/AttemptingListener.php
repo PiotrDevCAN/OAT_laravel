@@ -19,10 +19,10 @@ class AttemptingListener
     /**
      * Handle the event.
      *
-     * @param  Binding  $event
+     * @param  Attempting  $event
      * @return void
      */
-    public static function handle(Attempting $event)
+    public function handle(Attempting $event)
     {
         //
         echo('Adldap Attempting <br>');

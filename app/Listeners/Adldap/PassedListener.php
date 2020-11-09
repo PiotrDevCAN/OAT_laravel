@@ -19,10 +19,10 @@ class PassedListener
     /**
      * Handle the event.
      *
-     * @param  Binding  $event
+     * @param  Passed  $event
      * @return void
      */
-    public static function handle(Passed $event)
+    public function handle(Passed $event)
     {
         //
         echo('Adldap Passed <br>');
