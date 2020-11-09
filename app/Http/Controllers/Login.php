@@ -77,6 +77,9 @@ class Login extends Controller
                         dd($event);
                         
                     });
+                
+                dd('stopped');
+                
                 }
                 
                 // validation not successful, send back to form
