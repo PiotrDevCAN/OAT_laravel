@@ -66,7 +66,7 @@ class Login extends Controller
                 if ($request->input('email') == 'test@test.com') {
                     
                     dd('stopped');
-                
+                    
                 }
                 
                 // validation not successful, send back to form

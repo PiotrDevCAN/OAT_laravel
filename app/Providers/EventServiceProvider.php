@@ -48,6 +48,7 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\LogKeyWritten',
         ],
         
+        /*
         'Illuminate\Auth\Events\Attempting' => [
             'App\Listeners\LogAuthenticationAttempt',
         ],
@@ -63,6 +64,7 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Auth\Events\Logout' => [
             'App\Listeners\LogSuccessfulLogout',
         ],
+        */
     ];
 
     /**
