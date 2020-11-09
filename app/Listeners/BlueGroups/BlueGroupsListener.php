@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\BlueGroups;
 
 use Adldap\Auth\Events\Binding;
 
