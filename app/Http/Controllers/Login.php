@@ -55,28 +55,28 @@ class Login extends Controller
             // remember me
             $remember = $request->input('remember', false);
             
-            
-            dd($request->input('email'));
-            
-            if ($request->input('email') == 'test@test.com') {
-                
-                $dispatcher = Adldap::getEventDispatcher();
-                
-                $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
-                    $connection = $event->connection;
-                    
-                    $host = $connection->getHost();
-                    
-                    echo $host; // Displays 'ldap://192.168.1.1:386'
-                    
-                    dd($event);
-                    
-                });
-            }
-            
-            
             // attempt to do the login
             if (Auth::attempt($credentials, $remember)) {
+                
+                
+                
+                if ($request->input('email') == 'test@test.com') {
+                    
+                    $dispatcher = Adldap::getEventDispatcher();
+                    
+                    $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
+                        $connection = $event->connection;
+                        
+                        $host = $connection->getHost();
+                        
+                        echo $host; // Displays 'ldap://192.168.1.1:386'
+                        
+                        dd($event);
+                        
+                    });
+                }
+                
+                
                 
                 // Authentication passed...
                 return Redirect::intended(route('home'));
