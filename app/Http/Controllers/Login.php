@@ -56,6 +56,8 @@ class Login extends Controller
             $remember = $request->input('remember', false);
             
             
+            dd($request->input('email'));
+            
             if ($request->input('email') == 'test@test.com') {
                 
                 $dispatcher = Adldap::getEventDispatcher();
