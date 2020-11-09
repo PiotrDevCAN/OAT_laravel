@@ -2,7 +2,7 @@
 
 namespace App\Listeners\Adldap;
 
-use Adldap\Auth\Events\Binding;
+use Adldap\Auth\Events\Attempting;
 
 class AttemptingListener
 {
@@ -22,7 +22,7 @@ class AttemptingListener
      * @param  Binding  $event
      * @return void
      */
-    public static function handle(Binding $event)
+    public static function handle(Attempting $event)
     {
         //
         echo('Adldap Attempting <br>');

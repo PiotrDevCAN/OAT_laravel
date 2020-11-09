@@ -2,7 +2,7 @@
 
 namespace App\Listeners\Adldap;
 
-use Adldap\Auth\Events\Binding;
+use Adldap\Auth\Events\Bound;
 
 class BoundListener
 {
@@ -22,7 +22,7 @@ class BoundListener
      * @param  Binding  $event
      * @return void
      */
-    public static function handle(Binding $event)
+    public static function handle(Bound $event)
     {
         //
         echo('Adldap Bound <br>');

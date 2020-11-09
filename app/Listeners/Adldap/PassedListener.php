@@ -2,7 +2,7 @@
 
 namespace App\Listeners\Adldap;
 
-use Adldap\Auth\Events\Binding;
+use Adldap\Auth\Events\Passed;
 
 class PassedListener
 {
@@ -22,7 +22,7 @@ class PassedListener
      * @param  Binding  $event
      * @return void
      */
-    public static function handle(Binding $event)
+    public static function handle(Passed $event)
     {
         //
         echo('Adldap Passed <br>');

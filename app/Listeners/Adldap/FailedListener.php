@@ -2,7 +2,7 @@
 
 namespace App\Listeners\Adldap;
 
-use Adldap\Auth\Events\Binding;
+use Adldap\Auth\Events\Failed;
 
 class FailedListener
 {
@@ -22,7 +22,7 @@ class FailedListener
      * @param  Binding  $event
      * @return void
      */
-    public static function handle(Binding $event)
+    public static function handle(Failed $event)
     {
         //
         echo('Adldap Failed <br>');
