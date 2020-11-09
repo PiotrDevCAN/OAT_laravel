@@ -22,7 +22,7 @@ class FailedListener
      * @param  Failed  $event
      * @return void
      */
-    public function handle(Failed $event)
+    public static function handle(Failed $event)
     {
         //
         echo('Adldap Failed <br>');

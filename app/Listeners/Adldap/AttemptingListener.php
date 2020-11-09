@@ -22,7 +22,7 @@ class AttemptingListener
      * @param  Attempting  $event
      * @return void
      */
-    public function handle(Attempting $event)
+    public static function handle(Attempting $event)
     {
         //
         echo('Adldap Attempting <br>');

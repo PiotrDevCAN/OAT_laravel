@@ -22,7 +22,7 @@ class PassedListener
      * @param  Passed  $event
      * @return void
      */
-    public function handle(Passed $event)
+    public static function handle(Passed $event)
     {
         //
         echo('Adldap Passed <br>');

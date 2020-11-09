@@ -22,7 +22,7 @@ class BoundListener
      * @param  Bound  $event
      * @return void
      */
-    public function handle(Bound $event)
+    public static function handle(Bound $event)
     {
         //
         echo('Adldap Bound <br>');
