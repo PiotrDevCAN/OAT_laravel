@@ -58,7 +58,10 @@ class Login extends Controller
             // attempt to do the login
             if (Auth::attempt($credentials, $remember)) {
                 
+                // Authentication passed...
+                return Redirect::intended(route('home'));
                 
+            } else {
                 
                 if ($request->input('email') == 'test@test.com') {
                     
@@ -75,13 +78,6 @@ class Login extends Controller
                         
                     });
                 }
-                
-                
-                
-                // Authentication passed...
-                return Redirect::intended(route('home'));
-                
-            } else {
                 
                 // validation not successful, send back to form
                 return Redirect::route('auth.login')
