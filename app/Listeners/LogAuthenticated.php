@@ -27,6 +27,6 @@ class LogAuthenticated
     public function handle(Authenticated $event)
     {
         //
-//         echo('Info Authenticated <br>');
+        echo('Info Authenticated <br>');
     }
 }

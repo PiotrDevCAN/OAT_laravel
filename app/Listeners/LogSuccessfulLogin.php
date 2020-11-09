@@ -27,6 +27,6 @@ class LogSuccessfulLogin
     public function handle(Login $event)
     {
         //
-//         echo('Info login succeed <br>');
+        echo('Info login succeed <br>');
     }
 }

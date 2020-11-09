@@ -27,6 +27,6 @@ class LogSuccessfulLogout
     public function handle(Logout $event)
     {
         //
-//         echo('Info logout succeed <br>');
+        echo('Info logout succeed <br>');
     }
 }

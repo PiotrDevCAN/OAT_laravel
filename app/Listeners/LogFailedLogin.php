@@ -27,6 +27,6 @@ class LogFailedLogin
     public function handle(Failed $event)
     {
         //
-//         echo('Warning login failed <br>');
+        echo('Warning login failed <br>');
     }
 }

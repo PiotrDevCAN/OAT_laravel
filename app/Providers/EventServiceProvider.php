@@ -6,6 +6,11 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Adldap\Adldap;
+use App\Listeners\Adldap\AttemptingListener;
+use App\Listeners\Adldap\PassedListener;
+use App\Listeners\Adldap\FailedListener;
+use App\Listeners\Adldap\BindingListener;
+use App\Listeners\Adldap\BoundListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -71,29 +76,39 @@ class EventServiceProvider extends ServiceProvider
         
         $dispatcher = Adldap::getEventDispatcher();
         
-        $dispatcher->listen(\Adldap\Auth\Events\Attempting::class, function ($event) {
-            dump('Attempting');
-        });
+        $dispatcher->listen(\Adldap\Auth\Events\Attempting::class, AttemptingListener::class);
+        
+        $dispatcher->listen(\Adldap\Auth\Events\Passed::class, PassedListener::class);
+        
+        $dispatcher->listen(\Adldap\Auth\Events\Failed::class, FailedListener::class);
+        
+        $dispatcher->listen(\Adldap\Auth\Events\Binding::class, BindingListener::class);
+        
+        $dispatcher->listen(\Adldap\Auth\Events\Bound::class, BoundListener::class);
+        
+//         $dispatcher->listen(\Adldap\Auth\Events\Attempting::class, function ($event) {
+//             dump('Attempting');
+//         });
+        
+//         $dispatcher->listen(\Adldap\Auth\Events\Passed::class, function ($event) {
+//             dump('Passed');
+//         });
+        
+//         $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
+//             $connection = $event->connection;
             
-        $dispatcher->listen(\Adldap\Auth\Events\Passed::class, function ($event) {
-            dump('Passed');
-        });
+//             $host = $connection->getHost();
             
-        $dispatcher->listen(\Adldap\Auth\Events\Failed::class, function ($event) {
-            $connection = $event->connection;
+//             echo $host; // Displays 'ldap://192.168.1.1:386'
             
-            $host = $connection->getHost();
+//             dd($event);
             
-            echo $host; // Displays 'ldap://192.168.1.1:386'
-            
-            dd($event);
-            
-        });
-            
-        $dispatcher->listen(\Adldap\Auth\Events\Bound::class, function ($event) {
-            dump('Bound');
-        });
-            
+//         });
+        
+//         $dispatcher->listen(\Adldap\Auth\Events\Bound::class, function ($event) {
+//             dump('Bound');
+//         });
+        
         dump($dispatcher);
 
     }

@@ -27,6 +27,6 @@ class LogAuthenticationAttempt
     public function handle(Attempting $event)
     {
         //
-//         echo('Info authentication attempt <br>');
+        echo('Info authentication attempt <br>');
     }
 }
