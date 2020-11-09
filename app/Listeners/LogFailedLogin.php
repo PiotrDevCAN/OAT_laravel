@@ -28,5 +28,6 @@ class LogFailedLogin
     {
         //
         echo('Warning login failed <br>');
+        dump($event);
     }
 }
