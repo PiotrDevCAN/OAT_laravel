@@ -49,6 +49,8 @@ class EventServiceProvider extends ServiceProvider
         ],
         
         /*
+         * Default listeners
+         */
         'Illuminate\Auth\Events\Attempting' => [
             'App\Listeners\LogAuthenticationAttempt',
         ],
@@ -64,7 +66,57 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Auth\Events\Logout' => [
             'App\Listeners\LogSuccessfulLogout',
         ],
-        */
+        
+        /*
+         * Adldap listeners
+         */
+        'Adldap\Laravel\Events\Authenticating' => [
+            'App\Listeners\LogAuthenticating',
+        ],
+        
+        'Adldap\Laravel\Events\Authenticated' => [
+            'App\Listeners\LogLdapAuthSuccessful',
+        ],
+        
+        'Adldap\Laravel\Events\AuthenticationSuccessful' => [
+            'App\Listeners\LogAuthSuccessful'
+        ],
+        
+        'Adldap\Laravel\Events\AuthenticationFailed' => [
+            'App\Listeners\LogAuthFailure',
+        ],
+        
+        'Adldap\Laravel\Events\AuthenticationRejected' => [
+            'App\Listeners\LogAuthRejected',
+        ],
+        
+        'Adldap\Laravel\Events\AuthenticatedModelTrashed' => [
+            'App\Listeners\LogUserModelIsTrashed',
+        ],
+        
+        'Adldap\Laravel\Events\AuthenticatedWithCredentials' => [
+            'App\Listeners\LogAuthWithCredentials',
+        ],
+        
+        'Adldap\Laravel\Events\AuthenticatedWithWindows' => [
+            'App\Listeners\LogSSOAuth',
+        ],
+        
+        'Adldap\Laravel\Events\DiscoveredWithCredentials' => [
+            'App\Listeners\LogAuthUserLocated',
+        ],
+        
+        'Adldap\Laravel\Events\Importing' => [
+            'App\Listeners\LogImportingUser',
+        ],
+        
+        'Adldap\Laravel\Events\Synchronized' => [
+            'App\Listeners\LogSynchronizedUser',
+        ],
+        
+        'Adldap\Laravel\Events\Synchronizing' => [
+            'App\Listeners\LogSynchronizingUser',
+        ],
     ];
 
     /**
@@ -76,16 +128,16 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
         
-        $dispatcher = Adldap::getEventDispatcher();
+//         $dispatcher = Adldap::getEventDispatcher();
         
-        $dispatcher->listen(\Adldap\Auth\Events\Attempting::class, AttemptingListener::class);
+//         $dispatcher->listen(\Adldap\Auth\Events\Attempting::class, AttemptingListener::class);
         
-        $dispatcher->listen(\Adldap\Auth\Events\Passed::class, PassedListener::class);
+//         $dispatcher->listen(\Adldap\Auth\Events\Passed::class, PassedListener::class);
         
-        $dispatcher->listen(\Adldap\Auth\Events\Failed::class, FailedListener::class);
+//         $dispatcher->listen(\Adldap\Auth\Events\Failed::class, FailedListener::class);
         
-        $dispatcher->listen(\Adldap\Auth\Events\Binding::class, BindingListener::class);
+//         $dispatcher->listen(\Adldap\Auth\Events\Binding::class, BindingListener::class);
         
-        $dispatcher->listen(\Adldap\Auth\Events\Bound::class, BoundListener::class);
+//         $dispatcher->listen(\Adldap\Auth\Events\Bound::class, BoundListener::class);
     }
 }
