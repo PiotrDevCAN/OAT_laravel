@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Request;
 
-use App\Events\OvertimeRequestRejected;
+use App\Events\OvertimeRequestApproved;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendOvertimeRequestRejectedNotification
+class SendOvertimeRequestApprovedNotification
 {
     /**
      * Create the event listener.
@@ -22,14 +22,14 @@ class SendOvertimeRequestRejectedNotification
     /**
      * Handle the event.
      *
-     * @param  OvertimeRequestRejected  $event
+     * @param  OvertimeRequestApproved  $event
      * @return void
      */
-    public function handle(OvertimeRequestRejected $event)
+    public function handle(OvertimeRequestApproved $event)
     {
         Mail::to('piotr.tajanowicz@ibm.com')
 //             ->cc($moreUsers)
 //             ->bcc($evenMoreUsers)
-            ->send(new \App\Mail\Request\OvertimeRequestRejected($event->request));
+            ->send(new OvertimeRequestApproved($event->request));
     }
 }

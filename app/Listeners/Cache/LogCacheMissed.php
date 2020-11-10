@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Cache;
 
-use Illuminate\Cache\Events\CacheHit;
+use Illuminate\Cache\Events\CacheMissed;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class LogCacheHit
+class LogCacheMissed
 {
     /**
      * Create the event listener.
@@ -21,12 +21,12 @@ class LogCacheHit
     /**
      * Handle the event.
      *
-     * @param  CacheHit  $event
+     * @param  CacheMissed  $event
      * @return void
      */
-    public function handle(CacheHit $event)
+    public function handle(CacheMissed $event)
     {
         //
-//         echo('Info Cache Hit <br>');
+//         echo('Info Cache Missed <br>');
     }
 }

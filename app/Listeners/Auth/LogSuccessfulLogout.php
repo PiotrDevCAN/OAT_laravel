@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Auth;
 
-use Illuminate\Cache\Events\KeyWritten;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class LogKeyWritten
+class LogSuccessfulLogout
 {
     /**
      * Create the event listener.
@@ -21,12 +21,12 @@ class LogKeyWritten
     /**
      * Handle the event.
      *
-     * @param  KeyWritten  $event
+     * @param  Logout  $event
      * @return void
      */
-    public function handle(KeyWritten $event)
+    public function handle(Logout $event)
     {
         //
-//         echo('Info Cache Key Written <br>');
+//         echo('Info logout succeed <br>');
     }
 }

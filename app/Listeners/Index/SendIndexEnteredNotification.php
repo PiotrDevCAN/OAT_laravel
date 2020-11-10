@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Index;
 
-use App\Events\OvertimeRequestApproved;
+use App\Events\IndexEntered;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendOvertimeRequestApprovedNotification
+class SendIndexEnteredNotification
 {
     /**
      * Create the event listener.
@@ -22,14 +22,14 @@ class SendOvertimeRequestApprovedNotification
     /**
      * Handle the event.
      *
-     * @param  OvertimeRequestApproved  $event
+     * @param  IndexEntered  $event
      * @return void
      */
-    public function handle(OvertimeRequestApproved $event)
+    public function handle(IndexEntered $event)
     {
         Mail::to('piotr.tajanowicz@ibm.com')
 //             ->cc($moreUsers)
 //             ->bcc($evenMoreUsers)
-            ->send(new OvertimeRequestApproved($event->request));
+        ->send(new \App\Mail\Index\IndexEntered());
     }
 }

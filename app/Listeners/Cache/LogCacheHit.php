@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Cache;
 
-use Illuminate\Auth\Events\Failed;
+use Illuminate\Cache\Events\CacheHit;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class LogFailedLogin
+class LogCacheHit
 {
     /**
      * Create the event listener.
@@ -21,13 +21,12 @@ class LogFailedLogin
     /**
      * Handle the event.
      *
-     * @param  Failed  $event
+     * @param  CacheHit  $event
      * @return void
      */
-    public function handle(Failed $event)
+    public function handle(CacheHit $event)
     {
         //
-        echo('Warning login failed <br>');
-        dump($event);
+//         echo('Info Cache Hit <br>');
     }
 }

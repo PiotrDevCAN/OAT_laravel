@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Auth;
 
-use Illuminate\Auth\Events\Authenticated;
+use Illuminate\Auth\Events\Attempting;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class LogAuthenticated
+class LogAuthenticationAttempt
 {
     /**
      * Create the event listener.
@@ -21,12 +21,12 @@ class LogAuthenticated
     /**
      * Handle the event.
      *
-     * @param  Authenticated  $event
+     * @param  Attempting  $event
      * @return void
      */
-    public function handle(Authenticated $event)
+    public function handle(Attempting $event)
     {
         //
-        echo('Info Authenticated <br>');
+//         echo('Info authentication attempt <br>');
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Listeners\Adldap;
 
-use Adldap\Auth\Events\Binding;
+use Adldap\Laravel\Events\AuthenticationFailed;
 
-class BindingListener
+class LogAuthFailure
 {
     /**
      * Create the event listener.
@@ -19,12 +19,12 @@ class BindingListener
     /**
      * Handle the event.
      *
-     * @param  Binding  $event
+     * @param  AuthenticationFailed  $event
      * @return void
      */
-    public static function handle(Binding $event)
+    public static function handle(AuthenticationFailed $event)
     {
         //
-        echo('Adldap Binding <br>');
+//         echo('Adldap Auth Failed <br>');
     }
 }

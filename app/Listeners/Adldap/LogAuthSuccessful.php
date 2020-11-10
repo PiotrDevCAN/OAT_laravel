@@ -2,9 +2,9 @@
 
 namespace App\Listeners\Adldap;
 
-use Adldap\Auth\Events\Attempting;
+use Adldap\Laravel\Events\AuthenticationSuccessful;
 
-class AttemptingListener
+class LogAuthSuccessful
 {
     /**
      * Create the event listener.
@@ -19,12 +19,12 @@ class AttemptingListener
     /**
      * Handle the event.
      *
-     * @param  Attempting  $event
+     * @param  AuthenticationSuccessful  $event
      * @return void
      */
-    public static function handle(Attempting $event)
+    public static function handle(AuthenticationSuccessful $event)
     {
         //
-        echo('Adldap Attempting <br>');
+//         echo('Adldap Auth Successful <br>');
     }
 }

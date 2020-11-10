@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Cache;
 
-use Illuminate\Auth\Events\Attempting;
+use Illuminate\Cache\Events\KeyWritten;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class LogAuthenticationAttempt
+class LogKeyWritten
 {
     /**
      * Create the event listener.
@@ -21,12 +21,12 @@ class LogAuthenticationAttempt
     /**
      * Handle the event.
      *
-     * @param  Attempting  $event
+     * @param  KeyWritten  $event
      * @return void
      */
-    public function handle(Attempting $event)
+    public function handle(KeyWritten $event)
     {
         //
-        echo('Info authentication attempt <br>');
+//         echo('Info Cache Key Written <br>');
     }
 }

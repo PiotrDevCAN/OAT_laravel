@@ -2,9 +2,9 @@
 
 namespace App\Listeners\Adldap;
 
-use Adldap\Auth\Events\Bound;
+use Adldap\Laravel\Events\AuthenticatedWithCredentials;
 
-class BoundListener
+class LogAuthWithCredentials
 {
     /**
      * Create the event listener.
@@ -19,12 +19,12 @@ class BoundListener
     /**
      * Handle the event.
      *
-     * @param  Bound  $event
+     * @param  AuthenticatedWithCredentials  $event
      * @return void
      */
-    public static function handle(Bound $event)
+    public static function handle(AuthenticatedWithCredentials $event)
     {
         //
-        echo('Adldap Bound <br>');
+//         echo('Adldap Auth With Credentials <br>');
     }
 }

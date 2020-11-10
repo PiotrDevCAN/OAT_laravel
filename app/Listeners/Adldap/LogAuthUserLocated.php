@@ -2,9 +2,9 @@
 
 namespace App\Listeners\Adldap;
 
-use Adldap\Auth\Events\Passed;
+use Adldap\Laravel\Events\DiscoveredWithCredentials;
 
-class PassedListener
+class LogAuthUserLocated
 {
     /**
      * Create the event listener.
@@ -19,12 +19,12 @@ class PassedListener
     /**
      * Handle the event.
      *
-     * @param  Passed  $event
+     * @param  DiscoveredWithCredentials  $event
      * @return void
      */
-    public static function handle(Passed $event)
+    public static function handle(DiscoveredWithCredentials $event)
     {
         //
-        echo('Adldap Passed <br>');
+//         echo('Adldap User Located <br>');
     }
 }

@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Listeners\Adldap;
+namespace App\Listeners\Auth;
 
-use Adldap\Auth\Events\Failed;
+use Illuminate\Auth\Events\Failed;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
 
-class FailedListener
+class LogFailedLogin
 {
     /**
      * Create the event listener.
@@ -15,16 +17,16 @@ class FailedListener
     {
         //
     }
-    
+
     /**
      * Handle the event.
      *
      * @param  Failed  $event
      * @return void
      */
-    public static function handle(Failed $event)
+    public function handle(Failed $event)
     {
         //
-        echo('Adldap Failed <br>');
+//         echo('Warning login failed <br>');
     }
 }

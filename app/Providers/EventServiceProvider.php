@@ -5,12 +5,6 @@ namespace App\Providers;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Adldap\Adldap;
-use App\Listeners\Adldap\AttemptingListener;
-use App\Listeners\Adldap\PassedListener;
-use App\Listeners\Adldap\FailedListener;
-use App\Listeners\Adldap\BindingListener;
-use App\Listeners\Adldap\BoundListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -25,97 +19,77 @@ class EventServiceProvider extends ServiceProvider
         ],
         
         'App\Events\IndexEntered' => [
-            'App\Listeners\SendIndexEnteredNotification',
+            'App\Listeners\Index\SendIndexEnteredNotification',
         ],
         
         'App\Events\OvertimeRequestApproved' => [
-            'App\Listeners\SendOvertimeRequestApprovedNotification',
+            'App\Listeners\Request\SendOvertimeRequestApprovedNotification',
         ],
         'App\Events\OvertimeRequestRejected' => [
-            'App\Listeners\SendOvertimeRequestRejectedNotification',
+            'App\Listeners\Request\SendOvertimeRequestRejectedNotification',
         ],
         
         'Illuminate\Cache\Events\CacheHit' => [
-            'App\Listeners\LogCacheHit',
+            'App\Listeners\Cache\LogCacheHit',
         ],
         'Illuminate\Cache\Events\CacheMissed' => [
-            'App\Listeners\LogCacheMissed',
+            'App\Listeners\Cache\LogCacheMissed',
         ],
         'Illuminate\Cache\Events\KeyForgotten' => [
-            'App\Listeners\LogKeyForgotten',
+            'App\Listeners\Cache\LogKeyForgotten',
         ],
         'Illuminate\Cache\Events\KeyWritten' => [
-            'App\Listeners\LogKeyWritten',
+            'App\Listeners\Cache\LogKeyWritten',
         ],
         
         /*
          * Default listeners
          */
-        'Illuminate\Auth\Events\Attempting' => [
-            'App\Listeners\LogAuthenticationAttempt',
-        ],
         'Illuminate\Auth\Events\Authenticated' => [
-            'App\Listeners\LogAuthenticated',
-        ],        
-        'Illuminate\Auth\Events\Login' => [
-            'App\Listeners\LogSuccessfulLogin',
+            'App\Listeners\Auth\LogAuthenticated',
+        ],
+        'Illuminate\Auth\Events\Attempting' => [
+            'App\Listeners\Auth\LogAuthenticationAttempt',
         ],
         'Illuminate\Auth\Events\Failed' => [
-            'App\Listeners\LogFailedLogin',
+            'App\Listeners\Auth\LogFailedLogin',
+        ],
+        'Illuminate\Auth\Events\Login' => [
+            'App\Listeners\Auth\LogSuccessfulLogin',
         ],
         'Illuminate\Auth\Events\Logout' => [
-            'App\Listeners\LogSuccessfulLogout',
+            'App\Listeners\Auth\LogSuccessfulLogout',
         ],
         
         /*
          * Adldap listeners
          */
-        'Adldap\Laravel\Events\Authenticating' => [
-            'App\Listeners\LogAuthenticating',
-        ],
-        
-        'Adldap\Laravel\Events\Authenticated' => [
-            'App\Listeners\LogLdapAuthSuccessful',
-        ],
-        
         'Adldap\Laravel\Events\AuthenticationSuccessful' => [
-            'App\Listeners\LogAuthSuccessful'
-        ],
-        
-        'Adldap\Laravel\Events\AuthenticationFailed' => [
-            'App\Listeners\LogAuthFailure',
+            'App\Listeners\Adldap\LogAuthSuccessful'
         ],
         
         'Adldap\Laravel\Events\AuthenticationRejected' => [
-            'App\Listeners\LogAuthRejected',
-        ],
-        
-        'Adldap\Laravel\Events\AuthenticatedModelTrashed' => [
-            'App\Listeners\LogUserModelIsTrashed',
+            'App\Listeners\Adldap\LogAuthRejected',
         ],
         
         'Adldap\Laravel\Events\AuthenticatedWithCredentials' => [
-            'App\Listeners\LogAuthWithCredentials',
-        ],
-        
-        'Adldap\Laravel\Events\AuthenticatedWithWindows' => [
-            'App\Listeners\LogSSOAuth',
+            'App\Listeners\Adldap\LogAuthWithCredentials',
         ],
         
         'Adldap\Laravel\Events\DiscoveredWithCredentials' => [
-            'App\Listeners\LogAuthUserLocated',
+            'App\Listeners\Adldap\LogAuthUserLocated',
         ],
         
-        'Adldap\Laravel\Events\Importing' => [
-            'App\Listeners\LogImportingUser',
+        'Adldap\Laravel\Events\Authenticating' => [
+            'App\Listeners\Adldap\LogAuthenticating',
         ],
         
-        'Adldap\Laravel\Events\Synchronized' => [
-            'App\Listeners\LogSynchronizedUser',
+        'Adldap\Laravel\Events\Authenticated' => [
+            'App\Listeners\Adldap\LogLdapAuthSuccessful',
         ],
         
-        'Adldap\Laravel\Events\Synchronizing' => [
-            'App\Listeners\LogSynchronizingUser',
+        'Adldap\Laravel\Events\AuthenticationFailed' => [
+            'App\Listeners\Adldap\LogAuthFailure',
         ],
     ];
 
@@ -127,17 +101,5 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-        
-//         $dispatcher = Adldap::getEventDispatcher();
-        
-//         $dispatcher->listen(\Adldap\Auth\Events\Attempting::class, AttemptingListener::class);
-        
-//         $dispatcher->listen(\Adldap\Auth\Events\Passed::class, PassedListener::class);
-        
-//         $dispatcher->listen(\Adldap\Auth\Events\Failed::class, FailedListener::class);
-        
-//         $dispatcher->listen(\Adldap\Auth\Events\Binding::class, BindingListener::class);
-        
-//         $dispatcher->listen(\Adldap\Auth\Events\Bound::class, BoundListener::class);
     }
 }

@@ -26,7 +26,7 @@ class Login extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      *
-     * @return Response
+     * @return Request
      */
     public function authenticate(Request $request)
     {
@@ -58,20 +58,25 @@ class Login extends Controller
             // attempt to do the login
             if (Auth::attempt($credentials, $remember)) {
                 
+//                 if ($request->input('email') == 'Piotr.Tajanowicz@ibm.com') {
+                    
+//                     dd('stopped');
+                    
+//                 }
+                
                 // Authentication passed...
                 return Redirect::intended(route('home'));
                 
             } else {
                 
-                if ($request->input('email') == 'test@test.com') {
+//                 if ($request->input('email') == 'test@ibm.com') {
                     
-                    dd('stopped');
+//                     dd('stopped');
                     
-                }
+//                 }
                 
                 // validation not successful, send back to form
                 return Redirect::route('auth.login')
-                    ->withErrors($validator) // send back all errors to the login form
                     ->withInput($request->except('password')); // send back the input (not the password) so that we can repopulate the form
                 
             }            

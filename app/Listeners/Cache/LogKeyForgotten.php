@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Cache;
 
-use Illuminate\Auth\Events\Login;
+use Illuminate\Cache\Events\KeyForgotten;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class LogSuccessfulLogin
+class LogKeyForgotten
 {
     /**
      * Create the event listener.
@@ -21,12 +21,12 @@ class LogSuccessfulLogin
     /**
      * Handle the event.
      *
-     * @param  Login  $event
+     * @param  KeyForgotten  $event
      * @return void
      */
-    public function handle(Login $event)
+    public function handle(KeyForgotten $event)
     {
         //
-        echo('Info login succeed <br>');
+//         echo('Info Cache Key Forgotten <br>');
     }
 }

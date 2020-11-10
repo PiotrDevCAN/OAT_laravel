@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listeners\Auth;
 
-use Illuminate\Cache\Events\CacheMissed;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class LogCacheMissed
+class LogSuccessfulLogin
 {
     /**
      * Create the event listener.
@@ -21,12 +21,12 @@ class LogCacheMissed
     /**
      * Handle the event.
      *
-     * @param  CacheMissed  $event
+     * @param  Login  $event
      * @return void
      */
-    public function handle(CacheMissed $event)
+    public function handle(Login $event)
     {
         //
-//         echo('Info Cache Missed <br>');
+//         echo('Info login succeed <br>');
     }
 }
