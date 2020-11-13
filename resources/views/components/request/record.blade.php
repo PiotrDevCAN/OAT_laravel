@@ -39,10 +39,8 @@
                             </p>
                         	<x-ibmv18form-input field-name="worker" label="Name of individual working overtime"/>
                     	    <span class="ibm-bold">If changing this entry please allow time for Bluepages Auto Completion to work, it will overwrite this text and re-populate the two fields below.</span>
-                        	
-                        	<p>Name <input type="text" size='50' field-name='workerName' id='workerName' disabled value='' ></p>
-							<p>Job Title <input type="text" size='60' field-name='workerJob' id='workerJob' disabled value=''></p>
-                        	
+                        	<x-ibmv18form-input field-name="workerName" label="Name"/>
+                        	<x-ibmv18form-input field-name="workerJob" label="Job Title"/>
                         </div>
                     </div>
                     <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
