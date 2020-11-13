@@ -15,9 +15,11 @@
             	<option value=''>{{ $placeHolder }}></option>
             @endisset
             
-        	@foreach ($arrayOfSelectableValues as $key => $value)
-        		<option value='{{ $getReturnValue($key, $value) }}' {{ $isSelected($value) ? 'selected="selected"' : '' }} {{ $isDisabled($value) ? '"disabled"="disabled"' : '' }}>{{ $getDisplayValue($key, $value) }}</option>
-        	@endforeach
+         	@!empty($arrayOfSelectableValues)
+            	@foreach ($arrayOfSelectableValues as $key => $value)
+            		<option value='{{ $getReturnValue($key, $value) }}' {{ $isSelected($value) ? 'selected="selected"' : '' }} {{ $isDisabled($value) ? '"disabled"="disabled"' : '' }}>{{ $getDisplayValue($key, $value) }}</option>
+            	@endforeach
+        	@endempty
         </select>
     </span>
 </p>
