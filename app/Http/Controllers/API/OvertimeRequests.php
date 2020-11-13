@@ -9,6 +9,9 @@ use App\Models\Competency;
 use App\Models\Account;
 use App\Events\OvertimeRequestApproved;
 use App\Events\OvertimeRequestRejected;
+use App\Http\Requests\CreateOvertimeRequest;
+use App\Http\Requests\ApproveOvertimeRequest;
+use App\Http\Requests\RejectOvertimeRequest;
 
 class OvertimeRequests extends Controller
 {
@@ -18,7 +21,7 @@ class OvertimeRequests extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateOvertimeRequest $request)
     {
         
         // single update
@@ -42,7 +45,7 @@ class OvertimeRequests extends Controller
      * @param  OvertimeRequest $overtimeRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(OvertimeRequest $overtimeRequest)
+    public function show(Request $request, OvertimeRequest $overtimeRequest)
     {
         
         // Retrieve a model by its primary key...
@@ -94,38 +97,39 @@ class OvertimeRequests extends Controller
      * @param  OvertimeRequest $overtimeRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OvertimeRequest $overtimeRequest)
+    public function destroy(Request $request, OvertimeRequest $overtimeRequest)
     {
         
         // destroy action
+        $overtimeRequest = new OvertimeRequest;
 //         App\Flight::destroy(1);
         
         return view('components.request.destroy');
     }
     
-    public function approve(Request $request, $ref, $lvl, $status, $via)
+    public function approve(ApproveOvertimeRequest $request, $ref, $lvl, $status, $via)
     {
-//         $user = User::withoutEvents(function () use () {
-//             User::findOrFail(1)->delete();
-            
-//             return User::find(2);
-//         });
-
         // Request approval logic...
+        
+        $overtimeRequest = OvertimeRequest::find($ref);
+        
+//         $flight->name = 'New Flight Name';
+
+//         $flight->save();
         
         event(new OvertimeRequestApproved($overtimeRequest));
         
     }
 
-    public function reject(Request $request, $ref, $lvl, $status, $via)
+    public function reject(RejectOvertimeRequest $request, $ref, $lvl, $status, $via)
     {
-//         $user = User::withoutEvents(function () use () {
-//             User::findOrFail(1)->delete();
-            
-//             return User::find(2);
-//         });
-        
         // Request rejection logic...
+        
+        $overtimeRequest = OvertimeRequest::find($ref);
+        
+//         $flight->name = 'New Flight Name';
+        
+//         $flight->save();
         
         event(new OvertimeRequestRejected($overtimeRequest));
         

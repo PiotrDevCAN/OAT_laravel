@@ -40,11 +40,12 @@
                         	<x-ibmv18form-input field-name="worker" label="Name of individual working overtime"/>
                     	    <span class="ibm-bold">If changing this entry please allow time for Bluepages Auto Completion to work, it will overwrite this text and re-populate the two fields below.</span>
                         	
-                        	<p>Name <input type="hidden" size='50' field-name='workerName' id='workerName' disabled value='' ></p>
-							<p>Job Title <input type="hidden" size='60' field-name='workerJob' id='workerJob' disabled value=''></p>
+                        	<p>Name <input type="text" size='50' field-name='workerName' id='workerName' disabled value='' ></p>
+							<p>Job Title <input type="text" size='60' field-name='workerJob' id='workerJob' disabled value=''></p>
                         	
                         </div>
                     </div>
+                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
                         	<x-ibmv18form-input field-name="title" label="Title"/>
@@ -59,17 +60,17 @@
                 	<div class="ibm-fluid">
                         <div class="ibm-fluid">
                             <div class="ibm-col-12-6">
-                           		<x-ibmv18form-select way-to-handle-array="displayKeyReturnKey"  :array-of-selectable-values="$allCompetencies" label="Service Line of person working overtime" field-name="COMPETENCY" />
-                                <x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allAccounts" label="Account" field-name="ACCOUNT"/>
-                                <x-ibmv18form-select way-to-handle-array="displayValueReturnKey" :array-of-selectable-values="$allLocations" label="IBM country of employment" field-name="LOCATION"/>
-                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allImports" label="Is worker an Import to SO Delivery ?" field-name="IMPORT"/>
-                       		</div>
-                            <div class="ibm-col-12-6">
-                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allRecoverable" label="Recoverable" field-name="RECOVERABLE"/>
-                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allNatures" label="Nature" field-name="NATURE"/>
-                                <x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allWeekends" label="Weekending" field-name="WEEKENDDATE"/>
+                           		<x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allAccounts" label="Account" field-name="ACCOUNT"/>
+                           		<x-ibmv18form-input field-name="claim_acc_id" label="Claim Code/ Account Id"/>
                                 <x-ibmv18form-input field-name="hours" label="Hours required"/>
-                                <x-ibmv18form-input field-name="claim_acc_id" label="Claim Code/ Account Id"/>
+                                <x-ibmv18form-select way-to-handle-array="displayKeyReturnKey"  :array-of-selectable-values="$allCompetencies" label="Service Line of person working overtime" field-name="COMPETENCY" />
+                                <x-ibmv18form-select way-to-handle-array="displayValueReturnKey" :array-of-selectable-values="$allLocations" label="IBM country of employment" field-name="LOCATION"/>
+                            </div>
+                            <div class="ibm-col-12-6">
+                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allImports" label="Is worker an Import to SO Delivery ?" field-name="IMPORT"/>
+                       		    <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allRecoverable" label="Recoverable" field-name="RECOVERABLE"/>
+                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allNatures" label="Nature" field-name="NATURE"/>
+                                <x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allWeekends" label="Weekending" field-name="WEEKENDDATE"/>                               
     	                    </div>
                        </div>
                    </div>
@@ -83,12 +84,9 @@
 							<div class="ibm-card">
                                 <div class="ibm-card__content">
                                     <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Tribes and Squads flow</h3>
-        							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="Auto-populated upon submission."/>
-        							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
-        							<p class="ibm-btn-row ibm-button-link ibm-right">
-                                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
-                                   	</p>
-									<p>New Squad Approvals info:</p>
+        							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder=""/>
+        							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder=""/>
+        							<p>New Squad Approvals info:</p>
                 					<p>
                                         Using data from the Europe Squadalog IBM Forms tool, pulled via API Add feature that gives user option to set approver based on their squad (default) or use the existing options by picking an account.
                                         Not all users are aligned to squads so upon login we can use the user id to look the person up in the squadalog. 
@@ -98,6 +96,9 @@
                                             <li>If the user is not found in the squadalog data then just use the existing std approver setup.</li>
                                     	</ul>
                                 	</p>
+                                	<p class="ibm-btn-row ibm-button-link ibm-right">
+                                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Leaders</button>
+                                   	</p>
                                 </div>
                             </div>
 						</div>
