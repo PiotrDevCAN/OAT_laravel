@@ -35,6 +35,27 @@ class Filters extends Component
      */
     public function __construct()
     {
+        
+        $this->accounts = array();
+        $this->reasons = array();
+        $this->names = array();
+        $this->types = array();
+        
+        $this->serviceLines = array();
+        $this->statuses = array();
+        $this->reasons = array();
+        $this->locations = array();
+        
+        $this->weekenddates = array();
+        $this->imports = array();
+        
+        $this->firstApprovers = array();
+        $this->secondApprovers = array();
+        $this->thirdApprovers = array();
+        
+        $this->approvalModes = array();
+        $this->approverSquadLeaders = array();
+        $this->approverTribeLeaders = array();
         /*
         $this->accounts = OvertimeRequest::select('account')
             ->where('account', '<>', '')
