@@ -65,6 +65,10 @@ Route::prefix('request')
         Route::get('edit/{overtimeRequest}', [OvertimeRequests::class, 'edit'])
             ->name('edit');
         
+        // Show the form for review the specified resource.
+        Route::get('show/{overtimeRequest}', [OvertimeRequests::class, 'show'])
+            ->name('show');
+        
         // Mailables preview
         Route::get('retrieved/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
             return new App\Mail\Request\OvertimeRequestRetrieved($overtimeRequest);
