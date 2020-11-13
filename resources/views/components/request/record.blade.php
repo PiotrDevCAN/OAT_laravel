@@ -58,6 +58,9 @@
                 	<div class="ibm-fluid">
                         <div class="ibm-fluid">
                             <div class="ibm-col-12-6">
+                            
+                            HOURS {{ $record->hours }} HOURS
+                            
                            		<x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allAccounts" label="Account" field-name="ACCOUNT"/>
                            		<x-ibmv18form-input field-name="claim_acc_id" label="Claim Code/ Account Id" :value="$record->claim_acc_id"/>
                                 <x-ibmv18form-input field-name="hours" label="Hours required" :value="$record->hours"/>
