@@ -37,38 +37,35 @@
                                     @endisset
                                 </span>
                             </p>
-                        	<x-ibmv18form-input field-name="worker" label="Name of individual working overtime" :value="$record->worker"/>
-                    	    <p class="ibm-bold">If changing this entry please allow time for Bluepages Auto Completion to work, it will overwrite this text and re-populate the two fields below.</p>
-                        	<x-ibmv18form-input field-name="workerName" label="Name"/>
-                        	<x-ibmv18form-input field-name="workerJob" label="Job Title"/>
+                        	<x-ibmv18form-input field-name="worker" label="Name of individual working overtime" disabled="true" :value="$record->worker"/>
                         </div>
                     </div>
                     <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                        	<x-ibmv18form-input field-name="title" label="Title" :value="$record->title"/>
+                        	<x-ibmv18form-input field-name="title" label="Title" disabled="true" :value="$record->title"/>
                         </div>
                 	</div>
                 	<div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                            <x-ibmv18form-textarea field-name="details" :value="$record->details" label="Details of overtime activity"/>
+                            <x-ibmv18form-textarea field-name="details" disabled="true" :value="$record->details" label="Details of overtime activity"/>
                         </div>
                 	</div>
                 	<div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 	<div class="ibm-fluid">
                         <div class="ibm-fluid">
                             <div class="ibm-col-12-6">
-                           		<x-ibmv18form-input field-name="ACCOUNT" label="Account" :value="$record->account"/>
-                           		<x-ibmv18form-input field-name="CLAIM_ACC_ID" label="Claim Code/ Account Id" :value="$record->claim_acc_id"/>
-                                <x-ibmv18form-input field-name="HOURS" label="Hours required" :value="$record->hours"/>
-                                <x-ibmv18form-input field-name="COMPETENCY" label="Service Line of person working overtime" :value="$record->competency"/>
-                                <x-ibmv18form-input field-name="LOCATION" label="IBM country of employment" :value="$record->location"/>
+                           		<x-ibmv18form-input field-name="ACCOUNT" label="Account" disabled="true" :value="$record->account"/>
+                           		<x-ibmv18form-input field-name="CLAIM_ACC_ID" label="Claim Code/ Account Id" disabled="true" :value="$record->claim_acc_id"/>
+                                <x-ibmv18form-input field-name="HOURS" label="Hours required" disabled="true" :value="$record->hours"/>
+                                <x-ibmv18form-input field-name="COMPETENCY" label="Service Line of person working overtime" disabled="true" :value="$record->competency"/>
+                                <x-ibmv18form-input field-name="LOCATION" label="IBM country of employment" disabled="true" :value="$record->location"/>
                             </div>
                             <div class="ibm-col-12-6">
-                                <x-ibmv18form-input field-name="IMPORT" label="Is worker an Import to SO Delivery ?" :value="$record->import"/>
-                                <x-ibmv18form-input field-name="RECOVERABLE" label="Recoverable" :value="$record->recoverable"/>
-                                <x-ibmv18form-input field-name="NATURE" label="Nature" :value="$record->nature"/>
-                                <x-ibmv18form-input field-name="WEEKENDDATE" label="Weekending" :value="$record->weekending"/>
+                                <x-ibmv18form-input field-name="IMPORT" label="Is worker an Import to SO Delivery ?" disabled="true" :value="$record->import"/>
+                                <x-ibmv18form-input field-name="RECOVERABLE" label="Recoverable" disabled="true" :value="$record->recoverable"/>
+                                <x-ibmv18form-input field-name="NATURE" label="Nature" disabled="true" :value="$record->nature"/>
+                                <x-ibmv18form-input field-name="WEEKENDDATE" label="Weekending" disabled="true" :value="$record->weekending"/>
                             </div>
                        </div>
                    </div>
@@ -94,9 +91,6 @@
                                             <li>If the user is not found in the squadalog data then just use the existing std approver setup.</li>
                                     	</ul>
                                 	</p>
-                                	<p class="ibm-btn-row ibm-button-link ibm-right">
-                                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Leaders</button>
-                                   	</p>
                                 </div>
                             </div>
 						</div>
@@ -130,19 +124,7 @@
                             </div>
                    		</div>
                    </div>
-                   
-                   <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
-                   
-                   <p><b>Click Submit to Create the Request.</b></p>
-                   <p class="ibm-btn-row ibm-button-link">
-                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Submit</button>
-                       <button type="button" class="ibm-btn-sec ibm-btn-blue-50">Reset</button>
-                   </p>
-                   
                 </form>
-                
-				<h3 class="ibm-h3"><a href='https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/ITDBO/page/OVERTIME%20APPROVAL%20TOOL%20%28OAT%29%20Guidance' target='_blank' >OAT Tool Guidance</a> for List of Approvers (opens in a new window)</h3>
-                
 			</div>
         </div>
 	</div>
