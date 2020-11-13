@@ -35,6 +35,7 @@ class Filters extends Component
      */
     public function __construct()
     {
+        /*
         $this->accounts = OvertimeRequest::select('account')
             ->where('account', '<>', '')
             ->distinct()
@@ -113,6 +114,7 @@ class Filters extends Component
             ->where('approver_tribe_leader', '<>', '')
             ->distinct()
             ->get();
+        */
     }
 
     /**
