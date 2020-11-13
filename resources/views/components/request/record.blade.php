@@ -12,7 +12,8 @@
                 
                 <h3 class="ibm-bold ibm-h4 ibm-textcolor-red-40">New Features</h3>
                 <ul>
-                    <li><b>Usability: Since now it is possible to check all Approvers Persons names before submitting request.</b></li>
+                	<li><b>Usability: New approval flow of overtime requests has been implemented. For details please refer to description in Flow selection section below.</b></li>
+					<li><b>Usability: For now on it is possible to check all Approvers Persons names before submitting request.</b></li>
                     <li>Usability: Accounts are now in true alphabetical order, regardless of case.</li>
                     <li>Usability: To find your account, begin typing it's name in the select box and the list of options will instantly be filtered to just that match the characters you've typed</li>
                     <li>Performance: Page loads a lot faster</li>
@@ -79,9 +80,31 @@
                    
                    <div class="ibm-fluid" data-widget="setsameheight" data-items=".ibm-card">
                    		<div class="ibm-col-12-6">
+							<div class="ibm-card">
+                                <div class="ibm-card__content">
+                                    <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Tribes and Squads flow</h3>
+        							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="Auto-populated upon submission."/>
+        							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
+        							<p class="ibm-btn-row ibm-button-link ibm-right">
+                                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
+                                   	</p>
+									<p>New Squad Approvals info:</p>";
+                					<p>
+                                        Using data from the Europe Squadalog IBM Forms tool, pulled via API Add feature that gives user option to set approver based on their squad (default) or use the existing options by picking an account.
+                                        Not all users are aligned to squads so upon login we can use the user id to look the person up in the squadalog. 
+                                        Lvl 1 will be auto approved, Lvl 2 approver will be the Squad leader, Lvl 3 the Tribe leader.
+                                        <ul>
+                                            <li>If the user is found, default to the squad approach but should have option to change to the old method.</li>
+                                            <li>If the user is not found in the squadalog data then just use the existing std approver setup.</li>
+                                    	</ul>
+                                	</p>
+                                </div>
+                            </div>
+						</div>
+						<div class="ibm-col-12-6">
                        		<div class="ibm-card">
                                 <div class="ibm-card__content">
-                                	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Existing flow</h3>
+                                	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Account flow</h3>
                            			
                            			<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
                                    	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
@@ -111,18 +134,6 @@
                                 </div>
                             </div>
                    		</div>
-						<div class="ibm-col-12-6">
-							<div class="ibm-card">
-                                <div class="ibm-card__content">
-                                    <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Tribes and Squads flow</h3>
-        							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="Auto-populated upon submission."/>
-        							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="Auto-populated upon submission."/>
-        							<p class="ibm-btn-row ibm-button-link ibm-right">
-                                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
-                                   </p>
-                                </div>
-                            </div>
-						</div>
                    </div>
                    
                    <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
