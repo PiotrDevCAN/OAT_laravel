@@ -11,7 +11,7 @@ class OvertimeRequest extends Model
      *
      * @var string
      */
-    protected $table = 'Requests';
+    protected $table = 'Requests_Test';
     
     /**
      * The primary key associated with the table.

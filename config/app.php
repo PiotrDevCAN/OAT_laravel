@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\DB2IBMServiceProvider::class,
         App\Providers\BluePagesServiceProvider::class,
         App\Providers\BlueGroupsServiceProvider::class,
         App\Providers\BlueGroupsManageServiceProvider::class,
