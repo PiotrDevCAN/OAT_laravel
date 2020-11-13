@@ -63,7 +63,10 @@ class OvertimeRequest extends Model
         'import',
         'approval_first_level_via',
         'approval_second_level_via',
-        'approval_third_level_via'
+        'approval_third_level_via',
+        'approval_mode',
+        'approver_squad_leader',
+        'approver_tribe_leader'
     ];
     
     /**

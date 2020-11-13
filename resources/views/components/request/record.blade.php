@@ -33,7 +33,7 @@
                                 <label class="ibm-column-field-label ibm-bold" for="STATUS">Status</label>
                                 <span id="STATUS">
                                 	@isset($record)
-                                		{{ $record->status }}
+                                		<b>{{ $record->status }}</b>
                                     @endisset
                                 </span>
                             </p>
@@ -46,7 +46,7 @@
                     <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                     <div class="ibm-fluid">
                         <div class="ibm-col-12-12">
-                        	<x-ibmv18form-input field-name="title" label="Title"/>
+                        	<x-ibmv18form-input field-name="title" label="Title" :value="$record->title"/>
                         </div>
                 	</div>
                 	<div class="ibm-fluid">
@@ -59,8 +59,8 @@
                         <div class="ibm-fluid">
                             <div class="ibm-col-12-6">
                            		<x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allAccounts" label="Account" field-name="ACCOUNT"/>
-                           		<x-ibmv18form-input field-name="claim_acc_id" label="Claim Code/ Account Id"/>
-                                <x-ibmv18form-input field-name="hours" label="Hours required"/>
+                           		<x-ibmv18form-input field-name="claim_acc_id" label="Claim Code/ Account Id" :value="$record->claim_acc_id"/>
+                                <x-ibmv18form-input field-name="hours" label="Hours required" :value="$record->hours"/>
                                 <x-ibmv18form-select way-to-handle-array="displayKeyReturnKey"  :array-of-selectable-values="$allCompetencies" label="Service Line of person working overtime" field-name="COMPETENCY" />
                                 <x-ibmv18form-select way-to-handle-array="displayValueReturnKey" :array-of-selectable-values="$allLocations" label="IBM country of employment" field-name="LOCATION"/>
                             </div>
@@ -82,8 +82,8 @@
 							<div class="ibm-card">
                                 <div class="ibm-card__content">
                                     <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Agile Tribes and Squads flow</h3>
-        							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder=""/>
-        							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder=""/>
+        							<x-ibmv18form-input field-name="squad_leader" label="Squad Leader" disabled="true" placeholder="" :value="$record->approver_squad_leader"/>
+        							<x-ibmv18form-input field-name="tribe_leader" label="Tribe Leader" disabled="true" placeholder="" :value="$record->approver_tribe_leader"/>
         							<p>New Squad Approvals info:</p>
                 					<p>
                                         Using data from the Europe Squadalog IBM Forms tool, pulled via API Add feature that gives user option to set approver based on their squad (default) or use the existing options by picking an account.
