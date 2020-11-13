@@ -89,11 +89,11 @@
                                         Using data from the Europe Squadalog IBM Forms tool, pulled via API Add feature that gives user option to set approver based on their squad (default) or use the existing options by picking an account.
                                         Not all users are aligned to squads so upon login we can use the user id to look the person up in the squadalog. 
                                         Lvl 1 will be auto approved, Lvl 2 approver will be the Squad leader, Lvl 3 the Tribe leader.
-                                        <ul>
-                                            <li>If the user is found, default to the squad approach but should have option to change to the old method.</li>
-                                            <li>If the user is not found in the squadalog data then just use the existing std approver setup.</li>
-                                    	</ul>
-                                	</p>
+                                    </p>
+                                    <ul>
+                                        <li>If the user is found, default to the squad approach but should have option to change to the old method.</li>
+                                        <li>If the user is not found in the squadalog data then just use the existing std approver setup.</li>
+                                	</ul>
                                 	<p class="ibm-btn-row ibm-button-link ibm-right">
                                        <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Leaders</button>
                                    	</p>

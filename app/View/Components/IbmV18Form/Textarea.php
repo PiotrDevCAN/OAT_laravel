@@ -10,6 +10,7 @@ class Textarea extends Component
     public $value;
     public $options;
     public $label;
+    public $disabled;
     public $labelOptions;
     
     /**
@@ -17,7 +18,7 @@ class Textarea extends Component
      *
      * @return void
      */
-    public function __construct($fieldName, $value = null, $label = '')
+    public function __construct($fieldName, $value = null, $label = '', $disabled = false)
     {
         $this->fieldName = $fieldName;
         $this->value = $value;
@@ -27,7 +28,8 @@ class Textarea extends Component
             'class' => 'form-control', 
             'id' => $fieldName,
             'maxLength' => '500',
-            'placeholder' => null
+            'placeholder' => null,
+            'disabled' => $disabled
         );
         $this->label = $label;
         $this->labelOptions = array(
