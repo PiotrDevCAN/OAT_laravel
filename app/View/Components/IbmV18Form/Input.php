@@ -21,6 +21,8 @@ class Input extends Component
     
     public function __construct($fieldName = null, $label = null, $value = null, $disabled = false, $placeholder = null)
     {
+        dump($this);
+        
         $this->fieldName = $fieldName;
         $this->label = $label;
         $this->selectedValue = $value;
