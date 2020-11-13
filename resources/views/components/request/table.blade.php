@@ -24,6 +24,9 @@
                     <th>Post</th>
                     <th>Claim Acc</th>
                     <th>Created</th>
+                    <th>Approval Flow</th>
+                    <th>Squad Leader</th>
+                    <th>Tribe Leader</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +34,7 @@
                 <tr>
                     <td>
                     @isset($record->reference)
-                    	{{ link_to_route('request.edit', $title = $record->reference, ['overtimeRequest' => $record->reference]) }}
+                    	{{ link_to_route('request.show', $title = $record->reference, ['overtimeRequest' => $record->reference]) }}
                     @endisset
                     </td>
                     <td class="ibm-bold">
@@ -69,15 +72,18 @@
                     <td><x-mailto-link :email="$record->requestor"/></td>
                     <td>
                     @isset($record->supercedes)
-                    	{{ link_to_route('request.edit', $title = $record->supercedes, ['overtimeRequest' => $record->supercedes]) }}
+                    	{{ link_to_route('request.show', $title = $record->supercedes, ['overtimeRequest' => $record->supercedes]) }}
                     @endisset
                     <td>
                     @isset($record->supercededby)
-                   		{{ link_to_route('request.edit', $title = $record->supercededby, ['overtimeRequest' => $record->supercededby]) }}
+                   		{{ link_to_route('request.show', $title = $record->supercededby, ['overtimeRequest' => $record->supercededby]) }}
                     @endisset
                     </td>
                     <td>{{ $record->claim_acc_id }}</td>
                     <td>{{ $record->created_ts }}</td>
+                    <td>{{ $record->approval_mode }}</td>
+                    <td>{{ $record->approver_squad_leader }}</td>
+                    <td>{{ $record->approver_tribe_leader }}</td>
                 </tr>
                 @endforeach
             </tbody>
