@@ -2,7 +2,7 @@
     {{ Form::label($fieldName, $label) }}
     <span>
     
-    {{ $selectedValue }}
+    TEST {{ $selectedValue }} TEST
     
     	{{ Form::text($fieldName, $selectedValue, $options) }}
     </span>
