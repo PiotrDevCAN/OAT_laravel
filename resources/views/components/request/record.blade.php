@@ -88,7 +88,7 @@
         							<p class="ibm-btn-row ibm-button-link ibm-right">
                                        <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
                                    	</p>
-									<p>New Squad Approvals info:</p>";
+									<p>New Squad Approvals info:</p>
                 					<p>
                                         Using data from the Europe Squadalog IBM Forms tool, pulled via API Add feature that gives user option to set approver based on their squad (default) or use the existing options by picking an account.
                                         Not all users are aligned to squads so upon login we can use the user id to look the person up in the squadalog. 
