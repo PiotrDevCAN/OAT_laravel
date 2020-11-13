@@ -19,11 +19,11 @@ class Input extends Component
      * @return void
      */
     
-    public function __construct($fieldName = null, $label = null, $selectedValue = null, $disabled = false, $placeholder = null)
+    public function __construct($fieldName = null, $label = null, $value = null, $disabled = false, $placeholder = null)
     {
         $this->fieldName = $fieldName;
         $this->label = $label;
-        $this->selectedValue = $selectedValue;
+        $this->selectedValue = $value;
         $this->disabled = $disabled;
         $this->placeholder = $placeholder;
         $this->options = array(
