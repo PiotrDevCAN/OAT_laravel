@@ -58,18 +58,18 @@
                 	<div class="ibm-fluid">
                         <div class="ibm-fluid">
                             <div class="ibm-col-12-6">
-                            	<x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allAccounts" label="Account" field-name="ACCOUNT"/>
-                           		<x-ibmv18form-input field-name="claim_acc_id" label="Claim Code/ Account Id" :value="$record->claim_acc_id"/>
-                                <x-ibmv18form-input field-name="hours" label="Hours required" :value="$record->hours"/>
-                                <x-ibmv18form-select way-to-handle-array="displayKeyReturnKey"  :array-of-selectable-values="$allCompetencies" label="Service Line of person working overtime" field-name="COMPETENCY" />
-                                <x-ibmv18form-select way-to-handle-array="displayValueReturnKey" :array-of-selectable-values="$allLocations" label="IBM country of employment" field-name="LOCATION"/>
+                           		<x-ibmv18form-input field-name="ACCOUNT" label="Account" :value="$record->account"/>
+                           		<x-ibmv18form-input field-name="CLAIM_ACC_ID" label="Claim Code/ Account Id" :value="$record->claim_acc_id"/>
+                                <x-ibmv18form-input field-name="HOURS" label="Hours required" :value="$record->hours"/>
+                                <x-ibmv18form-input field-name="COMPETENCY" label="Service Line of person working overtime" :value="$record->competency"/>
+                                <x-ibmv18form-input field-name="LOCATION" label="IBM country of employment" :value="$record->location"/>
                             </div>
                             <div class="ibm-col-12-6">
-                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allImports" label="Is worker an Import to SO Delivery ?" field-name="IMPORT"/>
-                       		    <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allRecoverable" label="Recoverable" field-name="RECOVERABLE"/>
-                                <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$allNatures" label="Nature" field-name="NATURE"/>
-                                <x-ibmv18form-select way-to-handle-array="displayKeyReturnKey" :array-of-selectable-values="$allWeekends" label="Weekending" field-name="WEEKENDDATE"/>                               
-    	                    </div>
+                                <x-ibmv18form-input field-name="IMPORT" label="Is worker an Import to SO Delivery ?" :value="$record->import"/>
+                                <x-ibmv18form-input field-name="RECOVERABLE" label="Recoverable" :value="$record->recoverable"/>
+                                <x-ibmv18form-input field-name="NATURE" label="Nature" :value="$record->nature"/>
+                                <x-ibmv18form-input field-name="WEEKENDDATE" label="Weekending" :value="$record->weekending"/>
+                            </div>
                        </div>
                    </div>
                    
@@ -105,32 +105,28 @@
                                 <div class="ibm-card__content">
                                 	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Account flow</h3>
                            			
-                           			<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                                   	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
-                                   	<x-ibmv18form-input field-name="approver_third_level" label="3rd Level Approver" disabled="true" placeholder="Auto-populated upon submission."/>
+                           			<x-ibmv18form-input field-name="approver_first_level" label="1st Level Approver" disabled="true" placeholder="" :value="$record->approver_first_level"/>
+                                   	<x-ibmv18form-input field-name="approver_second_level" label="2nd Level Approver" disabled="true" placeholder="" :value="$record->approver_second_level"/>
+                                   	<x-ibmv18form-input field-name="approver_third_level" label="3rd Level Approver" disabled="true" placeholder="" :value="$record->approver_third_level"/>
                            			
                            			<p>
-                                        <label class="ibm-column-field-label ibm-bold" for="APPROVER_FIRST_CHECK">Predicted 1st Level Approver</label>
+                                        <label class="ibm-column-field-label ibm-bold" for="APPROVER_FIRST_CHECK">1st Level Status</label>
                                         <span id="APPROVER_FIRST_CHECK">
-                                        Use Check Approvers option to discover who is suitable 1st Level Approver
+                                        {{ $record->status }}
                                     	</span>
                                     <p>
-                                        <label class="ibm-column-field-label ibm-bold" for="APPROVER_SECOND_CHECK">Predicted 2nd Level Approver</label>
+                                        <label class="ibm-column-field-label ibm-bold" for="APPROVER_SECOND_CHECK">2nd Level Status</label>
                                         <span id="APPROVER_SECOND_CHECK">
-                                        Use Check Approvers option to discover who is suitable 2nd Level Approver
-                                    	</span>
-                                    </p>
-                                    <p>
-                                        <label class="ibm-column-field-label ibm-bold" for="APPROVER_THIRD_CHECK">Predicted 3rd Level Approver</label>
-                                        <span id="APPROVER_THIRD_CHECK">
-        	                                Use Check Approvers option to discover who is suitable 3rd Level Approver
+                                        {{ $record->status }}
                                         </span>
                                     </p>
-                           		
-                           			<p class="ibm-btn-row ibm-button-link ibm-right">
-                                       <button type="button" class="ibm-btn-pri ibm-btn-blue-50">Check Approvers</button>
-                                   </p>
-                                </div>
+                                    <p>
+                                        <label class="ibm-column-field-label ibm-bold" for="APPROVER_THIRD_CHECK">3rd Level Status</label>
+                                        <span id="APPROVER_THIRD_CHECK">
+        	                            {{ $record->status }}
+        	                            </span>
+                                    </p>
+                           		</div>
                             </div>
                    		</div>
                    </div>

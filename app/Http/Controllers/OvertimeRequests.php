@@ -143,6 +143,21 @@ class OvertimeRequests extends Controller
     }
     
     /**
+     * Display the specified resource.
+     *
+     * @param  OvertimeRequest $overtimeRequest
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request, OvertimeRequest $overtimeRequest)
+    {
+        $data = array(
+            'record' => $overtimeRequest
+        );
+        
+        return view('components.request.show', $data);
+    }
+    
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  OvertimeRequest $overtimeRequest

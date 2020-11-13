@@ -47,33 +47,8 @@ class OvertimeRequests extends Controller
      */
     public function show(Request $request, OvertimeRequest $overtimeRequest)
     {
-        
-        // Retrieve a model by its primary key...
-//         $flight = App\Flight::find(1);
-        
-//         $record = new OvertimeRequest();
-        
-        $allAccounts = Account::accounts();
-        $allVerified = Account::verified();
-        $allLocations = Account::locations();
-        $allCompetencies = Competency::competencies();
-        $allImports = OvertimeRequest::imports();
-        $allRecoverable = OvertimeRequest::recoverables();
-        $allNatures = OvertimeRequest::natures();
-        $allWeekends = array(
-            //
-        );
-        
         $data = array(
-            'record' => $overtimeRequest,
-            'allAccounts' => $allAccounts,
-            'allVerified' => $allVerified,
-            'allCompetencies' => $allCompetencies,
-            'allLocations' => $allLocations,
-            'allImports' => $allImports,
-            'allRecoverable' => $allRecoverable,
-            'allNatures' => $allNatures,
-            'allWeekends' => $allWeekends
+            'record' => $overtimeRequest
         );
         
         return view('components.request.show', $data);
