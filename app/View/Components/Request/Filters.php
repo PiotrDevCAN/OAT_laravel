@@ -24,6 +24,10 @@ class Filters extends Component
     public $secondApprovers;
     public $thirdApprovers;
     
+    public $approvalModes;
+    public $approverSquadLeaders;
+    public $approverTribeLeaders;
+    
     /**
      * Create a new component instance.
      *
@@ -92,6 +96,21 @@ class Filters extends Component
         
         $this->thirdApprovers = OvertimeRequest::select('approver_third_level')
             ->where('approver_third_level', '<>', '')
+            ->distinct()
+            ->get();
+        
+        $this->approvalModes = OvertimeRequest::select('approval_mode')
+            ->where('approval_mode', '<>', '')
+            ->distinct()
+            ->get();
+            
+        $this->approverSquadLeaders = OvertimeRequest::select('approver_squad_leader')
+            ->where('approver_squad_leader', '<>', '')
+            ->distinct()
+            ->get();
+            
+        $this->approverTribeLeaders = OvertimeRequest::select('approver_tribe_leader')
+            ->where('approver_tribe_leader', '<>', '')
             ->distinct()
             ->get();
     }

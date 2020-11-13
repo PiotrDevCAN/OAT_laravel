@@ -50,6 +50,16 @@ class OvertimeRequests extends Controller
             $predicates[] = array('import', '=', $request->input('Import'));
         };
         
+        if ($request->filled('ApprovalMode')) {
+            $predicates[] = array('approvalmode', '=', $request->input('ApprovalMode'));
+        };
+        if ($request->filled('ApproverSquadLeader')) {
+            $predicates[] = array('approversquadleader', '=', $request->input('ApproverSquadLeader'));
+        };
+        if ($request->filled('ApproverTribeLeader')) {
+            $predicates[] = array('approvertribeleader', '=', $request->input('ApproverTribeLeader'));
+        };
+        
         if ($request->filled('FirstApprover')) {
             $predicates[] = array('approver_first_level', '=', $request->input('FirstApprover'));
         };

@@ -21,6 +21,17 @@
             	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$imports" label="Import:" field-name="Import" :selected-value="request()->input('Import')"/>
             </div>
 		</div>
+		<div class="ibm-fluid">
+            <div class="ibm-col-12-4">
+	            <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$approvalModes" label="Approval Mode" field-name="ApprovalMode" :selected-value="request()->input('ApprovalMode')"/>
+            </div>
+            <div class="ibm-col-12-4">
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$approverSquadLeaders" label="Squad Leader:" field-name="ApproverSquadLeader" :selected-value="request()->input('ApproverSquadLeader')"/>
+            </div>
+            <div class="ibm-col-12-4">
+        		<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$approverTribeLeaders" label="Tribe Leader:" field-name="ApproverTribeLeader" :selected-value="request()->input('ApproverTribeLeader')"/>
+            </div>
+		</div>
 	</div>
 </div>
 <div class="ibm-card">
