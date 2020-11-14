@@ -25,7 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 */
 
 // Overtime Requests
-Route::prefix('request')->name('request.')->group(function () {
+Route::prefix('request')->name('api.request.')->group(function () {
     Route::get('store', [OvertimeRequests::class, 'store'])
         ->name('store');
 
