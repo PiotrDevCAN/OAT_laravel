@@ -46,7 +46,7 @@ Route::prefix('request')->name('api.request.')->group(function () {
 });
 
 // Accounts
-Route::prefix('account')->name('account.')->group(function () {
+Route::prefix('account')->name('api.account.')->group(function () {
     Route::get('store', [Accounts::class, 'store'])
         ->name('store');
     
@@ -61,7 +61,7 @@ Route::prefix('account')->name('account.')->group(function () {
 });
 
 // Delegates
-Route::prefix('delegate')->name('delegate.')->group(function () {
+Route::prefix('delegate')->name('api.delegate.')->group(function () {
     Route::get('store', [Delegates::class, 'store'])
         ->name('store');
         
@@ -76,7 +76,7 @@ Route::prefix('delegate')->name('delegate.')->group(function () {
 });
 
 // Competencies
-Route::prefix('competency')->name('competency.')->group(function () {
+Route::prefix('competency')->name('api.competency.')->group(function () {
     Route::get('store', [Competencies::class, 'store'])
         ->name('store');
 
