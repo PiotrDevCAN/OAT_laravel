@@ -38,12 +38,12 @@ Route::name('auth.')
             ->name('loginCancel');
         
         Route::post('/authenticate', [Login::class, 'authenticate'])
-            ->name('authenticate');
+            ->name('post.authenticate');
         
         Route::get('/authenticate', function () {
             return redirect()->route('auth.login');
         })
-            ->name('authenticate');
+            ->name('get.authenticate');
     });
 
 // Overtime Requests
