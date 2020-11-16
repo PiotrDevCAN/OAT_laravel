@@ -85,10 +85,10 @@ class OvertimeRequests extends Controller
         
         $overtimeRequest = new OvertimeRequest;
         
-        $cacheData = Cache::getFacadeRoot();
-        dump($cacheData);
+        $cacheData = config('cache.default');
+        echo $cacheData;
         
-        $posts = Cache::remember('index.posts', 30, function()
+        $posts = Cache::remember('OvertimeRequests.index.awaiting', 33660, function()
         {
 //             return Post::with('comments', 'tags', 'author', 'seo')->whereHidden(0)->get();
         });
