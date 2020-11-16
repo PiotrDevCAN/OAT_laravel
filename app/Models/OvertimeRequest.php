@@ -168,6 +168,7 @@ class OvertimeRequest extends Model
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($predicates)
+            ->limit(15)
             ->get();
     }
     
@@ -186,6 +187,7 @@ class OvertimeRequest extends Model
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($predicates)
+            ->limit(15)
             ->get();
     }
     
@@ -205,6 +207,7 @@ class OvertimeRequest extends Model
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($predicates)
+            ->limit(15)
             ->get();
     }
     
