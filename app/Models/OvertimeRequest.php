@@ -160,6 +160,7 @@ class OvertimeRequest extends Model
             ->get();
         
         dump($data);
+        exit;
         
         return $data;
     }
