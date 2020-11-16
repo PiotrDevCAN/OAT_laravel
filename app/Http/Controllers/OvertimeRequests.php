@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\OvertimeRequest;
 use App\Models\Account;
 use App\Models\Competency;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Cache;
 
 class OvertimeRequests extends Controller
 {
@@ -85,28 +83,17 @@ class OvertimeRequests extends Controller
         
         $overtimeRequest = new OvertimeRequest;
         
-        $cacheData = config('cache.default');
-        dump($cacheData);
-        
-        $posts = Cache::remember('OvertimeRequests.index.awaiting', 33660, function()
-        {
-//             return Post::with('comments', 'tags', 'author', 'seo')->whereHidden(0)->get();
-        });
-        
         $data = array(
-//             'awaiting' => $overtimeRequest->awaiting($predicates),
+            'awaiting' => $overtimeRequest->awaiting($predicates),
 //             'awaitingHours' => $overtimeRequest->sumAwaitingHours($predicates),
-            'awaiting' => array(),
             'awaitingHours' => 0,
             
-//             'approved' => $overtimeRequest->approved($predicates),
+            'approved' => $overtimeRequest->approved($predicates),
 //             'approvedHours' => $overtimeRequest->sumApprovedHours($predicates),
-            'approved' => array(),
             'approvedHours' => 0,
             
-//             'other' => $overtimeRequest->other($predicates),
+            'other' => $overtimeRequest->other($predicates),
 //             'otherHours' => $overtimeRequest->sumOtherHours($predicates)
-            'other' => array(),
             'otherHours' => 0,
         );
         

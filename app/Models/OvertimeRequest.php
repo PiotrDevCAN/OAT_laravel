@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class OvertimeRequest extends Model
 {
@@ -164,60 +165,90 @@ class OvertimeRequest extends Model
     
     public function awaiting($predicates)
     {
-        return $this::where('status', 'like', 'Awaiting%')
+        $data = Cache::remember('OvertimeRequests.index.awaiting', 33660, function($overtimeRequest, $predicates)
+        {
+            return $this::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($predicates)
             ->limit(15)
             ->get();
+        });
+        
+        return $data;
     }
     
     public function sumAwaitingHours($predicates)
     {
-        return $this::where('status', 'like', 'Awaiting%')
+        $data = Cache::remember('OvertimeRequests.index.sumAwaitingHours', 33660, function($overtimeRequest, $predicates)
+        {
+            return $this::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($predicates)
             ->sum('hours');
+        });
+        
+        return $data;
     }
     
     public function approved($predicates)
     {
-        return $this::where('status', 'Approved')
+        $data = Cache::remember('OvertimeRequests.index.approved', 33660, function($overtimeRequest, $predicates)
+        {
+            return $this::where('status', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($predicates)
             ->limit(15)
             ->get();
+        });
+        
+        return $data;
     }
     
     public function sumApprovedHours($predicates)
     {
-        return $this::where('status', 'Approved')
+        $data = Cache::remember('OvertimeRequests.index.sumApprovedHours', 33660, function($overtimeRequest, $predicates)
+        {
+            return $this::where('status', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($predicates)
             ->sum('hours');
+        });
+        
+        return $data;
     }
     
     public function other($predicates)
     {
-        return $this::where('status',  'not like', 'Awaiting%')
+        $data = Cache::remember('OvertimeRequests.index.other', 33660, function($overtimeRequest, $predicates)
+        {
+            return $this::where('status',  'not like', 'Awaiting%')
             ->where('status', '<>', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($predicates)
             ->limit(15)
             ->get();
+        });
+        
+        return $data;
     }
     
     public function sumOtherHours($predicates)
     {
-        return $this::where('status',  'not like', 'Awaiting%')
+        $data = Cache::remember('OvertimeRequests.index.sumOtherHours', 33660, function($overtimeRequest, $predicates)
+        {
+            return $this::where('status',  'not like', 'Awaiting%')
             ->where('status', '<>', 'Approved')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-08-07')
             ->where($predicates)
             ->sum('hours');
+        });
+        
+        return $data;
     }
 }
