@@ -1,6 +1,12 @@
 <p class='ibm-form-elem-grp' id='{{ $fieldName }}."FormGroup"?>'>
     <label for='{{ $fieldName }}'>{{ $label }}</label>
     <span>
+    
+    @foreach ($arrayOfSelectableValues as $key => $value)
+    	{{ $key }}
+    	{{ $value }}
+    @endforeach
+    
         <select 
         	name='{{ $fieldName }}' 
         	id='{{ $fieldName}}' 
@@ -17,7 +23,7 @@
             
          	@empty($arrayOfSelectableValues)
          	@else
-            	
+         	
         	@endempty
         </select>
     </span>

@@ -52,8 +52,6 @@ class Select extends Component
         $this->placeHolder = $placeHolder;
         $this->arrayOfDisabledValues = $arrayOfDisabledValues;
         $this->selectedValues = $selectedValues;
-    
-        dump($arrayOfSelectableValues);
     }
     
     /**
