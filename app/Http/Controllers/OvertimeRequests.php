@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\OvertimeRequest;
 use App\Models\Account;
 use App\Models\Competency;
+use Illuminate\Support\Facades\DB;
 
 class OvertimeRequests extends Controller
 {
@@ -81,11 +82,18 @@ class OvertimeRequests extends Controller
      */
     public function index(Request $request)
     {
+        DB::enableQueryLog();
+        
         $predicates = $this->preparePredicates($request);
         
         $awaiting = OvertimeRequest::awaiting($predicates);
+        dump(DB::getQueryLog());
+        
         $approved = OvertimeRequest::approved($predicates);
+        dump(DB::getQueryLog());
+        
         $other = OvertimeRequest::other($predicates);
+        dump(DB::getQueryLog());
         
         $data = array(
             'awaiting' => $awaiting,
