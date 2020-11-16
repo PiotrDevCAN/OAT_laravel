@@ -7,6 +7,7 @@ use App\Models\OvertimeRequest;
 use App\Models\Account;
 use App\Models\Competency;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Cache;
 
 class OvertimeRequests extends Controller
 {
@@ -83,6 +84,14 @@ class OvertimeRequests extends Controller
         $predicates = $this->preparePredicates($request);
         
         $overtimeRequest = new OvertimeRequest;
+        
+        $cacheData = Cache::getFacadeRoot();
+        dump($cacheData);
+        
+        $posts = Cache::remember('index.posts', 30, function()
+        {
+//             return Post::with('comments', 'tags', 'author', 'seo')->whereHidden(0)->get();
+        });
         
         $data = array(
 //             'awaiting' => $overtimeRequest->awaiting($predicates),
