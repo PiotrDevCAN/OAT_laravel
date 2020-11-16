@@ -83,18 +83,19 @@ class OvertimeRequests extends Controller
         
         $overtimeRequest = new OvertimeRequest;
         
+        $awaiting = $overtimeRequest->awaiting($predicates);
+        $approved = $overtimeRequest->approved($predicates);
+        $other = $overtimeRequest->other($predicates);
+        
         $data = array(
-            'awaiting' => $overtimeRequest->awaiting($predicates),
-//             'awaitingHours' => $overtimeRequest->sumAwaitingHours($predicates),
-            'awaitingHours' => 0,
+            'awaiting' => $awaiting,
+            'awaitingHours' => $awaiting->sum('hours'),
             
-            'approved' => $overtimeRequest->approved($predicates),
-//             'approvedHours' => $overtimeRequest->sumApprovedHours($predicates),
-            'approvedHours' => 0,
+            'approved' => $approved,
+            'approvedHours' => $approved->sum('hours'),
             
-            'other' => $overtimeRequest->other($predicates),
-//             'otherHours' => $overtimeRequest->sumOtherHours($predicates)
-            'otherHours' => 0,
+            'other' => $other,
+            'otherHours' => $other->sum('hours'),
         );
         
         return view('components.request.index', $data);

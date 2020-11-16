@@ -9,28 +9,28 @@
         <div class="ibm-fluid">
         	@isset($awaiting)
                 <div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" selected-value="0" disabled="true"/>
+                	<x-ibmv18form-input field-name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="$awaiting->count()" disabled="true"/>
                 </div>
                 <div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="ApprovedRequestsHours" label="Hours:" :selected-value="$awaitingHours" disabled="true"/>
+                	<x-ibmv18form-input field-name="ApprovedRequestsHours" label="Hours:" :value="$awaitingHours" disabled="true"/>
                 </div>
             @endisset
             
             @isset($approved)
             	<div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="ApprovedRequests" label="Approved Requests:" selected-value="0" disabled="true"/>
+                	<x-ibmv18form-input field-name="ApprovedRequests" label="Approved Requests:" :value="$approved->count()" disabled="true"/>
                 </div>
                 <div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="AwaitingApprovalRequestsHours" label="Hours:" :selected-value="$approvedHours" disabled="true"/>
+                	<x-ibmv18form-input field-name="AwaitingApprovalRequestsHours" label="Hours:" :value="$approvedHours" disabled="true"/>
                 </div>
             @endisset
             
             @isset($other)
             	<div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="OtherRequests" label="Other Requests:" selected-value="0" disabled="true"/>
+                	<x-ibmv18form-input field-name="OtherRequests" label="Other Requests:" :value="$other->count()" disabled="true"/>
                 </div>
                 <div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="OtherRequestsHours" label="Hours:" :selected-value="$otherHours" disabled="true"/>
+                	<x-ibmv18form-input field-name="OtherRequestsHours" label="Hours:" :value="$otherHours" disabled="true"/>
                 </div>
             @endisset
        	</div>
