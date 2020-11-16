@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\BaseModel;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class Competency extends BaseModel
 {    
@@ -49,7 +50,8 @@ class Competency extends BaseModel
     {
         $data = Cache::remember('Competency.competenciesByAccount', 33660, function()
         {
-            return self::select('approver','competency')
+            return DB::table(self::$table)
+                ->select('approver','competency')
                 ->distinct()
                 ->get();
         });

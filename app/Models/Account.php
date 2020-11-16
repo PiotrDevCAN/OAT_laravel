@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\BaseModel;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class Account extends BaseModel
 {    
@@ -50,7 +51,8 @@ class Account extends BaseModel
     {
         $data = Cache::remember('Account.approversByAccount'.$cc, 33660, function() use($cc)
         {
-            return self::select('approver','account')
+            return DB::table(self::$table)
+                ->select('approver','account')
                 ->distinct()
                 ->where('location', $cc)
                 ->get();
@@ -67,7 +69,8 @@ class Account extends BaseModel
     {
         $data = Cache::remember('Account.verified'.$cc, 33660, function() use($cc)
         {
-            return self::select('verified','account')
+            return DB::table(self::$table)
+                ->select('verified','account')
                 ->distinct()
                 ->where('location', $cc)
                 ->get();
@@ -84,7 +87,8 @@ class Account extends BaseModel
     {
         $data = Cache::remember('Account.locations', 33660, function()
         {
-            return self::select('location')
+            return DB::table(self::$table)
+                ->select('location')
                 ->distinct()
                 ->where('verified', 'Yes')
                 ->where('location', '<>', '')

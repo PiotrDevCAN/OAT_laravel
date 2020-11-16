@@ -122,7 +122,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.accounts', 33660, function()
         {
-            return self::select('account')
+            return DB::table(self::$table)
+                ->select('account')
                 ->where('account', '<>', '')
                 ->distinct()
                 ->get();
@@ -135,7 +136,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.workers', 33660, function()
         {
-            return self::select('worker')
+            return DB::table(self::$table)
+                ->select('worker')
                 ->where('worker', '<>', '')
                 ->distinct()
                 ->get();
@@ -148,14 +150,12 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approvalTypes', 33660, function()
         {
-            return DB::table(self::$table)->select('approvaltype')
-            ->where('approvaltype', '<>', '')
-            ->distinct()
-            ->get();
+            return DB::table(self::$table)
+                ->select('approvaltype')
+                ->where('approvaltype', '<>', '')
+                ->distinct()
+                ->get();
         });
-        
-        var_dump($data);
-        exit;
         
         return $data;
     }
@@ -164,7 +164,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.competencies', 33660, function()
         {
-            return self::select('competency')
+            return DB::table(self::$table)
+                ->select('competency')
                 ->where('competency', '<>', '')
                 ->distinct()
                 ->get();
@@ -177,7 +178,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.statuses', 33660, function()
         {
-            return self::select('status')
+            return DB::table(self::$table)
+                ->select('status')
                 ->where('status', '<>', '')
                 ->distinct()
                 ->get();
@@ -190,7 +192,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.requestors', 33660, function()
         {
-            return self::select('requestor')
+            return DB::table(self::$table)
+                ->select('requestor')
                 ->where('requestor', '<>', '')
                 ->distinct()
                 ->get();
@@ -203,7 +206,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.locations', 33660, function()
         {
-            return self::select('location')
+            return DB::table(self::$table)
+                ->select('location')
                 ->where('location', '<>', '')
                 ->distinct()
                 ->get();
@@ -216,7 +220,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.weekendDates', 33660, function()
         {
-            return self::select('weekenddate')
+            return DB::table(self::$table)
+                ->select('weekenddate')
                 ->distinct()
                 ->get();
         });
@@ -228,7 +233,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approvers_first_level', 33660, function()
         {
-            return self::select('approver_first_level')
+            return DB::table(self::$table)
+                ->select('approver_first_level')
                 ->where('approver_first_level', '<>', '')
                 ->distinct()
                 ->get();
@@ -241,7 +247,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approvers_second_level', 33660, function()
         {
-            return self::select('approver_second_level')
+            return DB::table(self::$table)
+                ->select('approver_second_level')
                 ->where('approver_second_level', '<>', '')
                 ->distinct()
                 ->get();
@@ -254,7 +261,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approvers_third_level', 33660, function()
         {
-            return self::select('approver_third_level')
+            return DB::table(self::$table)
+                ->select('approver_third_level')
                 ->where('approver_third_level', '<>', '')
                 ->distinct()
                 ->get();
@@ -267,7 +275,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approval_modes', 33660, function()
         {
-            return self::select('approval_mode')
+            return DB::table(self::$table)
+                ->select('approval_mode')
                 ->where('approval_mode', '<>', '')
                 ->distinct()
                 ->get();
@@ -280,7 +289,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approver_squad_leaders', 33660, function()
         {
-            return self::select('approver_squad_leader')
+            return DB::table(self::$table)
+                ->select('approver_squad_leader')
                 ->where('approver_squad_leader', '<>', '')
                 ->distinct()
                 ->get();
@@ -293,7 +303,8 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approver_tribe_leaders', 33660, function()
         {
-            return self::select('approver_tribe_leader')
+            return DB::table(self::$table)
+                ->select('approver_tribe_leader')
                 ->where('approver_tribe_leader', '<>', '')
                 ->distinct()
                 ->get();
