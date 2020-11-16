@@ -136,9 +136,7 @@ class OvertimeRequests extends Controller
         $allImports = OvertimeRequest::imports();
         $allRecoverable = OvertimeRequest::recoverables();
         $allNatures = OvertimeRequest::natures();
-        $allWeekends = array(
-            //
-        );
+        $allWeekends = OvertimeRequest::weekendDates();
 
         $data = array(
             'record' => $model,
@@ -187,9 +185,7 @@ class OvertimeRequests extends Controller
         $allImports = OvertimeRequest::imports();
         $allRecoverable = OvertimeRequest::recoverables();
         $allNatures = OvertimeRequest::natures();
-        $allWeekends = array(
-            //
-        );
+        $allWeekends = OvertimeRequest::weekendDates();
         
         dump($overtimeRequest);
         

@@ -53,13 +53,14 @@ class Account extends BaseModel
             return self::select('approver','account')
                 ->distinct()
                 ->where('location', $cc)
-                ->get()
-                ->mapWithKeys(function ($item) {
-                    return [$item->account => $item->approver];
-                });
+                ->get();
         });
         
-        return $data;
+        $return = $data->mapWithKeys(function ($item) {
+            return [$item->account => $item->approver];
+        });
+        
+        return $return;
     }
     
     public static function verified($cc = 'UK')
@@ -69,13 +70,14 @@ class Account extends BaseModel
             return self::select('verified','account')
                 ->distinct()
                 ->where('location', $cc)
-                ->get()
-                ->mapWithKeys(function ($item) {
-                    return [$item->account => $item->verified];
-                });
+                ->get();
         });
         
-        return $data;
+        $return = $data->mapWithKeys(function ($item) {
+            return [$item->account => $item->verified];
+        });
+        
+        return $return;
     }
     
     public static function locations()
@@ -86,12 +88,13 @@ class Account extends BaseModel
                 ->distinct()
                 ->where('verified', 'Yes')
                 ->where('location', '<>', '')
-                ->get()
-                ->mapWithKeys(function ($item) {
-                    return [$item->location => $item->location];
-                });
+                ->get();
         });
         
-        return $data;        
+        $return = $data->mapWithKeys(function ($item) {
+            return [$item->location => $item->location];
+        });
+        
+        return $return;
     }
 }

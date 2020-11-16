@@ -51,12 +51,13 @@ class Competency extends BaseModel
         {
             return self::select('approver','competency')
                 ->distinct()
-                ->get()
-                ->mapWithKeys(function ($item) {
-                    return [$item->competency => $item->approver];
-                });
+                ->get();
         });
         
-        return $data;        
+        $return = $data->mapWithKeys(function ($item) {
+            return [$item->competency => $item->approver];
+        });
+        
+        return $return;
     }
 }
