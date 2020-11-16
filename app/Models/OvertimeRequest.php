@@ -123,7 +123,7 @@ class OvertimeRequest extends Model
         {
             return self::where('account', '<>', '')
                 ->distinct()
-                ->get(account);
+                ->get('account');
         });
     
         return $data;
@@ -147,7 +147,7 @@ class OvertimeRequest extends Model
         {
             return self::where('approvaltype', '<>', '')
             ->distinct()
-            ->get('');
+            ->get('approvaltype');
         });
         
         return $data;
@@ -219,7 +219,7 @@ class OvertimeRequest extends Model
         {
             return self::where('approver_first_level', '<>', '')
                 ->distinct()
-                ->get('');
+                ->get('approver_first_level');
         });
         
         return $data;
