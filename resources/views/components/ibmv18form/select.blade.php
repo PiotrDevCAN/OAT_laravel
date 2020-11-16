@@ -17,9 +17,7 @@
             
          	@empty($arrayOfSelectableValues)
          	@else
-            	@foreach ($arrayOfSelectableValues as $key => $value)
-            		<option value='{{ $getReturnValue($key, $value) }}' {{ $isSelected($value) ? 'selected="selected"' : '' }} {{ $isDisabled($value) ? '"disabled"="disabled"' : '' }}>{{ $getDisplayValue($key, $value) }}</option>
-            	@endforeach
+            	
         	@endempty
         </select>
     </span>
