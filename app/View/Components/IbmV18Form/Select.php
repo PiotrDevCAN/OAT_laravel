@@ -102,6 +102,7 @@ class Select extends Component
     
     public function prepareOption($item)
     {
+        $fieldName = $this->fieldName;
         if (isset($item->$fieldName)) {
             switch ($this->wayToHandleArray) {
                 case $this->selectDisplayValueReturnKey:
