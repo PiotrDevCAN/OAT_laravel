@@ -165,14 +165,14 @@ class OvertimeRequest extends Model
     
     public function awaiting($predicates)
     {
-        $data = Cache::remember('OvertimeRequests.index.awaiting', 33660, function($overtimeRequest, $predicates)
+        $data = Cache::remember('OvertimeRequests.index.awaiting', 33660, function($predicates)
         {
             return $this::where('status', 'like', 'Awaiting%')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->where($predicates)
-            ->limit(15)
-            ->get();
+                ->whereNull('delete_flag')
+                ->where('weekenddate', '>=', '2020-08-07')
+                ->where($predicates)
+                ->limit(15)
+                ->get();
         });
         
         return $data;
@@ -180,13 +180,13 @@ class OvertimeRequest extends Model
     
     public function sumAwaitingHours($predicates)
     {
-        $data = Cache::remember('OvertimeRequests.index.sumAwaitingHours', 33660, function($overtimeRequest, $predicates)
+        $data = Cache::remember('OvertimeRequests.index.sumAwaitingHours', 33660, function($predicates)
         {
             return $this::where('status', 'like', 'Awaiting%')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->where($predicates)
-            ->sum('hours');
+                ->whereNull('delete_flag')
+                ->where('weekenddate', '>=', '2020-08-07')
+                ->where($predicates)
+                ->sum('hours');
         });
         
         return $data;
@@ -194,14 +194,14 @@ class OvertimeRequest extends Model
     
     public function approved($predicates)
     {
-        $data = Cache::remember('OvertimeRequests.index.approved', 33660, function($overtimeRequest, $predicates)
+        $data = Cache::remember('OvertimeRequests.index.approved', 33660, function($predicates)
         {
             return $this::where('status', 'Approved')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->where($predicates)
-            ->limit(15)
-            ->get();
+                ->whereNull('delete_flag')
+                ->where('weekenddate', '>=', '2020-08-07')
+                ->where($predicates)
+                ->limit(15)
+                ->get();
         });
         
         return $data;
@@ -209,13 +209,13 @@ class OvertimeRequest extends Model
     
     public function sumApprovedHours($predicates)
     {
-        $data = Cache::remember('OvertimeRequests.index.sumApprovedHours', 33660, function($overtimeRequest, $predicates)
+        $data = Cache::remember('OvertimeRequests.index.sumApprovedHours', 33660, function($predicates)
         {
             return $this::where('status', 'Approved')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->where($predicates)
-            ->sum('hours');
+                ->whereNull('delete_flag')
+                ->where('weekenddate', '>=', '2020-08-07')
+                ->where($predicates)
+                ->sum('hours');
         });
         
         return $data;
@@ -223,15 +223,15 @@ class OvertimeRequest extends Model
     
     public function other($predicates)
     {
-        $data = Cache::remember('OvertimeRequests.index.other', 33660, function($overtimeRequest, $predicates)
+        $data = Cache::remember('OvertimeRequests.index.other', 33660, function($predicates)
         {
             return $this::where('status',  'not like', 'Awaiting%')
-            ->where('status', '<>', 'Approved')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->where($predicates)
-            ->limit(15)
-            ->get();
+                ->where('status', '<>', 'Approved')
+                ->whereNull('delete_flag')
+                ->where('weekenddate', '>=', '2020-08-07')
+                ->where($predicates)
+                ->limit(15)
+                ->get();
         });
         
         return $data;
@@ -239,14 +239,14 @@ class OvertimeRequest extends Model
     
     public function sumOtherHours($predicates)
     {
-        $data = Cache::remember('OvertimeRequests.index.sumOtherHours', 33660, function($overtimeRequest, $predicates)
+        $data = Cache::remember('OvertimeRequests.index.sumOtherHours', 33660, function($predicates)
         {
             return $this::where('status',  'not like', 'Awaiting%')
-            ->where('status', '<>', 'Approved')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-08-07')
-            ->where($predicates)
-            ->sum('hours');
+                ->where('status', '<>', 'Approved')
+                ->whereNull('delete_flag')
+                ->where('weekenddate', '>=', '2020-08-07')
+                ->where($predicates)
+                ->sum('hours');
         });
         
         return $data;
