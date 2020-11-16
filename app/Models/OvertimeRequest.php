@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class OvertimeRequest extends Model
 {
@@ -152,6 +153,11 @@ class OvertimeRequest extends Model
                 ->distinct()
                 ->get();
         });
+        
+        $data = DB::table('requests')->select('approvaltype')
+            ->where('approvaltype', '<>', '')
+            ->distinct()
+            ->get();
         
         dump($data);
         
