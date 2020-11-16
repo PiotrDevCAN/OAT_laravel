@@ -38,7 +38,7 @@ class Select extends Component
     {
         $allowMultipleSelections = false;
         $wayToHandleArray = empty($wayToHandleArray) ? $this->selectDisplayValueReturnValue : $wayToHandleArray;
-//         $selectedValues = $allowMultipleSelections ? $model->$fieldName : array($model->$fieldName => $model->$fieldName);
+        $selectedValues = $allowMultipleSelections ? $model->$fieldName : array($model->$fieldName => $model->$fieldName);
         $selectedValues = null;
         $disabled = ($readonly) ? ' disabledSelect ' : null;
         
@@ -60,10 +60,16 @@ class Select extends Component
      * @param  string  $option
      * @return bool
      */
-    public function isSelected($option)
+    public function isSelected($item)
     {
-//         return $option === $model->selected;
-        return false;
+        foreach ($item as $key => $value) {
+//             if ($value == $model->selected) {
+                
+//             } else {
+//                 return false;
+//             }
+            return false;
+        }
     }
     
     /**
@@ -72,34 +78,40 @@ class Select extends Component
      * @param  string  $option
      * @return bool
      */
-    public function isDisabled($option)
+    public function isDisabled($item)
     {
-//         return $option === $model->fieldName;
-        return false;
+        foreach ($item as $key => $value) {
+//             if ($value == $model->selected) {
+//                 return true;
+//             } else {
+//                 return false;
+//             }
+            return false;
+        }
     }
     
     public function prepareOption($item)
     {
-        dump($item);
-        
-        switch ($this->wayToHandleArray) {
-            case $this->selectDisplayValueReturnKey:
-//                 $this->displayValue = trim($value);
-//                 $this->returnValue  = trim($key);
-                break;
-            case $this->selectDisplayKeyReturnValue:
-//                 $this->displayValue = trim($key);
-//                 $this->returnValue  = trim($value);
-                break;
-            case $this->selectDisplayKeyReturnKey:
-//                 $this->displayValue = trim($key);
-//                 $this->returnValue  = trim($key);
-                break;
-            case $this->selectDisplayValueReturnValue:
-            default:
-//                 $this->displayValue = trim($value);
-//                 $this->returnValue  = trim($value);
-                break;
+        foreach ($item as $key => $value) {
+            switch ($this->wayToHandleArray) {
+                case $this->selectDisplayValueReturnKey:
+                        $this->displayValue = trim($value);
+                        $this->returnValue  = trim($key);
+                    break;
+                case $this->selectDisplayKeyReturnValue:
+                        $this->displayValue = trim($key);
+                        $this->returnValue  = trim($value);
+                    break;
+                case $this->selectDisplayKeyReturnKey:
+                        $this->displayValue = trim($key);
+                        $this->returnValue  = trim($key);
+                    break;
+                case $this->selectDisplayValueReturnValue:
+                default:
+                        $this->displayValue = trim($value);
+                        $this->returnValue  = trim($value);
+                    break;
+            }
         }
     }
     
