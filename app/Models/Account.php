@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\BaseModel;
+use Illuminate\Support\Facades\Cache;
 
 class Account extends BaseModel
 {    
@@ -45,41 +46,52 @@ class Account extends BaseModel
 //         'delayed' => false,
     ];
     
-    public static function accounts()
+    public static function accounts($cc = 'UK')
     {
-        $cc = 'UK';
+        $data = Cache::remember('Account.approversByAccount'.$cc, 33660, function() use($cc)
+        {
+            return self::select('approver','account')
+                ->distinct()
+                ->where('location', $cc)
+                ->get()
+                ->mapWithKeys(function ($item) {
+                    return [$item->account => $item->approver];
+                });
+        });
         
-        return self::select('approver','account')
-            ->distinct()
-            ->where('location', $cc)
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->account => $item->approver];
-            });
+        return $data;
     }
     
-    public static function verified()
+    public static function verified($cc = 'UK')
     {
-        $cc = 'UK';
+        $data = Cache::remember('Account.verified'.$cc, 33660, function() use($cc)
+        {
+            return self::select('verified','account')
+                ->distinct()
+                ->where('location', $cc)
+                ->get()
+                ->mapWithKeys(function ($item) {
+                    return [$item->account => $item->verified];
+                });
+        });
         
-        return self::select('verified','account')
-            ->distinct()
-            ->where('location', $cc)
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->account => $item->verified];
-            });
+        return $data;
     }
     
     public static function locations()
     {
-        return self::select('location')
-            ->distinct()
-            ->where('verified', 'Yes')
-            ->where('location', '<>', '')
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->location => $item->location];
-            });
+        $data = Cache::remember('Account.locations', 33660, function()
+        {
+            return self::select('location')
+                ->distinct()
+                ->where('verified', 'Yes')
+                ->where('location', '<>', '')
+                ->get()
+                ->mapWithKeys(function ($item) {
+                    return [$item->location => $item->location];
+                });
+        });
+        
+        return $data;        
     }
 }

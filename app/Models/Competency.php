@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\BaseModel;
+use Illuminate\Support\Facades\Cache;
 
 class Competency extends BaseModel
 {    
@@ -46,11 +47,16 @@ class Competency extends BaseModel
     
     public static function competencies()
     {
-        return self::select('approver','competency')
-            ->distinct()
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->competency => $item->approver];
-            });
+        $data = Cache::remember('Competency.competenciesByAccount', 33660, function()
+        {
+            return self::select('approver','competency')
+                ->distinct()
+                ->get()
+                ->mapWithKeys(function ($item) {
+                    return [$item->competency => $item->approver];
+                });
+        });
+        
+        return $data;        
     }
 }
