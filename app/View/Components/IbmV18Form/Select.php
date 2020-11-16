@@ -92,26 +92,30 @@ class Select extends Component
     
     public function prepareOption($item)
     {
-        foreach ($item as $key => $value) {
-            switch ($this->wayToHandleArray) {
-                case $this->selectDisplayValueReturnKey:
+        if (is_array($item)) {
+            foreach ($item as $key => $value) {
+                switch ($this->wayToHandleArray) {
+                    case $this->selectDisplayValueReturnKey:
                         $this->displayValue = trim($value);
                         $this->returnValue  = trim($key);
-                    break;
-                case $this->selectDisplayKeyReturnValue:
+                        break;
+                    case $this->selectDisplayKeyReturnValue:
                         $this->displayValue = trim($key);
                         $this->returnValue  = trim($value);
-                    break;
-                case $this->selectDisplayKeyReturnKey:
+                        break;
+                    case $this->selectDisplayKeyReturnKey:
                         $this->displayValue = trim($key);
                         $this->returnValue  = trim($key);
-                    break;
-                case $this->selectDisplayValueReturnValue:
-                default:
+                        break;
+                    case $this->selectDisplayValueReturnValue:
+                    default:
                         $this->displayValue = trim($value);
                         $this->returnValue  = trim($value);
-                    break;
+                        break;
+                }
             }
+        } else {
+            var_dump($item);
         }
     }
     
