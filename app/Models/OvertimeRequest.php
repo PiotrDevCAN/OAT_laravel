@@ -121,9 +121,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.accounts', 33660, function()
         {
-            return self::where('account', '<>', '')
+            return self::select('account')
+                ->where('account', '<>', '')
                 ->distinct()
-                ->get('account');
+                ->get();
         });
     
         return $data;
@@ -133,9 +134,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.workers', 33660, function()
         {
-            return self::where('worker', '<>', '')
-            ->distinct()
-            ->get('worker');
+            return self::select('worker')
+                ->where('worker', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -145,9 +147,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approvalTypes', 33660, function()
         {
-            return self::where('approvaltype', '<>', '')
-            ->distinct()
-            ->get('approvaltype');
+            return self::select('approvaltype')
+                ->where('approvaltype', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -157,9 +160,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.competencies', 33660, function()
         {
-            return self::where('competency', '<>', '')
-            ->distinct()
-            ->get('competency');
+            return self::select('competency')
+                ->where('competency', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -169,9 +173,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.statuses', 33660, function()
         {
-            return self::where('status', '<>', '')
-            ->distinct()
-            ->get('status');
+            return self::select('status')
+                ->where('status', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -181,9 +186,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.requestors', 33660, function()
         {
-            return self::where('requestor', '<>', '')
-            ->distinct()
-            ->get('requestor');
+            return self::select('requestor')
+                ->where('requestor', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -193,9 +199,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.locations', 33660, function()
         {
-            return self::where('location', '<>', '')
+            return self::select('location')
+                ->where('location', '<>', '')
                 ->distinct()
-                ->get('location');
+                ->get();
         });
         
         return $data;
@@ -205,8 +212,9 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.weekendDates', 33660, function()
         {
-            return self::distinct()
-                ->get('weekenddate');
+            return self::select('weekenddate')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -216,9 +224,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approvers_first_level', 33660, function()
         {
-            return self::where('approver_first_level', '<>', '')
+            return self::select('approver_first_level')
+                ->where('approver_first_level', '<>', '')
                 ->distinct()
-                ->get('approver_first_level');
+                ->get();
         });
         
         return $data;
@@ -228,9 +237,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approvers_second_level', 33660, function()
         {
-            return self::where('approver_second_level', '<>', '')
+            return self::select('approver_second_level')
+                ->where('approver_second_level', '<>', '')
                 ->distinct()
-                ->get('approver_second_level');
+                ->get();
         });
         
         return $data;
@@ -240,9 +250,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approvers_third_level', 33660, function()
         {
-            return self::where('approver_third_level', '<>', '')
+            return self::select('approver_third_level')
+                ->where('approver_third_level', '<>', '')
                 ->distinct()
-                ->get('approver_third_level');
+                ->get();
         });
         
         return $data;
@@ -252,9 +263,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approval_modes', 33660, function()
         {
-            return self::where('approval_mode', '<>', '')
+            return self::select('approval_mode')
+                ->where('approval_mode', '<>', '')
                 ->distinct()
-                ->get('approval_mode');
+                ->get();
         });
         
         return $data;
@@ -264,9 +276,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approver_squad_leaders', 33660, function()
         {
-            return self::where('approver_squad_leader', '<>', '')
+            return self::select('approver_squad_leader')
+                ->where('approver_squad_leader', '<>', '')
                 ->distinct()
-                ->get('approver_squad_leader');
+                ->get();
         });
         
         return $data;
@@ -276,9 +289,10 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approver_tribe_leaders', 33660, function()
         {
-            return self::where('approver_tribe_leader', '<>', '')
+            return self::select('approver_tribe_leader')
+                ->where('approver_tribe_leader', '<>', '')
                 ->distinct()
-                ->get('approver_tribe_leader');
+                ->get();
         });
         
         return $data;
@@ -308,10 +322,10 @@ class OvertimeRequest extends Model
         return $this->hasOneThrough(
             'App\Models\Comment',
             'App\Models\CommentLog',
-            'request', // Foreign key on cars table...
-            'reference', // Foreign key on owners table...
-            'reference', // Local key on mechanics table...
-            'comment' // Local key on cars table...
+            'request',
+            'reference',
+            'reference',
+            'comment'
         );
     }
     
@@ -323,10 +337,10 @@ class OvertimeRequest extends Model
         return $this->hasManyThrough(
             'App\Models\Comment',
             'App\Models\CommentLog',
-            'request', // Foreign key on cars table...
-            'reference', // Foreign key on owners table...
-            'reference', // Local key on mechanics table...
-            'comment' // Local key on cars table...
+            'request',
+            'reference',
+            'reference',
+            'comment'
             );
     }
     
@@ -338,7 +352,6 @@ class OvertimeRequest extends Model
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
-//                 ->limit(15)
                 ->get();
         });
         
@@ -353,7 +366,6 @@ class OvertimeRequest extends Model
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
-//                 ->limit(15)
                 ->get();
         });
         
@@ -369,7 +381,6 @@ class OvertimeRequest extends Model
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
-//                 ->limit(15)
                 ->get();
         });
         
