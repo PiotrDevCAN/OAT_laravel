@@ -205,8 +205,7 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.weekendDates', 33660, function()
         {
-            return self::where('weekenddate', '<>', '')
-                ->distinct()
+            return self::distinct()
                 ->get('weekenddate');
         });
         
