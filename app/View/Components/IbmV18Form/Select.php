@@ -72,7 +72,8 @@ class Select extends Component
                 return false;
             }
         } else {
-            var_dump($item);
+            return false;
+//             var_dump($item);
         }
     }
     
@@ -94,37 +95,63 @@ class Select extends Component
                 return false;
             }
         } else {
-            var_dump($item);
+            return false;
+//             var_dump($item);
         }
     }
     
     public function prepareOption($item)
     {
-        if (is_array($item) && !empty($item)) {
-            foreach ($item as $key => $value) {
-                switch ($this->wayToHandleArray) {
-                    case $this->selectDisplayValueReturnKey:
-                        $this->displayValue = trim($value);
-                        $this->returnValue  = trim($key);
-                        break;
-                    case $this->selectDisplayKeyReturnValue:
-                        $this->displayValue = trim($key);
-                        $this->returnValue  = trim($value);
-                        break;
-                    case $this->selectDisplayKeyReturnKey:
-                        $this->displayValue = trim($key);
-                        $this->returnValue  = trim($key);
-                        break;
-                    case $this->selectDisplayValueReturnValue:
-                    default:
-                        $this->displayValue = trim($value);
-                        $this->returnValue  = trim($value);
-                        break;
-                }
+        if (isset($item->$fieldName)) {
+            switch ($this->wayToHandleArray) {
+                case $this->selectDisplayValueReturnKey:
+                    $this->displayValue = trim($item->$fieldName);
+                    $this->returnValue  = trim($fieldName);
+                    break;
+                case $this->selectDisplayKeyReturnValue:
+                    $this->displayValue = trim($fieldName);
+                    $this->returnValue  = trim($item->$fieldName);
+                    break;
+                case $this->selectDisplayKeyReturnKey:
+                    $this->displayValue = trim($fieldName);
+                    $this->returnValue  = trim($fieldName);
+                    break;
+                case $this->selectDisplayValueReturnValue:
+                default:
+                    $this->displayValue = trim($item->$fieldName);
+                    $this->returnValue  = trim($item->$fieldName);
+                    break;
             }
         } else {
-            var_dump($item);
+            return false;
         }
+        
+//         if (is_array($item) && !empty($item)) {
+//             foreach ($item as $key => $value) {
+//                 switch ($this->wayToHandleArray) {
+//                     case $this->selectDisplayValueReturnKey:
+//                         $this->displayValue = trim($value);
+//                         $this->returnValue  = trim($key);
+//                         break;
+//                     case $this->selectDisplayKeyReturnValue:
+//                         $this->displayValue = trim($key);
+//                         $this->returnValue  = trim($value);
+//                         break;
+//                     case $this->selectDisplayKeyReturnKey:
+//                         $this->displayValue = trim($key);
+//                         $this->returnValue  = trim($key);
+//                         break;
+//                     case $this->selectDisplayValueReturnValue:
+//                     default:
+//                         $this->displayValue = trim($value);
+//                         $this->returnValue  = trim($value);
+//                         break;
+//                 }
+//             }
+//         } else {
+//             return false;
+// //             var_dump($item);
+//         }
     }
     
     public function getDisplayValue($value)
