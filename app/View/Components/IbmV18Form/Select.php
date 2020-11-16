@@ -92,7 +92,7 @@ class Select extends Component
     
     public function prepareOption($item)
     {
-        if (is_array($item)) {
+        if (is_array($item) && !empty($item)) {
             foreach ($item as $key => $value) {
                 switch ($this->wayToHandleArray) {
                     case $this->selectDisplayValueReturnKey:
