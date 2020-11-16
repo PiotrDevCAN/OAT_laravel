@@ -38,7 +38,7 @@ class Select extends Component
     {
         $allowMultipleSelections = false;
         $wayToHandleArray = empty($wayToHandleArray) ? $this->selectDisplayValueReturnValue : $wayToHandleArray;
-        $selectedValues = $allowMultipleSelections ? $model->$fieldName : array($model->$fieldName => $model->$fieldName);
+//         $selectedValues = $allowMultipleSelections ? $model->$fieldName : array($model->$fieldName => $model->$fieldName);
         $selectedValues = null;
         $disabled = ($readonly) ? ' disabledSelect ' : null;
         
