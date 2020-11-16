@@ -62,13 +62,17 @@ class Select extends Component
      */
     public function isSelected($item)
     {
-        foreach ($item as $key => $value) {
-//             if ($value == $model->selected) {
+        if (is_array($item) && !empty($item)) {
+            foreach ($item as $key => $value) {
+                //             if ($value == $model->selected) {
                 
-//             } else {
-//                 return false;
-//             }
-            return false;
+                //             } else {
+                //                 return false;
+                //             }
+                return false;
+            }
+        } else {
+            var_dump($item);
         }
     }
     
@@ -80,13 +84,17 @@ class Select extends Component
      */
     public function isDisabled($item)
     {
-        foreach ($item as $key => $value) {
-//             if ($value == $model->selected) {
-//                 return true;
-//             } else {
-//                 return false;
-//             }
-            return false;
+        if (is_array($item) && !empty($item)) {
+            foreach ($item as $key => $value) {
+                //             if ($value == $model->selected) {
+                //                 return true;
+                //             } else {
+                //                 return false;
+                //             }
+                return false;
+            }
+        } else {
+            var_dump($item);
         }
     }
     
