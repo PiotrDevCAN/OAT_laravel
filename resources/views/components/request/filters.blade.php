@@ -4,10 +4,10 @@
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">List Filters</h3>
 		<div class="ibm-fluid">
             <div class="ibm-col-12-4">
-	            <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$accounts" label="Account:" field-name="account" :selected-value="request()->input('Account')"/>
-            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$reasons" label="Reason:" field-name="reason" :selected-value="request()->input('Reason')"/>
-            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$names" label="Name:" field-name="name" :selected-value="request()->input('Name')"/>
-            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$types" label="Type:" field-name="type" :selected-value="request()->input('Type')"/>
+	            <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$accounts" label="Account:" field-name="account" :selected-value="request()->input('account')"/>
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$reasons" label="Reason:" field-name="reason" :selected-value="request()->input('reason')"/>
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$names" label="Name:" field-name="worker" :selected-value="request()->input('worker')"/>
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$types" label="Type:" field-name="approvaltype" :selected-value="request()->input('approvaltype')"/>
             </div>
             <div class="ibm-col-12-4">
             	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$serviceLines" label="Service Line:" field-name="competency" :selected-value="request()->input('competency')"/>
@@ -43,13 +43,13 @@
         </div>
 		<div class="ibm-fluid">
             <div class="ibm-col-12-4">
-            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$firstApprovers" label="1st Level Approver:" field-name="FirstApprover" :selected-value="request()->input('FirstApprover')"/>
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$firstApprovers" label="1st Level Approver:" field-name="approver_first_level" :selected-value="request()->input('approver_first_level')"/>
             </div>
             <div class="ibm-col-12-4">                	
-            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$secondApprovers" label="2nd Level Approver:" field-name="SecondApprover" :selected-value="request()->input('SecondApprover')"/>
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$secondApprovers" label="2nd Level Approver:" field-name="approver_second_level" :selected-value="request()->input('approver_second_level')"/>
             </div>
             <div class="ibm-col-12-4">
-            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$thirdApprovers" label="3rd Level Approver:" field-name="ThirdApprover" :selected-value="request()->input('ThirdApprover')"/>
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$thirdApprovers" label="3rd Level Approver:" field-name="approver_third_level" :selected-value="request()->input('approver_third_level')"/>
             </div>
        	</div>
     </div>

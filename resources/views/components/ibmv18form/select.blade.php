@@ -12,7 +12,7 @@
             data-allow-clear="true"
     	>
             @isset($placeHolder)
-            	<option value=''>{{ $placeHolder }}></option>
+            	<option value=''>{{ $placeHolder }}</option>
             @endisset
             
          	@empty($arrayOfSelectableValues)
