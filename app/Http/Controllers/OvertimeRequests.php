@@ -81,11 +81,9 @@ class OvertimeRequests extends Controller
     {
         $predicates = $this->preparePredicates($request);
         
-        $overtimeRequest = new OvertimeRequest;
-        
-        $awaiting = $overtimeRequest->awaiting($predicates);
-        $approved = $overtimeRequest->approved($predicates);
-        $other = $overtimeRequest->other($predicates);
+        $awaiting = OvertimeRequest::awaiting($predicates);
+        $approved = OvertimeRequest::approved($predicates);
+        $other = OvertimeRequest::other($predicates);
         
         $data = array(
             'awaiting' => $awaiting,
@@ -110,11 +108,11 @@ class OvertimeRequests extends Controller
     {
         $predicates = $this->preparePredicates($request);
         
-        $overtimeRequest = new OvertimeRequest;
+        $approved = OvertimeRequest::approved($predicates);
         
         $data = array(
-            'approved' => $overtimeRequest->approved($predicates),
-            'approvedHours' => $overtimeRequest->sumApprovedHours($predicates)
+            'approved' => $approved,
+            'approvedHours' => $approved->sum('hours'),
         );
         
         return view('components.request.approved', $data);

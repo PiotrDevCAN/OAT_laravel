@@ -117,6 +117,186 @@ class OvertimeRequest extends Model
         ));
     }
     
+    public static function accounts()
+    {
+        $data = Cache::remember('OvertimeRequests.accounts', 33660, function()
+        {
+            return self::where('account', '<>', '')
+                ->distinct()
+                ->get();
+        });
+    
+        return $data;
+    }
+    
+    public static function natures()
+    {
+        $data = Cache::remember('OvertimeRequests.natures', 33660, function()
+        {
+            return self::where('nature', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function workers()
+    {
+        $data = Cache::remember('OvertimeRequests.workers', 33660, function()
+        {
+            return self::where('worker', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function approvalTypes()
+    {
+        $data = Cache::remember('OvertimeRequests.approvalTypes', 33660, function()
+        {
+            return self::where('approvaltype', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function competencies()
+    {
+        $data = Cache::remember('OvertimeRequests.competencies', 33660, function()
+        {
+            return self::where('competency', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function statuses()
+    {
+        $data = Cache::remember('OvertimeRequests.statuses', 33660, function()
+        {
+            return self::where('status', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function requestors()
+    {
+        $data = Cache::remember('OvertimeRequests.requestors', 33660, function()
+        {
+            return self::where('requestor', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function locations()
+    {
+        $data = Cache::remember('OvertimeRequests.locations', 33660, function()
+        {
+            return self::where('location', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function weekendDates()
+    {
+        $data = Cache::remember('OvertimeRequests.weekendDates', 33660, function()
+        {
+            return self::where('weekenddate', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function approversFirstLevel()
+    {
+        $data = Cache::remember('OvertimeRequests.approvers_first_level', 33660, function()
+        {
+            return self::where('approver_first_level', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function approversSecondLevel()
+    {
+        $data = Cache::remember('OvertimeRequests.approvers_second_level', 33660, function()
+        {
+            return self::where('approver_second_level', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function approversThirdLevel()
+    {
+        $data = Cache::remember('OvertimeRequests.approvers_third_level', 33660, function()
+        {
+            return self::where('approver_third_level', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function approvalModes()
+    {
+        $data = Cache::remember('OvertimeRequests.approval_modes', 33660, function()
+        {
+            return self::where('approval_mode', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function squadLeaders()
+    {
+        $data = Cache::remember('OvertimeRequests.approver_squad_leaders', 33660, function()
+        {
+            return self::where('approver_squad_leader', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function tribeLeaders()
+    {
+        $data = Cache::remember('OvertimeRequests.approver_tribe_leaders', 33660, function()
+        {
+            return self::where('approver_tribe_leader', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
     /**
      * Get the commentLog record associated with the request.
      */
@@ -163,11 +343,11 @@ class OvertimeRequest extends Model
             );
     }
     
-    public function awaiting($predicates)
+    public static function awaiting($predicates)
     {
         $data = Cache::remember('OvertimeRequests.index.awaiting', 33660, function() use ($predicates)
         {
-            return $this::where('status', 'like', 'Awaiting%')
+            return self::where('status', 'like', 'Awaiting%')
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
@@ -178,11 +358,11 @@ class OvertimeRequest extends Model
         return $data;
     }
     
-    public function approved($predicates)
+    public static function approved($predicates)
     {
         $data = Cache::remember('OvertimeRequests.index.approved', 33660, function() use ($predicates)
         {
-            return $this::where('status', 'Approved')
+            return self::where('status', 'Approved')
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
@@ -193,11 +373,11 @@ class OvertimeRequest extends Model
         return $data;
     }
     
-    public function other($predicates)
+    public static function other($predicates)
     {
         $data = Cache::remember('OvertimeRequests.index.other', 33660, function() use ($predicates)
         {
-            return $this::where('status',  'not like', 'Awaiting%')
+            return self::where('status',  'not like', 'Awaiting%')
                 ->where('status', '<>', 'Approved')
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')

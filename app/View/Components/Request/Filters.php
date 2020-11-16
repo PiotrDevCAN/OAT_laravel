@@ -35,107 +35,37 @@ class Filters extends Component
      */
     public function __construct()
     {
+        $this->accounts = OvertimeRequest::accounts();
         
-        $this->accounts = array();
-        $this->reasons = array();
-        $this->names = array();
-        $this->types = array();
+        $this->reasons = OvertimeRequest::natures();
         
-        $this->serviceLines = array();
-        $this->statuses = array();
-        $this->reasons = array();
-        $this->locations = array();
+        $this->names = OvertimeRequest::workers();
         
-        $this->weekenddates = array();
-        $this->imports = array();
+        $this->types = OvertimeRequest::approvalTypes();
         
-        $this->firstApprovers = array();
-        $this->secondApprovers = array();
-        $this->thirdApprovers = array();
+        $this->serviceLines = OvertimeRequest::competencies();
         
-        $this->approvalModes = array();
-        $this->approverSquadLeaders = array();
-        $this->approverTribeLeaders = array();
-        /*
-        $this->accounts = OvertimeRequest::select('account')
-            ->where('account', '<>', '')
-            ->distinct()
-            ->get();
+        $this->statuses = OvertimeRequest::statuses();
         
-        $this->reasons = OvertimeRequest::select('nature')
-            ->where('nature', '<>', '')
-            ->distinct()
-            ->get();
+        $this->requestors = OvertimeRequest::requestors();
         
-        $this->names = OvertimeRequest::select('worker')
-            ->where('worker', '<>', '')
-            ->distinct()
-            ->get();
+        $this->locations = OvertimeRequest::locations();
         
-        $this->types = OvertimeRequest::select('approvaltype')
-            ->where('approvaltype', '<>', '')
-            ->distinct()
-            ->get();
+        $this->weekenddates = OvertimeRequest::weekendDates();
         
-        $this->serviceLines = OvertimeRequest::select('competency')
-            ->where('competency', '<>', '')
-            ->distinct()
-            ->get();
+        $this->imports = OvertimeRequest::imports();
         
-        $this->statuses = OvertimeRequest::select('status')
-            ->where('status', '<>', '')
-            ->distinct()
-            ->get();
+        $this->firstApprovers = OvertimeRequest::approversFirstLevel();
         
-        $this->requestors = OvertimeRequest::select('requestor')
-            ->where('requestor', '<>', '')
-            ->distinct()
-            ->get();
+        $this->secondApprovers = OvertimeRequest::approversSecondLevel();
         
-        $this->locations = OvertimeRequest::select('location')
-            ->where('location', '<>', '')
-            ->distinct()
-            ->get();
+        $this->thirdApprovers = OvertimeRequest::approversThirdLevel();
         
-        $this->weekenddates = OvertimeRequest::select('weekenddate')
-            ->distinct()
-            ->get();
-        
-        $this->imports = OvertimeRequest::select('import')
-            ->where('import', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->firstApprovers = OvertimeRequest::select('approver_first_level')
-            ->where('approver_first_level', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->secondApprovers = OvertimeRequest::select('approver_second_level')
-            ->where('approver_second_level', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->thirdApprovers = OvertimeRequest::select('approver_third_level')
-            ->where('approver_third_level', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->approvalModes = OvertimeRequest::select('approval_mode')
-            ->where('approval_mode', '<>', '')
-            ->distinct()
-            ->get();
+        $this->approvalModes = OvertimeRequest::approvalModes();
             
-        $this->approverSquadLeaders = OvertimeRequest::select('approver_squad_leader')
-            ->where('approver_squad_leader', '<>', '')
-            ->distinct()
-            ->get();
+        $this->approverSquadLeaders = OvertimeRequest::squadLeaders();
             
-        $this->approverTribeLeaders = OvertimeRequest::select('approver_tribe_leader')
-            ->where('approver_tribe_leader', '<>', '')
-            ->distinct()
-            ->get();
-        */
+        $this->approverTribeLeaders = OvertimeRequest::tribeLeaders();
     }
 
     /**
