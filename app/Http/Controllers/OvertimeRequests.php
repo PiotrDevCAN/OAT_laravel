@@ -87,13 +87,8 @@ class OvertimeRequests extends Controller
         $predicates = $this->preparePredicates($request);
         
         $awaiting = OvertimeRequest::awaiting($predicates);
-        dump(DB::getQueryLog());
-        
         $approved = OvertimeRequest::approved($predicates);
-        dump(DB::getQueryLog());
-        
         $other = OvertimeRequest::other($predicates);
-        dump(DB::getQueryLog());
         
         $data = array(
             'awaiting' => $awaiting,
@@ -105,6 +100,8 @@ class OvertimeRequests extends Controller
             'other' => $other,
             'otherHours' => $other->sum('hours'),
         );
+        
+        dump(DB::getQueryLog());
         
         return view('components.request.index', $data);
     }
