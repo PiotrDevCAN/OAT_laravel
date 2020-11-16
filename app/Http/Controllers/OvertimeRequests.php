@@ -82,8 +82,6 @@ class OvertimeRequests extends Controller
      */
     public function index(Request $request)
     {
-        DB::enableQueryLog();
-        
         $predicates = $this->preparePredicates($request);
         
         $awaiting = OvertimeRequest::awaiting($predicates);
@@ -100,8 +98,6 @@ class OvertimeRequests extends Controller
             'other' => $other,
             'otherHours' => $other->sum('hours'),
         );
-        
-        dump(DB::getQueryLog());
         
         return view('components.request.index', $data);
     }

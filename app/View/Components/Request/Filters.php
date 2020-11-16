@@ -37,52 +37,21 @@ class Filters extends Component
     public function __construct()
     {
         $this->accounts = OvertimeRequest::accounts();
-        dump(DB::getQueryLog());
-        
         $this->reasons = OvertimeRequest::natures();
-        dump(DB::getQueryLog());
-        
         $this->names = OvertimeRequest::workers();
-        
-        dump(DB::getQueryLog());
         $this->types = OvertimeRequest::approvalTypes();
-        
-        dump(DB::getQueryLog());
         $this->serviceLines = OvertimeRequest::competencies();
-        
-        dump(DB::getQueryLog());
         $this->statuses = OvertimeRequest::statuses();
-        
-        dump(DB::getQueryLog());
         $this->requestors = OvertimeRequest::requestors();
-        
-        dump(DB::getQueryLog());
         $this->locations = OvertimeRequest::locations();
-        
-        dump(DB::getQueryLog());
         $this->weekenddates = OvertimeRequest::weekendDates();
-        
-        dump(DB::getQueryLog());
         $this->imports = OvertimeRequest::imports();
-        
-        dump(DB::getQueryLog());
         $this->firstApprovers = OvertimeRequest::approversFirstLevel();
-        
-        dump(DB::getQueryLog());
         $this->secondApprovers = OvertimeRequest::approversSecondLevel();
-        
-        dump(DB::getQueryLog());
         $this->thirdApprovers = OvertimeRequest::approversThirdLevel();
-        
-        dump(DB::getQueryLog());
         $this->approvalModes = OvertimeRequest::approvalModes();
-            
-        dump(DB::getQueryLog());
         $this->approverSquadLeaders = OvertimeRequest::squadLeaders();
-            
-        dump(DB::getQueryLog());
         $this->approverTribeLeaders = OvertimeRequest::tribeLeaders();
-        dump(DB::getQueryLog());
     }
 
     /**
