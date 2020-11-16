@@ -346,11 +346,11 @@ class OvertimeRequest extends Model
     
     public static function awaiting($predicates)
     {
-        echo self::where('status', 'like', 'Awaiting%')
+        self::where('status', 'like', 'Awaiting%')
         ->whereNull('delete_flag')
         ->where('weekenddate', '>=', '2020-10-16')
         ->where($predicates)
-        ->getSql();
+        ->dump();
         
         $data = Cache::remember('OvertimeRequest.awaiting', 33660, function() use ($predicates)
         {
