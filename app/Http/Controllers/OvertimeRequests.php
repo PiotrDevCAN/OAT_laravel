@@ -86,7 +86,7 @@ class OvertimeRequests extends Controller
         $overtimeRequest = new OvertimeRequest;
         
         $cacheData = config('cache.default');
-        echo $cacheData;
+        dump($cacheData);
         
         $posts = Cache::remember('OvertimeRequests.index.awaiting', 33660, function()
         {
