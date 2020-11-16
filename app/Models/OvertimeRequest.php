@@ -129,18 +129,6 @@ class OvertimeRequest extends Model
         return $data;
     }
     
-    public static function natures()
-    {
-        $data = Cache::remember('OvertimeRequests.natures', 33660, function()
-        {
-            return self::where('nature', '<>', '')
-            ->distinct()
-            ->get();
-        });
-        
-        return $data;
-    }
-    
     public static function workers()
     {
         $data = Cache::remember('OvertimeRequests.workers', 33660, function()
