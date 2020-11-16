@@ -78,39 +78,41 @@ class Select extends Component
         return false;
     }
     
-    public function prepareOption($key, $value)
+    public function prepareOption($item)
     {
+        dump($item);
+        
         switch ($this->wayToHandleArray) {
             case $this->selectDisplayValueReturnKey:
-                $this->displayValue = trim($value);
-                $this->returnValue  = trim($key);
+//                 $this->displayValue = trim($value);
+//                 $this->returnValue  = trim($key);
                 break;
             case $this->selectDisplayKeyReturnValue:
-                $this->displayValue = trim($key);
-                $this->returnValue  = trim($value);
+//                 $this->displayValue = trim($key);
+//                 $this->returnValue  = trim($value);
                 break;
             case $this->selectDisplayKeyReturnKey:
-                $this->displayValue = trim($key);
-                $this->returnValue  = trim($key);
+//                 $this->displayValue = trim($key);
+//                 $this->returnValue  = trim($key);
                 break;
             case $this->selectDisplayValueReturnValue:
             default:
-                $this->displayValue = trim($value);
-                $this->returnValue  = trim($value);
+//                 $this->displayValue = trim($value);
+//                 $this->returnValue  = trim($value);
                 break;
         }
     }
     
-    public function getDisplayValue($key, $value)
+    public function getDisplayValue($value)
     {
-        $this->prepareOption($key, $value);
+        $this->prepareOption($value);
         
         return $this->displayValue;
     }
     
-    public function getReturnValue($key, $value)
+    public function getReturnValue($value)
     {
-        $this->prepareOption($key, $value);
+        $this->prepareOption($value);
         
         return $this->returnValue;
     }
