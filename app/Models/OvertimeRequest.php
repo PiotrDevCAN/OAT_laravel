@@ -148,18 +148,13 @@ class OvertimeRequest extends Model
     {
         $data = Cache::remember('OvertimeRequest.approvalTypes', 33660, function()
         {
-            return self::select('approvaltype')
-                ->where('approvaltype', '<>', '')
-                ->distinct()
-                ->get();
-        });
-        
-        $data = DB::table('requests')->select('approvaltype')
+            return DB::table(self::$table)->select('approvaltype')
             ->where('approvaltype', '<>', '')
             ->distinct()
             ->get();
+        });
         
-        dump($data);
+        var_dump($data);
         exit;
         
         return $data;
