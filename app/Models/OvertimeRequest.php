@@ -90,8 +90,8 @@ class OvertimeRequest extends Model
     public static function imports()
     {
         return collect(array(
-            'Yes',
-            'No'
+            'import' => 'Yes',
+            'import' => 'No'
         ));
     }
     
@@ -107,14 +107,14 @@ class OvertimeRequest extends Model
     public static function natures()
     {
         return collect(array (
-            "Service Out of Hours",
-            "Compliance",
-            "RFS/Revenue",
-            "RFS Schedule",
-            "Hol/Sickness Cover",
-            "T&T",
-            "Delivery Centre Load Balancing",
-            "Other"
+            'nature' => 'Service Out of Hours',
+            'nature' => 'Compliance',
+            'nature' => 'RFS/Revenue',
+            'nature' => 'RFS Schedule',
+            'nature' => 'Hol/Sickness Cover',
+            'nature' => 'T&T',
+            'nature' => 'Delivery Centre Load Balancing',
+            'nature' => 'Other'
         ));
     }
     

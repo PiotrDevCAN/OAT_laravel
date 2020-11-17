@@ -12,7 +12,7 @@ class Filters extends Component
      * Lists of all available values
      */
     public $accounts;
-    public $reasons;
+    public $natures;
     public $workers;
     public $approvalTypes;
     
@@ -36,7 +36,7 @@ class Filters extends Component
      * Selected values
      */
     public $account;
-    public $reason;
+    public $nature;
     public $worker;
     public $approvalType;
     
@@ -66,7 +66,7 @@ class Filters extends Component
     public function __construct()
     {
         $this->accounts = OvertimeRequest::accounts();
-        $this->reasons = OvertimeRequest::natures();
+        $this->natures = OvertimeRequest::natures();
         $this->workers = OvertimeRequest::workers();
         $this->approvalTypes = OvertimeRequest::approvalTypes();
         $this->competencies = OvertimeRequest::competencies();
