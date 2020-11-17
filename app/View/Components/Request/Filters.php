@@ -81,10 +81,6 @@ class Filters extends Component
         $this->approvalModes = OvertimeRequest::approvalModes();
         $this->approverSquadLeaders = OvertimeRequest::squadLeaders();
         $this->approverTribeLeaders = OvertimeRequest::tribeLeaders();
-        
-        dump($this->approvalTypes);
-        dump($this->natures);
-        dump($this->imports);
     }
 
     /**
