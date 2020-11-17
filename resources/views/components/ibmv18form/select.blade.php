@@ -1,4 +1,4 @@
-<p class='ibm-form-elem-grp' id='{{ $fieldName }}."FormGroup"?>'>
+<p class='ibm-form-elem-grp' id='{{ $fieldName }}FormGroup'>
     <label for='{{ $fieldName }}'>{{ $label }}</label>
     <span>
         <select 
