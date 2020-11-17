@@ -6,7 +6,7 @@
             <div class="ibm-col-12-4">
 	            <x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$accounts" label="Account:" field-name="account" :selected-value="$account"/>
             	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$reasons" label="Reason:" field-name="reason" :selected-value="$reason"/>
-            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$workers" label="Name:" field-name="worker" :selected-value="$worked"/>
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$workers" label="Name:" field-name="worker" :selected-value="$worker"/>
             	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$approvalTypes" label="Type:" field-name="approvaltype" :selected-value="$approvalType"/>
             </div>
             <div class="ibm-col-12-4">
