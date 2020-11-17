@@ -49,9 +49,9 @@ class Filters extends Component
     public $weekendDateEnd;
     public $import;
     
-    public $firstApprover;
-    public $secondApprover;
-    public $thirdApprover;
+    public $approverFirstLevel;
+    public $approverSecondLevel;
+    public $approverThirdLevel;
     
     public $approvalMode;
     public $approverSquadLeader;
