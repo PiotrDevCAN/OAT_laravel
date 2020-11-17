@@ -8,12 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class Filters extends Component
 {
+    /*
+     * Lists of all available values
+     */
     public $accounts;
     public $reasons;
-    public $names;
-    public $types;
+    public $workers;
+    public $approvalTypes;
     
-    public $serviceLines;
+    public $competencies;
     public $statuses;
     public $requestors;
     public $locations;
@@ -29,6 +32,32 @@ class Filters extends Component
     public $approverSquadLeaders;
     public $approverTribeLeaders;
     
+    /*
+     * Selected values
+     */
+    public $account;
+    public $reason;
+    public $worker;
+    public $approvalType;
+    
+    public $competency;
+    public $status;
+    public $requestor;
+    public $location;
+    
+    public $weekendDateStart;
+    public $weekendDateEnd;
+    public $import;
+    
+    public $firstApprover;
+    public $secondApprover;
+    public $thirdApprover;
+    
+    public $approvalMode;
+    public $approverSquadLeader;
+    public $approverTribeLeader;
+    
+    
     /**
      * Create a new component instance.
      *
@@ -38,9 +67,9 @@ class Filters extends Component
     {
         $this->accounts = OvertimeRequest::accounts();
         $this->reasons = OvertimeRequest::natures();
-        $this->names = OvertimeRequest::workers();
-        $this->types = OvertimeRequest::approvalTypes();
-        $this->serviceLines = OvertimeRequest::competencies();
+        $this->workers = OvertimeRequest::workers();
+        $this->approvalTypes = OvertimeRequest::approvalTypes();
+        $this->competencies = OvertimeRequest::competencies();
         $this->statuses = OvertimeRequest::statuses();
         $this->requestors = OvertimeRequest::requestors();
         $this->locations = OvertimeRequest::locations();
@@ -61,7 +90,6 @@ class Filters extends Component
      */
     public function render()
     {
-        
         return view('components.request.filters');
     }
 }

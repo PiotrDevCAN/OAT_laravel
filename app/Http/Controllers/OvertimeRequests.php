@@ -16,60 +16,60 @@ class OvertimeRequests extends Controller
     {
         $predicates = array();
         
-        if ($request->filled('Account')) {
-            $predicates[] = array('account', '=', $request->input('Account'));
+        if ($request->filled('account')) {
+            $predicates[] = array('account', '=', $request->input('account'));
         };
-        if ($request->filled('Reason')) {
-            $predicates[] = array('reason', '=', $request->input('Reason'));
+        if ($request->filled('reason')) {
+            $predicates[] = array('reason', '=', $request->input('reason'));
         };
-        if ($request->filled('Name')) {
-            $predicates[] = array('name', '=', $request->input('Name'));
+        if ($request->filled('name')) {
+            $predicates[] = array('name', '=', $request->input('name'));
         };
-        if ($request->filled('Type')) {
-            $predicates[] = array('type', '=', $request->input('Type'));
-        };
-        
-        if ($request->filled('ServiceLine')) {
-            $predicates[] = array('competency', '=', $request->input('ServiceLine'));
-        };
-        if ($request->filled('Status')) {
-            $predicates[] = array('status', '=', $request->input('Status'));
-        };
-        if ($request->filled('Requestor')) {
-            $predicates[] = array('requestor', '=', $request->input('Requestor'));
-        };
-        if ($request->filled('Location')) {
-            $predicates[] = array('location', '=', $request->input('Location'));
+        if ($request->filled('approvaltype')) {
+            $predicates[] = array('approvaltype', '=', $request->input('approvaltype'));
         };
         
-        if ($request->filled('WeekendStart')) {
-            $predicates[] = array('weekenddate', '>=', $request->input('WeekendStart'));
+        if ($request->filled('competency')) {
+            $predicates[] = array('competency', '=', $request->input('competency'));
         };
-        if ($request->filled('WeekendEnd')) {
-            $predicates[] = array('weekenddate', '<=', $request->input('WeekendEnd'));
+        if ($request->filled('status')) {
+            $predicates[] = array('status', '=', $request->input('status'));
         };
-        if ($request->filled('Import')) {
-            $predicates[] = array('import', '=', $request->input('Import'));
+        if ($request->filled('requestor')) {
+            $predicates[] = array('requestor', '=', $request->input('requestor'));
         };
-        
-        if ($request->filled('ApprovalMode')) {
-            $predicates[] = array('approvalmode', '=', $request->input('ApprovalMode'));
-        };
-        if ($request->filled('ApproverSquadLeader')) {
-            $predicates[] = array('approversquadleader', '=', $request->input('ApproverSquadLeader'));
-        };
-        if ($request->filled('ApproverTribeLeader')) {
-            $predicates[] = array('approvertribeleader', '=', $request->input('ApproverTribeLeader'));
+        if ($request->filled('location')) {
+            $predicates[] = array('location', '=', $request->input('location'));
         };
         
-        if ($request->filled('FirstApprover')) {
-            $predicates[] = array('approver_first_level', '=', $request->input('FirstApprover'));
+        if ($request->filled('weekend_start')) {
+            $predicates[] = array('weekenddate', '>=', $request->input('weekend_start'));
         };
-        if ($request->filled('SecondApprover')) {
-            $predicates[] = array('approver_second_level', '=', $request->input('SecondApprover'));
+        if ($request->filled('weekend_end')) {
+            $predicates[] = array('weekenddate', '<=', $request->input('weekend_end'));
         };
-        if ($request->filled('ThirdApprover')) {
-            $predicates[] = array('approver_third_level', '=', $request->input('ThirdApprover'));
+        if ($request->filled('import')) {
+            $predicates[] = array('import', '=', $request->input('import'));
+        };
+        
+        if ($request->filled('approval_mode')) {
+            $predicates[] = array('approval_mode', '=', $request->input('approval_mode'));
+        };
+        if ($request->filled('approver_squad_leader')) {
+            $predicates[] = array('approver_squad_leader', '=', $request->input('approver_squad_leader'));
+        };
+        if ($request->filled('approver_tribe_leader')) {
+            $predicates[] = array('approver_tribe_leader', '=', $request->input('approver_tribe_leader'));
+        };
+        
+        if ($request->filled('approver_first_level')) {
+            $predicates[] = array('approver_first_level', '=', $request->input('approver_first_level'));
+        };
+        if ($request->filled('approver_second_level')) {
+            $predicates[] = array('approver_second_level', '=', $request->input('approver_second_level'));
+        };
+        if ($request->filled('approver_third_level')) {
+            $predicates[] = array('approver_third_level', '=', $request->input('approver_third_level'));
         };
         
         return $predicates;
