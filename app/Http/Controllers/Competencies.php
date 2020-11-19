@@ -12,11 +12,11 @@ class Competencies extends Controller
     {
         $predicates = array();
         
-        if ($request->filled('ServiceLine')) {
-            $predicates[] = array('competency', '=', $request->input('ServiceLine'));
+        if ($request->filled('competency')) {
+            $predicates[] = array('competency', '=', $request->input('competency'));
         };
-        if ($request->filled('Approver')) {
-            $predicates[] = array('approver', '=', $request->input('Approver'));
+        if ($request->filled('approver')) {
+            $predicates[] = array('approver', '=', $request->input('approver'));
         };
         
         return $predicates;

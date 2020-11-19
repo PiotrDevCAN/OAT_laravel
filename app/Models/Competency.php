@@ -46,7 +46,7 @@ class Competency extends BaseModel
 //         'delayed' => false,
     ];
     
-    public static function competencies()
+    public static function competenciesByAccount()
     {
         $data = Cache::remember('Competency.competenciesByAccount', 33660, function()
         {
@@ -61,5 +61,33 @@ class Competency extends BaseModel
         });
         
         return $return;
+    }
+    
+    public static function competencies()
+    {
+        $data = Cache::remember('Competency.competencies', 33660, function()
+        {
+            return DB::table('Competency_Approvers')
+                ->select('competency')
+                ->where('competency', '<>', '')
+                ->distinct()
+                ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function approvers()
+    {
+        $data = Cache::remember('Competency.approvers', 33660, function()
+        {
+            return DB::table('Competency_Approvers')
+                ->select('approver')
+                ->where('approver', '<>', '')
+                ->distinct()
+                ->get();
+        });
+        
+        return $data;
     }
 }

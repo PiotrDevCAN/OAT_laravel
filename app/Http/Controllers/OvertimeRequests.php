@@ -133,7 +133,7 @@ class OvertimeRequests extends Controller
         $allAccounts = Account::accounts();
         $allVerified = Account::verified();
         $allLocations = Account::locations();
-        $allCompetencies = Competency::competencies();
+        $allCompetencies = Competency::competenciesByAccount();
         $allImports = OvertimeRequest::imports();
         $allRecoverable = OvertimeRequest::recoverables();
         $allNatures = OvertimeRequest::natures();
@@ -182,7 +182,7 @@ class OvertimeRequests extends Controller
         $allAccounts = Account::accounts();
         $allVerified = Account::verified();
         $allLocations = Account::locations();
-        $allCompetencies = Competency::competencies();
+        $allCompetencies = Competency::competenciesByAccount();
         $allImports = OvertimeRequest::imports();
         $allRecoverable = OvertimeRequest::recoverables();
         $allNatures = OvertimeRequest::natures();

@@ -8,7 +8,7 @@ use App\Models\Competency;
 class Filters extends Component
 {
     
-    public $serviceLines;
+    public $competencies;
     public $approvers;
     
     /**
@@ -18,15 +18,8 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->serviceLines = Competency::select('competency')
-            ->where('competency', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->approvers = Competency::select('approver')
-            ->where('approver', '<>', '')
-            ->distinct()
-            ->get();
+        $this->competencies = Competency::competencies();
+        $this->approvers = Competency::approvers();
     }
 
     /**
