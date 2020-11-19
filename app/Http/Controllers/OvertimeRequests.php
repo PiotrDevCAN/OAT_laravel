@@ -129,18 +129,16 @@ class OvertimeRequests extends Controller
     public function create()
     {
         $model = new OvertimeRequest;
-
-        $allAccounts = Account::accounts();
+        
+        $allAccounts = Account::accountApproversByLocation();
         $allVerified = Account::verifiedAccountByLocation();
-        $allLocations = Account::locations();
-        
-        
+        $allLocations = Account::verifiedLocations();
         $allCompetencies = Competency::competenciesByAccount();
         $allImports = OvertimeRequest::imports();
         $allRecoverable = OvertimeRequest::recoverables();
         $allNatures = OvertimeRequest::natures();
         $allWeekends = OvertimeRequest::weekendDates();
-
+        
         $data = array(
             'record' => $model,
             'allAccounts' => $allAccounts,
