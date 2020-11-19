@@ -23,9 +23,9 @@ class Navigation extends Component
             'Home' => array(
                 'route' => 'home'
             ),
-            'Request' => array(
+            'Request' => array( // key
                 'route' => array(
-                    'Create' => array(
+                    'Create' => array( // subKey
                         'route' => 'request.create'
                     ),
                     'List' => array(
@@ -78,11 +78,19 @@ class Navigation extends Component
         foreach ($this->menuList as $key => $value) {
             if (is_array($value['route'])) {
                 foreach ($value['route'] as $subKey => $subValue) {
-                    foreach ($subValue['route'] as $subSubKey => $subSubValue) {
-                        if ($subSubValue['route'] == Route::currentRouteName()) {
-                            $this->menuList[$key]['route'][$subKey]['selected'] = true;
+                    foreach ($subValue as $subSubKey => $subSubValue) {                        
+                        if (isset($subSubValue['route'])) {
+                            if ($subSubValue['route'] == Route::currentRouteName()) {
+//                                 $this->menuList[$key]['route'][$subKey]['selected'] = true;
+                            }
+                        } else {
+                            foreach ($subSubValue as $subSubSubKey => $subSubSubValue) {
+                                if ($subSubSubValue['route'] == Route::currentRouteName()) {
+//                                     $this->menuList[$key]['route'][$subKey]['selected'] = true;
+                                }
+                            }
                         }
-                    }                    
+                    }
                 }
             } else {
                 if ($value['route'] == Route::currentRouteName()) {
