@@ -8,7 +8,7 @@ aria-expanded="true"
             @foreach ($menuList as $key => $value)
                 @if (is_array($value))
                 
-                	{{ dump($value) }}
+                	dump($value)
                 
         			<li role="presentation">
         				<span class="ibm-subnav-heading">{{ $key }}</span>
