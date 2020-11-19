@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\BaseModel;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class Delegate extends BaseModel
 {
@@ -43,4 +45,46 @@ class Delegate extends BaseModel
     protected $attributes = [
 //         'delayed' => false,
     ];
+    
+    public static function userIntranets()
+    {
+        $data = Cache::remember('Delegate.user_intranets', 33660, function()
+        {
+            return DB::table('Delegate')
+            ->select('user_intranet')
+            ->where('user_intranet', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function delegateIntranets()
+    {
+        $data = Cache::remember('Delegate.delegate_intranets', 33660, function()
+        {
+            return DB::table('Delegate')
+            ->select('delegate_intranet')
+            ->where('delegate_intranet', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function delegateNotesids()
+    {
+        $data = Cache::remember('Delegate.delegateNotesids', 33660, function()
+        {
+            return DB::table('Delegate')
+            ->select('delegate_notesid')
+            ->where('delegate_notesid', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
 }

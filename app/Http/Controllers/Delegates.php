@@ -11,14 +11,14 @@ class Delegates extends Controller
     {
         $predicates = array();
         
-        if ($request->filled('UserIntranet')) {
-            $predicates[] = array('user_intranet', '=', $request->input('UserIntranet'));
+        if ($request->filled('user_intranet')) {
+            $predicates[] = array('user_intranet', '=', $request->input('user_intranet'));
         };
-        if ($request->filled('DelegateIntranet')) {
-            $predicates[] = array('delegate_intranet', '=', $request->input('DelegateIntranet'));
+        if ($request->filled('delegate_intranet')) {
+            $predicates[] = array('delegate_intranet', '=', $request->input('delegate_intranet'));
         };
-        if ($request->filled('DelegateNotesId')) {
-            $predicates[] = array('delegate_notesid', '=', $request->input('DelegateNotesId'));
+        if ($request->filled('delegate_notesid')) {
+            $predicates[] = array('delegate_notesid', '=', $request->input('delegate_notesid'));
         };
         
         return $predicates;

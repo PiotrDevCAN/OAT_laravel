@@ -19,20 +19,9 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->userIntranets = Delegate::select('user_intranet')
-            ->where('user_intranet', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->delegateIntranets = Delegate::select('delegate_intranet')
-            ->where('delegate_intranet', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->delegateNotesIds = Delegate::select('delegate_notesid')
-            ->where('delegate_notesid', '<>', '')
-            ->distinct()
-            ->get();
+        $this->userIntranets = Delegate::userIntranets();
+        $this->delegateIntranets = Delegate::delegateIntranets();
+        $this->delegateNotesIds = Delegate::delegateNotesids();
     }
 
     /**
