@@ -27,6 +27,26 @@
     <div class="ibm-card__content">
 		<div class="ibm-fluid">
             <div class="ibm-col-12-12">
+            	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Approvers</h3>
+            </div>
+        </div>
+		<div class="ibm-fluid">
+            <div class="ibm-col-12-4">
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$firstApprovers" label="1st Level Approver:" field-name="approver_first_level" :selected-value="$approverFirstLevel"/>
+            </div>
+            <div class="ibm-col-12-4">                	
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$secondApprovers" label="2nd Level Approver:" field-name="approver_second_level" :selected-value="$approverSecondLevel"/>
+            </div>
+            <div class="ibm-col-12-4">
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$thirdApprovers" label="3rd Level Approver:" field-name="approver_third_level" :selected-value="$approverThirdLevel"/>
+            </div>
+       	</div>
+    </div>
+</div>
+<div class="ibm-card">
+    <div class="ibm-card__content">
+		<div class="ibm-fluid">
+            <div class="ibm-col-12-12">
             	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Approval Flow</h3>
             </div>
         </div>
