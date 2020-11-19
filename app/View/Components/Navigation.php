@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class Navigation extends Component
 {
@@ -16,32 +17,81 @@ class Navigation extends Component
      */
     public function __construct()
     {
+//         Route::currentRouteName();
+        
         $this->menuList = array(
-            'Home' => 'home',
+            'Home' => array(
+                'route' => 'home'
+            ),
             'Request' => array(
-                'Create' => 'request.create',
-                'List' => 'request.list',
-                'Approved' => 'request.approved'                
+                'route' => array(
+                    'Create' => array(
+                        'route' => 'request.create'
+                    ),
+                    'List' => array(
+                        'route' => 'request.list'
+                    ),
+                    'Approved' => array(
+                        'route' => 'request.approved'
+                    )
+                )               
             ),
             'Admin' => array(
-                'Accounts' => array(
-                    'Create' => 'admin.account.create',
-                    'List' => 'admin.account.list'                    
-                ),
-                'Sevice Lines' => array(
-                    'Create' => 'admin.competency.create',
-                    'List' => 'admin.competency.list'
-                ),
-                'Delegates'  => array(
-                    'Create' => 'admin.delegate.create',
-                    'List' => 'admin.delegate.list'
-                ),
-                'Logs' => 'admin.log.list'
+                'route' => array(
+                    'Accounts' => array(
+                        'Create' => array(
+                            'route' => 'admin.account.create'
+                        ),
+                        'List' => array(
+                            'route' => 'admin.account.list'
+                        )
+                    ),
+                    'Sevice Lines' => array(
+                        'Create' => array(
+                            'route' => 'admin.competency.create'
+                        ),
+                        'List' => array(
+                            'route' => 'admin.competency.list'
+                        )
+                    ),
+                    'Delegates'  => array(
+                        'Create' => array(
+                            'route' => 'admin.delegate.create'
+                        ),
+                        'List' => array(
+                            'route' => 'admin.delegate.list'
+                        )
+                    ),
+                    'Logs' => array(
+                        'route' => 'admin.log.list'
+                    )
+                )
             ),
-            'My Delegates' => 'admin.delegate.my',
-            'My Access' => 'access.my',
+            'My Delegates' => array(
+                'route' => 'admin.delegate.my'
+            ),
+            'My Access' => array(
+                'route' => 'access.my'
+            ),
         );
         
+        foreach ($this->menuList as $key => $value) {
+            if (is_array($value['route'])) {
+                foreach ($value as $subKey => $subValue) {
+                    if ($subValue == Route::currentRouteName()) {
+                        $this->menuList[$key][$subKey]['selected'] = true;
+                    }
+                }                
+            } else {
+                if ($value['route'] == Route::currentRouteName()) {
+                    $this->menuList[$key]['selected'] = true;
+                }
+            }
+        }
+        
+        dump($this->menuList);
+        
+        /*
         if (Auth::check()) {
             // The user is logged in...
             $this->menuList['Log off'] = 'auth.logout';
@@ -49,6 +99,7 @@ class Navigation extends Component
             // The user is not logged in...
             $this->menuList['Log on'] = 'auth.login';
         }
+        */
     }
 
     /**
