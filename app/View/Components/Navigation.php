@@ -85,29 +85,24 @@ class Navigation extends Component
             if (is_array($value['route'])) {
                 foreach ($value['route'] as $subKey => $subValue) {
                     if (is_array($subValue['route'])) {
-                        
-
-//                         foreach ($subValue as $subSubKey => $subSubValue) {
-//                             if (isset($subSubValue['route'])) {
-//                                 if ($subSubValue['route'] == Route::currentRouteName()) {
-//                                     $this->menuList[$key]['route'][$subSubKey]['selected'] = true;
-//                                 }
-//                             } else {
-//                                 foreach ($subSubValue as $subSubSubKey => $subSubSubValue) {
-//                                     if ($subSubSubValue['route'] == Route::currentRouteName()) {
-//                                         //                                     $this->menuList[$key]['route'][$subKey]['selected'] = true;
-//                                     }
-//                                 }
-//                             }
-//                         }
-                        
-                        
+                        foreach ($subValue['route'] as $subSubKey => $subSubValue) {
+                            if (is_array($subSubValue['route'])) {
+                                foreach ($subSubValue['route'] as $subSubSubKey => $subSubSubValue) {
+                                    if ($subSubSubValue['route'] == Route::currentRouteName()) {
+                                        $this->menuList[$key]['route'][$subKey]['route'][$subSubKey]['route'][$subSubSubKey] = true;
+                                    }
+                                }
+                            } else {
+                                if ($subSubValue['route'] == Route::currentRouteName()) {
+                                    $this->menuList[$key]['route'][$subKey]['route'][$subSubKey] = true;
+                                }
+                            }
+                        }                        
                     } else {
                         if ($subValue['route'] == Route::currentRouteName()) {
                             $this->menuList[$key]['route'][$subKey]['selected'] = true;
                         }
                     }
-
                 }
             } else {
                 if ($value['route'] == Route::currentRouteName()) {
@@ -115,9 +110,6 @@ class Navigation extends Component
                 }
             }
         }
-        
-        dd($this->menuList);
-        
         
         /*
         if (Auth::check()) {
