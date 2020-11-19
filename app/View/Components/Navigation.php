@@ -103,7 +103,9 @@ class Navigation extends Component
                         
                         
                     } else {
-                        $this->menuList[$key]['route'][$subKey]['selected'] = true;
+                        if ($subValue['route'] == Route::currentRouteName()) {
+                            $this->menuList[$key]['route'][$subKey]['selected'] = true;
+                        }
                     }
 
                 }
