@@ -12,17 +12,17 @@ class Accounts extends Controller
     {
         $predicates = array();
         
-        if ($request->filled('Account')) {
-            $predicates[] = array('account', '=', $request->input('Account'));
+        if ($request->filled('account')) {
+            $predicates[] = array('account', '=', $request->input('account'));
         };
-        if ($request->filled('Approver')) {
-            $predicates[] = array('approver', '=', $request->input('Approver'));
+        if ($request->filled('approver')) {
+            $predicates[] = array('approver', '=', $request->input('approver'));
         };
-        if ($request->filled('Verified')) {
-            $predicates[] = array('verified', '=', $request->input('Verified'));
+        if ($request->filled('verified')) {
+            $predicates[] = array('verified', '=', $request->input('verified'));
         };
-        if ($request->filled('Location')) {
-            $predicates[] = array('location', '=', $request->input('Location'));
+        if ($request->filled('location')) {
+            $predicates[] = array('location', '=', $request->input('location'));
         };
         
         return $predicates;

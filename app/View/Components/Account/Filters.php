@@ -20,25 +20,10 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->accounts = Account::select('account')
-            ->where('account', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->approvers = Account::select('approver')
-            ->where('approver', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->verified = Account::select('verified')
-            ->where('location', '<>', '')
-            ->distinct()
-            ->get();
-        
-        $this->locations = Account::select('location')
-            ->where('location', '<>', '')
-            ->distinct()
-            ->get();
+        $this->accounts = Account::accounts();
+        $this->approvers = Account::approvers();
+        $this->verified = Account::verified();
+        $this->locations = Account::locations();
     }
 
     /**

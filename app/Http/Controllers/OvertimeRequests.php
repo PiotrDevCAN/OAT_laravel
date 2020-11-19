@@ -131,8 +131,10 @@ class OvertimeRequests extends Controller
         $model = new OvertimeRequest;
 
         $allAccounts = Account::accounts();
-        $allVerified = Account::verified();
+        $allVerified = Account::verifiedAccountByLocation();
         $allLocations = Account::locations();
+        
+        
         $allCompetencies = Competency::competenciesByAccount();
         $allImports = OvertimeRequest::imports();
         $allRecoverable = OvertimeRequest::recoverables();
@@ -179,9 +181,9 @@ class OvertimeRequests extends Controller
     {
 //         $model = OvertimeRequest::findOrFail($ref);
         
-        $allAccounts = Account::accounts();
-        $allVerified = Account::verified();
-        $allLocations = Account::locations();
+        $allAccounts = Account::accountApproversByLocation();
+        $allVerified = Account::verifiedAccountByLocation();
+        $allLocations = Account::verifiedLocations();
         $allCompetencies = Competency::competenciesByAccount();
         $allImports = OvertimeRequest::imports();
         $allRecoverable = OvertimeRequest::recoverables();

@@ -47,9 +47,9 @@ class Account extends BaseModel
 //         'delayed' => false,
     ];
     
-    public static function accounts($cc = 'UK')
+    public static function accountApproversByLocation($cc = 'UK')
     {
-        $data = Cache::remember('Account.approversByAccount'.$cc, 33660, function() use($cc)
+        $data = Cache::remember('Account.accountApproversByLocation'.$cc, 33660, function() use($cc)
         {
             return DB::table('Account_Approvers')
                 ->select('approver','account')
@@ -65,9 +65,9 @@ class Account extends BaseModel
         return $return;
     }
     
-    public static function verified($cc = 'UK')
+    public static function verifiedAccountByLocation($cc = 'UK')
     {
-        $data = Cache::remember('Account.verified'.$cc, 33660, function() use($cc)
+        $data = Cache::remember('Account.verifiedAccountByLocation'.$cc, 33660, function() use($cc)
         {
             return DB::table('Account_Approvers')
                 ->select('verified','account')
@@ -83,9 +83,9 @@ class Account extends BaseModel
         return $return;
     }
     
-    public static function locations()
+    public static function verifiedLocations()
     {
-        $data = Cache::remember('Account.locations', 33660, function()
+        $data = Cache::remember('Account.verifiedLocations', 33660, function()
         {
             return DB::table('Account_Approvers')
                 ->select('location')
@@ -100,5 +100,61 @@ class Account extends BaseModel
         });
         
         return $return;
+    }
+    
+    public static function accounts()
+    {
+        $data = Cache::remember('Account.accounts', 33660, function()
+        {
+            return DB::table('Account_Approvers')
+            ->select('account')
+            ->where('account', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function approvers()
+    {
+        $data = Cache::remember('Account.approvers', 33660, function()
+        {
+            return DB::table('Account_Approvers')
+            ->select('approver')
+            ->where('approver', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function verified()
+    {
+        $data = Cache::remember('Account.verified', 33660, function()
+        {
+            return DB::table('Account_Approvers')
+            ->select('verified')
+            ->where('verified', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function locations()
+    {
+        $data = Cache::remember('Account.locations', 33660, function()
+        {
+            return DB::table('Account_Approvers')
+            ->select('locations')
+            ->where('locations', '<>', '')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
     }
 }
