@@ -27,9 +27,6 @@
                     <th>Post</th>
                     <th>Claim Acc</th>
                     <th>Created</th>
-                    <th>Approval Flow</th>
-                    <th>Squad Leader</th>
-                    <th>Tribe Leader</th>
                 </tr>
             </thead>
             <tbody>
@@ -89,9 +86,6 @@
                     </td>
                     <td>{{ $record->claim_acc_id }}</td>
                     <td>{{ $record->created_ts }}</td>
-                    <td>{{ $record->approval_mode }}</td>
-                    <td>{{ $record->approver_squad_leader }}</td>
-                    <td>{{ $record->approver_tribe_leader }}</td>
                 </tr>
                 @endforeach
             </tbody>
