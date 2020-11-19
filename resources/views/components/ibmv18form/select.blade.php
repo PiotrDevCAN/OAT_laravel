@@ -3,7 +3,7 @@
     <span>
         <select 
         	name='{{ $fieldName }}' 
-        	id='{{ $fieldName}}' 
+        	id='{{ $fieldName }}' 
         	class='{{ $classCSS }} ibm-fullwidth'
 			required='required' 
 			@isset($onChange) {{!! $onChange !!}} @endisset

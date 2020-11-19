@@ -126,33 +126,6 @@ class Select extends Component
         } else {
             return false;
         }
-        
-//         if (is_array($item) && !empty($item)) {
-//             foreach ($item as $key => $value) {
-//                 switch ($this->wayToHandleArray) {
-//                     case $this->selectDisplayValueReturnKey:
-//                         $this->displayValue = trim($value);
-//                         $this->returnValue  = trim($key);
-//                         break;
-//                     case $this->selectDisplayKeyReturnValue:
-//                         $this->displayValue = trim($key);
-//                         $this->returnValue  = trim($value);
-//                         break;
-//                     case $this->selectDisplayKeyReturnKey:
-//                         $this->displayValue = trim($key);
-//                         $this->returnValue  = trim($key);
-//                         break;
-//                     case $this->selectDisplayValueReturnValue:
-//                     default:
-//                         $this->displayValue = trim($value);
-//                         $this->returnValue  = trim($value);
-//                         break;
-//                 }
-//             }
-//         } else {
-//             return false;
-// //             var_dump($item);
-//         }
     }
     
     public function getDisplayValue($value)
