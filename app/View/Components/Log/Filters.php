@@ -19,22 +19,9 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->logEntries = Log::select('log_entry')
-            ->where('log_entry', '<>', '')
-            ->distinct()
-            ->limit(100)
-            ->get();
-        
-        $this->lastUpdates = Log::select('last_updater')
-            ->where('last_updater', '<>', '')
-            ->distinct()
-            ->limit(100)
-            ->get();
-        
-        $this->lastUpdaters = Log::select('last_updated')
-            ->distinct()
-            ->limit(100)
-            ->get();
+        $this->logEntries = Log::logEntries();
+        $this->lastUpdates = Log::lastUpdates();
+        $this->lastUpdaters = Log::lastUpdaters();
     }
 
     /**
