@@ -52,16 +52,6 @@ class OvertimeRequests extends Controller
             $predicates[] = array('import', '=', $request->input('import'));
         };
         
-        if ($request->filled('approval_mode')) {
-            $predicates[] = array('approval_mode', '=', $request->input('approval_mode'));
-        };
-        if ($request->filled('approver_squad_leader')) {
-            $predicates[] = array('approver_squad_leader', '=', $request->input('approver_squad_leader'));
-        };
-        if ($request->filled('approver_tribe_leader')) {
-            $predicates[] = array('approver_tribe_leader', '=', $request->input('approver_tribe_leader'));
-        };
-        
         if ($request->filled('approver_first_level')) {
             $predicates[] = array('approver_first_level', '=', $request->input('approver_first_level'));
         };
@@ -70,6 +60,16 @@ class OvertimeRequests extends Controller
         };
         if ($request->filled('approver_third_level')) {
             $predicates[] = array('approver_third_level', '=', $request->input('approver_third_level'));
+        };
+        
+        if ($request->filled('approval_mode')) {
+            $predicates[] = array('approval_mode', '=', $request->input('approval_mode'));
+        };
+        if ($request->filled('approver_squad_leader')) {
+            $predicates[] = array('approver_squad_leader', '=', $request->input('approver_squad_leader'));
+        };
+        if ($request->filled('approver_tribe_leader')) {
+            $predicates[] = array('approver_tribe_leader', '=', $request->input('approver_tribe_leader'));
         };
         
         return $predicates;
