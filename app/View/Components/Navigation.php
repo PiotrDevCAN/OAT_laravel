@@ -39,27 +39,33 @@ class Navigation extends Component
             'Admin' => array(
                 'route' => array(
                     'Accounts' => array(
-                        'Create' => array(
-                            'route' => 'admin.account.create'
-                        ),
-                        'List' => array(
-                            'route' => 'admin.account.list'
+                        'route' => array(
+                            'Create' => array(
+                                'route' => 'admin.account.create'
+                            ),
+                            'List' => array(
+                                'route' => 'admin.account.list'
+                            )
                         )
                     ),
                     'Sevice Lines' => array(
-                        'Create' => array(
-                            'route' => 'admin.competency.create'
-                        ),
-                        'List' => array(
-                            'route' => 'admin.competency.list'
+                        'route' => array(
+                            'Create' => array(
+                                'route' => 'admin.competency.create'
+                            ),
+                            'List' => array(
+                                'route' => 'admin.competency.list'
+                            )
                         )
                     ),
-                    'Delegates'  => array(
-                        'Create' => array(
-                            'route' => 'admin.delegate.create'
-                        ),
-                        'List' => array(
-                            'route' => 'admin.delegate.list'
+                    'Delegates' => array(
+                        'route' => array(
+                            'Create' => array(
+                                'route' => 'admin.delegate.create'
+                            ),
+                            'List' => array(
+                                'route' => 'admin.delegate.list'
+                            )
                         )
                     ),
                     'Logs' => array(
@@ -75,22 +81,33 @@ class Navigation extends Component
             ),
         );
         
+        /*
         foreach ($this->menuList as $key => $value) {
             if (is_array($value['route'])) {
                 foreach ($value['route'] as $subKey => $subValue) {
-                    foreach ($subValue as $subSubKey => $subSubValue) {                        
-                        if (isset($subSubValue['route'])) {
-                            if ($subSubValue['route'] == Route::currentRouteName()) {
-                                $this->menuList[$key]['route'][$subSubKey]['selected'] = true;
-                            }
-                        } else {
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+//                     foreach ($subValue as $subSubKey => $subSubValue) {                        
+//                         if (isset($subSubValue['route'])) {
+//                             if ($subSubValue['route'] == Route::currentRouteName()) {
+//                                 $this->menuList[$key]['route'][$subSubKey]['selected'] = true;
+//                             }
+//                         } else {
 //                             foreach ($subSubValue as $subSubSubKey => $subSubSubValue) {
 //                                 if ($subSubSubValue['route'] == Route::currentRouteName()) {
 // //                                     $this->menuList[$key]['route'][$subKey]['selected'] = true;
 //                                 }
 //                             }
-                        }
-                    }
+//                         }
+//                     }
                 }
             } else {
                 if ($value['route'] == Route::currentRouteName()) {
@@ -99,7 +116,8 @@ class Navigation extends Component
             }
         }
         
-        dump($this->menuList);
+        dd($this->menuList);
+        */
         
         /*
         if (Auth::check()) {
