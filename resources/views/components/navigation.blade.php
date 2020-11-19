@@ -1,6 +1,31 @@
 <nav aria-labelledby="ibm-pagetitle-h1" role="navigation">
     <div class="ibm-parent" id="ibm-navigation">
          <ul aria-labelledby="ibm-pagetitle-h1" role="tree" id="ibm-primary-links">
+            @foreach ($menuList as $key => $value)
+                @if (is_array($value['route']))
+                	<li role="presentation">
+        				<span class="ibm-subnav-heading">{{ $key }}</span>
+            			<ul role="group">
+            				@foreach ($value['route'] as $subKey => $subValue)
+            					@if (is_array($subValue['route']))
+            						<li role="presentation">
+            							<span class="ibm-subnav-heading" style="padding-left: 10px;">{{ $subKey }}</span>
+            							<ul role="group">
+                    						@foreach ($subValue['route'] as $subSubKey => $subSubValue)
+                    							<li role="presentation"><a href="{{ route($subSubValue) }}" role="treeitem" @if (Route::currentRouteName() == $subSubValue)aria-selected="true"@endif>{{ $subSubKey }}</a> </li>
+                    						@endforeach
+                						</ul>
+            						</li>
+            					@else
+            						<li role="presentation"><a href="{{ route($subValue['route']) }}" role="treeitem" @if (Route::currentRouteName() == $subValue['route'])aria-selected="true"@endif>{{ $subKey }}</a></li>
+                        		@endif
+                            @endforeach
+                        </ul>
+                    <li>
+                @else
+                	<li @if ($loop->first) id="ibm-overview" @endif role="presentation"><a href="{{ route($value['route']) }}" role="treeitem" @if (Route::currentRouteName() == $value['route'])aria-selected="true"@endif>{{ $key }}</a></li>
+                @endif
+            @endforeach
 		</ul>
         <div id="ibm-secondary-navigation">
            	<h2>Related links</h2>
