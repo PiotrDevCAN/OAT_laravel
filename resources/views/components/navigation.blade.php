@@ -5,7 +5,7 @@
                 @if (is_array($value['route']))
                 	
                 @else
-                	<li @if ($loop->first) id="ibm-overview" @endif role="presentation"><a href="{{ route($value['route']) }}" role="treeitem" @if (is_set($value['route']))aria-selected="true"@endif>{{ $key }}</a></li>
+                	<li @if ($loop->first) id="ibm-overview" @endif role="presentation"><a href="{{ route($value['route']) }}" role="treeitem" @if (isSet($value['route']))aria-selected="true"@endif>{{ $key }}</a></li>
                 @endif
             @endforeach
 		</ul>
