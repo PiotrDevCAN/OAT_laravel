@@ -77,11 +77,19 @@ class Navigation extends Component
         
         foreach ($this->menuList as $key => $value) {
             if (is_array($value['route'])) {
-                foreach ($value as $subKey => $subValue) {
-                    if ($subValue == Route::currentRouteName()) {
-                        $this->menuList[$key][$subKey]['selected'] = true;
+                foreach ($value['route'] as $subKey => $subValue) {
+                    if (is_array($subValue['route'])) {
+                        foreach ($subValue['route'] as $subSubKey => $subSubValue) {
+                            if ($subSubValue['route'] == Route::currentRouteName()) {
+                                $this->menuList[$key]['route'][$subKey]['selected'] = true;
+                            }
+                        }
+                    } else {
+                        if ($subValue['route'] == Route::currentRouteName()) {
+                            $this->menuList[$key]['selected'] = true;
+                        }
                     }
-                }                
+                }
             } else {
                 if ($value['route'] == Route::currentRouteName()) {
                     $this->menuList[$key]['selected'] = true;
