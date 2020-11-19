@@ -4,13 +4,13 @@
             @foreach ($menuList as $key => $value)
             	@isset($value['route'])
                     @if (is_array($value['route']))
-                    	<li role="presentation">
+                    	<li role="presentation" @isset($value['expanded']) aria-expanded="true" @endisset>
                         	<span class="ibm-subnav-heading">{{ $key }}</span>
                         	<ul role="group">
                         		@foreach ($value['route'] as $subKey => $subValue)
                         			@isset($subValue['route'])
                         				@if (is_array($subValue['route']))
-                            				<li role="presentation">
+                            				<li role="presentation" @isset($subValue['expanded']) aria-expanded="true" @endisset>
                             					<span class="ibm-subnav-heading" style="padding-left: 10px;">{{ $subKey }}</span>
                             					<ul role="group">
                             						@foreach ($subValue['route'] as $subSubKey => $subSubValue)

@@ -17,15 +17,13 @@ class Navigation extends Component
      */
     public function __construct()
     {
-//         Route::currentRouteName();
-        
         $this->menuList = array(
             'Home' => array(
                 'route' => 'home'
             ),
-            'Request' => array( // key
+            'Request' => array(              
                 'route' => array(
-                    'Create' => array( // subKey
+                    'Create' => array(
                         'route' => 'request.create'
                     ),
                     'List' => array(
@@ -34,7 +32,7 @@ class Navigation extends Component
                     'Approved' => array(
                         'route' => 'request.approved'
                     )
-                )               
+                )
             ),
             'Admin' => array(
                 'route' => array(
@@ -81,6 +79,9 @@ class Navigation extends Component
             ),
         );
         
+        /*
+         * Check which item is selected
+         */
         foreach ($this->menuList as $key => $value) {
             if (is_array($value['route'])) {
                 foreach ($value['route'] as $subKey => $subValue) {
@@ -90,17 +91,35 @@ class Navigation extends Component
                                 foreach ($subSubValue['route'] as $subSubSubKey => $subSubSubValue) {
                                     if ($subSubSubValue['route'] == Route::currentRouteName()) {
                                         $this->menuList[$key]['route'][$subKey]['route'][$subSubKey]['route'][$subSubSubKey]['selected'] = true;
+                                        
+                                        // open group
+                                        $this->menuList[$key]['expanded'] = true;
+                                        
+                                        // open sub group
+                                        $this->menuList[$key]['route'][$subKey]['expanded'] = true;
+                                        
+                                        // open sub sub group
+                                        $this->menuList[$key]['route'][$subKey]['route'][$subSubKey]['expanded'] = true;
                                     }
                                 }
                             } else {
                                 if ($subSubValue['route'] == Route::currentRouteName()) {
                                     $this->menuList[$key]['route'][$subKey]['route'][$subSubKey]['selected'] = true;
+                                    
+                                    // open group
+                                    $this->menuList[$key]['expanded'] = true;
+                                    
+                                    // open sub group
+                                    $this->menuList[$key]['route'][$subKey]['expanded'] = true;                                    
                                 }
                             }
                         }                        
                     } else {
                         if ($subValue['route'] == Route::currentRouteName()) {
                             $this->menuList[$key]['route'][$subKey]['selected'] = true;
+                            
+                            // open group
+                            $this->menuList[$key]['expanded'] = true;
                         }
                     }
                 }
@@ -111,15 +130,17 @@ class Navigation extends Component
             }
         }
         
-        /*
         if (Auth::check()) {
             // The user is logged in...
-            $this->menuList['Log off'] = 'auth.logout';
+            $this->menuList['Log off'] = array(
+                'route' => 'auth.logout'
+            );
         } else {
             // The user is not logged in...
-            $this->menuList['Log on'] = 'auth.login';
+            $this->menuList['Log on'] = array(
+                'route' => 'auth.login'
+            );
         }
-        */
     }
 
     /**
