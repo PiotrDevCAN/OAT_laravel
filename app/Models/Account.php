@@ -149,8 +149,8 @@ class Account extends BaseModel
         $data = Cache::remember('Account.locations', 33660, function()
         {
             return DB::table('Account_Approvers')
-            ->select('locations')
-            ->where('locations', '<>', '')
+            ->select('location')
+            ->where('location', '<>', '')
             ->distinct()
             ->get();
         });
