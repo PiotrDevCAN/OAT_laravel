@@ -28,9 +28,7 @@ class Logs extends Controller
     {
         $predicates = $this->preparePredicates($request);
         
-        $records = Log::where($predicates)
-            ->limit(100)
-            ->get();
+        $records = Log::where($predicates)->get();
         
         $data = array(
             'records' => $records

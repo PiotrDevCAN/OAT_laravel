@@ -37,8 +37,7 @@ class Accounts extends Controller
     {
         $predicates = $this->preparePredicates($request);
         
-        $records = Account::where($predicates)
-            ->get();
+        $records = Account::where($predicates)->get();
         
         $data = array(
             'records' => $records
