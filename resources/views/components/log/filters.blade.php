@@ -4,13 +4,13 @@
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">List Filters</h3>
 		<div class="ibm-fluid">
             <div class="ibm-col-12-4">
-            	<x-ibmv18form-select field-name="LogEntry" label="Log Entry:" :array-of-selectable-values="$logEntries" :selected-value="request()->input('LogEntry')"/>
+            	<x-ibmv18form-select field-name="log_entry" label="Log Entry:" :array-of-selectable-values="$logEntries" :selected-value="request()->input('log_entry')"/>
             </div>
             <div class="ibm-col-12-4">
-            	<x-ibmv18form-select field-name="LastUpdated" label="Last Updated:" :array-of-selectable-values="$lastUpdates" :selected-value="request()->input('LastUpdated')"/>
+            	<x-ibmv18form-select field-name="last_updated" label="Last Updated:" :array-of-selectable-values="$lastUpdates" :selected-value="request()->input('last_updated')"/>
             </div>
             <div class="ibm-col-12-4">
-            	<x-ibmv18form-select field-name="LastUpdater" label="Last Updater:" :array-of-selectable-values="$lastUpdaters" :selected-value="request()->input('LastUpdater')"/>
+            	<x-ibmv18form-select field-name="last_updater" label="Last Updater:" :array-of-selectable-values="$lastUpdaters" :selected-value="request()->input('last_updater')"/>
             </div>
             <div class="ibm-col-12-12">
             	<p class="ibm-button-link ibm-ind-link">

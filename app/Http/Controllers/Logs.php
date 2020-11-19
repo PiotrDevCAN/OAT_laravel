@@ -11,14 +11,14 @@ class Logs extends Controller
     {
         $predicates = array();
         
-        if ($request->filled('LogEntry')) {
-            $predicates[] = array('log_entry', '=', $request->input('LogEntry'));
+        if ($request->filled('log_entry')) {
+            $predicates[] = array('log_entry', '=', $request->input('log_entry'));
         };
-        if ($request->filled('LastUpdated')) {
-            $predicates[] = array('last_updated', '=', $request->input('LastUpdated'));
+        if ($request->filled('last_updated')) {
+            $predicates[] = array('last_updated', '=', $request->input('last_updated'));
         };
-        if ($request->filled('LastUpdater')) {
-            $predicates[] = array('last_updater', '=', $request->input('LastUpdater'));
+        if ($request->filled('last_updater')) {
+            $predicates[] = array('last_updater', '=', $request->input('last_updater'));
         };
         
         return $predicates;
