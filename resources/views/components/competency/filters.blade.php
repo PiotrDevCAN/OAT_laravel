@@ -4,10 +4,10 @@
         <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">List Filters</h3>
 		<div class="ibm-fluid">
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-select field-name="ServiceLine" label="Service Line:" :array-of-selectable-values="$serviceLines" :selected-value="request()->input('ServiceLine')"/>
+            	<x-ibmv18form-select field-name="competency" label="Service Line:" :array-of-selectable-values="$competencies" :selected-value="request()->input('competency')"/>
             </div>
             <div class="ibm-col-12-6">
-            	<x-ibmv18form-select field-name="Approver" label="Approver:" :array-of-selectable-values="$approvers" :selected-value="request()->input('Approver')"/>
+            	<x-ibmv18form-select field-name="approver" label="Approver:" :array-of-selectable-values="$approvers" :selected-value="request()->input('approver')"/>
             </div>
             <div class="ibm-col-12-12">
             	<p class="ibm-button-link ibm-ind-link">
