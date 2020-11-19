@@ -73,9 +73,11 @@
                     <td class="ibm-bold">{{ $record->status }}</td>
                     <x-request.approvers-info :record="$record"/>
                     <td><x-mailto-link :email="$record->requestor"/></td>
-                    <td>{{ $record->approval_mode }}</td>
-                    <td>{{ $record->approver_squad_leader }}</td>
-                    <td>{{ $record->approver_tribe_leader }}</td>                    
+                    <td>{{ $record->approval_mode }}
+                    Change flow to...
+                    </td>
+                    <td><x-mailto-link :email="$record->approver_squad_leader"/></td>
+                    <td><x-mailto-link :email="$record->approver_tribe_leader"/></td>
                     <td>
                     @isset($record->supercedes)
                     	{{ link_to_route('request.show', $title = $record->supercedes, ['overtimeRequest' => $record->supercedes]) }}
