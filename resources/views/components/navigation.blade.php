@@ -15,13 +15,13 @@
                             					<ul role="group">
                             						@foreach ($subValue['route'] as $subSubKey => $subSubValue)
                             							@isset($subSubValue['route'])
-                            								<li role="presentation"><a href="{{ route($subSubValue['route']) }}" role="treeitem">{{ $subSubKey }}</a> </li>
+                            								<li role="presentation"><a href="{{ route($subSubValue['route']) }}" role="treeitem" @isset($subSubValue['selected']) aria-selected="true" @endisset>{{ $subSubKey }}</a> </li>
                             							@endisset
                             						@endforeach
                             					</ul>
                             				</li>
                             			@else
-                            				<li role="presentation"><a href="{{ route($subValue['route']) }}" role="treeitem">{{ $subKey }}</a></li>
+                            				<li role="presentation"><a href="{{ route($subValue['route']) }}" role="treeitem" @isset($subValue['selected']) aria-selected="true" @endisset>{{ $subKey }}</a></li>
                             			@endif
                         			@endisset
                         		@endforeach
