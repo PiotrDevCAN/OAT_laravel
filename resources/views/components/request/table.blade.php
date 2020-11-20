@@ -2,9 +2,7 @@
     <h2 @if($expand == true)data-open="true"@endif>{{ $name }} Requests</h2>
     <div class="ibm-container-body">
         <table class="ibm-data-table ibm-altrows ibm-padding-small ibm-small" 
-        	data-processing="true"
-        	data-serverSide="true"
-        	data-ajax="{{ route('api.request.list') }}" 
+        	
         	
         	data-scrollaxis="x" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatableReady" id="{{ $name }}">
             <thead>
@@ -64,3 +62,45 @@
         </table>
     </div>
 </div>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+
+	var tableData = $('.ibm-data-table');
+
+	var	dataTableWidget = true;
+
+	if (typeof (tableData) !== 'undefined') {
+		for (n=0;n<tableData.length;n++){
+			
+			// firstly initialize treetable widget
+			tableData.eq(n).treetable({ expandable: true });
+			
+			// default object settings
+			var tabletDataObject = tableData.eq(n).data();
+			
+			switch(tabletDataObject.widget){
+				case 'datatableReady':
+					
+					// additional settings
+// 					tabletDataObject.pageLength = -1;
+// 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
+
+					tabletDataObject.processing = true;
+					tabletDataObject.serverSide = true;
+					tabletDataObject.ajax = {
+			            "url": "https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list",
+			            "type": "POST"
+			        };
+					
+				    IBMCore.common.widget.datatable.init(tableData[n], tabletDataObject);
+				    
+					break;
+				default:
+					break;
+			}
+		}
+	}
+	
+});
+</script>
