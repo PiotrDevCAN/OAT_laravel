@@ -27,11 +27,11 @@
 
 
 <script type="text/javascript">
-$( document ).ready(function() {
+jQuery( document ).ready(function() {
 
 	alert('initialise data tables');
 
-	var tableData = $('.ibm-data-table');
+	var tableData = jQuery('.ibm-data-table');
 
 	var	dataTableWidget = true;
 
