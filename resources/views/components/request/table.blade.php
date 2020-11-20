@@ -32,33 +32,6 @@
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Created</th>
                 </tr>
             </thead>
-            <tfoot>
-                <tr>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Ref</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Account</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">SL</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Reason</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Title</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Details</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Week Ending</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Name</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Serial</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Country</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Hours</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Status</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">1st Level Approval</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">2nd Level Approval</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">3rd Level Approval</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Requestor</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Approval Flow</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Squad Leader</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Tribe Leader</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Pre</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Post</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Claim Acc</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Created</th>
-                </tr>
-            </tfoot>
         </table>
     </div>
 </div>
