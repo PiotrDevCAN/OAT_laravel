@@ -5,33 +5,6 @@
         	data-processing="true"
         	data-serverSide="true" 
         	data-ajax="{{ route('api.request.list') }}" 
-        	data-type="POST"
-        	
-        	data-columns = "[
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-            	{ 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-            	{ 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' },
-                { 'data': 'reference' }
-            ]"
         	
         	data-scrollaxis="x" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatable" id="{{ $name }}">
             <thead>
