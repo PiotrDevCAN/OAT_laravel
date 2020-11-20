@@ -14,7 +14,7 @@ use App\Http\Resources\OvertimeRequestResourceCollection;
 
 class OvertimeRequests extends Controller
 {
-    public function list(OvertimeRequest $request)
+    public function list(Request $request)
     {
         $predicates = array();
         
