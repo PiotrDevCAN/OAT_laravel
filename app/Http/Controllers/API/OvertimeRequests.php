@@ -22,8 +22,6 @@ class OvertimeRequests extends Controller
 //             ->where($predicates)
             ->get();
         
-            dd($records);
-            
         $resourceCollection = new OvertimeRequestResourceCollection($records);
         
 //         $resourceCollection->additional(['meta' => [
