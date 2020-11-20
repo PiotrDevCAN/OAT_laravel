@@ -5,16 +5,35 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\OvertimeRequest;
-use App\Models\Competency;
-use App\Models\Account;
 use App\Events\OvertimeRequestApproved;
 use App\Events\OvertimeRequestRejected;
 use App\Http\Requests\CreateOvertimeRequest;
 use App\Http\Requests\ApproveOvertimeRequest;
 use App\Http\Requests\RejectOvertimeRequest;
+use App\Http\Resources\OvertimeRequestResourceCollection;
 
 class OvertimeRequests extends Controller
 {
+    public function list(OvertimeRequest $request)
+    {
+        $records = OvertimeRequest::where('status', 'like', 'Awaiting%')
+            ->whereNull('delete_flag')
+            ->where('weekenddate', '>=', '2020-10-16')
+//             ->where($predicates)
+            ->get();
+        
+        $resourceCollection = new OvertimeRequestResourceCollection($records);
+        
+//         $resourceCollection->additional(['meta' => [
+//             'status' => 'OK',
+//             'week_ending_date' => $week_ending,
+//             'account_id' => $accounts,
+//             'count' => $resourceCollection->count()
+//         ]]);
+        
+        return $resourceCollection;        
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
