@@ -84,7 +84,7 @@ jQuery( document ).ready(function() {
 			            { "data": "reference" },
 			            { "data": "reference" },
 			            { "data": "reference" }
-			        ]
+			        ];
 					
 				    IBMCore.common.widget.datatable.init(tableData[n], tabletDataObject);
 				    
