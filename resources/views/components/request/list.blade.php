@@ -38,9 +38,6 @@ jQuery( document ).ready(function() {
 	if (typeof (tableData) !== 'undefined') {
 		for (n=0;n<tableData.length;n++){
 			
-			// firstly initialize treetable widget
-			tableData.eq(n).treetable({ expandable: true });
-			
 			// default object settings
 			var tabletDataObject = tableData.eq(n).data();
 			
