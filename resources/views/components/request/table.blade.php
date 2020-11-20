@@ -4,8 +4,18 @@
         <table class="ibm-data-table ibm-altrows ibm-padding-small ibm-small" 
         	data-processing="true"
         	data-serverSide="true" 
-        	data-ajax-url="{{ route('api.request.list') }}" 
-        	data-ajax-type="POST"
+        	data-url="{{ route('api.request.list') }}" 
+        	data-type="POST"
+        	
+        	data-columns = "[
+                { 'data': 0 },
+                { 'data': 1 },
+                { 'data': 2 },
+                { 'data': 3 },
+                { 'data': 4 },
+                { 'data': 5 }
+            ]"
+        	
         	data-scrollaxis="x" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatable" id="{{ $name }}">
             <thead>
                 <tr>
