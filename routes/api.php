@@ -25,7 +25,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 */
 
 // Overtime Requests
-Route::prefix('request')->middleware(['throttle:5'])->name('api.request.')->group(function () {
+Route::prefix('request')
+    ->middleware(['throttle'])
+    ->name('api.request.')
+    ->group(function () {
     
     Route::get('list', [OvertimeRequests::class, 'list'])
         ->name('list');
