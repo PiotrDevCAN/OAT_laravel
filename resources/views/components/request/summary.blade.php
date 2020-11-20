@@ -9,7 +9,7 @@
         <div class="ibm-fluid">
         	@isset($awaiting)
                 <div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="$awaiting->count()" disabled="true"/>
+                	<x-ibmv18form-input field-name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="" disabled="true"/>
                 </div>
                 <div class="ibm-col-12-6">
                 	<x-ibmv18form-input field-name="ApprovedRequestsHours" label="Hours:" :value="$awaitingHours" disabled="true"/>
@@ -18,7 +18,7 @@
             
             @isset($approved)
             	<div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="ApprovedRequests" label="Approved Requests:" :value="$approved->count()" disabled="true"/>
+                	<x-ibmv18form-input field-name="ApprovedRequests" label="Approved Requests:" :value="" disabled="true"/>
                 </div>
                 <div class="ibm-col-12-6">
                 	<x-ibmv18form-input field-name="AwaitingApprovalRequestsHours" label="Hours:" :value="$approvedHours" disabled="true"/>
@@ -27,7 +27,7 @@
             
             @isset($other)
             	<div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="OtherRequests" label="Other Requests:" :value="$other->count()" disabled="true"/>
+                	<x-ibmv18form-input field-name="OtherRequests" label="Other Requests:" :value="" disabled="true"/>
                 </div>
                 <div class="ibm-col-12-6">
                 	<x-ibmv18form-input field-name="OtherRequestsHours" label="Hours:" :value="$otherHours" disabled="true"/>
