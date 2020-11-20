@@ -48,7 +48,12 @@ jQuery( document ).ready(function() {
 					tabletDataObject.serverSide = true;
 					tabletDataObject.ajax = {
 			            "url": "https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list",
-			            "type": "POST"
+			            "type": "POST",
+
+		            	"dataSrc": "data",
+		                "datatype": "json", // you can probably remove this
+		                "contentType": "application/json; charset=utf-8"
+		                
 			        };
 					tabletDataObject.columns = [
 			            { "data": "reference" },
