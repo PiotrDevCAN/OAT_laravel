@@ -82,6 +82,7 @@ class OvertimeRequests extends Controller
      */
     public function index(Request $request)
     {
+        /*
         $predicates = $this->preparePredicates($request);
         
         $awaiting = OvertimeRequest::awaiting($predicates);
@@ -97,6 +98,18 @@ class OvertimeRequests extends Controller
             
             'other' => $other,
             'otherHours' => $other->sum('hours'),
+        );
+        */
+        
+        $data = array(
+            'awaiting' => array(),
+            'awaitingHours' => 0,
+            
+            'approved' => array(),
+            'approvedHours' => 0,
+            
+            'other' => array(),
+            'otherHours' => 0,
         );
         
         return view('components.request.index', $data);
