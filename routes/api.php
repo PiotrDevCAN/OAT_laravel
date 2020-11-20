@@ -25,6 +25,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 */
 
 // Overtime Requests
+Route::group(['prefix' => 'request', 'middleware' => 'throttle:5', 'name' => 'api.request.'], function () {
+    Route::get('list', [OvertimeRequests::class, 'list'])
+    ->name('list');
+    
+    Route::get('store', [OvertimeRequests::class, 'store'])
+    ->name('store');
+    
+    Route::get('show/{ref}', [OvertimeRequests::class, 'show'])
+    ->name('show');
+    
+    Route::get('update/{ref}', [OvertimeRequests::class, 'update'])
+    ->name('update');
+    
+    Route::get('destroy/{ref}', [OvertimeRequests::class, 'destroy'])
+    ->name('destroy');
+    
+    Route::get('approve/{overtimeRequest}/cat/{lvl?}/status/{status?}/via/{via?}', [OvertimeRequests::class, 'approve'])
+    ->name('approve');
+    
+    Route::get('reject/{overtimeRequest}/cat/{lvl?}/status/{status?}/via/{via?}', [OvertimeRequests::class, 'reject'])
+    ->name('reject');
+});
+
+/*
+// Overtime Requests
 Route::prefix('request')
     ->middleware(['throttle'])
     ->name('api.request.')
@@ -51,6 +76,7 @@ Route::prefix('request')
     Route::get('reject/{overtimeRequest}/cat/{lvl?}/status/{status?}/via/{via?}', [OvertimeRequests::class, 'reject'])
         ->name('reject');
 });
+*/
 
 // Accounts
 Route::prefix('account')->name('api.account.')->group(function () {
