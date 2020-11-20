@@ -51,40 +51,11 @@ jQuery( document ).ready(function() {
 			            "type": "POST",
 
 		            	"dataSrc": "data",
-		                "datatype": "json", // you can probably remove this
+		                "datatype": "json",
 		                "contentType": "application/json; charset=utf-8"
 		                
 			        };
-					tabletDataObject.columns = [
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" },
-			            { "data": "reference" }
-			        ];
+					
 					
 				    IBMCore.common.widget.datatable.init(tableData[n], tabletDataObject);
 				    
