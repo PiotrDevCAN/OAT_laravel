@@ -29,12 +29,8 @@
 <script type="text/javascript">
 jQuery( document ).ready(function() {
 
-	alert('initialise data tables');
-
 	var tableData = jQuery('.ibm-data-table');
-
-	var	dataTableWidget = true;
-
+	
 	if (typeof (tableData) !== 'undefined') {
 		for (n=0;n<tableData.length;n++){
 			
@@ -54,6 +50,14 @@ jQuery( document ).ready(function() {
 			            "url": "https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list",
 			            "type": "POST"
 			        };
+					tabletDataObject.columns = [
+			            { "data": "first_name" },
+			            { "data": "last_name" },
+			            { "data": "position" },
+			            { "data": "office" },
+			            { "data": "start_date" },
+			            { "data": "salary" }
+			        ]
 					
 				    IBMCore.common.widget.datatable.init(tableData[n], tabletDataObject);
 				    
