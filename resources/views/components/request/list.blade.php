@@ -47,7 +47,7 @@ jQuery( document ).ready(function() {
 					tabletDataObject.processing = true;
 					tabletDataObject.serverSide = true;
 					tabletDataObject.ajax = {
-			            url: 'https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list,
+			            url: 'https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list',
 			            type: 'POST',
 			            dataSrc: 'data'
 			        };
