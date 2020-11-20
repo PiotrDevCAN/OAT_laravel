@@ -3,10 +3,10 @@
     <div class="ibm-container-body">
         <table class="ibm-data-table ibm-altrows ibm-padding-small ibm-small" 
         	data-processing="true"
-        	data-serverSide="true" 
+        	data-serverSide="true"
         	data-ajax="{{ route('api.request.list') }}" 
         	
-        	data-scrollaxis="x" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatable" id="{{ $name }}">
+        	data-scrollaxis="x" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatableReady" id="{{ $name }}">
             <thead>
                 <tr>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Ref</th>
