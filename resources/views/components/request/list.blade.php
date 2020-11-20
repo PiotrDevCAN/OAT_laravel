@@ -41,8 +41,8 @@ jQuery( document ).ready(function() {
 				case 'datatableReady':
 					
 					// additional settings
-// 					tabletDataObject.pageLength = -1;
-// 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
+					tabletDataObject.pageLength = -1;
+					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 
 					tabletDataObject.processing = true;
 					tabletDataObject.serverSide = true;
@@ -50,30 +50,31 @@ jQuery( document ).ready(function() {
 			            "url": "https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list",
 			            "type": "POST"
 			        };
+
 					tabletDataObject.columns = [
 						{ data: 'reference' },
-						{ data: 'requestor' },
-						{ data: 'requested' },
-						{ data: 'competency' },
-						{ data: 'approvaltype' },
-						{ data: 'title' },
 						{ data: 'account' },
-						{ data: 'weekenddate' },
+						{ data: 'competency' },
 						{ data: 'nature' },
+						{ data: 'title' },
 						{ data: 'details' },
+						{ data: 'weekenddate' },
 						{ data: 'worker' },
 						{ data: 'serial' },
+						{ data: 'location' },
 						{ data: 'hours' },
 						{ data: 'status' },
-						{ data: 'rejection' },
+						{ data: null, render: '1st Level Approval' },
+						{ data: null, render: '2nd Level Approval' },
+						{ data: null, render: '3rd Level Approval' },
+						{ data: 'requestor' },
+						{ data: 'approval_mode' },
+						{ data: 'approver_squad_leader' },
+						{ data: 'approver_tribe_leader' },
 						{ data: 'supercedes' },
 						{ data: 'supercededby' },
 						{ data: 'claim_acc_id' },
-						{ data: 'approver_first_level' },
-						{ data: 'approver_first_level_ts' },
-						{ data: 'approver_second_level' },
-						{ data: 'approver_second_level_ts' },
-						{ data: 'approver_third_level' }
+						{ data: 'created_ts' }
 			        ];
 					
 				    IBMCore.common.widget.datatable.init(tableData[n], tabletDataObject);
