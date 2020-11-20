@@ -24,6 +24,12 @@ class OvertimeRequests extends Controller
         
         $resourceCollection = new OvertimeRequestResourceCollection($records);
         
+        $resourceCollection->additional(['meta' => [
+            'draw' => 1,
+            'recordsTotal' => $resourceCollection->count(),
+            'recordsFiltered' => $resourceCollection->count()
+        ]]);
+        
 //         $resourceCollection->additional(['meta' => [
 //             'status' => 'OK',
 //             'week_ending_date' => $week_ending,
