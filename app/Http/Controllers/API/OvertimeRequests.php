@@ -31,8 +31,16 @@ class OvertimeRequests extends Controller
             ->where('weekenddate', '>=', '2020-10-16')
 //             ->where($predicates)
             ->limit($length)
-            ->get();
+            ->get()->paginate(15);
         
+        dump($records);
+        
+        dump($records->count());
+        dump($records->currentPage());
+        dump($records->total());
+        
+        dd();
+            
         $resourceCollection = new OvertimeRequestResourceCollection($records);
         
         $resourceCollection->additional([
