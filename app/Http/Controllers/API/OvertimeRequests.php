@@ -16,10 +16,21 @@ class OvertimeRequests extends Controller
 {
     public function list(OvertimeRequest $request)
     {
+        $predicates = array();
+        
+        if ($request->filled('length')) {
+            $length = $request->input('length');
+        } else {
+            $length = 10;
+        }
+        
+//         start
+        
         $records = OvertimeRequest::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-10-16')
 //             ->where($predicates)
+            ->limit($length)
             ->get();
         
         $resourceCollection = new OvertimeRequestResourceCollection($records);
@@ -29,13 +40,6 @@ class OvertimeRequests extends Controller
             'recordsTotal' => $resourceCollection->count(),
             'recordsFiltered' => $resourceCollection->count()
         ]);
-        
-//         $resourceCollection->additional(['meta' => [
-//             'status' => 'OK',
-//             'week_ending_date' => $week_ending,
-//             'account_id' => $accounts,
-//             'count' => $resourceCollection->count()
-//         ]]);
         
         return $resourceCollection;        
     }
