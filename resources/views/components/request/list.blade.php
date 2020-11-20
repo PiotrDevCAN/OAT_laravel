@@ -41,8 +41,8 @@ jQuery( document ).ready(function() {
 				case 'datatableReady':
 					
 					// additional settings
-					tabletDataObject.pageLength = -1;
-					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
+// 					tabletDataObject.pageLength = -1;
+// 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 
 					tabletDataObject.processing = true;
 					tabletDataObject.serverSide = true;
