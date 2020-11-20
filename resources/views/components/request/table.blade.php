@@ -3,7 +3,7 @@
     <div class="ibm-container-body">
         <table class="ibm-data-table ibm-altrows ibm-padding-small ibm-small" 
         	data-serverSide="true" 
-        	data-ajax="{{ link_to_route('api.request.list') }}" 
+        	data-ajax="{{ route('api.request.list') }}" 
         	data-scrollaxis="x" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatable" id="{{ $name }}">
             <thead>
                 <tr>
