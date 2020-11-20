@@ -51,12 +51,12 @@ jQuery( document ).ready(function() {
 			            "type": "POST"
 			        };
 					tabletDataObject.columns = [
-			            { "data": "first_name" },
-			            { "data": "last_name" },
-			            { "data": "position" },
-			            { "data": "office" },
-			            { "data": "start_date" },
-			            { "data": "salary" }
+			            { "data": "reference" },
+			            { "data": "reference" },
+			            { "data": "reference" },
+			            { "data": "reference" },
+			            { "data": "reference" },
+			            { "data": "reference" }
 			        ]
 					
 				    IBMCore.common.widget.datatable.init(tableData[n], tabletDataObject);
