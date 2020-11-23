@@ -84,7 +84,7 @@ jQuery( document ).ready(function() {
 				        ]
 				    };
 
-					var params = {}
+// 					var params = {}
 					
 					console.log(params);
 					
