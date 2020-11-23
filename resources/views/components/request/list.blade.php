@@ -51,13 +51,10 @@ jQuery( document ).ready(function() {
 			            type: 'POST',
 			            dataSrc: 'data',
 			            data: function ( d ) {
-
-				            alert(tabletDataObject.page());
-
-			            	// approved 
+			            	// awaiting
+			            	// approved
 			            	// other
-			            	d.type = "awaiting"; 
-			                d.page = "myValue";
+			            	d.type = "awaiting";
 			            }
 			        };
 

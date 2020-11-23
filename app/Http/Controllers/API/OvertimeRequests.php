@@ -16,11 +16,11 @@ class OvertimeRequests extends Controller
 {
     public function list(Request $request)
     {
-        $predicates = array();
+//         $predicates = array();
         
         $start = $request->post('start', 0);
         $length = $request->post('length', 10);
-        $page = $request->post('page', 1);
+//         $page = $request->post('page', 1);
         
 //         dump($request->post('start', 0));
 //         dump($request->post('length', 10));
@@ -29,6 +29,14 @@ class OvertimeRequests extends Controller
 //         dump($request->all());
         
 //         dd();
+
+        $page = $start / $length + 1;
+        
+        $additionalInput = array('page' => $page);
+        $request->merge($additionalInput);
+        
+//         dump(' page number ');
+//         dump($page);
         
         $records = OvertimeRequest::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
