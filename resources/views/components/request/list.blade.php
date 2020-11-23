@@ -36,17 +36,17 @@ jQuery( document ).ready(function() {
 
 					var params = {
 						
-						"status": tableData.eq(n).attr('id'),
-			        	"scrollaxis": "x", 
-			        	"info": true,
-			        	"ordering": true, 
-			        	"paging": true, 
-			        	"searching": true,
+						status: tableData.eq(n).attr('id'),
+			        	scrollaxis: "x", 
+			        	info: true,
+			        	ordering: true, 
+			        	paging: true, 
+			        	searching: true,
 			        	
-				        "processing": true,
-				        "serverSide": true,
+				        processing: true,
+				        serverSide: true,
 
-				        "ajax" = {
+				        ajax = {
 				            url: 'https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list',
 				            type: 'POST',
 				            dataSrc: 'data',
@@ -58,8 +58,8 @@ jQuery( document ).ready(function() {
 				            }
 				        },
 				        
-				        "deferLoading": 57,
-				        "columns": [
+				        deferLoading: 57,
+				        columns: [
 				        	{ "data": "reference" },
 							{ "data": "account" },
 							{ "data": "competency" },
