@@ -103,17 +103,6 @@ class OvertimeRequests extends Controller
             'otherHours' => $other->sum('hours'),
         );
         
-        $data = array(
-            'awaiting' => array(),
-            'awaitingHours' => 0,
-            
-            'approved' => array(),
-            'approvedHours' => 0,
-            
-            'other' => array(),
-            'otherHours' => 0,
-        );
-        
         return view('components.request.index', $data);
     }
 
