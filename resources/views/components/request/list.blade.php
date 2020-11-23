@@ -16,13 +16,6 @@
     	<x-request.table name="Awaiting Approval" id="awaiting" :records="$awaiting" expand="true"/>
     @endisset
     
-    @isset($approved)
-    	<x-request.table name="Approved" id="approved" :records="$approved"/>
-    @endisset
-    
-    @isset($other)
-    	<x-request.table name="Other" id="other" :records="$other"/>
-    @endisset
 
 
 

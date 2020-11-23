@@ -30,6 +30,8 @@ class OvertimeRequests extends Controller
         
 //         dd();
 
+        $status = $request->post('status', '');
+        
         $page = $start / $length + 1;
         
         $additionalInput = array('page' => $page);
@@ -38,7 +40,7 @@ class OvertimeRequests extends Controller
 //         dump(' page number ');
 //         dump($page);
         
-        $records = OvertimeRequest::where('status', 'like', 'Awaiting%')
+        $records = OvertimeRequest::where('status', 'like', $type.'%')
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-10-16')
 //             ->where($predicates)
