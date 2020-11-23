@@ -21,7 +21,11 @@
 <script type="text/javascript">
 jQuery( document ).ready(function() {
 
+alert('document is ready');
+	
 	var tableData = jQuery('.ibm-data-table');
+
+	alert(tableData.length);
 	
 	if (typeof (tableData) !== 'undefined') {
 		for (n=0;n<tableData.length;n++){
