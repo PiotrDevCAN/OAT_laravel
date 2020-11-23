@@ -39,8 +39,9 @@ jQuery( document ).ready(function() {
 			        	info: true,
 			        	ordering: true, 
 			        	paging: true, 
-			        	searching: true,
-			        	
+			        	searching: true
+
+			        	/*
 // 				        processing: true,
 				        serverSide: true,
 
@@ -82,6 +83,7 @@ jQuery( document ).ready(function() {
 							{ "data": "claim_acc_id" },
 							{ "data": "created_ts" }
 				        ]
+				        */
 				    };
 
 // 					var params = {}
