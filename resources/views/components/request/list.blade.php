@@ -32,6 +32,8 @@ jQuery( document ).ready(function() {
 			switch(tabletDataObject.widget){
 				case 'datatableReady':
 
+					alert(tableData.eq(n).attr('id'));
+
 					var params = {
 						
 						"status": tableData.eq(n).attr('id'),
@@ -43,15 +45,19 @@ jQuery( document ).ready(function() {
 			        	
 				        "processing": true,
 				        "serverSide": true,
-				        "ajax": "scripts/server_processing.php",
-				        "type": "POST",
-				        "dataSrc" : "data",
-				        "data": function ( d ) {
-			            	// awaiting
-			            	// approved
-			            	// other
-			            	d.type = "awaiting";
-			            },
+
+				        "ajax" = {
+				            url: 'https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list',
+				            type: 'POST',
+				            dataSrc: 'data',
+				            data: function ( d ) {
+				            	// awaiting
+				            	// approved
+				            	// other
+				            	d.type = "awaiting";
+				            }
+				        },
+				        
 				        "deferLoading": 57,
 				        "columns": [
 				        	{ "data": "reference" },
