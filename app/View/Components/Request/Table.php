@@ -14,6 +14,13 @@ class Table extends Component
     public $name;
     
     /**
+     * The table id.
+     *
+     * @var string
+     */
+    public $id;
+    
+    /**
      * The table content.
      *
      * @var string
@@ -29,9 +36,10 @@ class Table extends Component
      * @param  string  $records
      * @return void
      */
-    public function __construct($name, $records, $expand = false)
+    public function __construct($name, $id, $records, $expand = false)
     {
         $this->name = $name;
+        $this->id = $id;
         $this->records = $records;
         $this->expand = $expand;
     }
