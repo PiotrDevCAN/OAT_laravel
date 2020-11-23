@@ -33,6 +33,14 @@ jQuery( document ).ready(function() {
 				case 'datatableReady':
 
 					var params = {
+						
+						"status": tableData.eq(n).attr('id'),
+			        	"scrollaxis": "x", 
+			        	"info": "true",
+			        	"ordering": "true", 
+			        	"paging": "true", 
+			        	"searching": "true",
+			        	
 				        "processing": true,
 				        "serverSide": true,
 				        "ajax": "scripts/server_processing.php",
