@@ -21,10 +21,10 @@ class OvertimeRequests extends Controller
         $start = $request->post('start', 0);
         $length = $request->post('length', 10);
         
-        dump($request->post('start', 0));
-        dump($request->post('length', 10));
+//         dump($request->post('start', 0));
+//         dump($request->post('length', 10));
         
-        dump($request->all());
+//         dump($request->all());
         
 //         dd();
         
@@ -33,16 +33,18 @@ class OvertimeRequests extends Controller
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-10-16')
 //             ->where($predicates)
-            ->offset($start)
-            ->limit($length)
+//             ->offset($start)
+//             ->limit($length)
 //             ->get()
             ->paginate($length);
         
-//         dump($records);
+        dump($records);
         
-//         dump($records->count());
-//         dump($records->currentPage());
-//         dump($records->total());
+        dump($records->count());
+        dump($records->currentPage());
+        dump($records->total());
+        
+        dd();
         
         $resourceCollection = new OvertimeRequestResourceCollection($records);
         
