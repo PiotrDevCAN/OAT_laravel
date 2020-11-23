@@ -3,12 +3,6 @@
     <div class="ibm-container-body">
         <table class="ibm-data-table ibm-altrows ibm-padding-small ibm-small" id="{{ $id }}"
         	
-        	data-status="{{ $id }}" 
-        	data-scrollaxis="x" 
-        	data-info="true" 
-        	data-ordering="true" 
-        	data-paging="true" 
-        	data-searching="true" 
         	data-widget="datatableReady" 
         	
         	>
