@@ -40,7 +40,13 @@ class OvertimeRequests extends Controller
 //         dump($records->currentPage());
 //         dump($records->total());
         
+        dump($records->get('start'));
+        dump($records->get('length'));
+        
         dump($request->all());
+        
+        dump($records->get('length'));
+        
         
         dd();
         
