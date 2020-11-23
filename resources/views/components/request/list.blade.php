@@ -21,11 +21,7 @@
 <script type="text/javascript">
 jQuery( document ).ready(function() {
 
-alert('document is ready');
-	
 	var tableData = jQuery('.ibm-data-table');
-
-	alert(tableData.length);
 	
 	if (typeof (tableData) !== 'undefined') {
 		for (n=0;n<tableData.length;n++){
@@ -36,6 +32,8 @@ alert('document is ready');
 			
 			// default object settings
 			var tabletDataObject = tableData.eq(n).data();
+
+			alert(tabletDataObject.widget);
 			
 			switch(tabletDataObject.widget){
 				case 'datatableReady':
