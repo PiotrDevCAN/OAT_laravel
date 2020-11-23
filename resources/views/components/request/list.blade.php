@@ -26,7 +26,8 @@ jQuery( document ).ready(function() {
 	if (typeof (tableData) !== 'undefined') {
 		for (n=0;n<tableData.length;n++){
 
-			alert(tableData.eq(n).attr('id'));
+
+					console.log(tableData.eq(n));
 			
 			// default object settings
 			var tabletDataObject = tableData.eq(n).data();
