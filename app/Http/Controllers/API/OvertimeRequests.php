@@ -19,7 +19,7 @@ class OvertimeRequests extends Controller
 //         $predicates = array();
         
         $start = $request->post('start', 0);
-        $length = $request->post('length', 10);
+        $length = $request->post('length', OvertimeRequest::$limit);
 //         $page = $request->post('page', 1);
         
 //         dump($request->post('start', 0));

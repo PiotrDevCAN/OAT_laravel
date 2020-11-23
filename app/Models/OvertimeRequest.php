@@ -87,6 +87,8 @@ class OvertimeRequest extends Model
 //         'delayed' => false,
     ];
     
+    public static $limit = 10;
+    
     public static function imports()
     {
         return collect(array(
@@ -367,6 +369,7 @@ class OvertimeRequest extends Model
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
+                ->limit(static::$limit)
                 ->get();
         });
         
@@ -381,6 +384,7 @@ class OvertimeRequest extends Model
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
+                ->limit(static::$limit)
                 ->get();
         });
         
@@ -396,6 +400,7 @@ class OvertimeRequest extends Model
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
+                ->limit(static::$limit)
                 ->get();
         });
         

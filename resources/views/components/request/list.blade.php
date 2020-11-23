@@ -57,6 +57,8 @@ jQuery( document ).ready(function() {
 			            }
 			        };
 
+					tabletDataObject.deferLoading = 10;
+
 					tabletDataObject.columns = [
 						{ data: 'reference' },
 						{ data: 'account' },

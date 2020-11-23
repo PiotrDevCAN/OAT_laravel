@@ -84,6 +84,9 @@ class OvertimeRequests extends Controller
     {
         /*
         $predicates = $this->preparePredicates($request);
+        */
+        
+        $predicates = array();
         
         $awaiting = OvertimeRequest::awaiting($predicates);
         $approved = OvertimeRequest::approved($predicates);
@@ -99,7 +102,6 @@ class OvertimeRequests extends Controller
             'other' => $other,
             'otherHours' => $other->sum('hours'),
         );
-        */
         
         $data = array(
             'awaiting' => array(),
