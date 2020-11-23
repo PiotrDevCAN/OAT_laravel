@@ -60,7 +60,8 @@ class OvertimeRequests extends Controller
         $resourceCollection->additional([
             'draw' => 1,
             'recordsTotal' => $records->total(),
-            'recordsFiltered' => $records->count()
+            'recordsFiltered' => $records->total()
+//             'recordsFiltered' => $records->count()
         ]);
         
         return $resourceCollection;        
