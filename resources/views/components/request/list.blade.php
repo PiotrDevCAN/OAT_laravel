@@ -13,7 +13,7 @@
 @section('bottom-section')
 
     @isset($awaiting)
-    	<x-request.table name="awaiting_approval" id="awaiting" :records="$awaiting" expand="true"/>
+    	<x-request.table name="awaiting_approval" id="awaitingApprovalTable" :records="$awaiting" expand="true"/>
     @endisset
     
     
