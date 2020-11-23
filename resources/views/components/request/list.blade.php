@@ -21,7 +21,7 @@
 <script type="text/javascript">
 jQuery( document ).ready(function() {
 
-	var tableData = jQuery('.ibm-data-table');
+	var tableData = jQuery('.ibm-data-tableAAAA');
 	
 	if (typeof (tableData) !== 'undefined') {
 		for (n=0;n<tableData.length;n++){
