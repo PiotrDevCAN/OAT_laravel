@@ -16,8 +16,13 @@
     	<x-request.table name="Awaiting Approval" id="awaiting" :records="$awaiting" expand="true"/>
     @endisset
     
-
-
+    {{ -- @isset($approved)
+    	<x-request.table name="Approved" id="approved" :records="$approved"/>
+    @endisset --}}
+    
+    {{-- @isset($other)
+    	<x-request.table name="Other" id="other" :records="$other"/>
+    @endisset --}}
 
 <script type="text/javascript">
 jQuery( document ).ready(function() {
@@ -37,8 +42,9 @@ jQuery( document ).ready(function() {
 // 					tabletDataObject.pageLength = -1;
 // 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 
-					tabletDataObject.processing = true;
+					tabletDataObject.processing = false;
 					tabletDataObject.serverSide = true;
+					
 					tabletDataObject.ajax = {
 			            url: 'https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list',
 			            type: 'POST',
