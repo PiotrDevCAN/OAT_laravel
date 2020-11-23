@@ -363,7 +363,7 @@ class OvertimeRequest extends Model
     
     public static function awaiting($predicates)
     {
-        $data = Cache::remember('OvertimeRequest.awaiting', 33660, function() use ($predicates)
+        $data = Cache::remember('OvertimeRequest.awaiting'.serialize($predicates).static::$limit, 33660, function() use ($predicates)
         {
             return self::where('status', 'like', 'Awaiting%')
                 ->whereNull('delete_flag')
