@@ -21,7 +21,7 @@
 <script type="text/javascript">
 jQuery( document ).ready(function() {
 
-	var tableData = jQuery('.ibm-data-tableAAAA');
+	var tableData = jQuery('.ibm-data-table');
 	
 	if (typeof (tableData) !== 'undefined') {
 		for (n=0;n<tableData.length;n++){
@@ -32,7 +32,6 @@ jQuery( document ).ready(function() {
 			switch(tabletDataObject.widget){
 				case 'datatableReady':
 
-					/*
 					var params = {
 						
 						status: tableData.eq(n).attr('id'),
@@ -57,7 +56,7 @@ jQuery( document ).ready(function() {
 				            }
 				        },
 				        
-				        deferLoading: 57,
+				        deferLoading: 10,
 				        columns: [
 				        	{ "data": "reference" },
 							{ "data": "account" },
@@ -84,7 +83,6 @@ jQuery( document ).ready(function() {
 							{ "data": "created_ts" }
 				        ]
 				    };
-				    */
 
 					var params = {}
 					
