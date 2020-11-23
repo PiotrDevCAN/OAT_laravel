@@ -20,14 +20,15 @@ class OvertimeRequests extends Controller
         
         $start = $request->post('start', 0);
         $length = $request->post('length', 10);
+        $page = $request->post('page', 1);
         
 //         dump($request->post('start', 0));
 //         dump($request->post('length', 10));
+//         dump($request->post('page', 1));
         
 //         dump($request->all());
         
 //         dd();
-        
         
         $records = OvertimeRequest::where('status', 'like', 'Awaiting%')
             ->whereNull('delete_flag')
@@ -38,13 +39,13 @@ class OvertimeRequests extends Controller
 //             ->get()
             ->paginate($length);
         
-        dump($records);
+//         dump($records);
         
-        dump($records->count());
-        dump($records->currentPage());
-        dump($records->total());
+//         dump($records->count());
+//         dump($records->currentPage());
+//         dump($records->total());
         
-        dd();
+//         dd();
         
         $resourceCollection = new OvertimeRequestResourceCollection($records);
         

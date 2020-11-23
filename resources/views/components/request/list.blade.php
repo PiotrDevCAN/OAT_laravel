@@ -49,7 +49,16 @@ jQuery( document ).ready(function() {
 					tabletDataObject.ajax = {
 			            url: 'https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list',
 			            type: 'POST',
-			            dataSrc: 'data'
+			            dataSrc: 'data',
+			            data: function ( d ) {
+
+				            alert(tabletDataObject.page());
+
+			            	// approved 
+			            	// other
+			            	d.type = "awaiting"; 
+			                d.page = "myValue";
+			            }
 			        };
 
 					tabletDataObject.columns = [
