@@ -32,8 +32,7 @@ jQuery( document ).ready(function() {
 			switch(tabletDataObject.widget){
 				case 'datatableReady':
 
-					console.log(params);
-					
+					/*
 					var params = {
 						
 						status: tableData.eq(n).attr('id'),
@@ -84,7 +83,12 @@ jQuery( document ).ready(function() {
 							{ "data": "claim_acc_id" },
 							{ "data": "created_ts" }
 				        ]
-				    }
+				    };
+				    */
+
+					var params = {}
+					
+					console.log(params);
 					
 					// additional settings
 // 					tabletDataObject.pageLength = -1;
