@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($records as $record)
+                @foreach ($records as $key => $record)
                 <tr>
                     <td><p class="ibm-ind-link ibm-icononly ibm-nospacing">
                     @isset($record->account)
