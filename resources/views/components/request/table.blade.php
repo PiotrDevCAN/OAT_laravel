@@ -1,5 +1,8 @@
 <div data-widget="showhide" data-type="panel" class="ibm-show-hide ibm-alternate">
-    <h2 @if($expand == true)data-open="true"@endif>{{ $name }} Requests</h2>
+	
+    {{-- <h2 @if($expand == true)data-open="true"@endif>{{ $name }} Requests</h2> --}}
+    
+    <h2>{{ $name }} Requests</h2>
     <div class="ibm-container-body">
     	<table class="ibm-data-table ibm-altrows ibm-padding-small" data-widget="datatableReady" id="{{ $name }}">
             <thead>

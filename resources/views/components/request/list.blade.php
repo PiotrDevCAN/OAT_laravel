@@ -29,6 +29,9 @@ jQuery( document ).ready(function() {
 			// default object settings
 			var tabletDataObject = tableData.eq(n).data();
 
+			console.log('tabletDataObject');
+			console.log(tabletDataObject);
+			
 			switch(tabletDataObject.widget){
 				case 'datatableReady':
 
@@ -88,6 +91,7 @@ jQuery( document ).ready(function() {
 
 // 					var params = {}
 					
+					console.log('params');
 					console.log(params);
 					
 					// additional settings
