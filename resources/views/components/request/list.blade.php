@@ -38,10 +38,10 @@ jQuery( document ).ready(function() {
 						
 						"status": tableData.eq(n).attr('id'),
 			        	"scrollaxis": "x", 
-			        	"info": "true",
-			        	"ordering": "true", 
-			        	"paging": "true", 
-			        	"searching": "true",
+			        	"info": true,
+			        	"ordering": true, 
+			        	"paging": true, 
+			        	"searching": true,
 			        	
 				        "processing": true,
 				        "serverSide": true,
