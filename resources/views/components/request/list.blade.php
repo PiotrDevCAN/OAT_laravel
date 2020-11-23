@@ -77,7 +77,7 @@ jQuery( document ).ready(function() {
 							{ "data": "supercededby" },
 							{ "data": "claim_acc_id" },
 							{ "data": "created_ts" }
-				        ];
+				        ]
 				    }
 					
 					// additional settings
