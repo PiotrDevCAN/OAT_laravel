@@ -10,10 +10,10 @@
         	@isset($lists)
             	@foreach ($lists as $list)
             		<div class="ibm-col-12-6">
-                    	<x-ibmv18form-input field-name="{{ $list->name }}Requests" label="{{ $list->label }} Requests:" value="{{ $list->total }}" disabled="true"/>
+                    	<x-ibmv18form-input field-name="{{ $list->name }}Requests" label="Requests:" :value="$list->total" disabled="true"/>
                     </div>
                     <div class="ibm-col-12-6">
-                    	<x-ibmv18form-input field-name="{{ $list->name }}Hours" label="Hours:" value="{{ $list->hours }}" disabled="true"/>
+                    	<x-ibmv18form-input field-name="{{ $list->name }}Hours" label="Hours:" :value="$list->hours" disabled="true"/>
                     </div>            		
                 @endforeach
         	@endisset
