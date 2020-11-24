@@ -14,7 +14,9 @@
 
 	@isset($lists)
     	@foreach ($lists as $list)
-    		<x-request.table :list="$list" @if ($loop->first) expand="true" @endif/>
+    	
+    		<x-request.table :list="$list" />
+        
         @endforeach
 	@endisset
 
