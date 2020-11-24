@@ -13,34 +13,6 @@ class Table extends Component
      */
     public $list;
     
-    /**
-     * The table name.
-     *
-     * @var string
-     */
-    public $name;
-    
-    /**
-     * The table id.
-     *
-     * @var string
-     */
-    public $id;
-    
-    /**
-     * The table label.
-     *
-     * @var string
-     */
-    public $label;
-    
-    /**
-     * The table content.
-     *
-     * @var string
-     */
-    public $records;
-    
     public $expand;
     
     /**
@@ -53,12 +25,7 @@ class Table extends Component
     public function __construct($list = null, $expand = false)
     {
         $this->list = $list;
-        $this->expand = $expand;
-        
-        $this->name = $this->list['name'];
-        $this->id = $this->list['id'];
-        $this->label = $this->list['label'];
-        $this->records = $this->list['records'];        
+        $this->expand = $expand;      
     }
 
     /**

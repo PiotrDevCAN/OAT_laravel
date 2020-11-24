@@ -1,7 +1,7 @@
 <div data-widget="showhide" data-type="panel" class="ibm-show-hide ibm-alternate">
-	<h2 @if($expand == true)data-open="true"@endif>{{ $label }} Requests</h2>
+	<h2 @if($expand == true)data-open="true"@endif>{{ $list->label }} Requests</h2>
     <div class="ibm-container-body">
-    	<table class="ibm-data-table ibm-altrows ibm-padding-small" data-widget="datatableReady" id="{{ $id }}">
+    	<table class="ibm-data-table ibm-altrows ibm-padding-small" data-widget="datatableReady" id="{{ $list->id }}">
             <thead>
                 <tr>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Ref</th>
@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($records as $key => $record)
+                @foreach ($list->records as $key => $record)
                 <tr>
                     <td class="ibm-padding-top-0 ibm-padding-bottom-0">
                     @isset($record->reference)
@@ -56,8 +56,8 @@
                     <td class="ibm-padding-top-0 ibm-padding-bottom-0">
                     {{ Str::limit($record->details, 50, '') }}
                     @if(Str::length($record->details) >= 50)
-	                    <a href="#" class="ibm-bold" data-widget="tooltip" data-contentid="preview-{{ $name }}-{{ $key }}" style="text-decoration: none;">(...)</a>
-                        <div id="preview-{{ $name }}-{{ $key }}" class="ibm-tooltip-content">
+	                    <a href="#" class="ibm-bold" data-widget="tooltip" data-contentid="preview-{{ $list->name }}-{{ $key }}" style="text-decoration: none;">(...)</a>
+                        <div id="preview-{{ $list->name }}-{{ $key }}" class="ibm-tooltip-content">
                         	{{ $record->details }}
                         </div>
                     @endif
@@ -139,7 +139,7 @@
 // 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 					
 					var params = {
-						status: "{{ $id }}",
+						status: "{{ $list->id }}",
 			        	scrollaxis: "x", 
 			        	info: true,
 			        	ordering: true, 
@@ -155,7 +155,7 @@
 				            	// awaiting
 				            	// approved
 				            	// other
-				            	d.type = "{{ $id }}";
+				            	d.type = "{{ $list->id }}";
 				            }
 				        },
 				        deferLoading: {{ $records->total() }},
@@ -187,7 +187,7 @@
 				    };
 
 					// initialise widget
-				    IBMCore.common.widget.datatable.init('#{{ $id }}', params);
+				    IBMCore.common.widget.datatable.init('#{{ $list->id }}', params);
 // 					break;
 // 				default:
 // 					break;

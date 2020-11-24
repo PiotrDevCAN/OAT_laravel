@@ -92,7 +92,7 @@ class OvertimeRequests extends Controller
         $approved = OvertimeRequest::approved($predicates);
         $other = OvertimeRequest::other($predicates);
         
-        $data = array(
+        $data = collect(array(
             'lists' => array(
                 'awaiting' => array(
                     'id' => 'awaitingTable',
@@ -119,7 +119,7 @@ class OvertimeRequests extends Controller
                     'hours' => $other->sum('hours'),
                 ),
             ),
-        );
+        ));
         
         return view('components.request.index', $data);
     }
@@ -135,7 +135,7 @@ class OvertimeRequests extends Controller
         
         $approved = OvertimeRequest::approved($predicates);
         
-        $data = array(
+        $data = collect(array(
             'lists' => array(
                 'approved' => array(
                     'id' => 'approvedTable',
@@ -146,7 +146,7 @@ class OvertimeRequests extends Controller
                     'hours' => $approved->sum('hours'),
                 ),
             ),
-        );
+        ));
         
         return view('components.request.approved', $data);
     }
