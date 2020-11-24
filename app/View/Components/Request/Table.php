@@ -45,7 +45,6 @@ class Table extends Component
      * @param  string  $records
      * @return void
      */
-//     public function __construct($name, $id, $label, $records, $expand = false)
     public function __construct($list = null, $expand = false)
     {
 //         $this->name = $name;
@@ -54,10 +53,7 @@ class Table extends Component
 //         $this->records = $records;
 //         $this->expand = $expand;
      
-        $this->list = $list;
-        
-        dd($this);
-        
+        $this->list = $list;        
     }
 
     /**
