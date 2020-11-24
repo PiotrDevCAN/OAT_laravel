@@ -89,24 +89,22 @@ jQuery( document ).ready(function() {
 				        */
 				    };
 
-// 					var params = {}
+					// additional settings
+// 					tabletDataObject.pageLength = -1;
+// 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 					
 					console.log('params');
 					console.log(params);
 					
-					// additional settings
-// 					tabletDataObject.pageLength = -1;
-// 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
-
 					console.log('yourTableId');
 					console.log(tables.eq(n).attr('id'));
-				
+					
 					console.log('yourTableDOMelement');
 					console.log(tables[n]);
+					
+				    IBMCore.common.widget.datatable.init(tables[n], params);
 
-				    IBMCore.common.widget.datatable.init(tables[n]);
-
-// 				    IBMCore.common.widget.datatable.init(tables[n], params);
+// 				    IBMCore.common.widget.datatable.init(tables[n]);
 					
 // 				    IBMCore.common.widget.datatable.init("#awaiting");
 				    
