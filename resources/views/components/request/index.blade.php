@@ -2,6 +2,6 @@
 
 @section('summary')
 
-<x-request.summary :lists="$items"/>
+<x-request.summary :lists="$lists"/>
 
 @endsection
