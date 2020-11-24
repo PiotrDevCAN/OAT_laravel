@@ -98,7 +98,17 @@ jQuery( document ).ready(function() {
 // 					tabletDataObject.pageLength = -1;
 // 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 
-				    IBMCore.common.widget.datatable.init(tableData[n], params);
+					console.log('yourTableDOMelement');
+					console.log(tableData[n]);
+
+				    IBMCore.common.widget.datatable.init(tableData[n]);
+
+// 				    IBMCore.common.widget.datatable.init(tableData[n], params);
+					
+// 				    IBMCore.common.widget.datatable.init("report");
+				    
+				    
+// 				    jQuery("#report").data("widget").destroy();
 				    
 					break;
 				default:

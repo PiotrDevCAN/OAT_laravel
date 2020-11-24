@@ -1,4 +1,4 @@
-    	<table class="ibm-data-table ibm-altrows ibm-padding-small" data-widget="datatable" id="{{ $id }}" data-paging="true">
+    	<table class="ibm-data-table ibm-altrows ibm-padding-small" data-widget="datatableReady" id="{{ $id }}" data-paging="true">
             <thead>
                 <tr>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Ref</th>
