@@ -13,13 +13,13 @@
 @section('bottom-section')
 
     @isset($awaiting)
-    	<x-request.table name="awaiting" id="awaiting" label="Awaiting Approval" :records="$awaiting" expand="true"/>
+    	<x-request.table name="awaitingTable" id="awaitingTable" label="Awaiting Approval" :records="$awaiting" expand="true"/>
     @endisset
     
     
 
 <script type="text/javascript">
-jQuery( document ).ready(function() {
+// jQuery( document ).ready(function() {
 
 	var tables = jQuery('.ibm-data-table');
 	
@@ -117,7 +117,7 @@ jQuery( document ).ready(function() {
 		}
 	}
 	
-});
+// });
 </script>
 
 @endsection
