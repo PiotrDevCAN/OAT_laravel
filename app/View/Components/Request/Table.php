@@ -7,6 +7,13 @@ use Illuminate\View\Component;
 class Table extends Component
 {
     /**
+     * The table.
+     *
+     * @var array
+     */
+    public $list;
+    
+    /**
      * The table name.
      *
      * @var string
@@ -34,8 +41,6 @@ class Table extends Component
      */
     public $records;
     
-    public $list;
-    
     public $expand;
     
     /**
@@ -47,13 +52,12 @@ class Table extends Component
      */
     public function __construct($list = null, $expand = false)
     {
-//         $this->name = $name;
-//         $this->id = $id;
-//         $this->label = $label;
-//         $this->records = $records;
-//         $this->expand = $expand;
-     
-        $this->list = $list;        
+        $this->list = $list;
+        $this->name = $this->list['name'];
+        $this->id = $this->list['id'];
+        $this->label = $this->list['label'];
+        $this->records = $this->list['records'];
+        $this->expand = $this->list['expand'];
     }
 
     /**
