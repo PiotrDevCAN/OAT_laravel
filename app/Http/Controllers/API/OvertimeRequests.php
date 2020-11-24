@@ -42,7 +42,7 @@ class OvertimeRequests extends Controller
         
         $records = OvertimeRequest::where('status', 'like', $status.'%')
             ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-10-16')
+            ->where('weekenddate', '>=', '2020-10-23')
 //             ->where($predicates)
 //             ->offset($start)
 //             ->limit($length)
