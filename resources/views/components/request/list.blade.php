@@ -21,23 +21,23 @@
 <script type="text/javascript">
 jQuery( document ).ready(function() {
 
-	var tableData = jQuery('.ibm-data-table');
+	var tables = jQuery('.ibm-data-table');
 	
-	if (typeof (tableData) !== 'undefined') {
-		for (n=0;n<tableData.length;n++){
+	if (typeof (tables) !== 'undefined') {
+		for (n=0;n<tables.length;n++){
 			
 			// default object settings
-			var tabletDataObject = tableData.eq(n).data();
+			var tabletDataObject = tables.eq(n).data();
 
 			console.log('tabletDataObject');
 			console.log(tabletDataObject);
 			
 			switch(tabletDataObject.widget){
 				case 'datatableReady':
-
+					
 					var params = {
 						
-						status: tableData.eq(n).attr('id'),
+						status: tables.eq(n).attr('id'),
 			        	scrollaxis: "x", 
 			        	info: true,
 			        	ordering: true, 
@@ -98,17 +98,19 @@ jQuery( document ).ready(function() {
 // 					tabletDataObject.pageLength = -1;
 // 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 
+					console.log('yourTableId');
+					console.log(tables.eq(n).attr('id'));
+				
 					console.log('yourTableDOMelement');
-					console.log(tableData[n]);
+					console.log(tables[n]);
 
-				    IBMCore.common.widget.datatable.init(tableData[n]);
+				    IBMCore.common.widget.datatable.init(tables[n]);
 
-// 				    IBMCore.common.widget.datatable.init(tableData[n], params);
+// 				    IBMCore.common.widget.datatable.init(tables[n], params);
 					
-// 				    IBMCore.common.widget.datatable.init("report");
+// 				    IBMCore.common.widget.datatable.init("#awaiting");
 				    
-				    
-// 				    jQuery("#report").data("widget").destroy();
+// 				    jQuery("#awaiting").data("widget").destroy();
 				    
 					break;
 				default:
