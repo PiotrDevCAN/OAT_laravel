@@ -158,7 +158,7 @@
 				            	d.type = "{{ $list->id }}";
 				            }
 				        },
-				        deferLoading: {{ $records->total() }},
+				        deferLoading: {{ $list->records->total() }},
 				        columns: [
 				        	{ "data": "reference" },
 							{ "data": "account" },
