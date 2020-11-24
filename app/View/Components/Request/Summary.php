@@ -16,8 +16,6 @@ class Summary extends Component
      */
     public function __construct($lists = null)
     {
-        dd($lists);
-        
         $this->lists = $lists;
     }
 
