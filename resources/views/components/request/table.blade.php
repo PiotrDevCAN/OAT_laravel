@@ -84,10 +84,11 @@
 			        	info: true,
 			        	ordering: true, 
 			        	paging: true, 
-			        	searching: true
+			        	searching: true,
+			        	processing: true,
 				        serverSide: true,
 				        ajax: {
-				            url: "https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list",
+				            url: "{{ route('api.request.list') }}",
 				            type: "POST",
 				            dataSrc: "data",
 				            data: function ( d ) {
