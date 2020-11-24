@@ -184,7 +184,6 @@
 							{ "data": "claim_acc_id" },
 							{ "data": "created_ts" }
 				        ]
-				        */
 				    };
 
 					// initialise widget
