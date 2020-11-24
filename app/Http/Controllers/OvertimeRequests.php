@@ -94,30 +94,30 @@ class OvertimeRequests extends Controller
         
         $data = collect(array(
 //             'lists' => array(
-                'awaiting' => array(
-                    'id' => 'awaitingTable',
-                    'name' => 'awaiting',
-                    'label' => 'Awaiting Approval',
-                    'records' => $awaiting,
-                    'total' => $awaiting->total(),
-                    'hours' => $awaiting->sum('hours'),
-                ),
-                'approved' => array(
-                    'id' => 'approvedTable',
-                    'name' => 'approved',
-                    'label' => 'Approved',
-                    'records' => $approved,
-                    'total' => $approved->total(),
-                    'hours' => $approved->sum('hours'),
-                ),
-                'other' => array(
-                    'id' => 'otherTable',
-                    'name' => 'other',
-                    'label' => 'Other',
-                    'records' => $other,
-                    'total' => $other->total(),
-                    'hours' => $other->sum('hours'),
-                ),
+            'awaiting' => (object) [
+                'id' => 'awaitingTable',
+                'name' => 'awaiting',
+                'label' => 'Awaiting Approval',
+                'records' => $awaiting,
+                'total' => $awaiting->total(),
+                'hours' => $awaiting->sum('hours'),
+            ],
+            'approved' => (object) [
+                'id' => 'approvedTable',
+                'name' => 'approved',
+                'label' => 'Approved',
+                'records' => $approved,
+                'total' => $approved->total(),
+                'hours' => $approved->sum('hours'),
+            ],
+            'other' => (object) [
+                'id' => 'otherTable',
+                'name' => 'other',
+                'label' => 'Other',
+                'records' => $other,
+                'total' => $other->total(),
+                'hours' => $other->sum('hours'),
+            ],
 //             ),
         ));
         
