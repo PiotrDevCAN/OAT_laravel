@@ -93,7 +93,7 @@ class OvertimeRequests extends Controller
         $other = OvertimeRequest::other($predicates);
         
         $data = collect(array(
-            'lists' => array(
+//             'lists' => array(
                 'awaiting' => array(
                     'id' => 'awaitingTable',
                     'name' => 'awaiting',
@@ -118,7 +118,7 @@ class OvertimeRequests extends Controller
                     'total' => $other->total(),
                     'hours' => $other->sum('hours'),
                 ),
-            ),
+//             ),
         ));
         
         dd($data);
