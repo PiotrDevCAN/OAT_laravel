@@ -94,7 +94,7 @@ class OvertimeRequests extends Controller
         
         $data = array(
             'awaiting' => $awaiting,
-            'awaiting' => $awaiting->total(),
+            'awaitingTotal' => $awaiting->total(),
             'awaitingHours' => $awaiting->sum('hours'),
             
             'approved' => $approved,
