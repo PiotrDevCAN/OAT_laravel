@@ -19,24 +19,29 @@ class Summary extends Component
     public $otherTotal;
     public $otherHours;
     
+    public $lists;
+    
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($awaiting = null, $awaitingTotal = 0, $awaitingHours = 0, $approved = null, $approvedTotal = 0, $approvedHours = 0, $other = null, $otherTotal = 0, $otherHours = 0)
+//     public function __construct($awaiting = null, $awaitingTotal = 0, $awaitingHours = 0, $approved = null, $approvedTotal = 0, $approvedHours = 0, $other = null, $otherTotal = 0, $otherHours = 0)
+    public function __construct($lists = null)
     {
-        $this->awaiting = $awaiting;
-        $this->awaitingTotal = $awaitingTotal;
-        $this->awaitingHours = $awaitingHours;
+        $this->lists = $lists;
         
-        $this->approved = $approved;
-        $this->approvedTotal = $approvedTotal;
-        $this->approvedHours = $approvedHours;
+//         $this->awaiting = $awaiting;
+//         $this->awaitingTotal = $awaitingTotal;
+//         $this->awaitingHours = $awaitingHours;
         
-        $this->other = $other;
-        $this->otherTotal = $otherTotal;
-        $this->otherHours = $otherHours;
+//         $this->approved = $approved;
+//         $this->approvedTotal = $approvedTotal;
+//         $this->approvedHours = $approvedHours;
+        
+//         $this->other = $other;
+//         $this->otherTotal = $otherTotal;
+//         $this->otherHours = $otherHours;
     }
 
     /**

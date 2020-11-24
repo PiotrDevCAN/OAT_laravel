@@ -7,32 +7,16 @@
             </div>
         </div>
         <div class="ibm-fluid">
-        	@isset($awaiting)
-        	<div class="ibm-col-12-6">
-            	<x-ibmv18form-input field-name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="$awaitingTotal" disabled="true"/>
-            </div>
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input field-name="ApprovedRequestsHours" label="Hours:" :value="$awaitingHours" disabled="true"/>
-            </div>
-            @endisset
-        	
-        	@isset($approved)
-        	<div class="ibm-col-12-6">
-            	<x-ibmv18form-input field-name="ApprovedRequests" label="Approved Requests:" :value="$approvedTotal" disabled="true"/>
-            </div>
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input field-name="AwaitingApprovalRequestsHours" label="Hours:" :value="$approvedHours" disabled="true"/>
-            </div>
+        	@isset($lists)
+            	@foreach ($lists as $list)
+            		<div class="ibm-col-12-6">
+                    	<x-ibmv18form-input field-name="{{ $list->name }}Requests" label="{{ $list->label }} Requests:" :value="{{ $list->total }}" disabled="true"/>
+                    </div>
+                    <div class="ibm-col-12-6">
+                    	<x-ibmv18form-input field-name="{{ $list->name }}Hours" label="Hours:" :value="{{ $list->hours }}" disabled="true"/>
+                    </div>            		
+                @endforeach
         	@endisset
-        	
-        	@isset($other)
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input field-name="OtherRequests" label="Other Requests:" :value="$otherTotal" disabled="true"/>
-            </div>
-            <div class="ibm-col-12-6">
-            	<x-ibmv18form-input field-name="OtherRequestsHours" label="Hours:" :value="$otherHours" disabled="true"/>
-            </div>
-            @endisset
        	</div>
     </div>
 </div>

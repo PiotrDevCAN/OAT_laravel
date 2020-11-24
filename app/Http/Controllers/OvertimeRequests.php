@@ -96,7 +96,7 @@ class OvertimeRequests extends Controller
             'lists' => array(
                 'awaiting' => array(
                     'id' => 'awaitingTable',
-                    'name' => 'awaitingTable',
+                    'name' => 'awaiting',
                     'label' => 'Awaiting Approval',
                     'records' => $awaiting,
                     'total' => $awaiting->total(),
@@ -104,7 +104,7 @@ class OvertimeRequests extends Controller
                 ),
                 'approved' => array(
                     'id' => 'approvedTable',
-                    'name' => 'approvedTable',
+                    'name' => 'approved',
                     'label' => 'Approved',
                     'records' => $approved,
                     'total' => $approved->total(),
@@ -112,7 +112,7 @@ class OvertimeRequests extends Controller
                 ),
                 'other' => array(
                     'id' => 'otherTable',
-                    'name' => 'otherTable',
+                    'name' => 'other',
                     'label' => 'Other',
                     'records' => $other,
                     'total' => $other->total(),
