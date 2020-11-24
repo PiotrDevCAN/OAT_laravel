@@ -18,9 +18,13 @@ class Summary extends Component
     {
         $this->lists = $lists;
         
-//         {{ $list->name }}Requests
-        
-//         {{ $list->name }}Hours
+//         foreach ($lists as $key => $list) {
+//             $list->totalInputName = '';
+//             $list->totalInputLabel = '';
+            
+//             $list->hoursInputName = '';
+//             $list->hoursInputLabel = '';
+//         }
     }
 
     /**
