@@ -5,7 +5,7 @@
 <x-request.filters/>
     
     @hasSection('summary')
-        {{-- @yield('summary') --}}
+    	@yield('summary')
     @endif
 
 @endsection
