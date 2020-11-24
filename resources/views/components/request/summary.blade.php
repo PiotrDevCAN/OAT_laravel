@@ -7,32 +7,26 @@
             </div>
         </div>
         <div class="ibm-fluid">
-        	@isset($awaiting)
-                <div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="$awaitingTotal" disabled="true"/>
-                </div>
-                <div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="ApprovedRequestsHours" label="Hours:" :value="$awaitingHours" disabled="true"/>
-                </div>
-            @endisset
-            
-            @isset($approved)
-            	<div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="ApprovedRequests" label="Approved Requests:" :value="$approvedTotal" disabled="true"/>
-                </div>
-                <div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="AwaitingApprovalRequestsHours" label="Hours:" :value="$approvedHours" disabled="true"/>
-                </div>
-            @endisset
-            
-            @isset($other)
-            	<div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="OtherRequests" label="Other Requests:" :value="$otherTotal" disabled="true"/>
-                </div>
-                <div class="ibm-col-12-6">
-                	<x-ibmv18form-input field-name="OtherRequestsHours" label="Hours:" :value="$otherHours" disabled="true"/>
-                </div>
-            @endisset
+        	<div class="ibm-col-12-6">
+            	<x-ibmv18form-input field-name="AwaitingApprovalRequests" label="Awaiting Approval Requests:" :value="{{ $awaitingTotal ?? 0 }}" disabled="true"/>
+            </div>
+            <div class="ibm-col-12-6">
+            	<x-ibmv18form-input field-name="ApprovedRequestsHours" label="Hours:" :value="{{ $awaitingHours ?? 0 }}" disabled="true"/>
+            </div>
+        	
+        	<div class="ibm-col-12-6">
+            	<x-ibmv18form-input field-name="ApprovedRequests" label="Approved Requests:" :value="{{ $approvedTotal ?? 0 }}" disabled="true"/>
+            </div>
+            <div class="ibm-col-12-6">
+            	<x-ibmv18form-input field-name="AwaitingApprovalRequestsHours" label="Hours:" :value="{{ $approvedHours ?? 0 }}" disabled="true"/>
+            </div>
+        	
+            <div class="ibm-col-12-6">
+            	<x-ibmv18form-input field-name="OtherRequests" label="Other Requests:" :value="{{ $otherTotal ?? 0 }}" disabled="true"/>
+            </div>
+            <div class="ibm-col-12-6">
+            	<x-ibmv18form-input field-name="OtherRequestsHours" label="Hours:" :value="{{ $otherHours ?? 0 }}" disabled="true"/>
+            </div>
        	</div>
     </div>
 </div>
