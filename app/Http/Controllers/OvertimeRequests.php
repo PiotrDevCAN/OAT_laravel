@@ -122,6 +122,7 @@ class OvertimeRequests extends Controller
         
         $data = array(
             'approved' => $approved,
+            'approvedTotal' => $approved->total(),
             'approvedHours' => $approved->sum('hours'),
         );
         

@@ -2,6 +2,6 @@
 
 @section('summary')
 
-<x-request.summary :approved.summary="$approved.summary" :approved-hours="$approvedHours"/>
+<x-request.summary :approved-total="$approved-total" :approved-hours="$approvedHours"/>
 
 @endsection
