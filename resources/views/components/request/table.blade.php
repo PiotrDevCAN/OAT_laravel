@@ -158,7 +158,7 @@
 				            	d.type = "{{ $id }}";
 				            }
 				        },
-				        deferLoading: 10,
+				        deferLoading: {{ $records->count() }},
 				        columns: [
 				        	{ "data": "reference" },
 							{ "data": "account" },
