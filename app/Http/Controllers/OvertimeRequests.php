@@ -121,6 +121,8 @@ class OvertimeRequests extends Controller
             ),
         ));
         
+        dd($data);
+        
         return view('components.request.index', $data);
     }
 
