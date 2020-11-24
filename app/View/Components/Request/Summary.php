@@ -16,6 +16,8 @@ class Summary extends Component
      */
     public function __construct($lists = null)
     {
+        dd($lists);
+        
         $this->lists = $lists;
     }
 
@@ -26,7 +28,6 @@ class Summary extends Component
      */
     public function render()
     {
-        
         return view('components.request.summary');
     }
 }
