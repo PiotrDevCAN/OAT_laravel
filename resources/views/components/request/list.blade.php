@@ -13,7 +13,7 @@
 @section('bottom-section')
 
 	@isset($lists)
-    	@foreach ($lists as $list)
+    	@foreach ($items as $list)
     		<x-request.table :list="$list" :expand="$loop->first" />        
         @endforeach
 	@endisset
