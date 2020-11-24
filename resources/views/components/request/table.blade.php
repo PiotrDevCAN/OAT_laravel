@@ -1,3 +1,6 @@
+<div data-widget="showhide" data-type="panel" class="ibm-show-hide ibm-alternate">
+	<h2 @if($expand == true)data-open="true"@endif>{{ $label }} Requests</h2>
+    <div class="ibm-container-body">
     	<table class="ibm-data-table ibm-altrows ibm-padding-small" data-widget="datatableReady" id="{{ $id }}">
             <thead>
                 <tr>
@@ -54,3 +57,83 @@
             <tbody>
             </tbody>
         </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+// jQuery( document ).ready(function() {
+
+// 	var tables = jQuery('.ibm-data-table');
+	
+// 	if (typeof (tables) !== 'undefined') {
+// 		for (n=0;n<tables.length;n++){
+			
+// 			// default object settings
+// 			var tabletDataObject = tables.eq(n).data();
+			
+// 			switch(tabletDataObject.widget){
+// 				case 'datatableReady':
+
+					// additional settings
+// 					tabletDataObject.pageLength = -1;
+// 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
+					
+					var params = {
+						status: "{{ $id }}",
+			        	scrollaxis: "x", 
+			        	info: true,
+			        	ordering: true, 
+			        	paging: true, 
+			        	searching: true
+				        serverSide: true,
+				        ajax: {
+				            url: "https://soiwapi-new.icds.ibm.com/OAT_laravel/api/request/list",
+				            type: "POST",
+				            dataSrc: "data",
+				            data: function ( d ) {
+				            	// awaiting
+				            	// approved
+				            	// other
+				            	d.type = "{{ $id }}";
+				            }
+				        },
+				        deferLoading: 10,
+				        columns: [
+				        	{ "data": "reference" },
+							{ "data": "account" },
+							{ "data": "competency" },
+							{ "data": "nature" },
+							{ "data": "title" },
+							{ "data": "details" },
+							{ "data": "weekenddate" },
+							{ "data": "worker" },
+							{ "data": "serial" },
+							{ "data": "location" },
+							{ "data": "hours" },
+							{ "data": "status" },
+							{ "data": "approver_first_level" },
+							{ "data": "approver_second_level" },
+							{ "data": "approver_third_level" },
+							{ "data": "requestor" },
+							{ "data": "approval_mode" },
+							{ "data": "approver_squad_leader" },
+							{ "data": "approver_tribe_leader" },
+							{ "data": "supercedes" },
+							{ "data": "supercededby" },
+							{ "data": "claim_acc_id" },
+							{ "data": "created_ts" }
+				        ]
+				        */
+				    };
+
+					// initialise widget
+				    IBMCore.common.widget.datatable.init('#{{ $id }}', params);
+// 					break;
+// 				default:
+// 					break;
+// 			}
+// 		}
+// 	}
+	
+// });
+</script>
