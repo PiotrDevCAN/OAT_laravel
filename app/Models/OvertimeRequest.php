@@ -89,6 +89,9 @@ class OvertimeRequest extends Model
     
     public static $limit = 10;
     
+    public static $awaitingStatus = 'Awaiting';
+    public static $approvedStatus = 'Approved';
+    
     public static function imports()
     {
         return collect(array(

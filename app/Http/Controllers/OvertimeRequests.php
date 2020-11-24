@@ -93,17 +93,32 @@ class OvertimeRequests extends Controller
         $other = OvertimeRequest::other($predicates);
         
         $data = array(
-            'awaiting' => $awaiting,
-            'awaitingTotal' => $awaiting->total(),
-            'awaitingHours' => $awaiting->sum('hours'),
-            
-            'approved' => $approved,
-            'approvedTotal' => $approved->total(),
-            'approvedHours' => $approved->sum('hours'),
-            
-            'other' => $other,
-            'otherTotal' => $other->total(),
-            'otherHours' => $other->sum('hours'),
+            'lists' => array(
+                'awaiting' => array(
+                    'id' => 'awaitingTable',
+                    'name' => 'awaitingTable',
+                    'label' => 'Awaiting Approval',
+                    'records' => $awaiting,
+                    'total' => $awaiting->total(),
+                    'hours' => $awaiting->sum('hours'),
+                ),
+                'approved' => array(
+                    'id' => 'approvedTable',
+                    'name' => 'approvedTable',
+                    'label' => 'Approved',
+                    'records' => $approved,
+                    'total' => $approved->total(),
+                    'hours' => $approved->sum('hours'),
+                ),
+                'other' => array(
+                    'id' => 'otherTable',
+                    'name' => 'otherTable',
+                    'label' => 'Other',
+                    'records' => $other,
+                    'total' => $other->total(),
+                    'hours' => $other->sum('hours'),
+                ),
+            ),
         );
         
         return view('components.request.index', $data);
@@ -121,9 +136,16 @@ class OvertimeRequests extends Controller
         $approved = OvertimeRequest::approved($predicates);
         
         $data = array(
-            'approved' => $approved,
-            'approvedTotal' => $approved->total(),
-            'approvedHours' => $approved->sum('hours'),
+            'lists' => array(
+                'approved' => array(
+                    'id' => 'approvedTable',
+                    'name' => 'approvedTable',
+                    'label' => 'Approved',
+                    'records' => $approved,
+                    'total' => $approved->total(),
+                    'hours' => $approved->sum('hours'),
+                ),
+            ),
         );
         
         return view('components.request.approved', $data);

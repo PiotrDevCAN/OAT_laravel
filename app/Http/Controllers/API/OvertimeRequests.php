@@ -14,6 +14,11 @@ use App\Http\Resources\OvertimeRequestResourceCollection;
 
 class OvertimeRequests extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function list(Request $request)
     {
 //         $predicates = array();
@@ -22,23 +27,12 @@ class OvertimeRequests extends Controller
         $length = $request->post('length', OvertimeRequest::$limit);
 //         $page = $request->post('page', 1);
         
-//         dump($request->post('start', 0));
-//         dump($request->post('length', 10));
-//         dump($request->post('page', 1));
-        
-//         dump($request->all());
-        
-//         dd();
-
         $status = $request->post('status', '');
         
         $page = $start / $length + 1;
         
         $additionalInput = array('page' => $page);
         $request->merge($additionalInput);
-        
-//         dump(' page number ');
-//         dump($page);
         
         $records = OvertimeRequest::where('status', 'like', $status.'%')
             ->whereNull('delete_flag')
@@ -48,14 +42,6 @@ class OvertimeRequests extends Controller
 //             ->limit($length)
 //             ->get()
             ->paginate($length);
-        
-//         dump($records);
-        
-//         dump($records->count());
-//         dump($records->currentPage());
-//         dump($records->total());
-        
-//         dd();
         
         $resourceCollection = new OvertimeRequestResourceCollection($records);
         

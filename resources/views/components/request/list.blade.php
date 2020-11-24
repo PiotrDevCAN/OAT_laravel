@@ -5,23 +5,17 @@
 <x-request.filters/>
     
     @hasSection('summary')
-        @yield('summary')
+        {{-- @yield('summary') --}}
     @endif
 
 @endsection
 
 @section('bottom-section')
 
-    @isset($awaiting)
-    	<x-request.table name="awaitingTable" id="awaitingTable" label="Awaiting Approval" :records="$awaiting" expand="true"/>
-    @endisset
-    
-    @isset($approved)
-    	<x-request.table name="approvedTable" id="approved" label="Approved" :records="$approved"/>
-    @endisset
-    
-    @isset($other)
-    	<x-request.table name="otherTable" id="other" label="Other" :records="$other"/>
-    @endisset
-    
+	@isset($lists)
+    	@foreach ($lists as $list)
+    		<x-request.table name="{{ $list->name }}" id="{{ $list->id }}" label="{{ $list->label }}" :records="$list->records" @if ($loop->first) expand="true" @endif/>
+        @endforeach
+	@endisset
+
 @endsection
