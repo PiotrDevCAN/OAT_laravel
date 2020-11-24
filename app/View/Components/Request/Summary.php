@@ -17,14 +17,6 @@ class Summary extends Component
     public function __construct($lists = null)
     {
         $this->lists = $lists;
-        
-//         foreach ($lists as $key => $list) {
-//             $list->totalInputName = '';
-//             $list->totalInputLabel = '';
-            
-//             $list->hoursInputName = '';
-//             $list->hoursInputLabel = '';
-//         }
     }
 
     /**

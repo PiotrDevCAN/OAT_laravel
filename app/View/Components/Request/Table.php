@@ -50,6 +50,9 @@ class Table extends Component
         $this->label = $label;
         $this->records = $records;
         $this->expand = $expand;
+        
+        dd($this);
+        
     }
 
     /**
