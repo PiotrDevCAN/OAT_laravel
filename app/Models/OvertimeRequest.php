@@ -369,8 +369,9 @@ class OvertimeRequest extends Model
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
-                ->limit(static::$limit)
-                ->get();
+//                 ->limit(static::$limit)
+//                 ->get();
+                ->paginate(static::$limit);
         });
         
         return $data;
@@ -378,14 +379,15 @@ class OvertimeRequest extends Model
     
     public static function approved($predicates)
     {
-        $data = Cache::remember('OvertimeRequest.approved', 33660, function() use ($predicates)
+        $data = Cache::remember('OvertimeRequest.approved'.serialize($predicates).static::$limit, 33660, function() use ($predicates)
         {
             return self::where('status', 'Approved')
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
-                ->limit(static::$limit)
-                ->get();
+//                 ->limit(static::$limit)
+//                 ->get();
+                ->paginate(static::$limit);
         });
         
         return $data;
@@ -393,15 +395,16 @@ class OvertimeRequest extends Model
     
     public static function other($predicates)
     {
-        $data = Cache::remember('OvertimeRequest.other', 33660, function() use ($predicates)
+        $data = Cache::remember('OvertimeRequest.other'.serialize($predicates).static::$limit, 33660, function() use ($predicates)
         {
             return self::where('status',  'not like', 'Awaiting%')
                 ->where('status', '<>', 'Approved')
                 ->whereNull('delete_flag')
                 ->where('weekenddate', '>=', '2020-10-16')
                 ->where($predicates)
-                ->limit(static::$limit)
-                ->get();
+//                 ->limit(static::$limit)
+//                 ->get();
+                ->paginate(static::$limit);
         });
         
         return $data;
