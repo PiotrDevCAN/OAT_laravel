@@ -14,7 +14,7 @@
 
 	@isset($lists)
     	@foreach ($lists as $list)
-    		<x-request.table name="$list['name']" id="$list['id']" label="$list['label']" records="$list['records']" @if ($loop->first) expand="true" @endif/>
+    		<x-request.table :list="$list" @if ($loop->first) expand="true" @endif/>
         @endforeach
 	@endisset
 
