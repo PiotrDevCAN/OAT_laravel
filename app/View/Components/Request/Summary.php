@@ -16,6 +16,7 @@ class Summary extends Component
      */
     public function __construct($lists = null)
     {
+        dump($lists);
         $this->lists = $lists;
         
 //         foreach ($lists as $key => $list) {
