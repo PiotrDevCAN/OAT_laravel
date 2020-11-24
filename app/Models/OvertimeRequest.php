@@ -87,7 +87,7 @@ class OvertimeRequest extends Model
 //         'delayed' => false,
     ];
     
-    public static $limit = 15;
+    public static $limit = 10;
     
     public static function imports()
     {
