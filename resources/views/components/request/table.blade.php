@@ -163,8 +163,11 @@ jQuery( document ).ready(function() {
 				            dataSrc: "data",
 				            dataType: 'json',
 				            data: data,
-				            success: function(response) {
-				                alert(response.draw);
+				            success: function(data) {
+				                alert(data.draw);
+
+				                console.log('data');
+					            console.log(data);
 				            }
 				        },
 				        deferLoading: {{ $list->records->total() }},
