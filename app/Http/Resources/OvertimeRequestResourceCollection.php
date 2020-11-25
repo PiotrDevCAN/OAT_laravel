@@ -6,6 +6,14 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class OvertimeRequestResourceCollection extends ResourceCollection
 {
+    
+    /**
+     * The "data" wrapper that should be applied.
+     *
+     * @var string
+     */
+    public static $wrap = 'records';
+    
     /**
      * Transform the resource into an array.
      *
