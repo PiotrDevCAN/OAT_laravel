@@ -148,6 +148,7 @@
 			        	processing: true,
 				        serverSide: true,
 				        ajax: {
+
 				            url: "{{ route('api.request.list') }}",
 				            type: "POST",
 				            dataSrc: "data",
@@ -156,7 +157,12 @@
 				            	// approved
 				            	// other
 				            	d.type = "{{ $list->id }}";
-				            }
+				            },
+				            
+				            dataType: 'json',
+				            success: function(response){
+				                alert(response.draw);
+				            },
 				        },
 				        deferLoading: {{ $list->records->total() }},
 				        columns: [
