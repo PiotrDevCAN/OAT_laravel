@@ -44,18 +44,12 @@ class OvertimeRequests extends Controller
             ->paginate($length);
         
         $resourceCollection = new OvertimeRequestResourceCollection($records);
-
-        $resourceCollection->with([
-            'test' => 1,
-            'test2' => $records->total(),
-            'test3' => $records->total()
-        ]);
         
-//         $resourceCollection->additional([
-//             'draw' => 1,
-//             'recordsTotal' => $records->total(),
-//             'recordsFiltered' => $records->total()
-//         ]);
+        $resourceCollection->additional([
+            'draw' => 1,
+            'recordsTotal' => $records->total(),
+            'recordsFiltered' => $records->total()
+        ]);
         
         return $resourceCollection;        
     }
