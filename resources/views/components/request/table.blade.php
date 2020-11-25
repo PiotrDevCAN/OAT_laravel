@@ -160,7 +160,7 @@ jQuery( document ).ready(function() {
 				        ajax: {
 				            url: "{{ route('api.request.list') }}",
 				            type: "POST",
-				            dataSrc: "data.data",
+				            dataSrc: "records",
 				            dataType: 'json',
 				            data: data,
 				            success: function(data) {

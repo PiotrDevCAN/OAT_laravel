@@ -7,6 +7,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class OvertimeRequestResource extends JsonResource
 {
     /**
+     * The "data" wrapper that should be applied.
+     *
+     * @var string
+     */
+    public static $wrap = 'records';
+    
+    /**
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request  $request
