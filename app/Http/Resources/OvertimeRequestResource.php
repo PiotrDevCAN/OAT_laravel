@@ -14,7 +14,6 @@ class OvertimeRequestResource extends JsonResource
      */
     public function toArray($request)
     {
-        /*
         return [
             'requestor' => trim($this->requestor),
             'requested' => trim($this->requested),
@@ -51,7 +50,7 @@ class OvertimeRequestResource extends JsonResource
             'approver_squad_leader' => trim($this->approver_squad_leader),
             'approver_tribe_leader' => trim($this->approver_tribe_leader)
         ];
-        */
+        /*
         return [
             trim($this->requestor),
             trim($this->requested),
@@ -88,5 +87,6 @@ class OvertimeRequestResource extends JsonResource
             trim($this->approver_squad_leader),
             trim($this->approver_tribe_leader)
         ];
+        */
     }
 }
