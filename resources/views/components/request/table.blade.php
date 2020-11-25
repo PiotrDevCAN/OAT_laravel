@@ -111,11 +111,14 @@ jQuery( document ).ready(function() {
 
 					            console.log(data.length);
 
-					            console.log(data.reference);
+					            for (n=0;n<data.length;n++){
+						            console.log(data[n].reference);
+					            }
 				            }
-				        },
+				        }
+// 				        ,
 // 				        deferLoading: {{ $list->records->total() }},
-				        columns: [
+				        /* columns: [
 				        	{ data: "reference" },
 							{ data: "account" },
 							{ data: "competency" },
@@ -139,7 +142,7 @@ jQuery( document ).ready(function() {
 							{ data: "supercededby" },
 							{ data: "claim_acc_id" },
 							{ data: "created_ts" }
-				        ]
+				        ] */
 				    };
 
 					// initialise widget
