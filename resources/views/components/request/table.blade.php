@@ -4,29 +4,29 @@
     	<table class="ibm-data-table ibm-altrows ibm-padding-small" data-widget="datatableReady" id="{{ $list->id }}">
             <thead>
                 <tr>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Ref</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Account</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Service Line</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Reason</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Title</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Details</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Week Ending</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Name</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Serial</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Country</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Hours</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Status</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">1st Level Approval</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">2nd Level Approval</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">3rd Level Approval</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Requestor</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Approval Flow</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Squad Leader</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Tribe Leader</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Pre</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Post</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Claim Acc</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Created</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Ref</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Account</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Service Line</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Reason</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Title</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Details</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Week Ending</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Name</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Serial</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Country</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Hours</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Status</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">1st Level Approval</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">2nd Level Approval</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">3rd Level Approval</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Requestor</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Approval Flow</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Squad Leader</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Tribe Leader</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Pre</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Post</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Claim Acc</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Created</th>
                 </tr>
             </thead>
             <tbody>
