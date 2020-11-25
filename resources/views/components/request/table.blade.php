@@ -119,7 +119,7 @@ jQuery( document ).ready(function() {
 						            console.log(obj.account);
 					            }
 				            }
-				        }
+				        },
 // 				        ,
 // 				        deferLoading: {{ $list->records->total() }},
 				        columns: [
