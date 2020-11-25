@@ -38,18 +38,18 @@ class OvertimeRequests extends Controller
             ->whereNull('delete_flag')
             ->where('weekenddate', '>=', '2020-10-23')
 //             ->where($predicates)
-            ->offset($start)
-            ->limit($length)
-            ->get();
-//             ->paginate($length);
+//             ->offset($start)
+//             ->limit($length)
+//             ->get();
+            ->paginate($length);
         
         $resourceCollection = new OvertimeRequestResourceCollection($records);
         
-//         $resourceCollection->additional([
-//             'draw' => 1,
-//             'recordsTotal' => $records->total(),
-//             'recordsFiltered' => $records->total()
-//         ]);
+        $resourceCollection->additional([
+            'draw' => 1,
+            'recordsTotal' => $records->total(),
+            'recordsFiltered' => $records->total()
+        ]);
         
         return $resourceCollection;        
     }

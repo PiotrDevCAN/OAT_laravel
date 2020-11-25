@@ -102,11 +102,11 @@ jQuery( document ).ready(function() {
 				        	type: "POST",
 				            url: "{{ route('api.request.list') }}",
 				        	data: requestData,
-// 				        	contentType: "application/json; charset=utf-8",
-// 				        	dataType: "json",
+				        	contentType: "application/json; charset=utf-8",
+				        	dataType: "json",
 				            dataSrc: "data"
 				        },
-// 				        deferLoading: {{ $list->records->total() }},
+				        deferLoading: {{ $list->records->total() }},
 				        columns: [
 							{ data: 'reference' },
 							{ data: 'account' },
