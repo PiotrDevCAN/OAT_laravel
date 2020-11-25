@@ -29,6 +29,66 @@
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Created</th>
                 </tr>
             </thead>
+            <tbody>
+                @foreach ($list->records as $key => $record)
+                <tr>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">
+                    @isset($record->reference)
+                    	{{ link_to_route('request.show', $title = $record->reference, ['overtimeRequest' => $record->reference]) }}
+                    @endisset
+                    </td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0 ibm-bold">
+                    	{{ $record->account }}
+                    	@isset($record->comment)
+                    		<p class="ibm-ind-link ibm-icononly">
+                    		<a href="#" class="ibm-requestquote-link" data-widget="tooltip" data-contentid="preview-comments-{{ $record->reference }}-{{ $record->comment->reference }}" style="text-decoration: none;"></a>
+                    		</p>
+                    		<div id="preview-comments-{{ $record->reference }}-{{ $record->comment->reference }}" class="ibm-tooltip-content">
+    							<p>{{ $record->comment->text }}</p>
+                            	<p>{{ $record->comment->creator }}</p>
+                            	<p>{{ $record->comment->created }}</p>
+                            </div>
+                        @endisset
+                	</td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->competency }}</td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->nature }}</td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->title }}</td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">
+                    {{ Str::limit($record->details, 50, '') }}
+                    @if(Str::length($record->details) >= 50)
+	                    <a href="#" class="ibm-bold" data-widget="tooltip" data-contentid="preview-{{ $list->name }}-{{ $key }}" style="text-decoration: none;">(...)</a>
+                        <div id="preview-{{ $list->name }}-{{ $key }}" class="ibm-tooltip-content">
+                        	{{ $record->details }}
+                        </div>
+                    @endif
+                    </td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->weekenddate }}</td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0"><x-mailto-link :email="$record->worker"/></td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->serial }}</td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->location }}</td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->hours }}</td>
+                    <td class="ibm-bold">{{ $record->status }}</td>
+                    <x-request.approvers-info :record="$record"/>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0"><x-mailto-link :email="$record->requestor"/></td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->approval_mode }}
+                    Change flow to...
+                    </td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0"><x-mailto-link :email="$record->approver_squad_leader"/></td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0"><x-mailto-link :email="$record->approver_tribe_leader"/></td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">
+                    @isset($record->supercedes)
+                    	{{ link_to_route('request.show', $title = $record->supercedes, ['overtimeRequest' => $record->supercedes]) }}
+                    @endisset
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">
+                    @isset($record->supercededby)
+                   		{{ link_to_route('request.show', $title = $record->supercededby, ['overtimeRequest' => $record->supercededby]) }}
+                    @endisset
+                    </td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->claim_acc_id }}</td>
+                    <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->created_ts }}</td>
+                </tr>
+                @endforeach
+            </tbody>
             <tfoot>
                 <tr>
 	                <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Ref</th>
