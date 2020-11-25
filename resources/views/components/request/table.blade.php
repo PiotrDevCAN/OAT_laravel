@@ -109,10 +109,10 @@ jQuery( document ).ready(function() {
 				                console.log('data');
 					            console.log(data);
 
-					            console.log(data.length);
+					            console.log(data.data.length);
 
-					            for (n=0;n<data.length;n++){
-						            console.log(data[n].reference);
+					            for (n=0;n<data.data.length;n++){
+						            console.log(data.data[n].reference);
 					            }
 				            }
 				        }
