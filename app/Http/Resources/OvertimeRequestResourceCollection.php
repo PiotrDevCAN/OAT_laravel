@@ -22,9 +22,12 @@ class OvertimeRequestResourceCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
-//         return [
-//             'data' => $this->collection,
-//         ];
+//         return parent::toArray($request);
+        return [
+            'draw' => 1,
+            'recordsTotal' => $this->collection->total(),
+            'recordsFiltered' => $this->collection->total(),
+            'data' => $this->collection,
+        ];
     }
 }
