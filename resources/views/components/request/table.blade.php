@@ -45,21 +45,21 @@ jQuery( document ).ready(function() {
 					};
 					
 					var params = {
-// 						status: "{{ $list->id }}",
-// 			        	scrollaxis: "x", 
-// 			        	info: true,
-// 			        	ordering: true, 
-// 			        	paging: true, 
-// 			        	searching: true,
-// 			        	processing: true,
-// 				        serverSide: true,
+						status: "{{ $list->id }}",
+			        	scrollaxis: "x", 
+			        	info: true,
+			        	ordering: true, 
+			        	paging: true, 
+			        	searching: true,
+			        	processing: true,
+				        serverSide: true,
 				        ajax: {
 				        	async: false,
-				        	contentType: "application/json; charset=utf-8",
+// 				        	contentType: "application/json; charset=utf-8",
 				        	type: "POST",
 				            url: "{{ route('api.request.list') }}",
 				        	data: requestData,
-				        	dataType: "json",
+// 				        	dataType: "json",
 				            dataSrc: "data"
 				        },
                         columns: [
