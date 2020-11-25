@@ -145,11 +145,10 @@ jQuery( document ).ready(function() {
 // 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 					
 					var requestData = {
-						type: "{{ $list->id }}"
+						status: "{{ $list->id }}"
 					};
 					
 					var params = {
-						status: "{{ $list->id }}",
 			        	scrollaxis: "x", 
 			        	info: true,
 			        	ordering: true, 

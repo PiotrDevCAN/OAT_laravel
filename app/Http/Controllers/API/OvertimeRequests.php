@@ -28,6 +28,7 @@ class OvertimeRequests extends Controller
 //         $page = $request->post('page', 1);
         
         $status = $request->post('status', '');
+        $status = str_replace('Table', '', $status);
         
         $page = $start / $length + 1;
         
