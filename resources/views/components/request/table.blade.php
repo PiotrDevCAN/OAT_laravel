@@ -197,6 +197,8 @@ jQuery( document ).ready(function() {
 
 					// initialise widget
 				    IBMCore.common.widget.datatable.init('#{{ $list->id }}', params);
+
+				    IBMCore.common.widget.selectlist.init(document.getElementsByName("{{ $list->id }}_length"));
 // 					break;
 // 				default:
 // 					break;
