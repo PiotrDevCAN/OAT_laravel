@@ -109,33 +109,34 @@ jQuery( document ).ready(function() {
 				                console.log('data');
 					            console.log(data);
 				            }
-				        },
+				        }
+// 				        ,
 // 				        deferLoading: {{ $list->records->total() }},
-				        columns: [
-				        	{ "data": "reference" },
-							{ "data": "account" },
-							{ "data": "competency" },
-							{ "data": "nature" },
-							{ "data": "title" },
-							{ "data": "details" },
-							{ "data": "weekenddate" },
-							{ "data": "worker" },
-							{ "data": "serial" },
-							{ "data": "location" },
-							{ "data": "hours" },
-							{ "data": "status" },
-							{ "data": "approver_first_level" },
-							{ "data": "approver_second_level" },
-							{ "data": "approver_third_level" },
-							{ "data": "requestor" },
-							{ "data": "approval_mode" },
-							{ "data": "approver_squad_leader" },
-							{ "data": "approver_tribe_leader" },
-							{ "data": "supercedes" },
-							{ "data": "supercededby" },
-							{ "data": "claim_acc_id" },
-							{ "data": "created_ts" }
-				        ]
+// 				        columns: [
+// 				        	{ "data": "reference" },
+// 							{ "data": "account" },
+// 							{ "data": "competency" },
+// 							{ "data": "nature" },
+// 							{ "data": "title" },
+// 							{ "data": "details" },
+// 							{ "data": "weekenddate" },
+// 							{ "data": "worker" },
+// 							{ "data": "serial" },
+// 							{ "data": "location" },
+// 							{ "data": "hours" },
+// 							{ "data": "status" },
+// 							{ "data": "approver_first_level" },
+// 							{ "data": "approver_second_level" },
+// 							{ "data": "approver_third_level" },
+// 							{ "data": "requestor" },
+// 							{ "data": "approval_mode" },
+// 							{ "data": "approver_squad_leader" },
+// 							{ "data": "approver_tribe_leader" },
+// 							{ "data": "supercedes" },
+// 							{ "data": "supercededby" },
+// 							{ "data": "claim_acc_id" },
+// 							{ "data": "created_ts" }
+// 				        ]
 				    };
 
 					// initialise widget
