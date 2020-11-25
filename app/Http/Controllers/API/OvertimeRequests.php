@@ -38,13 +38,13 @@ class OvertimeRequests extends Controller
         
         switch ($status) {
             case 'awaitingTable':
-                $records = OvertimeRequest::awaiting($predicates);
+                $records = OvertimeRequest::awaiting($predicates, $page);
                 break;
             case 'approvedTable':
-                $records = OvertimeRequest::approved($predicates);
+                $records = OvertimeRequest::approved($predicates, $page);
                 break;
             case 'otherTable':
-                $records = OvertimeRequest::other($predicates);
+                $records = OvertimeRequest::other($predicates, $page);
                 break;
             default:
                 $records = array();
@@ -55,6 +55,7 @@ class OvertimeRequests extends Controller
         
         $resourceCollection->additional([
             'draw' => $draw,
+            'page' => $page,
             'recordsTotal' => $records->total(),
             'recordsFiltered' => $records->total()
         ]);

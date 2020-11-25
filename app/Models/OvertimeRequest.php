@@ -364,9 +364,9 @@ class OvertimeRequest extends Model
             );
     }
     
-    public static function awaiting($predicates)
+    public static function awaiting($predicates, $page = 1)
     {
-        $data = Cache::remember('OvertimeRequest.awaiting'.serialize($predicates).static::$limit, 33660, function() use ($predicates)
+        $data = Cache::remember('OvertimeRequest.awaiting'.serialize($predicates).$page.static::$limit, 33660, function() use ($predicates)
         {
             return self::where('status', 'like', 'Awaiting%')
                 ->whereNull('delete_flag')
@@ -378,9 +378,9 @@ class OvertimeRequest extends Model
         return $data;
     }
     
-    public static function approved($predicates)
+    public static function approved($predicates, $page = 1)
     {
-        $data = Cache::remember('OvertimeRequest.approved'.serialize($predicates).static::$limit, 33660, function() use ($predicates)
+        $data = Cache::remember('OvertimeRequest.approved'.serialize($predicates).$page.static::$limit, 33660, function() use ($predicates)
         {
             return self::where('status', 'Approved')
                 ->whereNull('delete_flag')
@@ -392,9 +392,9 @@ class OvertimeRequest extends Model
         return $data;
     }
     
-    public static function other($predicates)
+    public static function other($predicates, $page = 1)
     {
-        $data = Cache::remember('OvertimeRequest.other'.serialize($predicates).static::$limit, 33660, function() use ($predicates)
+        $data = Cache::remember('OvertimeRequest.other'.serialize($predicates).$page.static::$limit, 33660, function() use ($predicates)
         {
             return self::where('status',  'not like', 'Awaiting%')
                 ->where('status', '<>', 'Approved')
