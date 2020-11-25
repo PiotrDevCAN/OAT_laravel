@@ -1,7 +1,7 @@
 <div data-widget="showhide" data-type="panel" class="ibm-show-hide ibm-alternate">
 	<h2 @if($expand == true)data-open="true"@endif>{{ $list->label }} Requests</h2>
     <div class="ibm-container-body">
-    	<table class="ibm-data-table ibm-altrows ibm-padding-small" style="width:100%;" width="100%" data-widget="datatableReady" id="{{ $list->id }}">
+    	<table class="ibm-data-table ibm-altrows ibm-padding-small" width="100%" data-widget="datatableReady" id="{{ $list->id }}">
             <thead>
                 <tr>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Ref</th>
@@ -127,7 +127,7 @@ n.setAttribute('language', 'JavaScript');
 n.setAttribute('src', 'https://debug.datatables.net/debug.js');
 document.body.appendChild(n);
 
-// jQuery( document ).ready(function() {
+jQuery( document ).ready(function() {
 
 // 	var tables = jQuery('.ibm-data-table');
 	
@@ -204,5 +204,5 @@ document.body.appendChild(n);
 // 		}
 // 	}
 	
-// });
+});
 </script>
