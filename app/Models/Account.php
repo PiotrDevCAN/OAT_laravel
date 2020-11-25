@@ -107,10 +107,10 @@ class Account extends BaseModel
         $data = Cache::remember('Account.accounts', 33660, function()
         {
             return DB::table('Account_Approvers')
-            ->select('account')
-            ->where('account', '<>', '')
-            ->distinct()
-            ->get();
+                ->select('account')
+                ->where('account', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -121,10 +121,10 @@ class Account extends BaseModel
         $data = Cache::remember('Account.approvers', 33660, function()
         {
             return DB::table('Account_Approvers')
-            ->select('approver')
-            ->where('approver', '<>', '')
-            ->distinct()
-            ->get();
+                ->select('approver')
+                ->where('approver', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -135,10 +135,10 @@ class Account extends BaseModel
         $data = Cache::remember('Account.verified', 33660, function()
         {
             return DB::table('Account_Approvers')
-            ->select('verified')
-            ->where('verified', '<>', '')
-            ->distinct()
-            ->get();
+                ->select('verified')
+                ->where('verified', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -149,10 +149,10 @@ class Account extends BaseModel
         $data = Cache::remember('Account.locations', 33660, function()
         {
             return DB::table('Account_Approvers')
-            ->select('location')
-            ->where('location', '<>', '')
-            ->distinct()
-            ->get();
+                ->select('location')
+                ->where('location', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -160,10 +160,15 @@ class Account extends BaseModel
     
     public static function getWithPredicates($predicates)
     {
-        $data = Cache::remember('Account.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates)
+        $columns = array(
+            'account', 'approver', 'verified', 'location'
+        );
+        
+        $data = Cache::remember('Account.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates, $columns)
         {
-            return self::where($predicates)
-            ->get();
+            return self::select($columns)
+                ->where($predicates)
+                ->get();
         });
         
         return $data;

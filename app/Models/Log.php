@@ -43,10 +43,10 @@ class Log extends Model
         $data = Cache::remember('Log.logEntries', 33660, function()
         {
             return DB::table('Log')
-            ->select('log_entry')
-            ->where('log_entry', '<>', '')
-            ->distinct()
-            ->get();
+                ->select('log_entry')
+                ->where('log_entry', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -57,10 +57,10 @@ class Log extends Model
         $data = Cache::remember('Log.lastUpdates', 33660, function()
         {
             return DB::table('Log')
-            ->select('last_updater')
-            ->where('last_updater', '<>', '')
-            ->distinct()
-            ->get();
+                ->select('last_updater')
+                ->where('last_updater', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -71,9 +71,9 @@ class Log extends Model
         $data = Cache::remember('Log.lastUpdaters', 33660, function()
         {
             return DB::table('Log')
-            ->select('last_updated')
-            ->distinct()
-            ->get();
+                ->select('last_updated')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -81,10 +81,15 @@ class Log extends Model
     
     public static function getWithPredicates($predicates)
     {
-        $data = Cache::remember('Log.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates)
+        $columns = array(
+            'log_entry', 'last_updater', 'last_updated'
+        );
+        
+        $data = Cache::remember('Log.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates, $columns)
         {
-            return self::where($predicates)
-            ->get();
+            return self::select($columns)
+                ->where($predicates)
+                ->get();
         });
         
         return $data;

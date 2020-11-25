@@ -51,10 +51,10 @@ class Delegate extends BaseModel
         $data = Cache::remember('Delegate.user_intranets', 33660, function()
         {
             return DB::table('Delegate')
-            ->select('user_intranet')
-            ->where('user_intranet', '<>', '')
-            ->distinct()
-            ->get();
+                ->select('user_intranet')
+                ->where('user_intranet', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -65,10 +65,10 @@ class Delegate extends BaseModel
         $data = Cache::remember('Delegate.delegate_intranets', 33660, function()
         {
             return DB::table('Delegate')
-            ->select('delegate_intranet')
-            ->where('delegate_intranet', '<>', '')
-            ->distinct()
-            ->get();
+                ->select('delegate_intranet')
+                ->where('delegate_intranet', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -79,10 +79,10 @@ class Delegate extends BaseModel
         $data = Cache::remember('Delegate.delegateNotesids', 33660, function()
         {
             return DB::table('Delegate')
-            ->select('delegate_notesid')
-            ->where('delegate_notesid', '<>', '')
-            ->distinct()
-            ->get();
+                ->select('delegate_notesid')
+                ->where('delegate_notesid', '<>', '')
+                ->distinct()
+                ->get();
         });
         
         return $data;
@@ -90,10 +90,15 @@ class Delegate extends BaseModel
     
     public static function getWithPredicates($predicates)
     {
-        $data = Cache::remember('Delegate.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates)
+        $columns = array(
+            'user_intranet', 'delegate_intranet', 'delegate_notesid'
+        );
+        
+        $data = Cache::remember('Delegate.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates, $columns)
         {
-            return self::where($predicates)
-            ->get();
+            return self::select($columns)
+                ->where($predicates)
+                ->get();
         });
         
         return $data;

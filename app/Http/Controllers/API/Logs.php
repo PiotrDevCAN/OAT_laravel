@@ -9,6 +9,55 @@ use App\Models\Log;
 class Logs extends Controller
 {
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    /*
+    public function list(Request $request)
+    {
+        $draw = $request->post('draw', 1);
+        
+        $start = $request->post('start', 0);
+        $length = $request->post('length', OvertimeRequest::$limit);
+        
+        $status = $request->post('requestType', '');
+        
+        $page = $start / $length + 1;
+        
+        $additionalInput = array('page' => $page);
+        $request->merge($additionalInput);
+        
+        $predicates = array();
+        
+        switch ($status) {
+            case 'awaitingTable':
+                $records = OvertimeRequest::awaiting($predicates, $page);
+                break;
+            case 'approvedTable':
+                $records = OvertimeRequest::approved($predicates, $page);
+                break;
+            case 'otherTable':
+                $records = OvertimeRequest::other($predicates, $page);
+                break;
+            default:
+                $records = array();
+                break;
+        }
+        
+        $resourceCollection = new OvertimeRequestResourceCollection($records);
+        
+        $resourceCollection->additional([
+            'draw' => $draw,
+            'recordsTotal' => $records->total(),
+            'recordsFiltered' => $records->total()
+        ]);
+        
+        return $resourceCollection;
+    }
+    */
+    
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

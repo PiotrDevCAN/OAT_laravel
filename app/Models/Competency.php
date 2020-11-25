@@ -93,10 +93,15 @@ class Competency extends BaseModel
     
     public static function getWithPredicates($predicates)
     {
-        $data = Cache::remember('Competency.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates)
+        $columns = array(
+            'competency', 'approver'
+        );
+        
+        $data = Cache::remember('Competency.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates, $columns)
         {
-            return self::where($predicates)
-            ->get();
+            return self::select($columns)
+                ->where($predicates)
+                ->get();
         });
         
         return $data;
