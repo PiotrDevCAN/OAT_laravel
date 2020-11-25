@@ -108,6 +108,10 @@ jQuery( document ).ready(function() {
 
 				                console.log('data');
 					            console.log(data);
+
+					            console.log(data.length);
+
+					            console.log(data.reference);
 				            }
 				        },
 // 				        deferLoading: {{ $list->records->total() }},
