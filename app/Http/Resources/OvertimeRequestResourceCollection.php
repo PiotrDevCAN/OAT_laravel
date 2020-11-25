@@ -15,7 +15,7 @@ class OvertimeRequestResourceCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => ['data' => $this->collection],
+            'data' => $this->collection,
         ];
     }
 }
