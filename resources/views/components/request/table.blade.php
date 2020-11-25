@@ -84,7 +84,7 @@ jQuery( document ).ready(function() {
 // 					tabletDataObject.pageLength = -1;
 // 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 					
-					var data = {
+					var requestData = {
 						type: "{{ $list->id }}"
 					};
 					
@@ -97,12 +97,12 @@ jQuery( document ).ready(function() {
 			        	searching: true,
 			        	processing: true,
 				        serverSide: true,
-				        ajax: {
-				            url: "{{ route('api.request.list') }}",
-				            type: "POST",
-				            dataSrc: data,
-				            dataType: 'json',
-				            data: data,
+				        "ajax": {
+				            "url": "{{ route('api.request.list') }}",
+				            "type": "POST",
+				            "dataSrc": "data",
+				            "dataType": "json",
+				            data: requestData,
 				            success: function(data) {
 				                alert(data.draw);
 
