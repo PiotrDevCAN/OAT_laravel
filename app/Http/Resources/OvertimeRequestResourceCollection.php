@@ -25,8 +25,8 @@ class OvertimeRequestResourceCollection extends ResourceCollection
 //         return parent::toArray($request);
         return [
             'draw' => 1,
-            'recordsTotal' => $request->total(),
-            'recordsFiltered' => $request->total(),
+            'recordsTotal' => $this->count(),
+            'recordsFiltered' => $this->count(),
             'data' => $this->collection,
         ];
     }
