@@ -21,14 +21,11 @@ class OvertimeRequests extends Controller
      */
     public function list(Request $request)
     {
-//         $predicates = array();
-        
         $start = $request->post('start', 0);
         $length = $request->post('length', OvertimeRequest::$limit);
 //         $page = $request->post('page', 1);
         
         $status = $request->post('requestType', '');
-        dd($status);
         
         $page = $start / $length + 1;
         

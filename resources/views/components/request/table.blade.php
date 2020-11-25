@@ -161,7 +161,7 @@ jQuery( document ).ready(function() {
 				        	type: "POST",
 				            url: "{{ route('api.request.list') }}",
 				        	data: requestData,
-				        	contentType: "application/json; charset=utf-8",
+// 				        	contentType: "application/json; charset=utf-8",
 				        	dataType: "json",
 				            dataSrc: "data"
 				        },
