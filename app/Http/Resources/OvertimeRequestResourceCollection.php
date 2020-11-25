@@ -12,7 +12,7 @@ class OvertimeRequestResourceCollection extends ResourceCollection
      *
      * @var string
      */
-    public static $wrap = 'records';
+//     public static $wrap = 'records';
     
     /**
      * Transform the resource into an array.
