@@ -123,8 +123,20 @@ jQuery( document ).ready(function() {
 // 				        ,
 // 				        deferLoading: {{ $list->records->total() }},
 				        columns: [
-				        	{ data: 'reference' },
-							{ data: 'account' },
+				        	{ 
+					        	data: 'reference',
+					        	render: function(data, type) {
+									console.log(data);
+								    return data;
+				                }
+							},
+							{ 
+					        	data: 'account',
+					        	render: function(data, type) {
+									console.log(data);
+								    return data;
+				                }
+							},
 							{ data: 'competency' },
 							{ data: 'nature' },
 							{ data: 'title' },
@@ -146,7 +158,7 @@ jQuery( document ).ready(function() {
 							{ data: 'supercededby' },
 							{ data: 'claim_acc_id' },
 							{ data: 'created_ts' }
-// 				        ]
+				        ]
 				    };
 
 					// initialise widget
