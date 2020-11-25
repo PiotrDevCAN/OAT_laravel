@@ -6,14 +6,6 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class OvertimeRequestResourceCollection extends ResourceCollection
 {
-    
-    /**
-     * The "data" wrapper that should be applied.
-     *
-     * @var string
-     */
-//     public static $wrap = 'records';
-    
     /**
      * Transform the resource into an array.
      *
@@ -25,7 +17,7 @@ class OvertimeRequestResourceCollection extends ResourceCollection
 //         return parent::toArray($request);
         return [
             'draw' => 1,
-            'recordsTotal' => $this->count(),
+            'recordsTotal' => 1000,
             'recordsFiltered' => $this->count(),
             'data' => $this->collection,
         ];
