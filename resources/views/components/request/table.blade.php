@@ -159,7 +159,7 @@
 				            	d.type = "{{ $list->id }}";
 				            },
 				            
-				            dataType: 'json',
+// 				            dataType: 'json',
 				            success: function(response){
 				                alert(response.draw);
 				            },
