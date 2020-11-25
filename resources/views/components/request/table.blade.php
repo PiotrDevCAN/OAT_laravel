@@ -170,7 +170,7 @@ jQuery( document ).ready(function() {
 					            console.log(data);
 				            }
 				        },
-				        deferLoading: {{ $list->records->total() }},
+// 				        deferLoading: {{ $list->records->total() }},
 				        columns: [
 				        	{ "data": "reference" },
 							{ "data": "account" },
