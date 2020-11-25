@@ -6,7 +6,7 @@
                 <tr>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Ref</th>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Account</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">SL</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Service Line</th>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Reason</th>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Title</th>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Details</th>
@@ -93,7 +93,7 @@
                 <tr>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Ref</th>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Account</th>
-                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">SL</th>
+                    <th class="ibm-padding-top-0 ibm-padding-bottom-0">Service Line</th>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Reason</th>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Title</th>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0">Details</th>
@@ -121,6 +121,12 @@
 </div>
 
 <script type="text/javascript">
+
+var n = document.createElement('script');
+n.setAttribute('language', 'JavaScript');
+n.setAttribute('src', 'https://debug.datatables.net/debug.js');
+document.body.appendChild(n);
+
 // jQuery( document ).ready(function() {
 
 // 	var tables = jQuery('.ibm-data-table');
@@ -138,6 +144,10 @@
 // 					tabletDataObject.pageLength = -1;
 // 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 					
+					var data = {
+						type: "{{ $list->id }}"
+					};
+					
 					var params = {
 						status: "{{ $list->id }}",
 			        	scrollaxis: "x", 
@@ -148,21 +158,14 @@
 			        	processing: true,
 				        serverSide: true,
 				        ajax: {
-
 				            url: "{{ route('api.request.list') }}",
 				            type: "POST",
 				            dataSrc: "data",
-				            data: function ( d ) {
-				            	// awaiting
-				            	// approved
-				            	// other
-				            	d.type = "{{ $list->id }}";
-				            },
-				            
-// 				            dataType: 'json',
-				            success: function(response){
+				            dataType: 'json',
+				            data: data,
+				            success: function(response) {
 				                alert(response.draw);
-				            },
+				            }
 				        },
 				        deferLoading: {{ $list->records->total() }},
 				        columns: [
