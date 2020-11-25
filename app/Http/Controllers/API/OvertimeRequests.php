@@ -27,7 +27,7 @@ class OvertimeRequests extends Controller
         $length = $request->post('length', OvertimeRequest::$limit);
 //         $page = $request->post('page', 1);
         
-        $status = $request->post('status', '');
+        $status = $request->post('requestType', '');
         
         $page = $start / $length + 1;
         
@@ -47,6 +47,7 @@ class OvertimeRequests extends Controller
                 $records = OvertimeRequest::other($predicates);
                 break;
             default:
+                $record = array();
                 break;
         }
         

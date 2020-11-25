@@ -145,7 +145,7 @@ jQuery( document ).ready(function() {
 // 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 					
 					var requestData = {
-						status: "{{ $list->id }}"
+						requestType: "{{ $list->id }}"
 					};
 					
 					var params = {
