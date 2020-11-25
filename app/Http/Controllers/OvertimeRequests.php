@@ -131,7 +131,8 @@ class OvertimeRequests extends Controller
      */
     public function approved(Request $request)
     {
-        $predicates = $this->preparePredicates($request);
+//         $predicates = $this->preparePredicates($request);
+        $predicates = array();
         
         $approved = OvertimeRequest::approved($predicates);
         

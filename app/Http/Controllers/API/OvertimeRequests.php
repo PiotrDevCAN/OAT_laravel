@@ -28,21 +28,27 @@ class OvertimeRequests extends Controller
 //         $page = $request->post('page', 1);
         
         $status = $request->post('status', '');
-        $status = str_replace('Table', '', $status);
         
         $page = $start / $length + 1;
         
         $additionalInput = array('page' => $page);
         $request->merge($additionalInput);
         
-        $records = OvertimeRequest::where('status', 'like', $status.'%')
-            ->whereNull('delete_flag')
-            ->where('weekenddate', '>=', '2020-10-23')
-//             ->where($predicates)
-//             ->offset($start)
-//             ->limit($length)
-//             ->get();
-            ->paginate($length);
+        $predicates = array();
+        
+        switch ($status) {
+            case 'awaitingTable':
+                $records = OvertimeRequest::awaiting($predicates);
+                break;
+            case 'approvedTable':
+                $records = OvertimeRequest::approved($predicates);
+                break;
+            case 'otherTable':
+                $records = OvertimeRequest::other($predicates);
+                break;
+            default:
+                break;
+        }
         
         $resourceCollection = new OvertimeRequestResourceCollection($records);
         
