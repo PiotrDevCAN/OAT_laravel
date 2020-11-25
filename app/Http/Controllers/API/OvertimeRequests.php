@@ -21,6 +21,8 @@ class OvertimeRequests extends Controller
      */
     public function list(Request $request)
     {
+        $draw = $request->post('draw', 1);
+        
         $start = $request->post('start', 0);
         $length = $request->post('length', OvertimeRequest::$limit);
 //         $page = $request->post('page', 1);
@@ -52,7 +54,7 @@ class OvertimeRequests extends Controller
         $resourceCollection = new OvertimeRequestResourceCollection($records);
         
         $resourceCollection->additional([
-            'draw' => 1,
+            'draw' => $draw,
             'recordsTotal' => $records->total(),
             'recordsFiltered' => $records->total()
         ]);
