@@ -134,7 +134,7 @@ class OvertimeRequests extends Controller
 //         $predicates = $this->preparePredicates($request);
         $predicates = array();
         
-        $approved = OvertimeRequest::approved($predicates);
+        $records = OvertimeRequest::approved($predicates);
         
         $data = array(
             'lists' => collect([
@@ -142,9 +142,9 @@ class OvertimeRequests extends Controller
                     'id' => 'approvedTable',
                     'name' => 'approvedTable',
                     'label' => 'Approved',
-                    'records' => $approved,
-                    'total' => $approved->total(),
-                    'hours' => $approved->sum('hours'),
+                    'records' => $records,
+                    'total' => $records->total(),
+                    'hours' => $records->sum('hours'),
                 ],
             ]),
         );

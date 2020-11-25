@@ -7,7 +7,6 @@ use App\Models\Competency;
 
 class Competencies extends Controller
 {
-    
     private function preparePredicates($request)
     {
         $predicates = array();
@@ -31,7 +30,7 @@ class Competencies extends Controller
     {
         $predicates = $this->preparePredicates($request);
         
-        $records = Competency::where($predicates)->get();
+        $records = Competency::getWithPredicates($predicates);
         
         $data = array(
             'records' => $records

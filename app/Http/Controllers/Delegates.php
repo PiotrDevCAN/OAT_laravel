@@ -33,7 +33,7 @@ class Delegates extends Controller
     {
         $predicates = $this->preparePredicates($request);
         
-        $records = Delegate::where($predicates)->get();
+        $records = Delegate::getWithPredicates($predicates);
         
         $data = array(
             'records' => $records
