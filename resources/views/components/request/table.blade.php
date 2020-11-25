@@ -119,46 +119,72 @@ jQuery( document ).ready(function() {
 // 						            console.log(obj.account);
 // 					            }
 				            }
-				        }
-// 				        ,
-// 				        deferLoading: {{ $list->records->total() }},
-// 				        columns: [
-// 				        	{ 
-// 					        	data: 'reference',
-// 					        	render: function(data, type) {
-// 									console.log(data);
-// 								    return data;
-// 				                }
-// 							},
-// 							{ 
-// 					        	data: 'account',
-// 					        	render: function(data, type) {
-// 									console.log(data);
-// 								    return data;
-// 				                }
-// 							},
-// 							{ data: 'competency' },
-// 							{ data: 'nature' },
-// 							{ data: 'title' },
-// 							{ data: 'details' },
-// 							{ data: 'weekenddate' },
-// 							{ data: 'worker' },
-// 							{ data: 'serial' },
-// 							{ data: 'location' },
-// 							{ data: 'hours' },
-// 							{ data: 'status' },
-// 							{ data: 'approver_first_level' },
-// 							{ data: 'approver_second_level' },
-// 							{ data: 'approver_third_level' },
-// 							{ data: 'requestor' },
-// 							{ data: 'approval_mode' },
-// 							{ data: 'approver_squad_leader' },
-// 							{ data: 'approver_tribe_leader' },
-// 							{ data: 'supercedes' },
-// 							{ data: 'supercededby' },
-// 							{ data: 'claim_acc_id' },
-// 							{ data: 'created_ts' }
-// 				        ]
+				        },
+                        columns: [
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                        /*
+				        deferLoading: {{ $list->records->total() }},
+				        columns: [
+				        	{ 
+					        	data: 'reference',
+					        	render: function(data, type) {
+									console.log(data);
+								    return data;
+				                }
+							},
+							{ 
+					        	data: 'account',
+					        	render: function(data, type) {
+									console.log(data);
+								    return data;
+				                }
+							},
+							{ data: 'competency' },
+							{ data: 'nature' },
+							{ data: 'title' },
+							{ data: 'details' },
+							{ data: 'weekenddate' },
+							{ data: 'worker' },
+							{ data: 'serial' },
+							{ data: 'location' },
+							{ data: 'hours' },
+							{ data: 'status' },
+							{ data: 'approver_first_level' },
+							{ data: 'approver_second_level' },
+							{ data: 'approver_third_level' },
+							{ data: 'requestor' },
+							{ data: 'approval_mode' },
+							{ data: 'approver_squad_leader' },
+							{ data: 'approver_tribe_leader' },
+							{ data: 'supercedes' },
+							{ data: 'supercededby' },
+							{ data: 'claim_acc_id' },
+							{ data: 'created_ts' }
+				        ]
+				        */
 				    };
 
 					// initialise widget
