@@ -1,7 +1,7 @@
 <div data-widget="showhide" data-type="panel" class="ibm-show-hide ibm-alternate">
 	<h2 @if($expand == true)data-open="true"@endif>{{ $list->label }} Requests</h2>
     <div class="ibm-container-body">
-    	<table class="ibm-data-table ibm-altrows ibm-padding-small" style="width:100%;" data-widget="datatableReady" id="{{ $list->id }}">
+    	<table class="ibm-data-table ibm-altrows ibm-padding-small" style="width:100%;" width="100%" data-widget="datatableReady" id="{{ $list->id }}">
             <thead>
                 <tr>
                     <th class="ibm-padding-top-0 ibm-padding-bottom-0" style="vertical-align: middle;">Ref</th>
