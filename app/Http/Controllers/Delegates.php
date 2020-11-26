@@ -77,7 +77,12 @@ class Delegates extends Controller
         return view('components.delegate.edit', $data);
     }
     
-    public function my(Request $request)
+    /**
+     * Display a listing of the my resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function myList(Request $request)
     {
         $predicates[] = array('user_intranet', '=', 'Piotr.Tajanowicz@ibm.com');
         
@@ -87,6 +92,22 @@ class Delegates extends Controller
             'records' => $records
         );
         
-        return view('myDelegates', $data);
+        return view('components.delegate.my.list', $data);
+    }
+    
+    /**
+     * Show the form for creating a new my resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function myCreate()
+    {
+        $model = new Delegate();
+        
+        $data = array(
+            'record' => $model
+        );
+        
+        return view('components.delegate.create', $data);
     }
 }

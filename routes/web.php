@@ -144,8 +144,11 @@ Route::prefix('admin')
             Route::get('edit/{user_intranet}/{delegate_intranet}', [Delegates::class, 'edit'])
                 ->name('edit');
                 
-            Route::get('my', [Delegates::class, 'my'])
-                ->name('my');
+            Route::get('my/list', [Delegates::class, 'myList'])
+                ->name('my.list');
+            
+            Route::get('my/create', [Delegates::class, 'myCreate'])
+                ->name('my.create');
         });
         
         // Competencies
