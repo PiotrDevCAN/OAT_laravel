@@ -10,7 +10,7 @@
                 
                 <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 
-                <x-delegate.record :name="$record"/>
+                <x-delegate.record :record="$record"/>
                 
 			</div>
 		</div>
