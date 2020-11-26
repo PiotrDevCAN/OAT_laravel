@@ -151,9 +151,18 @@ jQuery( document ).ready(function() {
         	{
             	targets: 0,
             	createdCell: function (td, cellData, rowData, row, col) {
-                    if ( cellData < 1 ) {
+//                     if ( cellData < 1 ) {
                     	$(td).css('color', 'red')
-                    }
+//                     }
+				}
+			}
+
+        	{
+            	targets: 1,
+            	createdCell: function (td, cellData, rowData, row, col) {
+//                     if ( cellData < 1 ) {
+                    	$(td).css('color', 'blue')
+//                     }
 				}
 			}
 		],
