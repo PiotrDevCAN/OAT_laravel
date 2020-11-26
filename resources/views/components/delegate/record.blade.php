@@ -1,3 +1,5 @@
+@extends('create')
+
 @section('record')
 
     {{ Form::open(['route' => [Route::currentRouteName(), $record->user_intranet, $record->delegate_intranet], 'id' => 'record', 'class'  => 'ibm-column-form' ]) }}
