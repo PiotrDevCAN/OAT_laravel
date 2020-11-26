@@ -88,7 +88,8 @@ class Delegates extends Controller
         // Get the currently authenticated user...
         $user = Auth::user();
         
-        $predicates[] = array('user_intranet', '=', $user->mail[0]);
+//         $predicates[] = array('user_intranet', '=', $user->mail[0]);
+        $predicates[] = array('user_intranet', 'IN', '("'.implode('","', $user->mail).'")');
         
         $records = Delegate::getWithPredicates($predicates);
         
