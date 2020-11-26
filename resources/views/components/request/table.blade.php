@@ -155,8 +155,7 @@ jQuery( document ).ready(function() {
                     	$(td).css('color', 'red')
 //                     }
 				}
-			}
-
+			},
         	{
             	targets: 1,
             	createdCell: function (td, cellData, rowData, row, col) {
