@@ -148,11 +148,13 @@ jQuery( document ).ready(function() {
         },
         deferLoading: {{ $list->records->total() }},
 
+        /*
         createdRow: function( row, data, dataIndex, cells ) {
             if ( data[4] == "A" ) {
 				$(row).addClass( 'important' );
     	    }
 		},
+		*/
         
         /*
         columnDefs: [ 
@@ -176,11 +178,11 @@ jQuery( document ).ready(function() {
 		*/
         columns: [
 			{
-				data: 'reference'
-// 				,
-// 				render: function(data, type, row, meta) {
-// 		            return '<a href="#">' + data + '</a>';
-// 				}
+				data: 'reference',
+				render: function(data, type, row, meta) {
+	                data = '<a href="' + row.url + '">' + data + '</a>';
+	                return data;
+	            }
 			},
 			{ data: 'account' },
 			{ data: 'competency' },
