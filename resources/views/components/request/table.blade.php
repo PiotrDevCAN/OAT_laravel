@@ -204,13 +204,14 @@ jQuery( document ).ready(function() {
             },
 			{ data: 'weekenddate' },
 			{ 
-				data: 'worker',
-				render: function(data, type, row, meta) {
+				data: 'worker'
+// 					,
+				/* render: function(data, type, row, meta) {
 					if (data.length > 0) {
 	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
 					}
 	                return data;
-	            }
+	            } */
 			},
 			{ data: 'serial' },
 			{ data: 'location' },
