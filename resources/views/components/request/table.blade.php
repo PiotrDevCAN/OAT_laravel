@@ -123,80 +123,76 @@
 <script type="text/javascript">
 jQuery( document ).ready(function() {
 
-// 	var tables = jQuery('.ibm-data-table');
+	var requestData = {
+		requestType: "{{ $list->id }}"
+	};
 	
-// 	if (typeof (tables) !== 'undefined') {
-// 		for (n=0;n<tables.length;n++){
-			
-// 			// default object settings
-// 			var tabletDataObject = tables.eq(n).data();
-			
-// 			switch(tabletDataObject.widget){
-// 				case 'datatableReady':
+	var params = {
+    	scrollaxis: "x", 
+    	info: true,
+    	ordering: true, 
+    	paging: true, 
+    	searching: true,
+    	processing: true,
+        serverSide: true,
+//         pageLength = -1;
+		lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
+        ajax: {
+        	async: false,
+        	type: "POST",
+            url: "{{ route('api.request.list') }}",
+        	data: requestData,
+//         	contentType: "application/json; charset=utf-8",
+        	dataType: "json",
+            dataSrc: "data"
+        },
+        deferLoading: {{ $list->records->total() }},
+        columnDefs: [ 
+        	{
+            	targets: 0,
+            	createdCell: function (td, cellData, rowData, row, col) {
+                    if ( cellData < 1 ) {
+                    	$(td).css('color', 'red')
+                    }
+				}
+			}
+		],
+        columns: [
+			{
+				data: 'reference',
+				render: function(data, type, row, meta) {
+		            return '<a href="#">' + data + '</a>';
+				},
+			},
+			{ data: 'account' },
+			{ data: 'competency' },
+			{ data: 'nature' },
+			{ data: 'title' },
+			{ data: 'details' },
+			{ data: 'weekenddate' },
+			{ data: 'worker' },
+			{ data: 'serial' },
+			{ data: 'location' },
+			{ data: 'hours' },
+			{ data: 'status' },
+			{ data: 'approver_first_level' },
+			{ data: 'approver_second_level' },
+			{ data: 'approver_third_level' },
+			{ data: 'requestor' },
+			{ data: 'approval_mode' },
+			{ data: 'approver_squad_leader' },
+			{ data: 'approver_tribe_leader' },
+			{ data: 'supercedes' },
+			{ data: 'supercededby' },
+			{ data: 'claim_acc_id' },
+			{ data: 'created_ts' }
+        ]
+    };
 
-					// additional settings
-// 					tabletDataObject.pageLength = -1;
-// 					tabletDataObject.lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
-					
-					var requestData = {
-						requestType: "{{ $list->id }}"
-					};
-					
-					var params = {
-			        	scrollaxis: "x", 
-			        	info: true,
-			        	ordering: true, 
-			        	paging: true, 
-			        	searching: true,
-			        	processing: true,
-				        serverSide: true,
-				        ajax: {
-				        	async: false,
-				        	type: "POST",
-				            url: "{{ route('api.request.list') }}",
-				        	data: requestData,
-// 				        	contentType: "application/json; charset=utf-8",
-				        	dataType: "json",
-				            dataSrc: "data"
-				        },
-				        deferLoading: {{ $list->records->total() }},
-				        columns: [
-							{ data: 'reference' },
-							{ data: 'account' },
-							{ data: 'competency' },
-							{ data: 'nature' },
-							{ data: 'title' },
-							{ data: 'details' },
-							{ data: 'weekenddate' },
-							{ data: 'worker' },
-							{ data: 'serial' },
-							{ data: 'location' },
-							{ data: 'hours' },
-							{ data: 'status' },
-							{ data: 'approver_first_level' },
-							{ data: 'approver_second_level' },
-							{ data: 'approver_third_level' },
-							{ data: 'requestor' },
-							{ data: 'approval_mode' },
-							{ data: 'approver_squad_leader' },
-							{ data: 'approver_tribe_leader' },
-							{ data: 'supercedes' },
-							{ data: 'supercededby' },
-							{ data: 'claim_acc_id' },
-							{ data: 'created_ts' }
-				        ]
-				    };
+	// initialise widget
+    IBMCore.common.widget.datatable.init('#{{ $list->id }}', params);
 
-					// initialise widget
-				    IBMCore.common.widget.datatable.init('#{{ $list->id }}', params);
-
-				    IBMCore.common.widget.selectlist.init(document.getElementsByName("{{ $list->id }}_length"));
-// 					break;
-// 				default:
-// 					break;
-// 			}
-// 		}
-// 	}
+    IBMCore.common.widget.selectlist.init(document.getElementsByName("{{ $list->id }}_length"));
 	
 });
 </script>
