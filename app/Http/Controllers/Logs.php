@@ -31,7 +31,16 @@ class Logs extends Controller
         $records = Log::getWithPredicates($predicates);
         
         $data = array(
-            'records' => $records
+            'lists' => collect([
+                'log' => (object) [
+                    'id' => 'logTable',
+                    'name' => 'log',
+                    'label' => 'Log',
+                    'records' => $records,
+                    'total' => $records->total(),
+                    'hours' => $records->sum('hours'),
+                ],
+            ]),
         );
         
         return view('components.log.index', $data);

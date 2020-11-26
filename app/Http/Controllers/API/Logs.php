@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Log;
+use App\Http\Resources\LogResourceCollection;
 
 class Logs extends Controller
 {
@@ -13,15 +14,12 @@ class Logs extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    /*
     public function list(Request $request)
     {
         $draw = $request->post('draw', 1);
         
         $start = $request->post('start', 0);
-        $length = $request->post('length', OvertimeRequest::$limit);
-        
-        $status = $request->post('requestType', '');
+        $length = $request->post('length', Log::$limit);
         
         $page = $start / $length + 1;
         
@@ -30,22 +28,9 @@ class Logs extends Controller
         
         $predicates = array();
         
-        switch ($status) {
-            case 'awaitingTable':
-                $records = OvertimeRequest::awaiting($predicates, $page);
-                break;
-            case 'approvedTable':
-                $records = OvertimeRequest::approved($predicates, $page);
-                break;
-            case 'otherTable':
-                $records = OvertimeRequest::other($predicates, $page);
-                break;
-            default:
-                $records = array();
-                break;
-        }
+        $records = Log::getWithPredicates($predicates, $page);
         
-        $resourceCollection = new OvertimeRequestResourceCollection($records);
+        $resourceCollection = new LogResourceCollection($records);
         
         $resourceCollection->additional([
             'draw' => $draw,
@@ -53,9 +38,8 @@ class Logs extends Controller
             'recordsFiltered' => $records->total()
         ]);
         
-        return $resourceCollection;
+        return $resourceCollection;        
     }
-    */
     
     /**
      * Store a newly created resource in storage.

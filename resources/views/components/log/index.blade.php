@@ -5,7 +5,13 @@
 <x-log.filters/>
 
 @isset($records)
-	<x-log.table name="Logs" :records="$records" />
+
+	@isset($lists)
+    	@foreach ($lists as $list)
+    		<x-log.table :list="$list"/>
+        @endforeach
+	@endisset
+
 @endisset
 
 @endsection

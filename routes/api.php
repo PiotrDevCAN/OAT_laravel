@@ -6,6 +6,7 @@ use App\Http\Controllers\API\OvertimeRequests;
 use App\Http\Controllers\API\Accounts;
 use App\Http\Controllers\API\Delegates;
 use App\Http\Controllers\API\Competencies;
+use App\Http\Controllers\API\Logs;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,4 +94,23 @@ Route::prefix('competency')->name('api.competency.')->group(function () {
 
     Route::get('destroy/{competency}/{approver}', [Competencies::class, 'destroy'])
         ->name('destroy');
+});
+
+// Logs
+Route::prefix('log')->name('api.log.')->group(function () {
+    Route::match(['get', 'post'], 'list', [Logs::class, 'list'])
+    ->middleware('throttle:60,1')
+    ->name('list');
+    
+    Route::get('store', [Logs::class, 'store'])
+    ->name('store');
+    
+    Route::get('show/{competency}/{approver}', [Logs::class, 'show'])
+    ->name('show');
+    
+    Route::get('update/{competency}/{approver}', [Logs::class, 'update'])
+    ->name('update');
+    
+    Route::get('destroy/{competency}/{approver}', [Logs::class, 'destroy'])
+    ->name('destroy');
 });

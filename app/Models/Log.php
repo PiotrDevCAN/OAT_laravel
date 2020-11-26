@@ -38,6 +38,8 @@ class Log extends Model
     //         'delayed' => false,
     ];
     
+    public static $limit = 10;
+    
     public static function logEntries()
     {
         $data = Cache::remember('Log.logEntries', 33660, function()
@@ -79,17 +81,17 @@ class Log extends Model
         return $data;
     }
     
-    public static function getWithPredicates($predicates)
+    public static function getWithPredicates($predicates, $page = 1)
     {
         $columns = array(
             'log_entry', 'last_updater', 'last_updated'
         );
         
-        $data = Cache::remember('Log.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates, $columns)
+        $data = Cache::remember('Log.getWithPredicates'.serialize($predicates).$page.static::$limit, 33660, function() use ($predicates, $columns)
         {
             return self::select($columns)
                 ->where($predicates)
-                ->get();
+                ->paginate(static::$limit);
         });
         
         return $data;

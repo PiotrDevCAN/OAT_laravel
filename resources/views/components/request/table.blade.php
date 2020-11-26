@@ -121,12 +121,6 @@
 </div>
 
 <script type="text/javascript">
-
-// var n = document.createElement('script');
-// n.setAttribute('language', 'JavaScript');
-// n.setAttribute('src', 'https://debug.datatables.net/debug.js');
-// document.body.appendChild(n);
-
 jQuery( document ).ready(function() {
 
 // 	var tables = jQuery('.ibm-data-table');
