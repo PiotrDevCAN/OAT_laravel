@@ -3,6 +3,7 @@
 namespace App\View\Components\Request;
 
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
 
 class Table extends Component
 {
@@ -18,14 +19,14 @@ class Table extends Component
     /**
      * Create the component instance.
      *
-     * @param  string  $name
-     * @param  string  $records
+     * @param  Collection  $list
+     * @param  boolean  $expand
      * @return void
      */
     public function __construct($list = null, $expand = false)
     {
         $this->list = $list;
-        $this->expand = $expand;      
+        $this->expand = $expand;
     }
 
     /**

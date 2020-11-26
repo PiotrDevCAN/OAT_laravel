@@ -3,34 +3,26 @@
 namespace App\View\Components\Log;
 
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
 
 class Table extends Component
 {
     /**
-     * The table name.
+     * The table.
      *
-     * @var string
+     * @var array
      */
-    public $name;
-    
-    /**
-     * The table content.
-     *
-     * @var string
-     */
-    public $records;
+    public $list;
     
     /**
      * Create the component instance.
      *
-     * @param  string  $name
-     * @param  string  $records
+     * @param  Collection  $list
      * @return void
      */
-    public function __construct($name, $records)
+    public function __construct($list)
     {
-        $this->name = $name;
-        $this->records = $records;
+        $this->list = $list;
     }
 
     /**
