@@ -15,10 +15,13 @@ class OvertimeRequestResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'item_url' => route('request.show', ['overtimeRequest' => $this->reference]),
             
-            'approve_url' => route('api.request.approve', ['overtimeRequest' => $this->reference]),
-            'reject_url' => route('api.request.reject', ['overtimeRequest' => $this->reference]),,
+            'item_url' => route('request.show', ['overtimeRequest' => $this->reference]),
+//             'approve_url' => route('api.request.approve', ['overtimeRequest' => $this->reference]),
+//             'reject_url' => route('api.request.reject', ['overtimeRequest' => $this->reference]),
+            
+            'approve_url' => '',
+            'reject_url' => '',
             
             'reference' => trim($this->reference),
             'requestor' => trim($this->requestor),
