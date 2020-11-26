@@ -21,7 +21,7 @@ class Logs extends Controller
             $predicates[] = array('last_updater', '=', $request->input('last_updater'));
         };
         
-        $predicates[] = array('last_updated', '>=', '2020-11-20');
+        $predicates[] = array('last_updated', '>=', '2020-11-26');
         
         return $predicates;
     }
