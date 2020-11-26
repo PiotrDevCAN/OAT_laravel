@@ -94,6 +94,10 @@ class Delegate extends BaseModel
             'user_intranet', 'delegate_intranet', 'delegate_notesid'
         );
         
+        self::select($columns)
+        ->where($predicates)
+        ->dump();
+        
         $data = Cache::remember('Delegate.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates, $columns)
         {
             return self::select($columns)
