@@ -24,6 +24,14 @@
                 </tr>
                 @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                    <th>Edit</th>
+                    <th>Service Line</th>
+                    <th>Approver</th>
+                    <th>Delete</th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>

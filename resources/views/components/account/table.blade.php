@@ -28,6 +28,16 @@
                 </tr>
                 @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                    <th>Edit</th>
+                    <th>Account</th>
+                    <th>Approver</th>
+                    <th>Verified</th>
+                    <th>Location</th>
+                    <th>Delete</th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>

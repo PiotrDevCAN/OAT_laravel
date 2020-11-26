@@ -26,6 +26,15 @@
                 </tr>
                 @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                    <th>Edit</th>
+                    <th>User Intranet</th>
+                    <th>Delegate Intranet</th>
+                    <th>Delegate Notes Id</th>
+                    <th>Delete</th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>
