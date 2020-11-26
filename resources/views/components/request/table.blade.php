@@ -147,6 +147,13 @@ jQuery( document ).ready(function() {
             dataSrc: "data"
         },
         deferLoading: {{ $list->records->total() }},
+
+        createdRow: function( row, data, dataIndex, cells ) {
+            if ( data[4] == "A" ) {
+				$(row).addClass( 'important' );
+    	    }
+		},
+        
         /*
         columnDefs: [ 
         	{
