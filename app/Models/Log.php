@@ -91,7 +91,6 @@ class Log extends Model
         {
             return self::select($columns)
                 ->where($predicates)
-                ->where('last_updated', '>=', '2019-01-01')
                 ->paginate(static::$limit);
         });
         

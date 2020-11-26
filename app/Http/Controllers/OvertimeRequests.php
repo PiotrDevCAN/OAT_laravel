@@ -72,6 +72,8 @@ class OvertimeRequests extends Controller
             $predicates[] = array('approver_tribe_leader', '=', $request->input('approver_tribe_leader'));
         };
         
+        $predicates[] = array('weekenddate', '>=', '2020-10-23');
+        
         return $predicates;
     }
     
@@ -82,11 +84,7 @@ class OvertimeRequests extends Controller
      */
     public function index(Request $request)
     {
-        /*
         $predicates = $this->preparePredicates($request);
-        */
-        
-        $predicates = array();
         
         $awaiting = OvertimeRequest::awaiting($predicates);
         $approved = OvertimeRequest::approved($predicates);
@@ -131,8 +129,7 @@ class OvertimeRequests extends Controller
      */
     public function approved(Request $request)
     {
-//         $predicates = $this->preparePredicates($request);
-        $predicates = array();
+        $predicates = $this->preparePredicates($request);
         
         $records = OvertimeRequest::approved($predicates);
         

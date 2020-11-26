@@ -370,7 +370,6 @@ class OvertimeRequest extends Model
         {
             return self::where('status', 'like', 'Awaiting%')
                 ->whereNull('delete_flag')
-                ->where('weekenddate', '>=', '2020-10-23')
                 ->where($predicates)
                 ->paginate(static::$limit);
         });
@@ -384,7 +383,6 @@ class OvertimeRequest extends Model
         {
             return self::where('status', 'Approved')
                 ->whereNull('delete_flag')
-                ->where('weekenddate', '>=', '2020-10-23')
                 ->where($predicates)
                 ->paginate(static::$limit);
         });
@@ -399,7 +397,6 @@ class OvertimeRequest extends Model
             return self::where('status',  'not like', 'Awaiting%')
                 ->where('status', '<>', 'Approved')
                 ->whereNull('delete_flag')
-                ->where('weekenddate', '>=', '2020-10-23')
                 ->where($predicates)
                 ->paginate(static::$limit);
         });
