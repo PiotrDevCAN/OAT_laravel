@@ -7,8 +7,6 @@ use App\Models\Log;
 
 class Filters extends Component
 {
-    
-    public $logEntries;
     public $lastUpdates;
     public $lastUpdaters;
     
@@ -19,7 +17,6 @@ class Filters extends Component
      */
     public function __construct()
     {
-        $this->logEntries = Log::logEntries();
         $this->lastUpdates = Log::lastUpdates();
         $this->lastUpdaters = Log::lastUpdaters();
     }

@@ -11,9 +11,6 @@ class Logs extends Controller
     {
         $predicates = array();
         
-        if ($request->filled('log_entry')) {
-            $predicates[] = array('log_entry', '=', $request->input('log_entry'));
-        };
         if ($request->filled('last_updated')) {
             $predicates[] = array('last_updated', '=', $request->input('last_updated'));
         };
