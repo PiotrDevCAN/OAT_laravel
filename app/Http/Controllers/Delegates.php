@@ -117,6 +117,6 @@ class Delegates extends Controller
             'user' => $user
         );
         
-        return view('components.delegate.create', $data);
+        return view('components.delegate.my.create', $data);
     }
 }
