@@ -4,14 +4,10 @@
 
 <x-log.filters/>
 
-@isset($records)
-
-	@isset($lists)
-    	@foreach ($lists as $list)
-    		<x-log.table :list="$list"/>
-        @endforeach
-	@endisset
-
+@isset($lists)
+	@foreach ($lists as $list)
+		<x-log.table :list="$list"/>
+    @endforeach
 @endisset
 
 @endsection
