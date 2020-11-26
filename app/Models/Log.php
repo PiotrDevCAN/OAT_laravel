@@ -48,6 +48,7 @@ class Log extends Model
                 ->select('log_entry')
                 ->where('log_entry', '<>', '')
                 ->distinct()
+                ->limit(self::$limit)
                 ->get();
         });
         
@@ -62,6 +63,7 @@ class Log extends Model
                 ->select('last_updater')
                 ->where('last_updater', '<>', '')
                 ->distinct()
+                ->limit(self::$limit)
                 ->get();
         });
         
@@ -75,6 +77,7 @@ class Log extends Model
             return DB::table('Log')
                 ->select('last_updated')
                 ->distinct()
+                ->limit(self::$limit)
                 ->get();
         });
         
