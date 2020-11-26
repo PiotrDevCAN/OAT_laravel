@@ -21,8 +21,8 @@ class ResponseHeadersMiddleware
         return response(gzencode($content, 9))->withHeaders([
             'Access-Control-Allow-Origin' => '*',
             'Access-Control-Allow-Methods'=> '*',
+            'Content-Encoding' => 'gzip',
 //             'Content-type' => 'application/json; charset=utf-8',
-            'Content-Encoding' => 'gzip'
         ]);
     }
 }
