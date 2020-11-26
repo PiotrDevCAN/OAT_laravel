@@ -10,9 +10,7 @@
                 
                 <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 
-                @hasSection('record')
-                    @yield('record')
-                @endif
+                <x-delegate.record :name="$record"/>
                 
 			</div>
 		</div>
