@@ -152,7 +152,7 @@ jQuery( document ).ready(function() {
             	targets: 0,
             	createdCell: function (td, cellData, rowData, row, col) {
 //                     if ( cellData < 1 ) {
-                    	$(td).css('color', 'red')
+                    	jQuery(td).css('color', 'red')
 //                     }
 				}
 			},
@@ -160,7 +160,7 @@ jQuery( document ).ready(function() {
             	targets: 1,
             	createdCell: function (td, cellData, rowData, row, col) {
 //                     if ( cellData < 1 ) {
-                    	$(td).css('color', 'blue')
+                    	jQuery(td).css('color', 'blue')
 //                     }
 				}
 			}
