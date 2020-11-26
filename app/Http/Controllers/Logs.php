@@ -40,7 +40,6 @@ class Logs extends Controller
                     'label' => 'Log',
                     'records' => $records,
                     'total' => $records->total(),
-                    'hours' => $records->sum('hours'),
                 ],
             ]),
         );

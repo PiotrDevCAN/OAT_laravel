@@ -87,6 +87,11 @@ class Log extends Model
             'log_entry', 'last_updater', 'last_updated'
         );
         
+        self::select($columns)
+            ->where($predicates)
+            ->dump();
+        dd();
+        
         $data = Cache::remember('Log.getWithPredicates'.serialize($predicates).$page.static::$limit, 33660, function() use ($predicates, $columns)
         {
             return self::select($columns)
