@@ -136,7 +136,7 @@ jQuery( document ).ready(function() {
     	processing: true,
         serverSide: true,
 //         pageLength = -1;
-		lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]];
+		lengthMenu = [[10, 25, 50, -1], [10, 25, 50, "All"]],
         ajax: {
         	async: false,
         	type: "POST",
@@ -162,7 +162,7 @@ jQuery( document ).ready(function() {
 				data: 'reference',
 				render: function(data, type, row, meta) {
 		            return '<a href="#">' + data + '</a>';
-				},
+				}
 			},
 			{ data: 'account' },
 			{ data: 'competency' },
