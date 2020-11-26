@@ -96,7 +96,9 @@
                                     	</div>
                                         <div class="ibm-col-12-10">
                                     	
-                                    	@yield('content')
+                                    	@hasSection('content')
+                                            @yield('content')
+                                        @endif
                                     	
                                     	@hasSection('title')
                                             @yield('title')
