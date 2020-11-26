@@ -72,7 +72,14 @@ class Navigation extends Component
                 )
             ),
             'My Delegates' => array(
-                'route' => 'admin.delegate.my.list'
+                'route' => array(
+                    'Create' => array(
+                        'route' => 'admin.delegate.my.create'
+                    ),
+                    'List' => array(
+                        'route' => 'admin.delegate.my.list'
+                    )
+                )
             ),
             'My Access' => array(
                 'route' => 'access.my'

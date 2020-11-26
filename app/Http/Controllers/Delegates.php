@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Delegate;
+use Illuminate\Support\Facades\Auth;
 
 class Delegates extends Controller
 {
@@ -84,12 +85,18 @@ class Delegates extends Controller
      */
     public function myList(Request $request)
     {
+        // Get the currently authenticated user...
+        $user = Auth::user();
+        
+        dump($user);
+        
         $predicates[] = array('user_intranet', '=', 'Piotr.Tajanowicz@ibm.com');
         
         $records = Delegate::getWithPredicates($predicates);
         
         $data = array(
-            'records' => $records
+            'records' => $records,
+            'user' => $user
         );
         
         return view('components.delegate.my.list', $data);
@@ -102,10 +109,14 @@ class Delegates extends Controller
      */
     public function myCreate()
     {
+        // Get the currently authenticated user...
+        $user = Auth::user();
+        
         $model = new Delegate();
         
         $data = array(
-            'record' => $model
+            'record' => $model,
+            'user' => $user
         );
         
         return view('components.delegate.create', $data);

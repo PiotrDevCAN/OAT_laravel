@@ -7,7 +7,7 @@
         <div class="ibm-card">
             <div class="ibm-card__content">
 	        	<h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">My Delegates list</h3>
-	        	<p>List of delegates assigned for: </p>
+	        	<p>List of delegates designated for: {{ $user->cn[0] }} ({{ $user->mail[0] }})</p>
 	        </div>
         </div>
 	</div>
