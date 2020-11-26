@@ -10,7 +10,9 @@
                 
                 <div class="ibm-rule ibm-alternate ibm-blue-40"><hr></div>
                 
-                @extends('components.delegate.record')
+                @hasSection('record')
+                    @yield('record')
+                @endif
                 
 			</div>
 		</div>
