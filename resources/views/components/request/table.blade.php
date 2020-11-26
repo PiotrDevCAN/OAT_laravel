@@ -180,7 +180,7 @@ jQuery( document ).ready(function() {
 			{
 				data: 'reference',
 				render: function(data, type, row, meta) {
-	                data = '<a href="' + row.url + '">' + data + '</a>';
+	                data = '<a href="' + row.item_url + '">' + data + '</a>';
 	                return data;
 	            }
 			},
@@ -198,9 +198,6 @@ jQuery( document ).ready(function() {
 							+'<div id="preview-{{ $list->name }}-details-{{ $key }}" class="ibm-tooltip-content">'
                         	+rawData+
                         	'</div>';
-						
-					} else {
-
 					}
 					return data;
 	            }
@@ -219,9 +216,30 @@ jQuery( document ).ready(function() {
 			{ data: 'location' },
 			{ data: 'hours' },
 			{ data: 'status' },
-			{ data: 'approver_first_level' },
-			{ data: 'approver_second_level' },
-			{ data: 'approver_third_level' },
+			{ 
+				data: 'approver_first_level',
+				render: function(data, type, row, meta) {
+	                data = '<a href="' + row.approve_url + '">' + data + '</a>';
+	                data += '<a href="' + row.reject_url + '">' + data + '</a>';
+	                return data;
+	            }
+			},
+			{ 
+				data: 'approver_second_level',
+				render: function(data, type, row, meta) {
+	                data = '<a href="' + row.approve_url + '">' + data + '</a>';
+	                data += '<a href="' + row.reject_url + '">' + data + '</a>';
+	                return data;
+	            }
+			},
+			{ 
+				data: 'approver_third_level',
+				render: function(data, type, row, meta) {
+	                data = '<a href="' + row.approve_url + '">' + data + '</a>';
+	                data += '<a href="' + row.reject_url + '">' + data + '</a>';
+	                return data;
+	            }
+			},
 			{ 
 				data: 'requestor',
 				render: function(data, type, row, meta) {
