@@ -56,8 +56,8 @@
                     <td class="ibm-padding-top-0 ibm-padding-bottom-0">
                     {{ Str::limit($record->details, 50, '') }}
                     @if(Str::length($record->details) >= 50)
-	                    <a href="#" class="ibm-bold" data-widget="tooltip" data-contentid="preview-{{ $list->name }}-{{ $key }}" style="text-decoration: none;">(...)</a>
-                        <div id="preview-{{ $list->name }}-{{ $key }}" class="ibm-tooltip-content">
+	                    <a href="#" class="ibm-bold" data-widget="tooltip" data-contentid="preview-{{ $list->name }}-details-{{ $key }}" style="text-decoration: none;">(...)</a>
+                        <div id="preview-{{ $list->name }}-details-{{ $key }}" class="ibm-tooltip-content">
                         	{{ $record->details }}
                         </div>
                     @endif
@@ -188,9 +188,33 @@ jQuery( document ).ready(function() {
 			{ data: 'competency' },
 			{ data: 'nature' },
 			{ data: 'title' },
-			{ data: 'details' },
+			{ 
+				data: 'details',
+				render: function(data, type, row, meta) {
+					var rawData = data;
+					if (data.length > 50) {
+						data = data.substr( 0, 50 );
+						data += '<a href="#" class="ibm-bold" data-widget="tooltip" data-contentid="preview-{{ $list->name }}-details-{{ $key }}" style="text-decoration: none;">(...)</a>'
+							+'<div id="preview-{{ $list->name }}-details-{{ $key }}" class="ibm-tooltip-content">'
+                        	+rawData+
+                        	'</div>';
+						
+					} else {
+
+					}
+					return data;
+	            }
+            },
 			{ data: 'weekenddate' },
-			{ data: 'worker' },
+			{ 
+				data: 'worker',
+				render: function(data, type, row, meta) {
+					if (data.length > 0) {
+	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
+					}
+	                return data;
+	            }
+			},
 			{ data: 'serial' },
 			{ data: 'location' },
 			{ data: 'hours' },
@@ -198,10 +222,34 @@ jQuery( document ).ready(function() {
 			{ data: 'approver_first_level' },
 			{ data: 'approver_second_level' },
 			{ data: 'approver_third_level' },
-			{ data: 'requestor' },
+			{ 
+				data: 'requestor',
+				render: function(data, type, row, meta) {
+					if (data.length > 0) {
+	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
+					}
+	                return data;
+	            }
+			},
 			{ data: 'approval_mode' },
-			{ data: 'approver_squad_leader' },
-			{ data: 'approver_tribe_leader' },
+			{ 
+				data: 'approver_squad_leader',
+				render: function(data, type, row, meta) {
+					if (data.length > 0) {
+	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
+					}
+	                return data;
+	            }
+			},
+			{ 
+				data: 'approver_tribe_leader',
+				render: function(data, type, row, meta) {
+					if (data.length > 0) {
+	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
+					}
+	                return data;
+	            }
+			},
 			{ data: 'supercedes' },
 			{ data: 'supercededby' },
 			{ data: 'claim_acc_id' },
