@@ -77,10 +77,14 @@ class Delegates extends Controller
         return view('components.delegate.edit', $data);
     }
     
-    public function my()
+    public function my(Request $request)
     {
+        $predicates[] = array('user_intranet', '=', 'Piotr.Tajanowicz@ibm.com');
+        
+        $records = Delegate::getWithPredicates($predicates);
+        
         $data = array(
-            
+            'records' => $records
         );
         
         return view('myDelegates', $data);

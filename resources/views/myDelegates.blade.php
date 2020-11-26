@@ -12,4 +12,8 @@
 	</div>
 </div>
 
+@isset($records)
+	<x-delegate.table name="myDelegatesTable" :records="$records" />
+@endisset
+
 @endsection
