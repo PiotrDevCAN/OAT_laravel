@@ -34,7 +34,7 @@
                 <tr>
                     <td class="ibm-padding-top-0 ibm-padding-bottom-0">
                     @isset($record->reference)
-                    	{{ link_to_route('request.show', $title = $record->reference, ['overtimeRequest' => $record->reference]) }}
+                    	{{ link_to_route('request.show', $record->reference, ['overtimeRequest' => $record->reference]) }}
                     @endisset
                     </td>
                     <td class="ibm-padding-top-0 ibm-padding-bottom-0 ibm-bold">
@@ -77,11 +77,11 @@
                     <td class="ibm-padding-top-0 ibm-padding-bottom-0"><x-mailto-link :email="$record->approver_tribe_leader"/></td>
                     <td class="ibm-padding-top-0 ibm-padding-bottom-0">
                     @isset($record->supercedes)
-                    	{{ link_to_route('request.show', $title = $record->supercedes, ['overtimeRequest' => $record->supercedes]) }}
+                    	{{ link_to_route('request.show', $record->supercedes, ['overtimeRequest' => $record->supercedes]) }}
                     @endisset
                     <td class="ibm-padding-top-0 ibm-padding-bottom-0">
                     @isset($record->supercededby)
-                   		{{ link_to_route('request.show', $title = $record->supercededby, ['overtimeRequest' => $record->supercededby]) }}
+                   		{{ link_to_route('request.show', $record->supercededby, ['overtimeRequest' => $record->supercededby]) }}
                     @endisset
                     </td>
                     <td class="ibm-padding-top-0 ibm-padding-bottom-0">{{ $record->claim_acc_id }}</td>
@@ -147,6 +147,7 @@ jQuery( document ).ready(function() {
             dataSrc: "data"
         },
         deferLoading: {{ $list->records->total() }},
+        /*
         columnDefs: [ 
         	{
             	targets: 0,
@@ -160,17 +161,19 @@ jQuery( document ).ready(function() {
             	targets: 1,
             	createdCell: function (td, cellData, rowData, row, col) {
 //                     if ( cellData < 1 ) {
-                    	jQuery(td).css('color', 'blue')
-//                     }
+                		jQuery(td).css('color', 'blue')
+//                 	   }
 				}
 			}
 		],
+		*/
         columns: [
 			{
-				data: 'reference',
-				render: function(data, type, row, meta) {
-		            return '<a href="#">' + data + '</a>';
-				}
+				data: 'reference'
+// 				,
+// 				render: function(data, type, row, meta) {
+// 		            return '<a href="#">' + data + '</a>';
+// 				}
 			},
 			{ data: 'account' },
 			{ data: 'competency' },

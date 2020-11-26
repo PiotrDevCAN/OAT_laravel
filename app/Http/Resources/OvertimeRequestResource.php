@@ -15,7 +15,10 @@ class OvertimeRequestResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'reference' => trim($this->reference),
+//             'reference' => trim($this->reference),
+            
+            'reference' => link_to_route('request.show', $this->reference, ['overtimeRequest' => $this->reference]),
+            
             'requestor' => trim($this->requestor),
             'requested' => trim($this->requested),
             'competency' => trim($this->competency),
