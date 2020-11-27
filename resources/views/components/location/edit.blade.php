@@ -1,1 +1,1 @@
-@extends('components.delegate.record')
+@extends('components.location.record')
