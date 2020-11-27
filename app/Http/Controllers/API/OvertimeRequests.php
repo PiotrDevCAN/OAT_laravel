@@ -11,6 +11,7 @@ use App\Http\Requests\CreateOvertimeRequest;
 use App\Http\Requests\ApproveOvertimeRequest;
 use App\Http\Requests\RejectOvertimeRequest;
 use App\Http\Resources\OvertimeRequestResourceCollection;
+use App\Events\OvertimeRequestFlowChanged;
 
 class OvertimeRequests extends Controller
 {
@@ -69,20 +70,17 @@ class OvertimeRequests extends Controller
      */
     public function store(CreateOvertimeRequest $request)
     {
+        $overtimeRequest = new OvertimeRequest();
         
-        // single update
-//         $flight = App\Flight::find(1);
+//         $overtimeRequest = new OvertimeRequest([
+//             'name' => $request->get('name'),
+//             'price' => $request->get('price'),
+//             'description'  => $request->get('description'),
+//             'active'  => $request->get('active')
+//         ]);
+//         $overtimeRequest->save();
         
-//         $flight->name = 'New Flight Name';
-        
-//         $flight->save();
-        
-        // mass update
-//         App\Flight::where('active', 1)
-//             ->where('destination', 'San Diego')
-//             ->update(['delayed' => 1]);
-        
-        return view('components.request.store');
+        return response()->json($overtimeRequest);
     }
     
     /**
@@ -93,11 +91,7 @@ class OvertimeRequests extends Controller
      */
     public function show(Request $request, OvertimeRequest $overtimeRequest)
     {
-        $data = array(
-            'record' => $overtimeRequest
-        );
-        
-        return view('components.request.show', $data);
+        return response()->json($overtimeRequest);
     }
     
     /**
@@ -109,7 +103,13 @@ class OvertimeRequests extends Controller
      */
     public function update(Request $request, OvertimeRequest $overtimeRequest)
     {
-        return view('components.request.update');
+//         $overtimeRequest->name = $request->get('name');
+//         $overtimeRequest->price = $request->get('price');
+//         $overtimeRequest->description = $request->get('description');
+//         $overtimeRequest->active = $request->get('active');
+//         $overtimeRequest->save();
+        
+        return response()->json($overtimeRequest);
     }
     
     /**
@@ -120,12 +120,8 @@ class OvertimeRequests extends Controller
      */
     public function destroy(Request $request, OvertimeRequest $overtimeRequest)
     {
-        
-        // destroy action
-        $overtimeRequest = new OvertimeRequest;
-//         App\Flight::destroy(1);
-        
-        return view('components.request.destroy');
+        $overtimeRequest->delete();
+        return response()->json(['message' => 'Overtime Request deleted']);
     }
     
     public function approve(ApproveOvertimeRequest $request, $ref, $lvl, $status, $via)
@@ -140,6 +136,7 @@ class OvertimeRequests extends Controller
         
         event(new OvertimeRequestApproved($overtimeRequest));
         
+        return response()->json(['message' => 'Overtime Request has been approved']);
     }
 
     public function reject(RejectOvertimeRequest $request, $ref, $lvl, $status, $via)
@@ -154,5 +151,21 @@ class OvertimeRequests extends Controller
         
         event(new OvertimeRequestRejected($overtimeRequest));
         
+        return response()->json(['message' => 'Overtime Request has been rejected']);
+    }
+    
+    public function changeFlow(RejectOvertimeRequest $request, $ref, $lvl, $status, $via)
+    {
+        // Request rejection logic...
+        
+        $overtimeRequest = OvertimeRequest::find($ref);
+        
+        //         $flight->name = 'New Flight Name';
+        
+        //         $flight->save();
+        
+        event(new OvertimeRequestFlowChanged($overtimeRequest));
+        
+        return response()->json(['message' => 'Approval Flow in Overtime Request has been changed']);
     }
 }

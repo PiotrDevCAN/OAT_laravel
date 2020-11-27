@@ -100,6 +100,11 @@ Route::prefix('request')
             return new App\Mail\Request\OvertimeRequestRejected($overtimeRequest);
         })
             ->name('rejectedMailable');
+        
+        Route::get('flowChanged/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+                return new App\Mail\Request\OvertimeRequestFlowChanged($overtimeRequest);
+            })
+            ->name('flowChangedMailable');
     });
     
 // Admin

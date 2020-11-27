@@ -50,10 +50,9 @@ class Logs extends Controller
     public function store(Request $request)
     {
         $log = new Log([
-            'name' => $request->get('name'),
-            'price' => $request->get('price'),
-            'description'  => $request->get('description'),
-            'active'  => $request->get('active')
+            'log_entry' => $request->get('log_entry'),
+            'last_updater' => $request->get('last_updater'),
+            'last_updated'  => $request->get('last_updated')
         ]);
         $log->save();
         return response()->json($log);
@@ -79,11 +78,11 @@ class Logs extends Controller
      */
     public function update(Request $request, Log $log)
     {
-        $log->name = $request->get('name');
-        $log->price = $request->get('price');
-        $log->description = $request->get('description');
-        $log->active = $request->get('active');
+        $log->log_entry = $request->get('log_entry');
+        $log->last_updater = $request->get('last_updater');
+        $log->last_updated = $request->get('last_updated');
         $log->save();
+        
         return response()->json($log);
     }
 
@@ -96,6 +95,6 @@ class Logs extends Controller
     public function destroy(Log $log)
     {
         $log->delete();
-        return response()->json(['message' => 'Product deleted']);
+        return response()->json(['message' => 'Log deleted']);
     }
 }

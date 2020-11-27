@@ -23,6 +23,7 @@ class Accounts extends Controller
             'active'  => $request->get('active')
         ]);
         $account->save();
+        
         return response()->json($account);
     }
 
@@ -51,6 +52,7 @@ class Accounts extends Controller
         $account->description = $request->get('description');
         $account->active = $request->get('active');
         $account->save();
+        
         return response()->json($account);
     }
 
@@ -63,6 +65,6 @@ class Accounts extends Controller
     public function destroy(Account $account)
     {
         $account->delete();
-        return response()->json(['message' => 'Product deleted']);
+        return response()->json(['message' => 'Account deleted']);
     }
 }

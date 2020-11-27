@@ -16,7 +16,14 @@ class Delegates extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $delegate = new Delegate([
+            'user_intranet' => $request->get('user_intranet'),
+            'delegate_intranet' => $request->get('delegate_intranet'),
+            'delegate_notesid'  => $request->get('delegate_notesid')
+        ]);
+        $delegate->save();
+        
+        return response()->json($delegate);
     }
 
     /**
@@ -27,7 +34,7 @@ class Delegates extends Controller
      */
     public function show(Delegate $delegate)
     {
-        //
+        return response()->json($delegate);
     }
 
     /**
@@ -39,7 +46,12 @@ class Delegates extends Controller
      */
     public function update(Request $request, Delegate $delegate)
     {
-        //
+        $delegate->user_intranet = $request->get('user_intranet');
+        $delegate->delegate_intranet = $request->get('delegate_intranet');
+        $delegate->delegate_notesid = $request->get('delegate_notesid');
+        $delegate->save();
+        
+        return response()->json($delegate);
     }
 
     /**
@@ -50,6 +62,7 @@ class Delegates extends Controller
      */
     public function destroy(Delegate $delegate)
     {
-        //
+        $delegate->delete();
+        return response()->json(['message' => 'Delegate deleted']);
     }
 }
