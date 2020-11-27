@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class Location extends Model
 {    
@@ -36,6 +37,34 @@ class Location extends Model
     protected $attributes = [
     //         'delayed' => false,
     ];
+    
+    public static function locations()
+    {
+        $data = Cache::remember('Location.locations', 33660, function()
+        {
+            return DB::table('Location')
+                ->select('location')
+                ->where('location', '<>', '')
+                ->distinct()
+                ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function shores()
+    {
+        $data = Cache::remember('Location.shores', 33660, function()
+        {
+            return DB::table('Location')
+                ->select('shore')
+                ->where('shore', '<>', '')
+                ->distinct()
+                ->get();
+        });
+        
+        return $data;
+    }
     
     public static function getWithPredicates($predicates)
     {
