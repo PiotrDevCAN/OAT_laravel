@@ -42,7 +42,7 @@ class Location extends Model
     {
         $data = Cache::remember('Location.locations', 33660, function()
         {
-            return DB::table('Location')
+            return DB::table('Locations')
                 ->select('location')
                 ->where('location', '<>', '')
                 ->distinct()
@@ -56,7 +56,7 @@ class Location extends Model
     {
         $data = Cache::remember('Location.shores', 33660, function()
         {
-            return DB::table('Location')
+            return DB::table('Locations')
                 ->select('shore')
                 ->where('shore', '<>', '')
                 ->distinct()
