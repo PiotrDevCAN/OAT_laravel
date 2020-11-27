@@ -180,15 +180,15 @@ return [
         App\Providers\BlueGroupsManageServiceProvider::class,
         
         /*
+         * laravel-collective Providers
+         */
+        Collective\Html\HtmlServiceProvider::class,
+        
+        /*
          * Adldap2-Laravel Provider
          */
 //         Adldap\Laravel\AdldapServiceProvider::class,
 //         Adldap\Laravel\AdldapAuthServiceProvider::class,
-        
-        /*
-         * laravel-collective Providers
-         */
-        Collective\Html\HtmlServiceProvider::class,
         
         /*
          * ixudra/curl Providers
@@ -248,7 +248,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Curl' => Ixudra\Curl\Facades\Curl::class,
-        'Adldap' => Adldap\Laravel\Facades\Adldap::class,
+//         'Adldap' => Adldap\Laravel\Facades\Adldap::class,
         'BluePages' => App\Helpers\BluePages\Facades\BluePages::class,
         'BlueGroups' => App\Helpers\BlueGroups\Facades\BlueGroups::class,
         'BlueGroupsManage' => App\Helpers\BlueGroupsManage\Facades\BlueGroupsManage::class,
