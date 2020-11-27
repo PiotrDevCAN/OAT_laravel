@@ -178,11 +178,12 @@ jQuery( document ).ready(function() {
 		*/
         columns: [
 			{
-				data: 'reference',
-				render: function(data, type, row, meta) {
-// 	                data = '<a href="' + data.urls.item + '">' + data + '</a>';
-	                return data;
-	            }
+				data: 'reference'
+// 					,
+// 				render: function(data, type, row, meta) {
+// // 	                data = '<a href="' + data.urls.item + '">' + data + '</a>';
+// 	                return data;
+// 	            }
 			},
 			{ data: 'account' },
 			{ data: 'competency' },
@@ -218,66 +219,62 @@ jQuery( document ).ready(function() {
 			{ data: 'hours' },
 			{ data: 'status' },
 			{ 
-				data: 'approver_first_level',
-				render: function(data, type, row, meta) {
-
-console.log('data');
-console.log(data);
-					
-console.log('row');
-console.log(row);
-
-console.log('meta');
-console.log(meta);
-
-// 	                data = '<a href="' + row.urls.approve + '">' + data + '</a>';
-// 	                data += '<a href="' + row.urls.reject + '">' + data + '</a>';
-	                return data;
-	            }
+				data: 'approver_first_level'
+// 					,
+// 				render: function(data, type, row, meta) {
+// // 	                data = '<a href="' + row.urls.approve + '">' + data + '</a>';
+// // 	                data += '<a href="' + row.urls.reject + '">' + data + '</a>';
+// 	                return data;
+// 	            }
 			},
 			{ 
-				data: 'approver_second_level',
-				render: function(data, type, row, meta) {
-// 	                data = '<a href="' + row.urls.approve + '">' + data + '</a>';
-// 	                data += '<a href="' + row.urls.reject + '">' + data + '</a>';
-	                return data;
-	            }
+				data: 'approver_second_level'
+// 					,
+// 				render: function(data, type, row, meta) {
+// // 	                data = '<a href="' + row.urls.approve + '">' + data + '</a>';
+// // 	                data += '<a href="' + row.urls.reject + '">' + data + '</a>';
+// 	                return data;
+// 	            }
 			},
 			{ 
-				data: 'approver_third_level',
-				render: function(data, type, row, meta) {
-// 	                data = '<a href="' + row.urls.approve + '">' + data + '</a>';
-// 	                data += '<a href="' + row.urls.reject + '">' + data + '</a>';
-	                return data;
-	            }
+				data: 'approver_third_level'
+// 					,
+// 				render: function(data, type, row, meta) {
+// // 	                data = '<a href="' + row.urls.approve + '">' + data + '</a>';
+// // 	                data += '<a href="' + row.urls.reject + '">' + data + '</a>';
+// 	                return data;
+// 	            }
 			},
 			{ 
-				data: 'requestor',
-				render: function(data, type, row, meta) {
-					if (data.length > 0) {
-	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
-					}
-	                return data;
-	            }
+				data: 'requestor'
+// 					,
+// 				render: function(data, type, row, meta) {
+// 					if (data.length > 0) {
+// 	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
+// 					}
+// 	                return data;
+// 	            }
 			},
 			{ data: 'approval_mode' },
 			{ 
-				data: 'approver_squad_leader',
-				render: function(data, type, row, meta) {
-					if (data.length > 0) {
-	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
-					}
-	                return data;
-	            }
+				data: 'approver_squad_leader'
+// 					,
+// 				render: function(data, type, row, meta) {
+// 					if (data.length > 0) {
+// 	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
+// 					}
+// 	                return data;
+// 	            }
 			},
 			{ 
-				data: 'approver_tribe_leader',
-				render: function(data, type, row, meta) {
-					if (data.length > 0) {
-	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
-					}
-	                return data;
-	            }
+				data: 'approver_tribe_leader'
+// 					,
+// 				render: function(data, type, row, meta) {
+// 					if (data.length > 0) {
+// 	                	data = '<a href="mailto:' + data + '">' + data + '</a>';
+// 					}
+// 	                return data;
+// 	            }
 			},
 			{ data: 'supercedes' },
 			{ data: 'supercededby' },
