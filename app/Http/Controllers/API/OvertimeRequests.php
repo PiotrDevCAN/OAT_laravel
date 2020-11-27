@@ -12,6 +12,7 @@ use App\Http\Requests\ApproveOvertimeRequest;
 use App\Http\Requests\RejectOvertimeRequest;
 use App\Http\Resources\OvertimeRequestResourceCollection;
 use App\Events\OvertimeRequestFlowChanged;
+use App\Http\Requests\ChangeFlowOvertimeRequest;
 
 class OvertimeRequests extends Controller
 {
@@ -154,7 +155,7 @@ class OvertimeRequests extends Controller
         return response()->json(['message' => 'Overtime Request has been rejected']);
     }
     
-    public function changeFlow(RejectOvertimeRequest $request, $ref, $lvl, $status, $via)
+    public function changeFlow(ChangeFlowOvertimeRequest $request, $ref, $lvl, $status, $via)
     {
         // Request rejection logic...
         
