@@ -23,10 +23,10 @@ class SendOvertimeRequestFlowChangedNotification
     /**
      * Handle the event.
      *
-     * @param  OvertimeRequestApproved  $event
+     * @param  OvertimeRequestFlowChanged  $event
      * @return void
      */
-    public function handle(OvertimeRequestApproved $event)
+    public function handle(OvertimeRequestFlowChanged $event)
     {
         Mail::to('piotr.tajanowicz@ibm.com')
 //             ->cc($moreUsers)

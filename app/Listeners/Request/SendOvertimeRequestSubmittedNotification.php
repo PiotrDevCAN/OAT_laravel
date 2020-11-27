@@ -6,6 +6,7 @@ use App\Events\OvertimeRequestRejected;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use App\Events\OvertimeRequestSubmitted;
 
 class SendOvertimeRequestSubmittedNotification
 {
@@ -25,7 +26,7 @@ class SendOvertimeRequestSubmittedNotification
      * @param  OvertimeRequestRejected  $event
      * @return void
      */
-    public function handle(OvertimeRequestRejected $event)
+    public function handle(OvertimeRequestSubmitted $event)
     {
         Mail::to('piotr.tajanowicz@ibm.com')
 //             ->cc($moreUsers)
