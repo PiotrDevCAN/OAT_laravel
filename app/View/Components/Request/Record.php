@@ -54,6 +54,6 @@ class Record extends Component
      */
     public function render()
     {
-        return view('components.request.table');
+        return view('components.request.record');
     }
 }
