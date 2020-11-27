@@ -1,7 +1,7 @@
 {{ Form::open(['route' => [Route::currentRouteName(), $record->location, $record->shore], 'id' => 'record', 'class'  => 'ibm-column-form' ]) }}
     <div class="ibm-fluid">
         <div class="ibm-col-12-12">
-            <x-ibmv18form-input field-name="location" label="Location" :selectedValue="$location"/>
+            <x-ibmv18form-input field-name="location" label="Location" :selectedValue="$record->location"/>
     	    
     	    <x-ibmv18form-input field-name="shore" label="On Shore" :selectedValue="$record->shore"/>    	    
         </div>
