@@ -13,6 +13,6 @@ class OvertimeRequestFlowChanged extends OvertimeRequestBase
     {
         $this->previewUrl = route('request.flowChangedMailable', ['overtimeRequest' => $this->request->reference]);
         
-        return $this->markdown('emails.request.flowCHanged');
+        return $this->markdown('emails.request.flowChanged');
     }
 }
