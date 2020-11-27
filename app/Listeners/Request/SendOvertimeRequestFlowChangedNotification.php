@@ -30,6 +30,6 @@ class SendOvertimeRequestFlowChangedNotification
         Mail::to('piotr.tajanowicz@ibm.com')
 //             ->cc($moreUsers)
 //             ->bcc($evenMoreUsers)
-            ->send(new OvertimeRequestFlowChanged($event->request));
+            ->send(new \App\Mail\Request\OvertimeRequestFlowChanged($event->request));
     }
 }

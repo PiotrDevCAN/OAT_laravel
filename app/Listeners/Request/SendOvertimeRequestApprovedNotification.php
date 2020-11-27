@@ -30,6 +30,6 @@ class SendOvertimeRequestApprovedNotification
         Mail::to('piotr.tajanowicz@ibm.com')
 //             ->cc($moreUsers)
 //             ->bcc($evenMoreUsers)
-            ->send(new OvertimeRequestApproved($event->request));
+            ->send(new \App\Mail\Request\OvertimeRequestApproved($event->request));
     }
 }
