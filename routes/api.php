@@ -49,6 +49,9 @@ Route::prefix('request')->name('api.request.')->group(function () {
 
     Route::get('reject/{overtimeRequest}/cat/{lvl?}/status/{status?}/via/{via?}', [OvertimeRequests::class, 'reject'])
         ->name('reject');
+    
+    Route::get('changeFlow/{overtimeRequest}/cat/{lvl?}/status/{status?}/via/{via?}', [OvertimeRequests::class, 'changeFlow'])
+        ->name('changeFlow');
 });
 
 // Accounts

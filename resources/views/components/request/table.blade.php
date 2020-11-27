@@ -180,7 +180,7 @@ jQuery( document ).ready(function() {
 			{
 				data: 'reference',
 				render: function(data, type, row, meta) {
-	                data = '<a href="' + row.item_url + '">' + data + '</a>';
+	                data = '<a href="' + row.urls.item + '">' + data + '</a>';
 	                return data;
 	            }
 			},
@@ -220,24 +220,24 @@ jQuery( document ).ready(function() {
 			{ 
 				data: 'approver_first_level',
 				render: function(data, type, row, meta) {
-	                data = '<a href="' + row.approve_url + '">' + data + '</a>';
-	                data += '<a href="' + row.reject_url + '">' + data + '</a>';
+	                data = '<a href="' + row.urls.approve + '">' + data + '</a>';
+	                data += '<a href="' + row.urls.reject + '">' + data + '</a>';
 	                return data;
 	            }
 			},
 			{ 
 				data: 'approver_second_level',
 				render: function(data, type, row, meta) {
-	                data = '<a href="' + row.approve_url + '">' + data + '</a>';
-	                data += '<a href="' + row.reject_url + '">' + data + '</a>';
+	                data = '<a href="' + row.urls.approve + '">' + data + '</a>';
+	                data += '<a href="' + row.urls.reject + '">' + data + '</a>';
 	                return data;
 	            }
 			},
 			{ 
 				data: 'approver_third_level',
 				render: function(data, type, row, meta) {
-	                data = '<a href="' + row.approve_url + '">' + data + '</a>';
-	                data += '<a href="' + row.reject_url + '">' + data + '</a>';
+	                data = '<a href="' + row.urls.approve + '">' + data + '</a>';
+	                data += '<a href="' + row.urls.reject + '">' + data + '</a>';
 	                return data;
 	            }
 			},
