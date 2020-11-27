@@ -2,11 +2,10 @@
 
 namespace App\Listeners\Request;
 
-use App\Events\OvertimeRequestApproved;
+use App\Events\OvertimeRequestFlowChanged;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use App\Events\OvertimeRequestFlowChanged;
 
 class SendOvertimeRequestFlowChangedNotification
 {
