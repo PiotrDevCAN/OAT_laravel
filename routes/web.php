@@ -8,6 +8,7 @@ use App\Http\Controllers\OvertimeRequests;
 use App\Http\Controllers\Accounts;
 use App\Http\Controllers\Delegates;
 use App\Http\Controllers\Competencies;
+use App\Http\Controllers\Locations;
 
 /*
 |--------------------------------------------------------------------------
@@ -165,6 +166,25 @@ Route::prefix('admin')
                 ->name('edit');
         });
         
+        // Docations
+        Route::prefix('location')->name('location.')->group(function () {
+            Route::match(['get', 'post'], 'list', [Locations::class, 'index'])
+                ->name('list');
+            
+            // Show the form for creating a new resource.
+            Route::get('create', [Locations::class, 'create'])
+                ->name('create');
+            
+//             Show the form for editing the specified resource.
+//             Route::get('edit/{user_intranet}/{location_intranet}', function (location $location) {
+//                 return (new locations())->edit($location);
+//             })
+//             ->name('edit');
+            
+            Route::get('edit/{user_intranet}/{location_intranet}', [Locations::class, 'edit'])
+                ->name('edit');
+            });
+            
         // Logs
         Route::prefix('log')->name('log.')->group(function () {
             Route::match(['get', 'post'], 'list', 'Logs@index')

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Location extends Model
 {    
@@ -35,4 +36,20 @@ class Location extends Model
     protected $attributes = [
     //         'delayed' => false,
     ];
+    
+    public static function getWithPredicates($predicates)
+    {
+        $columns = array(
+            'location', 'shore'
+        );
+        
+        $data = Cache::remember('Location.getWithPredicates'.serialize($predicates), 33660, function() use ($predicates, $columns)
+        {
+            return self::select($columns)
+                ->where($predicates)
+                ->get();
+        });
+        
+        return $data;
+    }
 }

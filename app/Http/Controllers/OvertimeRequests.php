@@ -167,9 +167,9 @@ class OvertimeRequests extends Controller
         $allNatures = OvertimeRequest::natures();
         $allWeekends = OvertimeRequest::weekendDates();
         
-        dump($allAccounts);
-        dump($allCompetencies);
-        dump($allLocations);
+//         dump($allAccounts);
+//         dump($allCompetencies);
+//         dump($allLocations);
         
         $data = array(
             'record' => $model,
@@ -220,7 +220,7 @@ class OvertimeRequests extends Controller
         $allNatures = OvertimeRequest::natures();
         $allWeekends = OvertimeRequest::weekendDates();
         
-        dump($overtimeRequest);
+//         dump($overtimeRequest);
         
         $data = array(
             'record' => $overtimeRequest,
