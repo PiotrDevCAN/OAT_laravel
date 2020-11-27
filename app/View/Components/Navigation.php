@@ -66,6 +66,16 @@ class Navigation extends Component
                             )
                         )
                     ),
+                    'Locations' => array(
+                        'route' => array(
+                            'Create' => array(
+                                'route' => 'admin.location.create'
+                            ),
+                            'List' => array(
+                                'route' => 'admin.location.list'
+                            )
+                        )
+                    ),
                     'Logs' => array(
                         'route' => 'admin.log.list'
                     )
