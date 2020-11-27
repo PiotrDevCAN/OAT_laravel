@@ -103,9 +103,9 @@ class OvertimeRequest extends Model
     public static function recoverables()
     {
         return collect(array(
-            (object) array ('import' => 'Yes'),
-            (object) array ('import' => 'No'),
-            (object) array ('import' => 'Delivery Centre')
+            (object) array ('recoverable' => 'Yes'),
+            (object) array ('recoverable' => 'No'),
+            (object) array ('recoverable' => 'Delivery Centre')
         ));
     }
     
