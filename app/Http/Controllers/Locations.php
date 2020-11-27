@@ -6,7 +6,21 @@ use Illuminate\Http\Request;
 use App\Models\Location;
 
 class Locations extends Controller
-{
+{   
+    private function preparePredicates($request)
+    {
+        $predicates = array();
+        
+        if ($request->filled('location')) {
+            $predicates[] = array('location', '=', $request->input('location'));
+        };
+        if ($request->filled('shore')) {
+            $predicates[] = array('shore', '=', $request->input('shore'));
+        };
+        
+        return $predicates;
+    }
+    
     /**
      * Display a listing of the resource.
      *

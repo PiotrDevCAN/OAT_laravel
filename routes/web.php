@@ -166,7 +166,7 @@ Route::prefix('admin')
                 ->name('edit');
         });
         
-        // Docations
+        // Locations
         Route::prefix('location')->name('location.')->group(function () {
             Route::match(['get', 'post'], 'list', [Locations::class, 'index'])
                 ->name('list');
