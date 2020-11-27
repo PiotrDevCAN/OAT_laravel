@@ -196,7 +196,7 @@ jQuery( document ).ready(function() {
 					var rawData = data;
 					if (data.length > 50) {
 						data = data.substr( 0, 50 );
-						data += '<a href="#" class="ibm-bold" data-widget="tooltip" data-contentid="preview-{{ $list->name }}-details-{{ $key }}" style="text-decoration: none;">(...)</a>'
+						data += '<a href="#" class="ibm-bold" data-widget="tooltip" data-contentid="preview-{{ $list->name }}-details-'+meta.col+'" style="text-decoration: none;">(...)</a>'
 							+'<div id="preview-{{ $list->name }}-details-{{ $key }}" class="ibm-tooltip-content">'
                         	+rawData+
                         	'</div>';
