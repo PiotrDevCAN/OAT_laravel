@@ -20,13 +20,11 @@ class Record extends Component
     public $allWeekends;
     
     /**
-     * The table.
+     * The record.
      *
      * @var array
      */
-    public $list;
-    
-    public $expand;
+    public $record;
     
     /**
      * Create the component instance.
@@ -35,7 +33,7 @@ class Record extends Component
      * @param  boolean  $expand
      * @return void
      */
-    public function __construct($list = null, $expand = false)
+    public function __construct($record = null)
     {
         $this->allAccounts = Account::accountApproversByLocation();
         $this->allVerified = Account::verifiedAccountByLocation();
@@ -46,8 +44,7 @@ class Record extends Component
         $this->allNatures = OvertimeRequest::natures();
         $this->allWeekends = OvertimeRequest::weekendDates();
         
-        $this->list = $list;
-        $this->expand = $expand;
+        $this->record = $record;
     }
 
     /**
