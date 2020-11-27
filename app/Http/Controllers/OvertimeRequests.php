@@ -158,29 +158,8 @@ class OvertimeRequests extends Controller
     {
         $model = new OvertimeRequest;
         
-        $allAccounts = Account::accountApproversByLocation();
-        $allVerified = Account::verifiedAccountByLocation();
-        $allLocations = Account::verifiedLocations();
-        $allCompetencies = Competency::competenciesByAccount();
-        $allImports = OvertimeRequest::imports();
-        $allRecoverable = OvertimeRequest::recoverables();
-        $allNatures = OvertimeRequest::natures();
-        $allWeekends = OvertimeRequest::weekendDates();
-        
-//         dump($allAccounts);
-//         dump($allCompetencies);
-//         dump($allLocations);
-        
         $data = array(
-            'record' => $model,
-            'allAccounts' => $allAccounts,
-            'allVerified' => $allVerified,
-            'allCompetencies' => $allCompetencies,
-            'allLocations' => $allLocations,
-            'allImports' => $allImports,
-            'allRecoverable' => $allRecoverable,
-            'allNatures' => $allNatures,
-            'allWeekends' => $allWeekends
+            'record' => $model
         );
 
         return view('components.request.create', $data);
@@ -211,27 +190,8 @@ class OvertimeRequests extends Controller
     {
 //         $model = OvertimeRequest::findOrFail($ref);
         
-        $allAccounts = Account::accountApproversByLocation();
-        $allVerified = Account::verifiedAccountByLocation();
-        $allLocations = Account::verifiedLocations();
-        $allCompetencies = Competency::competenciesByAccount();
-        $allImports = OvertimeRequest::imports();
-        $allRecoverable = OvertimeRequest::recoverables();
-        $allNatures = OvertimeRequest::natures();
-        $allWeekends = OvertimeRequest::weekendDates();
-        
-//         dump($overtimeRequest);
-        
         $data = array(
-            'record' => $overtimeRequest,
-            'allAccounts' => $allAccounts,
-            'allVerified' => $allVerified,
-            'allCompetencies' => $allCompetencies,
-            'allLocations' => $allLocations,
-            'allImports' => $allImports,
-            'allRecoverable' => $allRecoverable,
-            'allNatures' => $allNatures,
-            'allWeekends' => $allWeekends
+            'record' => $overtimeRequest
         );
         
         return view('components.request.edit', $data);
