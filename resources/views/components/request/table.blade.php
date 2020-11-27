@@ -158,6 +158,7 @@ jQuery( document ).ready(function() {
         
         /*
         columnDefs: [ 
+
         	{
             	targets: 0,
             	createdCell: function (td, cellData, rowData, row, col) {
