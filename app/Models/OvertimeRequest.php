@@ -95,42 +95,31 @@ class OvertimeRequest extends Model
     public static function imports()
     {
         return collect(array(
-            array ('import' => 'Yes'),
-            array ('import' => 'No')
+            (object) array ('import' => 'Yes'),
+            (object) array ('import' => 'No')
         ));
     }
     
     public static function recoverables()
     {
         return collect(array(
-            'Y' => 'Yes',
-            'N' => 'No',
-            'D' => 'Delivery Centre'
+            (object) array ('import' => 'Yes'),
+            (object) array ('import' => 'No'),
+            (object) array ('import' => 'Delivery Centre')
         ));
     }
     
     public static function natures()
     {
         return collect(array (
-            array (
-                'nature' => 'Service Out of Hours',
-                'nature' => 'Compliance',
-                'nature' => 'RFS/Revenue',
-                'nature' => 'RFS Schedule',
-                'nature' => 'Hol/Sickness Cover',
-                'nature' => 'T&T',
-                'nature' => 'Delivery Centre Load Balancing',
-                'nature' => 'Other'                
-            )
-            
-//             array ('nature' => 'Service Out of Hours'),
-//             array ('nature' => 'Compliance'),
-//             array ('nature' => 'RFS/Revenue'),
-//             array ('nature' => 'RFS Schedule'),
-//             array ('nature' => 'Hol/Sickness Cover'),
-//             array ('nature' => 'T&T'),
-//             array ('nature' => 'Delivery Centre Load Balancing'),
-//             array ('nature' => 'Other')
+            (object) array ('nature' => 'Service Out of Hours'),
+            (object) array ('nature' => 'Compliance'),
+            (object) array ('nature' => 'RFS/Revenue'),
+            (object) array ('nature' => 'RFS Schedule'),
+            (object) array ('nature' => 'Hol/Sickness Cover'),
+            (object) array ('nature' => 'T&T'),
+            (object) array ('nature' => 'Delivery Centre Load Balancing'),
+            (object) array ('nature' => 'Other')
         ));
     }
     

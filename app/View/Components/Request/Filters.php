@@ -82,11 +82,9 @@ class Filters extends Component
         $this->approverSquadLeaders = OvertimeRequest::squadLeaders();
         $this->approverTribeLeaders = OvertimeRequest::tribeLeaders();
         
-        echo '<pre>';
-        var_dump($this->accounts);
-        var_dump($this->natures);
-        var_dump($this->imports);
-        echo '</pre>';
+        dump($this->accounts);
+        dump($this->natures);
+        dump($this->imports);
     }
 
     /**
