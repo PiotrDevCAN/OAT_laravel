@@ -16,8 +16,8 @@
             	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$locations" label="Location:" field-name="location" :selected-value="$location"/>
             </div>
             <div class="ibm-col-12-4">
-        		<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$weekenddates" label="Weekend >=:" field-name="WeekendStart" :selected-value="$weekendDateStart"/>
-            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$weekenddates" label="Weekend <=:" field-name="WeekendEnd" :selected-value="$weekendDateEnd"/>
+        		<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$weekendStartDates" label="Weekend >=:" field-name="weekendstart" :selected-value="$weekendDateStart"/>
+            	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$weekendEndDates" label="Weekend <=:" field-name="weekendend" :selected-value="$weekendDateEnd"/>
             	<x-ibmv18form-select way-to-handle-array="displayValueReturnValue" :array-of-selectable-values="$imports" label="Import:" field-name="import" :selected-value="$import"/>
             </div>
 		</div>

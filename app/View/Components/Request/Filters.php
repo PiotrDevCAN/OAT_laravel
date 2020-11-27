@@ -21,7 +21,8 @@ class Filters extends Component
     public $requestors;
     public $locations;
     
-    public $weekenddates;
+    public $weekendStartDates;
+    public $weekendEndDates;
     public $imports;
     
     public $firstApprovers;
@@ -73,18 +74,15 @@ class Filters extends Component
         $this->statuses = OvertimeRequest::statuses();
         $this->requestors = OvertimeRequest::requestors();
         $this->locations = OvertimeRequest::locations();
-        $this->weekenddates = OvertimeRequest::weekendDates();
+        $this->weekendStartDates = OvertimeRequest::weekendStartDates();
+        $this->weekendEndDates = OvertimeRequest::weekendEndDates();
         $this->imports = OvertimeRequest::imports();
         $this->firstApprovers = OvertimeRequest::approversFirstLevel();
         $this->secondApprovers = OvertimeRequest::approversSecondLevel();
         $this->thirdApprovers = OvertimeRequest::approversThirdLevel();
         $this->approvalModes = OvertimeRequest::approvalModes();
         $this->approverSquadLeaders = OvertimeRequest::squadLeaders();
-        $this->approverTribeLeaders = OvertimeRequest::tribeLeaders();
-        
-        dump($this->accounts);
-        dump($this->natures);
-        dump($this->imports);
+        $this->approverTribeLeaders = OvertimeRequest::tribeLeaders();        
     }
 
     /**

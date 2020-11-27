@@ -234,6 +234,32 @@ class OvertimeRequest extends Model
         return $data;
     }
     
+    public static function weekendStartDates()
+    {
+        $data = Cache::remember('OvertimeRequest.weekendStartDates', 33660, function()
+        {
+            return DB::table('Requests')
+            ->select('weekenddate as weekendstart')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
+    public static function weekendEndDates()
+    {
+        $data = Cache::remember('OvertimeRequest.weekendEndDates', 33660, function()
+        {
+            return DB::table('Requests')
+            ->select('weekenddate as weekendend')
+            ->distinct()
+            ->get();
+        });
+        
+        return $data;
+    }
+    
     public static function approversFirstLevel()
     {
         $data = Cache::remember('OvertimeRequest.approvers_first_level', 33660, function()
