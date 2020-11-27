@@ -193,7 +193,7 @@ return [
         /*
          * ixudra/curl Providers
          */
-        Ixudra\Curl\CurlServiceProvider::class,
+//         Ixudra\Curl\CurlServiceProvider::class,
     ],
 
     /*
