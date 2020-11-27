@@ -182,8 +182,8 @@ return [
         /*
          * Adldap2-Laravel Provider
          */
-//         Adldap\Laravel\AdldapServiceProvider::class,
-//         Adldap\Laravel\AdldapAuthServiceProvider::class,
+        Adldap\Laravel\AdldapServiceProvider::class,
+        Adldap\Laravel\AdldapAuthServiceProvider::class,
         
         /*
          * laravel-collective Providers
@@ -193,7 +193,7 @@ return [
         /*
          * ixudra/curl Providers
          */
-//         Ixudra\Curl\CurlServiceProvider::class,
+        Ixudra\Curl\CurlServiceProvider::class,
     ],
 
     /*
