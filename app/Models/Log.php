@@ -45,8 +45,7 @@ class Log extends Model
         $data = Cache::remember('Log.lastUpdates', 33660, function()
         {
             return DB::table('Log')
-                ->select('last_updater')
-                ->where('last_updater', '<>', '')
+                ->select('last_updated')
                 ->distinct()
                 ->limit(self::$limit)
                 ->get();
@@ -60,10 +59,11 @@ class Log extends Model
         $data = Cache::remember('Log.lastUpdaters', 33660, function()
         {
             return DB::table('Log')
-                ->select('last_updated')
-                ->distinct()
-                ->limit(self::$limit)
-                ->get();
+            ->select('last_updater')
+            ->where('last_updater', '<>', '')
+            ->distinct()
+            ->limit(self::$limit)
+            ->get();
         });
         
         return $data;
