@@ -22,11 +22,17 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Index\SendIndexEnteredNotification',
         ],
         
+        'App\Events\OvertimeRequestSubmitted' => [
+            'App\Listeners\Request\SendOvertimeRequestSubmittedNotification',
+        ],
         'App\Events\OvertimeRequestApproved' => [
             'App\Listeners\Request\SendOvertimeRequestApprovedNotification',
         ],
         'App\Events\OvertimeRequestRejected' => [
             'App\Listeners\Request\SendOvertimeRequestRejectedNotification',
+        ],
+        'App\Events\OvertimeRequestFlowChanged' => [
+            'App\Listeners\Request\SendOvertimeRequestFlowChangedNotification',
         ],
         
         'Illuminate\Cache\Events\CacheHit' => [

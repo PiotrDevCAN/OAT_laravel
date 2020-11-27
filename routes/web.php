@@ -91,11 +91,16 @@ Route::prefix('request')
             })
             ->name('deletedMailable');
         
+        Route::get('submitted/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
+            return new App\Mail\Request\OvertimeRequestSubmitted($overtimeRequest);
+            })
+            ->name('submittedMailable');
+        
         Route::get('approved/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
                 return new App\Mail\Request\OvertimeRequestApproved($overtimeRequest);
             })
             ->name('approvedMailable');
-            
+        
         Route::get('rejected/{overtimeRequest}/mailable', function (OvertimeRequest $overtimeRequest) {
             return new App\Mail\Request\OvertimeRequestRejected($overtimeRequest);
         })

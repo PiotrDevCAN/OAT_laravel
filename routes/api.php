@@ -31,7 +31,7 @@ Route::prefix('request')->name('api.request.')->group(function () {
     Route::match(['get', 'post'], 'list', [OvertimeRequests::class, 'list'])
         ->middleware('throttle:60,1')
         ->name('list');
-    
+
     Route::get('store', [OvertimeRequests::class, 'store'])
         ->name('store');
 
@@ -56,6 +56,7 @@ Route::prefix('request')->name('api.request.')->group(function () {
 
 // Accounts
 Route::prefix('account')->name('api.account.')->group(function () {
+    
     Route::get('store', [Accounts::class, 'store'])
         ->name('store');
     
@@ -71,6 +72,7 @@ Route::prefix('account')->name('api.account.')->group(function () {
 
 // Delegates
 Route::prefix('delegate')->name('api.delegate.')->group(function () {
+    
     Route::get('store', [Delegates::class, 'store'])
         ->name('store');
         
@@ -86,6 +88,7 @@ Route::prefix('delegate')->name('api.delegate.')->group(function () {
 
 // Competencies
 Route::prefix('competency')->name('api.competency.')->group(function () {
+    
     Route::get('store', [Competencies::class, 'store'])
         ->name('store');
 
@@ -101,19 +104,20 @@ Route::prefix('competency')->name('api.competency.')->group(function () {
 
 // Logs
 Route::prefix('log')->name('api.log.')->group(function () {
+    
     Route::match(['get', 'post'], 'list', [Logs::class, 'list'])
-    ->middleware('throttle:60,1')
-    ->name('list');
+        ->middleware('throttle:60,1')
+        ->name('list');
     
     Route::get('store', [Logs::class, 'store'])
-    ->name('store');
+        ->name('store');
     
     Route::get('show/{competency}/{approver}', [Logs::class, 'show'])
-    ->name('show');
+        ->name('show');
     
     Route::get('update/{competency}/{approver}', [Logs::class, 'update'])
-    ->name('update');
+        ->name('update');
     
     Route::get('destroy/{competency}/{approver}', [Logs::class, 'destroy'])
-    ->name('destroy');
+        ->name('destroy');
 });
