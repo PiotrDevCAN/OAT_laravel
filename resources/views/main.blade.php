@@ -17,43 +17,6 @@
         
         <div class="ibm-card">
             <div class="ibm-card__content">
-            	<h3 class="ibm-bold ibm-h4 ibm-textcolor-red-40">Important Announcement</h3>
-                
-                <h4 class="ibm-bold ibm-h5">Q4 2016 World Wide Instruction - all overtime this quarter is prohibited the only exceptions to this is where there will be an impact to profitable in quarter revenue or we have a contractual commitment to provide 24/7 support. Any exceptions have to be approved in the Overtime Approval Tool.</h4>
-                <p>The OAT tool was updated with the following changes:</p>
-                <p>New levels of approval are now in place</p>
-                
-                <div class="ibm-fluid">
-    				<div class="ibm-col-12-2">
-                		<p><b>Approver</b></p>
-                		<p><b>1st Approver</b></p>
-                		<p><b>2nd Approver</b></p>
-                		<p><b>3rd Approver</b></p>
-                	</div>
-                	<div class="ibm-col-12-4">
-                		<p><b>Single Account</b></p>
-                		<p><b>Import (excluding Ireland):</b>Auto Approved<br/><b>Onshore Regular/Subcontractor:</b> Blue Pages Manager<br/><b>Offshore CIC:</b>Local Owner</p>
-                		<p>UK DPE</p>
-                		<p>Andrew Green</p>
-                	</div>
-                	<div class="ibm-col-12-4">
-                		<p><b>Multiple Accounts/Internal Operations</b></p>
-                		<p>Auto-approved</p>
-                		<p>Blue Pages Manager</p>
-                		<p>Andrew Green</p>
-                	</div>
-                	<div class="ibm-col-12-2">
-                		<p><b>CIC Load Balancing</b></p>
-                		<p>Auto Approved</p>
-                		<p>Auto Approved</p>
-                		<p>Auto Approved</p>
-                	</div>
-                </div>
-			</div>
-        </div>
-        
-        <div class="ibm-card">
-            <div class="ibm-card__content">
                 <h3 class="ibm-bold ibm-h4 ibm-textcolor-blue-40">Known Problems</h3>
                 <p>None.</p>
             </div>
