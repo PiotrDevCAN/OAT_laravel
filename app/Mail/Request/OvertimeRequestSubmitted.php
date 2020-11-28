@@ -11,7 +11,7 @@ class OvertimeRequestSubmitted extends OvertimeRequestBase
      */
     public function build()
     {
-        $this->previewUrl = route('request.submittedMailable', ['overtimeRequest' => $this->request->reference]);
+        $this->previewUrl = route('mailable.submitted', ['overtimeRequest' => $this->request->reference]);
         
         return $this->markdown('emails.request.submitted');
     }

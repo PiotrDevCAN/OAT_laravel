@@ -11,7 +11,7 @@ class OvertimeRequestDeleted extends OvertimeRequestBase
      */
     public function build()
     {
-        $this->previewUrl = route('request.deletedMailable', ['overtimeRequest' => $this->request->reference]);
+        $this->previewUrl = route('mailable.deleted', ['overtimeRequest' => $this->request->reference]);
         
         return $this->markdown('emails.request.deleted');
     }
