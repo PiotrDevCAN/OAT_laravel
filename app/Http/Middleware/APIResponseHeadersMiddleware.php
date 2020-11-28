@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class ResponseHeadersMiddleware
+class APIResponseHeadersMiddleware
 {
     /**
      * Handle an incoming request.
@@ -21,7 +21,8 @@ class ResponseHeadersMiddleware
         return response(gzencode($content, 9))->withHeaders([
             'Access-Control-Allow-Origin' => '*',
             'Access-Control-Allow-Methods'=> '*',
-            'Content-Encoding' => 'gzip'
+            'Content-type' => 'application/json; charset=utf-8',
+            'Content-Encoding' => 'gzip'            
         ]);
     }
 }

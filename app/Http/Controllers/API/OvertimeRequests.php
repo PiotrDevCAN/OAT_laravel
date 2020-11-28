@@ -96,7 +96,6 @@ class OvertimeRequests extends Controller
         $resource = new OvertimeRequestResource($overtimeRequest);
         
         return $resource;
-//         return response()->json($overtimeRequest);
     }
     
     /**
