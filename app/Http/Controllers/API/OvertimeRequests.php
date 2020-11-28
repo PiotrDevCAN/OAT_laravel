@@ -91,12 +91,12 @@ class OvertimeRequests extends Controller
      * @param  OvertimeRequest $overtimeRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, OvertimeRequestResource $overtimeRequest)
+    public function show(Request $request, OvertimeRequest $overtimeRequest)
     {
-        dump($request);
-        dump($overtimeRequest);
+        $resource = new OvertimeRequestResource($overtimeRequest);
         
-        return response()->json($overtimeRequest);
+        return $resource;
+//         return response()->json($overtimeRequest);
     }
     
     /**
