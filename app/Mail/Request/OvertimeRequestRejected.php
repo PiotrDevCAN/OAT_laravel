@@ -11,7 +11,7 @@ class OvertimeRequestRejected extends OvertimeRequestBase
      */
     public function build()
     {
-        $this->previewUrl = route('mailable.rejected', ['overtimeRequest' => $this->request->reference]);
+        $this->previewUrl = route('mailable.request.rejected', ['overtimeRequest' => $this->request->reference]);
         
         return $this->markdown('emails.request.rejected');
     }

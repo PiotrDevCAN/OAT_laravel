@@ -11,7 +11,7 @@ class OvertimeRequestRetrieved extends OvertimeRequestBase
      */
     public function build()
     {
-        $this->previewUrl = route('mailable.retrieved', ['overtimeRequest' => $this->request->reference]);
+        $this->previewUrl = route('mailable.request.retrieved', ['overtimeRequest' => $this->request->reference]);
         
         return $this->markdown('emails.request.retrieved');
     }
