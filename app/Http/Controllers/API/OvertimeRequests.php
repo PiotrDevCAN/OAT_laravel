@@ -92,6 +92,9 @@ class OvertimeRequests extends Controller
      */
     public function show(Request $request, OvertimeRequest $overtimeRequest)
     {
+        dump($request);
+        dump($overtimeRequest);
+        
         return response()->json($overtimeRequest);
     }
     
