@@ -13,6 +13,7 @@ use App\Http\Requests\RejectOvertimeRequest;
 use App\Http\Resources\OvertimeRequestResourceCollection;
 use App\Events\OvertimeRequestFlowChanged;
 use App\Http\Requests\ChangeFlowOvertimeRequest;
+use App\Http\Resources\OvertimeRequestResource;
 
 class OvertimeRequests extends Controller
 {
@@ -90,7 +91,7 @@ class OvertimeRequests extends Controller
      * @param  OvertimeRequest $overtimeRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, OvertimeRequest $overtimeRequest)
+    public function show(Request $request, OvertimeRequestResource $overtimeRequest)
     {
         dump($request);
         dump($overtimeRequest);
