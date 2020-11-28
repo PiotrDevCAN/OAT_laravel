@@ -35,13 +35,13 @@ Route::prefix('request')->name('api.request.')->group(function () {
     Route::get('store', [OvertimeRequests::class, 'store'])
         ->name('store');
 
-    Route::get('show/{ref}', [OvertimeRequests::class, 'show'])
+    Route::get('show/{overtimeRequest}', [OvertimeRequests::class, 'show'])
         ->name('show');
 
-    Route::get('update/{ref}', [OvertimeRequests::class, 'update'])
+    Route::get('update/{overtimeRequest}', [OvertimeRequests::class, 'update'])
         ->name('update');
 
-    Route::get('destroy/{ref}', [OvertimeRequests::class, 'destroy'])
+    Route::get('destroy/{overtimeRequest}', [OvertimeRequests::class, 'destroy'])
         ->name('destroy');
 
     Route::get('approve/{overtimeRequest}/cat/{lvl?}/status/{status?}/via/{via?}', [OvertimeRequests::class, 'approve'])
@@ -60,13 +60,13 @@ Route::prefix('account')->name('api.account.')->group(function () {
     Route::get('store', [Accounts::class, 'store'])
         ->name('store');
     
-    Route::get('show/{account}/{location}', [Accounts::class, 'show'])
+    Route::get('show/{Account}/{location}', [Accounts::class, 'show'])
         ->name('show');
         
-    Route::get('update/{account}/{location}', [Accounts::class, 'update'])
+    Route::get('update/{Account}/{location}', [Accounts::class, 'update'])
         ->name('update');
 
-    Route::get('destroy/{account}/{location}', [Accounts::class, 'destroy'])
+    Route::get('destroy/{Account}/{location}', [Accounts::class, 'destroy'])
         ->name('destroy');
 });
 
