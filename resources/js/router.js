@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import firstPage from './components/pages/myFirstPage'
+import firstPage from './components/pages/myFirstVuePage'
 
 Vue.use(Router)
 
