@@ -54,4 +54,9 @@ class Index extends Controller
         
         return view('access', $data);
     }
+    
+    public function vue(Request $request)
+    {
+        return view('layouts.app');
+    }
 }
