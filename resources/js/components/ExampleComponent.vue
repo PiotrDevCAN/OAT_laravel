@@ -7,6 +7,9 @@
 
                     <div class="card-body">
                         I'm an example component.
+                        
+                        <router-view></router-view>
+                        
                     </div>
                 </div>
             </div>
