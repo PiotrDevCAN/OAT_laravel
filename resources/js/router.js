@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import firstPage from './components/pages/myFirstVuePage'
-
 Vue.use(Router)
+import firstPage from './components/pages/myFirstVuePage'
 
 const routes = [
 	{
