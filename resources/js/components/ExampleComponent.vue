@@ -8,7 +8,9 @@
                     <div class="card-body">
                         I'm an example component.
                         
+                        Router goes here ->
                         <router-view></router-view>
+                        <- Router goes here
                         
                     </div>
                 </div>
