@@ -25,14 +25,6 @@ use App\Http\Controllers\Locations;
 Route::get('/', [Index::class, 'index'])
     ->name('home');
 
-// Home VUE
-Route::get('/vue', [Index::class, 'vue'])
-    ->name('homeVue');
-
-// VUE
-Route::any('{slug}', [Index::class, 'vue'])
-    ->name('anyVue');
-
 Route::get('/logout', [Login::class, 'logout'])
     ->middleware('auth')
     ->name('auth.logout');
