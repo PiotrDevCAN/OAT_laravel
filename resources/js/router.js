@@ -10,7 +10,7 @@ const routes = [
 	{
 		path: '/OAT_laravel/vue',
 		name: ''vue',
-		component: firstPage,
+		component: firstPage
 	},
 	{
 		path: '/OAT_laravel/my-new-vue-route',
