@@ -4,16 +4,15 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Example Component</div>
-
                     <div class="card-body">
                         I'm an example component.
-                        
-                        Router goes here
-                        
+                        <p>
+                            <router-link to="/vue">Go to vue</router-link>
+                            <router-link to="/my-new-vue-route">Go to my-new-vue-route</router-link>
+                        </p>
+                        <!-- route outlet -->
+                        <!-- component matched by the route will render here -->
                         <router-view></router-view>
-
-                        Router goes here
-                        
                     </div>
                 </div>
             </div>

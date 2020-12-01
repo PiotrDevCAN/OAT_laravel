@@ -49,14 +49,6 @@
         
         	<example-component />
             
-            <p>
-                <router-link to="/vue">Go to vue</router-link>
-                <router-link to="/my-new-vue-route">Go to my-new-vue-route</router-link>
-            </p>
-            <!-- route outlet -->
-            <!-- component matched by the route will render here -->
-            <router-view></router-view>
-            
         </main>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
