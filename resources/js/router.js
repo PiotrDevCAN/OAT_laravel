@@ -1,22 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import firstPage from './components/pages/myFirstVuePage'
+import secondPage from './components/pages/myFirstVuePage'
 
 Vue.use(Router)
 
-const routes = [	
+const routes = [
 	{
-		path: '/',
+		path: '/OAT_laravel/vue',
+		name: vue,
 		component: firstPage,
 	},
 	{
-		path: '/vue',
-		component: firstPage,
-	},
-	{
-		path: '/my-new-vue-route',
+		path: '/OAT_laravel/my-new-vue-route',
 		name: firstPage,
 		component: firstPage
+	},
+	{
+		path: '/OAT_laravel/my-new-vue-route-2',
+		name: secondPage,
+		component: secondPage
 	}	
 ]
 
