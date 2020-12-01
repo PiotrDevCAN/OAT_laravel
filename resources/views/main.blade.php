@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.carbon')
 
 @section('content')
 
