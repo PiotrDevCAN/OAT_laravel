@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-Vue.use(Router)
 import firstPage from './components/pages/myFirstVuePage'
+
+Vue.use(Router)
+
 const routes = [	
 	{
 		path: '/',
