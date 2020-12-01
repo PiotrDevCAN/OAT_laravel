@@ -6,6 +6,7 @@ import secondPage from './components/pages/mySecondVuePage'
 
 Vue.use(Router)
 
+
 const routes = [
 	{
 		path: '/OAT_laravel/vue',
