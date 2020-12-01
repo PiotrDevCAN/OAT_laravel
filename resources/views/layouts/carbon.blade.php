@@ -50,7 +50,7 @@
     <body id="ibm-com" class="ibm-type">
     	
     	<!-- Put HTML snippets of components here... -->	
-	    <script src="node_modules/carbon-components/scripts/carbon-components.min.js"></script>
+	    <script src="{{ asset('js/carbon-components.min.js') }}"></script>
     
         <div id="ibm-top" class="ibm-landing-page">
         	
