@@ -45,7 +45,11 @@
                     }
                 }
         	}; 
-    	</script>    	
+    	</script>
+    	
+    <!-- <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet"> -->
+    <!-- <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script> -->
+        
     </head>
     <body id="ibm-com" class="ibm-type">
     	
