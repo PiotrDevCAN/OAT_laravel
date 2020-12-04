@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    <title>carbon-tutorial-vue</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
   </head>
   <body>
     <noscript>
@@ -651,5 +655,6 @@
       </p>
     </div>
     
+    <script src="{{ asset('js/app.js') }}" defer></script>
   </body>
 </html>
