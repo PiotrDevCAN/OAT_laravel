@@ -17,7 +17,7 @@
 
 //        import 'https://jspm.dev/carbon-web-components/es/components/button/button.js';
 
-        import 'https://jspm.dev/carbon-web-components/es/index.js';
+//        import 'https://jspm.dev/carbon-web-components/es/index.js';
     </script>
     
   </head>
