@@ -19,8 +19,15 @@
       >
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
-        
+	
+    <bx-dropdown trigger-content="Select an item">
+        <bx-dropdown-item value="all">Option 1</bx-dropdown-item>
+        <bx-dropdown-item value="cloudFoundry">Option 2</bx-dropdown-item>
+        <bx-dropdown-item value="staging">Option 3</bx-dropdown-item>
+        <bx-dropdown-item value="dea">Option 4</bx-dropdown-item>
+        <bx-dropdown-item value="router">Option 5</bx-dropdown-item>
+	</bx-dropdown>
+    
     <header class="bx--header" role="banner" aria-label="IBM Platform Name" data-header>
       <a class="bx--skip-to-content" href="#main-content" tabindex="0">Skip to main content</a>
       <button class="bx--header__menu-trigger bx--header__action" aria-label="Open menu" title="Open menu"
