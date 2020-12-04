@@ -10,6 +10,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
+    <!-- Scripts -->
+    <script type="module">
+        import 'https://jspm.dev/carbon-web-components/es/components/dropdown/dropdown.js';
+        import 'https://jspm.dev/carbon-web-components/es/components/dropdown/dropdown-item.js';
+        import 'https://jspm.dev/carbon-web-components/es/index.js';
+    </script>
+    
   </head>
   <body>
     <noscript>
