@@ -6,7 +6,7 @@
     <div class="ibm-col-12-12">
 		<div class="ibm-card">
             <div class="ibm-card__content">
-                <x-request.record :record="$record" />	            
+                <x-request.record :record="$record" />
 			</div>
         </div>
 	</div>
