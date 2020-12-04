@@ -15,9 +15,9 @@
 //        import 'https://jspm.dev/carbon-web-components/es/components/dropdown/dropdown.js';
 //        import 'https://jspm.dev/carbon-web-components/es/components/dropdown/dropdown-item.js';
 
-        import 'https://jspm.dev/carbon-web-components/es/components/button/button.js';
+//        import 'https://jspm.dev/carbon-web-components/es/components/button/button.js';
 
-//        import 'https://jspm.dev/carbon-web-components/es/index.js';
+        import 'https://jspm.dev/carbon-web-components/es/index.js';
     </script>
     
   </head>
@@ -29,6 +29,18 @@
       >
     </noscript>
     <div id="app"></div>
+
+    <bx-accordion>
+    	<bx-accordion-item>
+    		one
+    	</bx-accordion-item>
+    	<bx-accordion-item>
+    		two
+    	</bx-accordion-item>
+    	<bx-accordion-item>
+    		three
+    	</bx-accordion-item>
+    </bx-accordion>
 	
     <bx-dropdown trigger-content="Select an item">
         <bx-dropdown-item value="all">Option 1</bx-dropdown-item>
@@ -672,6 +684,5 @@
       </p>
     </div>
     
-    <script src="{{ asset('js/app.js') }}" defer></script>
   </body>
 </html>
